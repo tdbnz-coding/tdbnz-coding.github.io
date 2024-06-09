@@ -7,55 +7,72 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        /* Custom CSS for Contact Page */
+        .contact-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .contact-details {
+            flex-basis: 45%;
+        }
+        .contact-form {
+            flex-basis: 45%;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <!-- Navbar content -->
+        <!-- Navbar content (copied from index.html) -->
     </nav>
 
     <!-- Main content -->
     <div class="container mt-5">
         <h1 class="text-center">Contact Us</h1>
 
-        <!-- Get in Touch section -->
-        <div class="mt-4">
-            <h4>Get in Touch</h4>
-            <p>Hamish - Manager - <a href="tel:+64278484000">+64 27 848 4000</a></p>
-            <p>Youth Leader - <a href="tel:+64272793803">+64 27 279 3803</a></p>
-            <p>Email</p>
-            <p>Disability Team - <a href="mailto:PEP.Disability@pydt.org">PEP.Disability@pydt.org</a></p>
-            <p>Hamish - (Manager) - <a href="mailto:manager@pydt.org">manager@pydt.org</a></p>
-        </div>
+        <!-- Contact container -->
+        <div class="contact-container mt-4">
+            <!-- Contact details (left side) -->
+            <div class="contact-details">
+                <h4>Get in Touch</h4>
+                <p>Hamish - Manager - <a href="tel:+64278484000">+64 27 848 4000</a></p>
+                <p>Youth Leader - <a href="tel:+64272793803">+64 27 279 3803</a></p>
+                <p>Email</p>
+                <p>Disability Team - <a href="mailto:PEP.Disability@pydt.org">PEP.Disability@pydt.org</a></p>
+                <p>Hamish - (Manager) - <a href="mailto:manager@pydt.org">manager@pydt.org</a></p>
+            </div>
 
-        <!-- Contact form -->
-        <div class="mt-5">
-            <h2>Contact Form</h2>
-            <form id="contactForm" action="contact.php" method="POST">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone:</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" required pattern="[0-9]{10}">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                </div>
-                <!-- Google reCAPTCHA -->
-                <div class="g-recaptcha" data-sitekey="6Lel2PQpAAAAAKD9IHUEjrWDB85l0C4DU9eFy0aI"></div>
-                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-            </form>
+            <!-- Contact form (right side) -->
+            <div class="contact-form">
+                <h2>Contact Form</h2>
+                <form id="contactForm" action="contact.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required pattern="[0-9]{10}">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <!-- Google reCAPTCHA -->
+                    <div class="g-recaptcha" data-sitekey="6Lel2PQpAAAAAKD9IHUEjrWDB85l0C4DU9eFy0aI"></div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer (copied from index.html) -->
     <footer class="footer bg-dark text-white mt-5">
         <!-- Footer content -->
     </footer>
