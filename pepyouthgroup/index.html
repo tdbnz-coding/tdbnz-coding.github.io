@@ -3,104 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <meta name="keywords" content="Pep youth group, pydt, loop, papanui youth development trust">
+    <title>Pep Youth Group</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <style>
-        /* Custom CSS for Contact Page */
-        .contact-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-        .contact-details {
-            flex-basis: 45%;
-        }
-        .contact-form {
-            flex-basis: 45%;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <!-- Navbar content (copied from index.html) -->
+    <nav class="navbar navbar-expand-lg bg-custom">
+        <a class="navbar-brand text-white" href="#">Pep Youth Group</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="resources.html">Resources</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="photos.html">Photos</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Main content -->
-    <div class="container mt-5">
-        <h1 class="text-center">Contact Us</h1>
+    <div class="elfsight-app-8b463d5f-36c8-4aa0-8a43-07ade9162085" data-elfsight-app-lazy></div>
 
-        <!-- Contact container -->
-        <div class="contact-container mt-4">
-            <!-- Contact details (left side) -->
-            <div class="contact-details">
-                <h4>Get in Touch</h4>
-                <p>Hamish - Manager - <a href="tel:+64278484000">+64 27 848 4000</a></p>
-                <p>Youth Leader - <a href="tel:+64272793803">+64 27 279 3803</a></p>
-                <p>Email</p>
-                <p>Disability Team - <a href="mailto:PEP.Disability@pydt.org">PEP.Disability@pydt.org</a></p>
-                <p>Hamish - (Manager) - <a href="mailto:manager@pydt.org">manager@pydt.org</a></p>
-            </div>
-
-            <!-- Contact form (right side) -->
-            <div class="contact-form">
-                <h2>Contact Form</h2>
-                <form id="contactForm" action="contact.php" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone:</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" required pattern="[0-9]{10}">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <!-- Google reCAPTCHA -->
-                    <div class="g-recaptcha" data-sitekey="6Lel2PQpAAAAAKD9IHUEjrWDB85l0C4DU9eFy0aI"></div>
-                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                </form>
-            </div>
+    <footer class="footer bg-custom text-white">
+        <div class="container text-center">
+            <span>Website by Thomas</span>
         </div>
-    </div>
-
-    <!-- Footer (copied from index.html) -->
-    <footer class="footer bg-dark text-white mt-5">
-        <!-- Footer content -->
     </footer>
 
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Form submission with AJAX -->
-    <script>
-        $(document).ready(function() {
-            $('#contactForm').submit(function(e) {
-                e.preventDefault();
-                var formData = $(this).serialize();
-                $.ajax({
-                    type: 'POST',
-                    url: 'contact.php',
-                    data: formData,
-                    success: function(response) {
-                        var jsonData = JSON.parse(response);
-                        alert(jsonData.message);
-                    },
-                    error: function() {
-                        alert('Error submitting the form.');
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <script src="js/openwidget.js"></script>
+
 </body>
 </html>
