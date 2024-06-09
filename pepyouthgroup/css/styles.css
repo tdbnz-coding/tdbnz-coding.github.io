@@ -9,6 +9,7 @@ html {
 /* Navbar styles */
 .bg-custom {
     background-color: #000;
+    z-index: 1000; /* Ensure navbar appears above slideshow */
 }
 
 .navbar {
@@ -52,6 +53,20 @@ html {
     height: 100%;
     background-size: cover;
     background-position: center;
+}
+
+@media (max-width: 768px) { /* Adjust for mobile devices */
+    .mySlides {
+        background-size: contain;
+    }
+
+    .navbar-collapse {
+        z-index: 2000; /* Ensure navbar dropdown appears above slideshow */
+    }
+
+    .navbar-toggler-icon {
+        color: #fff; /* Set hamburger menu icon color to white */
+    }
 }
 
 @keyframes slideToLeft {

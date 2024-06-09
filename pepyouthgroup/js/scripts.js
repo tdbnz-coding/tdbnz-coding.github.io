@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (slideIndex >= slides.length) { slideIndex = 0; }
         slides[slideIndex].style.display = 'block';
         slides[slideIndex].style.animation = 'slideToLeft 1s ease-in-out'; // Add transition effect
-        setTimeout(showSlides, 5000); // Change image every 5 seconds
+        setTimeout(showSlides, 20000); // Change image every 20 seconds
     }
 
     showSlides();
