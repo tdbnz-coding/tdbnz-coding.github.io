@@ -9,7 +9,7 @@ html {
 /* Navbar styles */
 .bg-custom {
     background-color: #000;
-    z-index: 1000; /* Ensure navbar appears above slideshow */
+    z-index: 1000; /* Ensure navbar appears above content */
 }
 
 .navbar {
@@ -37,31 +37,35 @@ html {
     color: #fff;
 }
 
-/* Slideshow styles */
-@media (max-width: 768px) {
-    .slideshow-container {
-        display: none; /* Hide slideshow on mobile devices */
-    }
+/* Elfsight widget styles */
+.elfsight-app-8b463d5f-36c8-4aa0-8a43-07ade9162085 {
+    width: 100%;
+    height: calc(100vh - 56px); /* Adjust height to fit below navbar */
+    position: fixed;
+    top: 56px; /* Height of the navbar */
+    left: 0;
+    z-index: 0;
 }
 
-/* Mobile styles */
 @media (max-width: 768px) {
-    /* Navbar */
+    /* Ensure navbar toggle button is visible */
     .navbar-toggler-icon {
         color: #fff; /* Set hamburger menu icon color to white */
     }
 
-    /* Image */
-    .mySlides {
+    /* Navbar toggler */
+    .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    /* Adjust Elfsight widget for mobile */
+    .elfsight-app-8b463d5f-36c8-4aa0-8a43-07ade9162085 {
         background-image: url('https://i.postimg.cc/QN2yC3fh/image.png');
         background-size: cover;
         background-position: center;
-        width: 100%;
-        height: 100vh;
-    }
-
-    /* Ensure navbar toggle button is visible */
-    .navbar-toggler {
-        visibility: visible;
     }
 }
