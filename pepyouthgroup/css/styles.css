@@ -38,9 +38,9 @@ html {
 }
 
 /* Slideshow styles */
-@media (min-width: 769px) { /* Hide slideshow on screens wider than 768px */
+@media (max-width: 768px) {
     .slideshow-container {
-        display: none;
+        display: none; /* Hide slideshow on mobile devices */
     }
 }
 
