@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Pep youth group, pydt, loop, papanui youth development trust">
-    <title>COntact Us- Pep Youth Group</title>
+    <title>Contact Us Pep Youth Group</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -26,11 +26,25 @@
         </div>
     </nav>
 
-    <!-- Contact form -->
+    <!-- Main content -->
     <div class="container mt-5">
         <h1 class="text-center">Contact Us</h1>
-        <div class="row">
-            <div class="col-md-6">
+
+        <!-- Contact container -->
+        <div class="contact-container mt-4">
+            <!-- Contact details (left side) -->
+            <div class="contact-details">
+                <h4>Get in Touch</h4>
+                <p>Hamish - Manager - <a href="tel:+64278484000">+64 27 848 4000</a></p>
+                <p>Youth Leader - <a href="tel:+64272793803">+64 27 279 3803</a></p>
+                <p>Email</p>
+                <p>Disability Team - <a href="mailto:PEP.Disability@pydt.org">PEP.Disability@pydt.org</a></p>
+                <p>Hamish - (Manager) - <a href="mailto:manager@pydt.org">manager@pydt.org</a></p>
+            </div>
+
+            <!-- Contact form (right side) -->
+            <div class="contact-form">
+                <h2>Contact Form</h2>
                 <form id="contactForm" action="contact.php" method="POST">
                     <div class="form-group">
                         <label for="name">Name:<span class="text-danger">*</span></label>
@@ -52,17 +66,6 @@
                     <div class="g-recaptcha" data-sitekey="6Lel2PQpAAAAAKD9IHUEjrWDB85l0C4DU9eFy0aI"></div>
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
                 </form>
-                <br><br><br>
-            </div>
-            <div class="col-md-6">
-                <div class="contact-details">
-                    <h4>Get in Touch</h4>
-                    <p>Hamish - Manager - <a href="tel:+64278484000">+64 27 848 4000</a></p>
-                    <p>Youth Leader - <a href="tel:+64272793803">+64 27 279 3803</a></p>
-                    <p>Email</p>
-                    <p>Disability Team - <a href="mailto:PEP.Disability@pydt.org">PEP.Disability@pydt.org</a></p>
-                    <p>Hamish - (Manager) - <a href="mailto:manager@pydt.org">manager@pydt.org</a></p>
-                </div>
             </div>
         </div>
     </div>
@@ -79,6 +82,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="js/openwidget.js"></script>
 </body>
 </html>
