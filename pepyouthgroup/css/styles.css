@@ -59,4 +59,9 @@ html {
         width: 100%;
         height: 100vh;
     }
+
+    /* Ensure navbar toggle button is visible */
+    .navbar-toggler {
+        visibility: visible;
+    }
 }
