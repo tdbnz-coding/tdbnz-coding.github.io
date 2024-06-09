@@ -1,0 +1,60 @@
+/* Global styles */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar styles */
+.bg-custom {
+    background-color: #000;
+}
+
+.navbar {
+    background-color: #000;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #fff !important;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    color: #fff !important;
+}
+
+/* Footer styles */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Slideshow styles */
+.slideshow-container {
+    position: fixed;
+    top: 56px; /* Height of the navbar */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 56px); /* Adjusted height to fit below navbar */
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes slideToLeft {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
