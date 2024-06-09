@@ -67,6 +67,11 @@ html {
     .navbar-toggler-icon {
         color: #fff; /* Set hamburger menu icon color to white */
     }
+
+    .slideshow-container {
+        top: 56px; /* Adjust top position to account for navbar height */
+        height: calc(100% - 56px); /* Adjusted height to fit below navbar */
+    }
 }
 
 @keyframes slideToLeft {
