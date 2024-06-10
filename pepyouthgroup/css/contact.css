@@ -1,0 +1,32 @@
+/* Custom CSS for Contact Page */
+@media (min-width: 768px) {
+    .contact-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .contact-form {
+        flex-basis: 45%;
+    }
+    .contact-details {
+        flex-basis: 45%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-details {
+        text-align: center;
+        margin-bottom: 20px;
+        order: -1; /* Move the contact details above the form */
+    }
+    .contact-form {
+        margin: auto;
+        max-width: 80%;
+    }
+    .contact-details + .contact-form {
+        margin-top: 40px; /* Double line break before the form */
+    }
+}
