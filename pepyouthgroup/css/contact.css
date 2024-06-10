@@ -1,5 +1,49 @@
 /* Custom CSS for Contact Page */
+
+/* Set background image and default text color */
+body {
+    background-image: url('https://i.postimg.cc/zX2kKQ6f/image.png');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff; /* Set default text color to white */
+}
+
+/* Style the "Contact Us" header */
+h1.text-center {
+    color: #ffffff; /* Set header color to white */
+    font-size: 36px; /* Increase font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better visibility */
+}
+
+/* Set color for all other text on the page */
+.container,
+.contact-details,
+.contact-form {
+    color: #ffffff; /* Set text color to white */
+}
+
+/* Set background color for contact details container */
+.contact-details {
+    background-color: rgba(0, 0, 0, 0.5); /* Add semi-transparent black background */
+    padding: 20px; /* Add padding for better readability */
+    border-radius: 10px; /* Add rounded corners */
+}
+
+/* Set background color for contact form container */
+.contact-form {
+    background-color: rgba(0, 0, 0, 0.5); /* Add semi-transparent black background */
+    padding: 20px; /* Add padding for better readability */
+    border-radius: 10px; /* Add rounded corners */
+}
+
+/* Set color for links */
+a {
+    color: #ffffff; /* Set link color to white */
+}
+
+/* Media queries for responsive layout */
 @media (min-width: 768px) {
+    /* Add your existing styles for larger screens */
     .contact-container {
         display: flex;
         justify-content: space-between;
@@ -14,6 +58,7 @@
 }
 
 @media (max-width: 767.98px) {
+    /* Add your existing styles for smaller screens */
     .contact-container {
         flex-direction: column;
     }

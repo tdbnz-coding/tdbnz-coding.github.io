@@ -1,3 +1,24 @@
+body {
+    background: url('https://i.postimg.cc/x1PKf4Q5/image.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff; /* Make text white for better readability */
+    overflow-x: hidden;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the navbar */
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the footer */
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for content */
+    padding: 20px;
+    border-radius: 10px;
+}
+
 .team-member img {
     width: 100px; /* Set width to desired size */
     height: 100px; /* Set height to desired size */
@@ -16,4 +37,15 @@
 
 .about-content {
     text-align: center; /* Center align the content */
+    margin: 0 auto; /* Center align the content */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .team-member img {
+        width: 80px; /* Adjust width for smaller screens */
+        height: 80px; /* Adjust height for smaller screens */
+    }
 }
