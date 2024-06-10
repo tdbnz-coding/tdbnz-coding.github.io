@@ -37,15 +37,7 @@ html {
     color: #fff;
 }
 
-/* Elfsight widget styles */
-.elfsight-app-8b463d5f-36c8-4aa0-8a43-07ade9162085 {
-    width: 100%;
-    height: calc(100vh - 56px); /* Adjust height to fit below navbar */
-    position: fixed;
-    top: 56px; /* Height of the navbar */
-    left: 0;
-    z-index: 0;
-}
+
 
 @media (max-width: 768px) {
     /* Ensure navbar toggle button is visible */

@@ -7,9 +7,37 @@
     <title>Pep Youth Group</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Additional CSS for background image and animation */
+        body {
+            background-image: url('https://i.postimg.cc/jSckpCn8/IMG-6809.avif');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            animation: fadeIn 2s; /* Fade in animation */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .btn-round {
+            border-radius: 20px; /* Make the button round */
+        }
+        .content {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            padding: 20px; /* Add padding to the content */
+            border-radius: 10px; /* Rounded corners */
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-custom">
+
+    <nav class="navbar navbar-expand-lg bg-custom fixed-top">
         <a class="navbar-brand text-white" href="#">Pep Youth Group</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,7 +53,13 @@
         </div>
     </nav>
 
-    <div class="elfsight-app-8b463d5f-36c8-4aa0-8a43-07ade9162085" data-elfsight-app-lazy></div>
+    <div class="container text-center mt-5">
+        <div class="content">
+            <h1>Pep Youth Group</h1>
+            <h3>The Best Youth Group in Christchurch</h3>
+            <a href="about.html" class="btn btn-primary btn-round mt-3">Learn more</a>
+        </div>
+    </div>
 
     <footer class="footer bg-custom text-white">
         <div class="container text-center">
@@ -36,8 +70,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-    
 
 </body>
 </html>
