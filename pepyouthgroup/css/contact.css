@@ -2,8 +2,9 @@
 
 /* Set background image and default text color */
 body {
-    background-image: url('https://i.postimg.cc/zX2kKQ6f/image.png');
+    background-image: url('https://i.postimg.cc/XJ3GRyxr/black-white-pep-youth-group.avif');
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     color: #ffffff; /* Set default text color to white */
 }
@@ -43,7 +44,6 @@ a {
 
 /* Media queries for responsive layout */
 @media (min-width: 768px) {
-    /* Add your existing styles for larger screens */
     .contact-container {
         display: flex;
         justify-content: space-between;
@@ -58,7 +58,6 @@ a {
 }
 
 @media (max-width: 767.98px) {
-    /* Add your existing styles for smaller screens */
     .contact-container {
         flex-direction: column;
     }
@@ -74,4 +73,49 @@ a {
     .contact-details + .contact-form {
         margin-top: 40px; /* Double line break before the form */
     }
+}
+
+/* Add animation keyframes */
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply animations */
+.slide-in-left {
+    animation: slide-in-left 1s ease-out;
+}
+
+.slide-in-right {
+    animation: slide-in-right 1s ease-out;
+}
+
+.fade-in {
+    animation: fade-in 1s ease-out;
 }

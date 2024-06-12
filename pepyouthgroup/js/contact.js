@@ -15,4 +15,8 @@ $(document).ready(function() {
             }
         });
     });
+
+    // Add animation classes to elements on page load
+    $('.contact-details').addClass('slide-in-left');
+    $('.contact-form').addClass('slide-in-right');
 });
