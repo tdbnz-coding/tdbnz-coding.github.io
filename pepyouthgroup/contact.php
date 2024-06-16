@@ -14,4 +14,30 @@ if ($responseData->success) {
     $message = $_POST['message'];
 
     // Email settings
-    $to = 'thomasnz@hotmail.com
+    $to = 'thomasnz@hotmail.com'; // Fix the error here by closing the string and adding a semicolon
+    $subject = "New contact form submission";
+    $headers = "From: $email\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Content-type: text/html\r\n";
+
+    // Email message
+    $emailMessage = "
+    <html>
+    <head>
+        <title>New contact form submission</title>
+    </head>
+    <body>
+        <p><strong>Name:</strong> $name</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Phone:</strong> $phone</p>
+        <p><strong>Message:</strong> $message</p>
+    </body>
+    </html>";
+
+    // Send email
+    mail($to, $subject, $emailMessage, $headers);
+    echo "Thank you for contacting us!";
+} else {
+    echo "reCAPTCHA verification failed. Please try again.";
+}
+?>
