@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Canterbury Today</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://i.postimg.cc/zfVmJnmG/image.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+        }
+        .placeholder-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: rgba(52, 58, 64, 0.8);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+    <script>
+        let countdown = 10;
+        function updateCountdown() {
+            document.getElementById('countdown').textContent = countdown;
+            if (countdown === 0) {
+                window.location.href = 'https://southcanterburytoday.co.nz/kiwi-ranger';
+            } else {
+                countdown--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+        });
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="content">
+        <p>News Article Loading, please wait... Redirecting in <span id="countdown">10</span> seconds</p>
+        <a href="https://southcanterburytoday.co.nz/SCU-Broadcast-Channel">
+            <img src="https://i.postimg.cc/QNPJP1mq/Podcast-channel-promotion-facebook-post-template-1.png" alt="Podcast Channel Promotion" class="placeholder-image">
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 <a href="http://southcanterburytoday.co.nz" style="color: white;">South Canterbury Today</a></p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
