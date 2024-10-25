@@ -1,10 +1,16 @@
-/* Sidebar Styles */
+/* Wrapper to ensure full-screen layout */
 #wrapper {
     display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    overflow: hidden;
 }
 
+/* Sidebar Styles */
 #sidebar-wrapper {
     min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
     margin-left: -250px;
     transition: all 0.3s;
 }
@@ -13,13 +19,19 @@
     margin-left: 0;
 }
 
+/* Page content should take the full width */
+#page-content-wrapper {
+    width: 100%;
+    overflow: auto;
+}
+
 /* Centered content */
 .container-fluid.text-center {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
 /* Responsive iframe */
@@ -27,4 +39,16 @@
     width: 100%;
     height: 500px;
     border: none;
+}
+
+/* Mobile adjustment for smaller screens */
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        min-width: 100px;
+        max-width: 100px;
+    }
+
+    .list-group-item {
+        font-size: 0.9rem;
+    }
 }
