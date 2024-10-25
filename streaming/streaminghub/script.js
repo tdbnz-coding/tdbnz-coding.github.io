@@ -5,7 +5,7 @@ $(document).ready(function () {
             console.error("Failed to load menu: ", xhr.status, xhr.statusText);
         } else {
             console.log("Menu loaded successfully.");
-            // Enable Bootstrap's dropdown functionality for the menu after loading
+            // Enable Bootstrap's dropdown functionality after menu load
             $('.dropdown-toggle').dropdown();
         }
     });

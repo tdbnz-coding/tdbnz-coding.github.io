@@ -41,7 +41,7 @@
     border: none;
 }
 
-/* Adjustments for mobile view */
+/* Mobile adjustments */
 @media (max-width: 768px) {
     #sidebar-wrapper {
         min-width: 100px;
