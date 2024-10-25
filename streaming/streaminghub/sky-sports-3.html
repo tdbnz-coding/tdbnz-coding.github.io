@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Sports 3 NZ - Streaming Hub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="d-flex" id="wrapper">
+    <div id="menu-container"></div> <!-- External menu will be loaded here -->
+
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <button class="btn btn-outline-primary" id="menu-toggle">&#9776;</button>
+        </nav>
+
+        <div class="container-fluid text-center mt-4">
+            <h1>Sky Sports 3 NZ</h1>
+            <iframe class="video responsive" marginheight="0" marginwidth="0"
+                src="https://dlhd.sx/embed/stream-590.php"
+                name="iframe_a" scrolling="no" allowfullscreen="yes"
+                width="100%" height="500px" frameborder="0">
+                Your Browser Does Not Support Iframes
+            </iframe>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+</body>
+</html>
