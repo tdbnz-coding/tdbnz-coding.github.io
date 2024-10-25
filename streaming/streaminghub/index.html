@@ -27,11 +27,27 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
 <script>
+    // Load the external menu
+    $(document).ready(function () {
+        $("#menu-container").load("menu.html");
+    });
+
+    // Toggle sidebar visibility
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
+    });
+
+    // Random page navigation for "Watch Now" button
+    const pages = [
+        "sky-sports-1.html",
+        "sky-sports-2.html",
+        "sky-sports-3.html"
+    ];
+    document.getElementById("watch-now").addEventListener("click", () => {
+        const randomPage = pages[Math.floor(Math.random() * pages.length)];
+        window.location.href = randomPage;
     });
 </script>
 

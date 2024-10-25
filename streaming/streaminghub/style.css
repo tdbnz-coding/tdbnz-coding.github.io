@@ -1,4 +1,4 @@
-/* Sidebar styles */
+/* Sidebar Styles */
 #wrapper {
     display: flex;
 }
@@ -27,10 +27,4 @@
     width: 100%;
     height: 500px;
     border: none;
-}
-
-/* Ad-blocking */
-iframe[width="728"][height="90"], iframe[width="300"][height="250"], 
-.adsbygoogle, #ad, [class*="ad-"] {
-    display: none !important;
 }
