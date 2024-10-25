@@ -1,14 +1,12 @@
-/* Wrapper for full-screen layout */
+/* Full-screen layout */
 #wrapper {
     display: flex;
     height: 100vh;
     overflow: hidden;
 }
 
-/* Sidebar Styles */
 #sidebar-wrapper {
     min-width: 250px;
-    max-width: 250px;
     height: 100vh;
     margin-left: -250px;
     transition: all 0.3s;
@@ -19,36 +17,20 @@
     margin-left: 0;
 }
 
-/* Page content */
 #page-content-wrapper {
     width: 100%;
     overflow: auto;
 }
 
-/* Centered content */
 .container-fluid.text-center {
-    height: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
 
-/* Responsive iframe */
 .video.responsive {
     width: 100%;
     height: 500px;
     border: none;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    #sidebar-wrapper {
-        min-width: 100px;
-        max-width: 100px;
-    }
-
-    .list-group-item {
-        font-size: 0.9rem;
-    }
 }
