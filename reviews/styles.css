@@ -1,0 +1,32 @@
+/* styles.css */
+
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #343a40;
+  padding: 100px 0;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+}
