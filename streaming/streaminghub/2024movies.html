@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2024 Movies - Streaming Hub</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css">
     <style>
-        /* Pop-up container styles */
+        /* Ensure the popup is hidden by default */
         #popup-container {
             display: none;
             position: fixed;
@@ -16,25 +15,33 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1050; /* Ensure the pop-up is on top */
+            z-index: 1050;
             justify-content: center;
             align-items: center;
         }
 
+        /* Iframe styling */
         #popup-iframe {
             width: 80%;
             height: 80%;
             border: none;
+            background-color: black;
         }
 
+        /* Close button styling */
         #close-popup {
             position: absolute;
             top: 10px;
-            right: 20px;
+            right: 10px;
             font-size: 2rem;
             color: white;
             cursor: pointer;
-            z-index: 1051; /* Ensure the close button is clickable */
+            z-index: 1051;
+        }
+
+        /* Prevent scrolling when popup is active */
+        body.popup-active {
+            overflow: hidden;
         }
     </style>
 </head>
@@ -42,17 +49,17 @@
 
 <div class="container mt-5">
     <h1 class="text-center">2024 Movies</h1>
-    <div id="movies-list" class="row"></div> <!-- Movies will be dynamically added here -->
+    <div id="movies-list" class="row"></div> <!-- Movies dynamically added here -->
 </div>
 
-<!-- Iframe Pop-up Container -->
+<!-- Hidden popup container -->
 <div id="popup-container" class="d-flex">
     <span id="close-popup">&times;</span>
-    <iframe id="popup-iframe"></iframe>
+    <iframe id="popup-iframe" allowfullscreen></iframe>
 </div>
 
 <script>
-    // Movies data from the uploaded CSV
+    // Movies data
     const movies = [
         { title: "Mean Girls", year: 2024, id: "tt11762114", description: "A musical comedy about high school drama." },
         { title: "Bob Marley: One Love", year: 2024, id: "tt8521778", description: "A biography about Bob Marley." },
@@ -61,7 +68,7 @@
         { title: "Dune: Part Two", year: 2024, id: "tt15239678", description: "The epic continuation of the Dune saga." }
     ];
 
-    // Function to generate movie cards
+    // Generate movie cards
     function generateMovieCards() {
         const moviesList = document.getElementById("movies-list");
         movies.forEach(movie => {
@@ -81,25 +88,27 @@
         });
     }
 
-    // Function to open the embed player in the iframe pop-up
+    // Open movie player in popup
     function openMovie(imdbID) {
         const iframe = document.getElementById("popup-iframe");
         const popup = document.getElementById("popup-container");
 
         iframe.src = `https://player.autoembed.cc/embed/movie/${imdbID}`;
-        popup.style.display = "flex";
+        popup.style.display = "flex"; // Show the popup
+        document.body.classList.add("popup-active"); // Disable scrolling
     }
 
-    // Close the iframe pop-up
-    document.getElementById("close-popup").addEventListener("click", function() {
+    // Close the popup and clear the iframe
+    document.getElementById("close-popup").addEventListener("click", () => {
         const popup = document.getElementById("popup-container");
         const iframe = document.getElementById("popup-iframe");
 
-        popup.style.display = "none";
-        iframe.src = ""; // Clear the iframe src when closing
+        popup.style.display = "none"; // Hide the popup
+        iframe.src = ""; // Clear the iframe source
+        document.body.classList.remove("popup-active"); // Enable scrolling again
     });
 
-    // Generate the movie cards when the page loads
+    // Generate movie cards on page load
     window.onload = generateMovieCards;
 </script>
 
