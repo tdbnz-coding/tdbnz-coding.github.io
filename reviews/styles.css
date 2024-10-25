@@ -1,32 +1,36 @@
 /* styles.css */
 
-/* General Styles */
+/* Ensure high contrast and accessibility */
 body {
-  font-family: 'Arial', sans-serif;
   background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  font-size: 18px; /* Increase base font size for readability */
 }
 
-/* Hero Section */
-.hero {
-  background-color: #343a40;
-  padding: 100px 0;
+a {
+  text-decoration: none;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
+a:focus {
+  outline: 2px dashed #00bfa5; /* Focus indicator for keyboard users */
 }
 
-.hero p {
-  font-size: 1.2rem;
+.nav-link {
+  color: #ffffff;
 }
 
-/* Navbar Links */
-.navbar-nav .nav-link.active {
-  font-weight: bold;
+.nav-link:focus,
+.nav-link:hover {
   text-decoration: underline;
 }
 
-/* Footer */
+/* Responsive footer spacing */
 footer {
   margin-top: 50px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  alt-text: "placeholder"; /* Ensure images use alt attributes */
 }

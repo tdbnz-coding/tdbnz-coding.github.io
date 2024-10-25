@@ -1,16 +1,21 @@
 // script.js
 
-// Example of smooth scroll functionality for navbar links
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', function (event) {
-    event.preventDefault();
-    const targetId = this.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: 'smooth',
-      });
-    }
+// Helper function to include external HTML (for navbar and footer)
+function includeHTML() {
+  const elements = document.querySelectorAll('[data-include]');
+  elements.forEach((element) => {
+    const file = element.getAttribute('data-include');
+    fetch(file)
+      .then(response => {
+        if (response.ok) return response.text();
+        throw new Error(`Failed to fetch ${file}`);
+      })
+      .then(data => {
+        element.innerHTML = data;
+      })
+      .catch(error => console.error(error));
   });
-});
+}
+
+// Run the function after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', includeHTML);
