@@ -1,51 +1,36 @@
-/* Sidebar Styles */
+/* Sidebar styles */
 #wrapper {
     display: flex;
-    flex-wrap: nowrap;
 }
 
 #sidebar-wrapper {
     min-width: 250px;
-    max-width: 250px;
-    height: 100vh;
-    overflow-y: auto;
-    transition: all 0.3s;
-    margin-left: -250px; /* Hidden by default */
-}
-
-#page-content-wrapper {
-    width: 100%;
+    margin-left: -250px;
     transition: all 0.3s;
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    margin-left: 0; /* Sidebar slides in */
+    margin-left: 0;
 }
 
-/* Centered Content */
+/* Centered content */
 .container-fluid.text-center {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100vh;
 }
 
 /* Responsive iframe */
 .video.responsive {
-    border: none;
     width: 100%;
     height: 500px;
+    border: none;
 }
 
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-    #sidebar-wrapper {
-        min-width: 100px;
-        max-width: 100px;
-    }
-
-    .list-group-item {
-        font-size: 0.9rem;
-    }
+/* Ad-blocking */
+iframe[width="728"][height="90"], iframe[width="300"][height="250"], 
+.adsbygoogle, #ad, [class*="ad-"] {
+    display: none !important;
 }
