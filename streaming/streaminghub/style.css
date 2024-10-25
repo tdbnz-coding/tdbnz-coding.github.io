@@ -1,7 +1,6 @@
-/* Wrapper to ensure full-screen layout */
+/* Wrapper for full-screen layout */
 #wrapper {
     display: flex;
-    flex-wrap: nowrap;
     height: 100vh;
     overflow: hidden;
 }
@@ -13,13 +12,14 @@
     height: 100vh;
     margin-left: -250px;
     transition: all 0.3s;
+    background-color: #343a40;
 }
 
 #wrapper.toggled #sidebar-wrapper {
     margin-left: 0;
 }
 
-/* Page content should take the full width */
+/* Page content */
 #page-content-wrapper {
     width: 100%;
     overflow: auto;
@@ -41,7 +41,7 @@
     border: none;
 }
 
-/* Mobile adjustment for smaller screens */
+/* Adjustments for mobile view */
 @media (max-width: 768px) {
     #sidebar-wrapper {
         min-width: 100px;

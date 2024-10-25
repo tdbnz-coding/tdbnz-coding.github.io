@@ -30,7 +30,9 @@
 <script>
     // Load the external menu
     $(document).ready(function () {
-        $("#menu-container").load("menu.html");
+        $("#menu-container").load("menu.html", function() {
+            console.log("Menu loaded successfully.");
+        });
     });
 
     // Toggle sidebar visibility

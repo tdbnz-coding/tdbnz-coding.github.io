@@ -1,26 +1,30 @@
-// Load the external menu
+// Load the external menu into the #menu-container on all pages
 $(document).ready(function () {
-    $("#menu-container").load("menu.html");
-});
-
-// Block pop-ups
-window.open = function () {
-    console.log("Pop-up blocked!");
-};
-
-// Disable right-click to prevent ad triggers
-document.addEventListener('contextmenu', event => event.preventDefault());
-
-// Handle iframe filtering for unwanted sources
-document.addEventListener('DOMContentLoaded', () => {
-    const iframes = document.querySelectorAll('iframe');
-    iframes.forEach(iframe => {
-        const allowedSources = ["dlhd.sx"];
-        const src = new URL(iframe.src).hostname;
-
-        if (!allowedSources.includes(src)) {
-            console.warn(`Blocked iframe from: ${src}`);
-            iframe.remove();
+    $("#menu-container").load("menu.html", function (response, status, xhr) {
+        if (status === "error") {
+            console.error("Failed to load menu: ", xhr.status, xhr.statusText);
+        } else {
+            console.log("Menu loaded successfully.");
+            // Enable Bootstrap's dropdown functionality for the menu after loading
+            $('.dropdown-toggle').dropdown();
         }
     });
+});
+
+// Toggle sidebar visibility on menu button click
+$("#menu-toggle").click(function (e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+
+// Random page navigation for the "Watch Now" button
+const pages = [
+    "sky-sports-1.html",
+    "sky-sports-2.html",
+    "sky-sports-3.html"
+];
+
+document.getElementById("watch-now").addEventListener("click", () => {
+    const randomPage = pages[Math.floor(Math.random() * pages.length)];
+    window.location.href = randomPage;
 });
