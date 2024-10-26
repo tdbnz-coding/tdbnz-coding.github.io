@@ -9,18 +9,20 @@
     body {
       background-color: #f8f9fa;
       font-family: Arial, sans-serif;
-      text-align: center;
     }
+
     .banner-container {
       display: flex;
       justify-content: center;
       margin: 2rem 0;
     }
+
     .banner-container img {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
     }
+
     .btn-nordvpn {
       margin-top: 2rem;
       display: block;
@@ -28,6 +30,13 @@
       max-width: 300px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 1rem;
+      text-align: center;
     }
   </style>
 </head>
@@ -38,41 +47,38 @@
 
   <!-- Main Content -->
   <div class="container mt-5">
-    <h1>NordVPN Review</h1>
+    <h1 class="text-center mb-4">NordVPN Review</h1>
 
     <section class="mt-4">
-      <p>
-        NordVPN is one of the top VPN providers in the world, known for its strong security protocols, no-logs policy, and user-friendly experience. 
-        Whether you’re concerned about protecting your personal data, accessing content restricted to specific regions, or avoiding online surveillance, 
-        NordVPN offers a comprehensive solution.
+      <h2>Introduction</h2>
+      <p class="text-center">
+        NordVPN is a market leader in online privacy and security. Known for its <strong>strong encryption</strong>, <strong>no-logs policy</strong>, and <strong>user-friendly experience</strong>, it provides a fast and reliable way to protect your internet connection and access geo-restricted content worldwide.
       </p>
     </section>
 
     <section class="mt-4">
       <h2>Key Features</h2>
-      <p>
-        <strong>Military-Grade Encryption:</strong> NordVPN uses AES-256 encryption, a standard used by governments and banks, to ensure the highest level of security. 
-        <strong>No-Logs Policy:</strong> The service guarantees that no user data or browsing history is stored on their servers, ensuring full privacy. 
-        <strong>Double VPN:</strong> Routes traffic through two servers for additional security, making it extremely difficult to trace your online activity. 
-        <strong>Obfuscated Servers:</strong> Useful in countries with internet restrictions, these servers hide the fact that you’re using a VPN. 
-        <strong>Streaming Support:</strong> Access content on Netflix, Hulu, and other services from different regions without issues. 
-        <strong>Threat Protection:</strong> NordVPN provides malware and ad-blocking features, safeguarding users from online threats.
-      </p>
+      <ul class="text-center">
+        <li><strong>Military-grade encryption:</strong> Protects your data with AES-256 encryption.</li>
+        <li><strong>No-logs policy:</strong> Independent audits confirm that NordVPN does not store your browsing history or user data.</li>
+        <li><strong>Double VPN:</strong> Routes traffic through two servers for added security.</li>
+        <li><strong>Obfuscated servers:</strong> Ideal for bypassing censorship and internet restrictions.</li>
+        <li><strong>Streaming support:</strong> Seamlessly access Netflix, Hulu, and more from any location.</li>
+        <li><strong>Threat Protection:</strong> Built-in ad-blocker and malware defense.</li>
+      </ul>
     </section>
 
     <section class="mt-4">
       <h2>Performance and Speed</h2>
-      <p>
-        One of the standout features of NordVPN is its impressive speed. With over 5,000 servers spread across 60 countries, users can always find a fast and reliable connection. 
-        NordVPN also supports the latest VPN protocols, including WireGuard, ensuring that speed is not compromised even when using a secure connection.
+      <p class="text-center">
+        NordVPN offers excellent speeds through its <strong>5,000+ servers</strong> in over 60 countries. It supports the <strong>WireGuard protocol</strong> to maintain high speeds even with encryption enabled, ensuring smooth streaming and browsing.
       </p>
     </section>
 
     <section class="mt-4">
       <h2>Privacy and Security</h2>
-      <p>
-        Privacy is at the core of NordVPN's service. The no-logs policy has been audited by independent third-party firms, confirming that your online activities are not tracked or stored. 
-        NordVPN also features DNS leak protection, automatic kill switch, and multi-factor authentication to further protect your accounts from unauthorized access.
+      <p class="text-center">
+        NordVPN guarantees privacy with its <strong>no-logs policy</strong>, <strong>DNS leak protection</strong>, and <strong>kill switch</strong>. It also supports multi-factor authentication for added account security.
       </p>
     </section>
 
@@ -84,22 +90,19 @@
 
     <section class="mt-4">
       <h2>Why Choose NordVPN?</h2>
-      <p>
-        If security and privacy are your top priorities, NordVPN is the perfect choice. It offers advanced features like Double VPN, Threat Protection, and obfuscated servers, 
-        which are essential tools for protecting your digital footprint. Additionally, the ability to access streaming content globally makes it a great option for frequent travelers.
+      <p class="text-center">
+        If you need a VPN that excels in <strong>security, streaming</strong>, and <strong>privacy</strong>, NordVPN is an excellent choice. It offers reliable features, including <strong>Double VPN</strong> and <strong>obfuscated servers</strong>, to protect your online presence and bypass content restrictions.
       </p>
     </section>
 
-    <!-- Coupons & Deals Section -->
     <section class="mt-4 text-center">
       <h2>NordVPN Coupons & Deals</h2>
-      <p>Looking for the latest NordVPN discounts? Check out Choice Cheapies for exclusive coupons and promotions:</p>
+      <p>Find the latest NordVPN discounts at Choice Cheapies for exclusive coupons and promotions:</p>
       <a href="https://www.cheapies.nz/deals/nordvpn.com" target="_blank" class="btn btn-secondary mb-4">
-        Explore Choice Cheapies - Nord VPN
+        Explore Choice Cheapies - NordVPN
       </a>
     </section>
 
-    <!-- Button to Visit NordVPN Site -->
     <a id="nordvpn-button" href="#" target="_blank" class="btn btn-primary btn-nordvpn">
       Visit NordVPN
     </a>
@@ -116,38 +119,17 @@
       "https://track.roeye.co.nz/click?pid=1151&offer_id=368"
     ];
 
-    // Rotate links every 10 seconds for hyperlinks
-    let linkIndex = 0;
+    let index = 0;
+
     function rotateLinks() {
-      document.querySelectorAll(".dynamic-link").forEach((link) => {
-        link.href = links[linkIndex];
-      });
-      linkIndex = (linkIndex + 1) % links.length;
+      document.querySelectorAll(".dynamic-link").forEach(link => link.href = links[index]);
+      document.getElementById("dynamic-banner").href = links[index];
+      document.getElementById("nordvpn-button").href = links[index];
+      index = (index + 1) % links.length;
     }
+
     setInterval(rotateLinks, 10000);
-
-    // Rotate banner link every 15 seconds
-    const banner = document.getElementById("dynamic-banner");
-    let bannerIndex = 0;
-    function rotateBanner() {
-      banner.href = links[bannerIndex];
-      bannerIndex = (bannerIndex + 1) % links.length;
-    }
-    setInterval(rotateBanner, 15000);
-
-    // Rotate button link every 10 seconds
-    const button = document.getElementById("nordvpn-button");
-    let buttonIndex = 0;
-    function rotateButton() {
-      button.href = links[buttonIndex];
-      buttonIndex = (buttonIndex + 1) % links.length;
-    }
-    setInterval(rotateButton, 10000);
-
-    // Initialize the first rotation
     rotateLinks();
-    rotateBanner();
-    rotateButton();
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

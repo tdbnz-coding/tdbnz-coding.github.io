@@ -1,51 +1,21 @@
-/* Ensure high contrast and accessibility */
-body {
-  background-color: #f8f9fa;
-  font-family: Arial, sans-serif;
-  font-size: 18px; /* Increase base font size for readability */
+/* Navbar Styling */
+.navbar {
+  background-color: #343a40;
 }
 
-/* Link styles */
-a {
-  text-decoration: none;
+.navbar .nav-link {
+  color: #ffffff !important;
+  transition: none; /* Disable color change on hover */
 }
 
-a:focus {
-  outline: 2px dashed #00bfa5; /* Focus indicator for keyboard users */
+.navbar .dropdown-menu {
+  background-color: #343a40;
 }
 
-/* Navbar and Footer Styling */
-.navbar, .footer {
-  background-color: #343a40; /* Dark background */
-  color: #ffffff;
-  padding: 1rem 0;
-  border-bottom: 1px solid #e0e0e0; /* Light border for separation */
-}
-
-/* Navbar Link Styles */
-.nav-link {
+.navbar .dropdown-item {
   color: #ffffff;
 }
 
-.nav-link:focus,
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-/* Footer Specific Styles */
-.footer p {
-  margin: 0;
-  text-align: center;
-}
-
-/* Responsive footer spacing */
-footer {
-  margin-top: 50px;
-}
-
-/* Responsive Image Styling */
-img {
-  max-width: 100%;
-  height: auto;
-  alt-text: "placeholder"; /* Ensure images use alt attributes */
+.navbar .dropdown-item:hover {
+  background-color: #495057; /* Subtle background on hover */
 }
