@@ -10,7 +10,7 @@
 <body>
 
   <!-- Navbar Include -->
-  <div data-include="navbar.html"></div>
+  <div id="navbar-container"></div>
 
   <!-- Main Content -->
   <div class="container mt-5">
@@ -38,64 +38,38 @@
       </ul>
     </section>
 
-    <section class="mt-4">
-      <h2>Performance and Speed</h2>
-      <p>
-        With over <strong>5,000 servers</strong> in 60+ countries, NordVPN ensures that you can always find a fast connection. 
-        The adoption of the <strong>WireGuard-based NordLynx protocol</strong> has significantly boosted speeds, making NordVPN 
-        ideal for streaming, gaming, and torrenting without interruptions.
-      </p>
-    </section>
-
-    <section class="mt-4">
-      <h2>Privacy and Security</h2>
-      <p>
-        NordVPN is committed to user privacy with a strict <strong>no-logs policy</strong> that has been independently audited. 
-        Features like a <strong>kill switch</strong>, <strong>DNS leak protection</strong>, and multi-factor authentication ensure 
-        that your identity and data are protected at all times. Its obfuscated servers also allow access from countries with heavy internet restrictions.
-      </p>
-    </section>
-
     <div class="banner-container">
       <a id="dynamic-banner" href="#" target="_blank">
         <img src="https://i.ibb.co/VMSpR0j/image.png" alt="NordVPN Promotion Banner" class="img-fluid">
       </a>
     </div>
 
-    <section class="mt-4">
-      <h2>Streaming and Bypassing Geo-Restrictions</h2>
-      <p>
-        NordVPN excels at bypassing geo-restrictions, giving users access to streaming platforms like <strong>Netflix, Hulu, Disney+,</strong> and more. 
-        It offers specialized servers for streaming, ensuring minimal buffering and smooth playback even in high-definition.
-      </p>
-    </section>
-
-    <section class="mt-4">
-      <h2>Why Choose NordVPN?</h2>
-      <p>
-        NordVPN provides the perfect balance between security, speed, and accessibility. Whether you're a frequent traveler, 
-        a privacy-conscious user, or someone who loves streaming, NordVPN has you covered. Its advanced security features and 
-        easy-to-use interface make it a great choice for both beginners and experienced VPN users.
-      </p>
-    </section>
-
-    <section class="mt-4 text-center">
-      <h2>NordVPN Coupons & Deals</h2>
-      <p>Find the latest NordVPN discounts at Choice Cheapies for exclusive coupons and promotions:</p>
-      <a href="https://www.cheapies.nz/deals/nordvpn.com" target="_blank" class="btn btn-secondary mb-4">
-        Explore Choice Cheapies - NordVPN
-      </a>
-    </section>
-
-    <a id="nordvpn-button" href="#" target="_blank" class="btn btn-primary btn-nordvpn">
+    <a id="nordvpn-button" href="#" target="_blank" class="btn btn-primary btn-nordvpn mt-4">
       Visit NordVPN
     </a>
   </div>
 
   <!-- Footer Include -->
-  <div data-include="footer.html"></div>
+  <div id="footer-container"></div>
 
   <script>
+    // Function to load external HTML content
+    function loadComponent(selector, file) {
+      fetch(file)
+        .then(response => {
+          if (!response.ok) throw new Error(`Failed to load ${file}`);
+          return response.text();
+        })
+        .then(data => {
+          document.querySelector(selector).innerHTML = data;
+        })
+        .catch(error => console.error(error));
+    }
+
+    // Load navbar and footer
+    loadComponent('#navbar-container', 'navbar.html');
+    loadComponent('#footer-container', 'footer.html');
+
     // Array of rotating affiliate links
     const links = [
       "https://nordvpn.com/coupon/deal/?coupon=topdeal&utm_medium=affiliate&utm_term=&utm_content=1396092&utm_campaign=off304&utm_source=aff8110",
