@@ -1,6 +1,6 @@
 // script.js
 
-// Helper function to include external HTML (for navbar and footer)
+// Helper function to include external HTML for navbar and footer
 function includeHTML() {
   const elements = document.querySelectorAll('[data-include]');
   elements.forEach((element) => {
@@ -17,5 +17,5 @@ function includeHTML() {
   });
 }
 
-// Run the function after the DOM is fully loaded
+// Run the function when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', includeHTML);
