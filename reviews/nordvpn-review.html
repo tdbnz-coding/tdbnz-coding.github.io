@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NordVPN Review - TDBNZ Reviews</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .banner-container {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .banner-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .btn-nordvpn {
+      margin-top: 2rem;
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar Include -->
+  <div data-include="navbar.html"></div>
+
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <h1>NordVPN Review</h1>
+
+    <section class="mt-4">
+      <p>
+        NordVPN is one of the top VPN providers in the world, known for its strong security protocols, no-logs policy, and user-friendly experience. 
+        Whether you’re concerned about protecting your personal data, accessing content restricted to specific regions, or avoiding online surveillance, 
+        NordVPN offers a comprehensive solution.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>Key Features</h2>
+      <p>
+        <strong>Military-Grade Encryption:</strong> NordVPN uses AES-256 encryption, a standard used by governments and banks, to ensure the highest level of security. 
+        <strong>No-Logs Policy:</strong> The service guarantees that no user data or browsing history is stored on their servers, ensuring full privacy. 
+        <strong>Double VPN:</strong> Routes traffic through two servers for additional security, making it extremely difficult to trace your online activity. 
+        <strong>Obfuscated Servers:</strong> Useful in countries with internet restrictions, these servers hide the fact that you’re using a VPN. 
+        <strong>Streaming Support:</strong> Access content on Netflix, Hulu, and other services from different regions without issues. 
+        <strong>Threat Protection:</strong> NordVPN provides malware and ad-blocking features, safeguarding users from online threats.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>Performance and Speed</h2>
+      <p>
+        One of the standout features of NordVPN is its impressive speed. With over 5,000 servers spread across 60 countries, users can always find a fast and reliable connection. 
+        NordVPN also supports the latest VPN protocols, including WireGuard, ensuring that speed is not compromised even when using a secure connection.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>Privacy and Security</h2>
+      <p>
+        Privacy is at the core of NordVPN's service. The no-logs policy has been audited by independent third-party firms, confirming that your online activities are not tracked or stored. 
+        NordVPN also features DNS leak protection, automatic kill switch, and multi-factor authentication to further protect your accounts from unauthorized access.
+      </p>
+    </section>
+
+    <div class="banner-container">
+      <a id="dynamic-banner" href="#" target="_blank">
+        <img src="https://i.ibb.co/VMSpR0j/image.png" alt="NordVPN Promotion Banner">
+      </a>
+    </div>
+
+    <section class="mt-4">
+      <h2>Why Choose NordVPN?</h2>
+      <p>
+        If security and privacy are your top priorities, NordVPN is the perfect choice. It offers advanced features like Double VPN, Threat Protection, and obfuscated servers, 
+        which are essential tools for protecting your digital footprint. Additionally, the ability to access streaming content globally makes it a great option for frequent travelers.
+      </p>
+    </section>
+
+    <!-- Coupons & Deals Section -->
+    <section class="mt-4 text-center">
+      <h2>NordVPN Coupons & Deals</h2>
+      <p>Looking for the latest NordVPN discounts? Check out Choice Cheapies for exclusive coupons and promotions:</p>
+      <a href="https://www.cheapies.nz/deals/nordvpn.com" target="_blank" class="btn btn-secondary mb-4">
+        Explore Choice Cheapies - Nord VPN
+      </a>
+    </section>
+
+    <!-- Button to Visit NordVPN Site -->
+    <a id="nordvpn-button" href="#" target="_blank" class="btn btn-primary btn-nordvpn">
+      Visit NordVPN
+    </a>
+  </div>
+
+  <!-- Footer Include -->
+  <div data-include="footer.html"></div>
+
+  <script>
+    // Array of rotating affiliate links
+    const links = [
+      "https://nordvpn.com/coupon/deal/?coupon=topdeal&utm_medium=affiliate&utm_term=&utm_content=1396092&utm_campaign=off304&utm_source=aff8110",
+      "https://nordvpn.com/special/?utm_medium=affiliate&utm_term=&utm_content=5301665&utm_campaign=off15&utm_source=aff8110",
+      "https://track.roeye.co.nz/click?pid=1151&offer_id=368"
+    ];
+
+    // Rotate links every 10 seconds for hyperlinks
+    let linkIndex = 0;
+    function rotateLinks() {
+      document.querySelectorAll(".dynamic-link").forEach((link) => {
+        link.href = links[linkIndex];
+      });
+      linkIndex = (linkIndex + 1) % links.length;
+    }
+    setInterval(rotateLinks, 10000);
+
+    // Rotate banner link every 15 seconds
+    const banner = document.getElementById("dynamic-banner");
+    let bannerIndex = 0;
+    function rotateBanner() {
+      banner.href = links[bannerIndex];
+      bannerIndex = (bannerIndex + 1) % links.length;
+    }
+    setInterval(rotateBanner, 15000);
+
+    // Rotate button link every 10 seconds
+    const button = document.getElementById("nordvpn-button");
+    let buttonIndex = 0;
+    function rotateButton() {
+      button.href = links[buttonIndex];
+      buttonIndex = (buttonIndex + 1) % links.length;
+    }
+    setInterval(rotateButton, 10000);
+
+    // Initialize the first rotation
+    rotateLinks();
+    rotateBanner();
+    rotateButton();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
