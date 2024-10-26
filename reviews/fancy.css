@@ -1,20 +1,20 @@
 /* fancy.css */
 
-/* Body and Layout Styles */
+/* Body and Container Styles */
 body {
   background-color: #f5f7fa;
   font-family: 'Arial', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  align-items: center;
-  text-align: center;
   margin: 0;
+  text-align: center;
 }
 
 .container {
   flex: 1;
-  margin: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   padding: 2rem;
   max-width: 800px;
   background: linear-gradient(145deg, #e6e8eb, #ffffff);
@@ -39,7 +39,15 @@ h2 {
   color: #343a40;
 }
 
-/* Button Styles */
+/* Banner Styling */
+.banner-container img {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
 .btn {
   margin-top: 2rem;
   width: 100%;
@@ -55,30 +63,4 @@ h2 {
 
 .btn:hover {
   background-color: #5a6268;
-}
-
-/* Card Styles */
-.card {
-  margin: 1rem 0;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Banner Styling */
-.banner-container img {
-  border-radius: 12px;
-  max-width: 100%;
-  height: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Footer */
-footer {
-  background-color: #1a1a1a;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
