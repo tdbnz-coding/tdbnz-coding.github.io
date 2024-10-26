@@ -1,17 +1,7 @@
-/* Fancy Full-Page Styles */
+/* Fancy Full-Page Styles (Scoped) */
 
-/* Body and Container Styling */
-body {
-  background-color: #f5f7fa;
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.container {
-  flex: 1;
+/* Ensure only elements inside the .nordvpn-container are styled */
+.nordvpn-container {
   max-width: 1200px;
   margin: auto;
   padding: 2rem;
@@ -20,43 +10,53 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Body Styling (Scoped to NordVPN Page) */
+body.nordvpn-page {
+  background-color: #f5f7fa;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
 /* Heading Styles */
-h1, h2 {
+.nordvpn-container h1, .nordvpn-container h2 {
   color: #1a1a1a;
   font-weight: bold;
   text-align: center;
 }
 
-h1 {
+.nordvpn-container h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
-h2 {
+.nordvpn-container h2 {
   font-size: 1.75rem;
   margin-top: 1.5rem;
 }
 
 /* Button Styles */
-.btn {
+.nordvpn-container .btn {
   font-size: 1.2rem;
   border-radius: 8px;
   padding: 1rem;
   margin: 0.5rem 0;
 }
 
-.btn-secondary {
+.nordvpn-container .btn-secondary {
   background-color: #0066cc;
   color: white;
   transition: background 0.3s ease-in-out;
 }
 
-.btn-secondary:hover {
+.nordvpn-container .btn-secondary:hover {
   background-color: #0052a3;
 }
 
 /* Banner Image Styling */
-.banner-container img {
+.nordvpn-container .banner-container img {
   border-radius: 12px;
   max-width: 100%;
   height: auto;
@@ -64,7 +64,7 @@ h2 {
 }
 
 /* Card Styling */
-.card {
+.nordvpn-container .card {
   margin: 1rem 0;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -73,20 +73,20 @@ h2 {
 
 /* Mobile-Responsive Adjustments */
 @media (max-width: 768px) {
-  h1 {
+  .nordvpn-container h1 {
     font-size: 2rem;
   }
 
-  h2 {
+  .nordvpn-container h2 {
     font-size: 1.5rem;
   }
 
-  .container {
+  .nordvpn-container {
     margin: 1rem;
     padding: 1.5rem;
   }
 
-  .btn {
+  .nordvpn-container .btn {
     font-size: 1rem;
   }
 }
