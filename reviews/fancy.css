@@ -1,0 +1,84 @@
+/* fancy.css */
+
+/* Body and Layout Styles */
+body {
+  background-color: #f5f7fa;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+}
+
+.container {
+  flex: 1;
+  margin: 3rem;
+  padding: 2rem;
+  max-width: 800px;
+  background: linear-gradient(145deg, #e6e8eb, #ffffff);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+/* Typography */
+h1, h2 {
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  margin-top: 1.5rem;
+  font-size: 1.75rem;
+  color: #343a40;
+}
+
+/* Button Styles */
+.btn {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem;
+  background-color: #6c757d;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #5a6268;
+}
+
+/* Card Styles */
+.card {
+  margin: 1rem 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Banner Styling */
+.banner-container img {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
