@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* Custom Styles */
     body {
       display: flex;
       min-height: 100vh;
@@ -15,9 +16,10 @@
     }
     .container {
       flex: 1;
-    }
-    footer {
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
   </style>
 </head>
@@ -54,7 +56,7 @@
         <li>Toys & Baby: Educational toys, baby essentials, and gifts.</li>
       </ul>
       <p>
-        Kmart is also known for its **Click & Collect** service, which allows customers to shop online and pick up their orders in-store. Delivery options are also available, with competitive shipping rates across New Zealand.
+        Kmart is also known for its Click & Collect service, which allows customers to shop online and pick up their orders in-store. Delivery options are also available, with competitive shipping rates across New Zealand.
       </p>
     </section>
 
@@ -64,8 +66,8 @@
         <thead>
           <tr>
             <th>Feature</th>
-            <<th><a href="kmart.html" class="text-decoration-none">Kmart</a></th>
-            <th><a href="warehouse.html" class="text-decoration-none">The Warehouse</a></th>
+            <th>Kmart</th>
+            <th>The Warehouse</th>
             <th>Farmers</th>
           </tr>
         </thead>
@@ -100,7 +102,7 @@
 
     <section class="mt-4 text-center">
       <h2>Kmart Coupons & Deals</h2>
-      <p>Looking for the latest Kmart discounts? Check out **Choice Cheapies** for exclusive coupons and promotions:</p>
+      <p>Looking for the latest Kmart discounts? Check out Choice Cheapies for exclusive coupons and promotions:</p>
       <a href="https://www.cheapies.nz/deals/kmart.co.nz" target="_blank" class="btn btn-secondary mb-4">
         Explore Choice Cheapies - Kmart
       </a>
@@ -109,7 +111,7 @@
     <section class="mt-4">
       <h2>Our Verdict</h2>
       <p>
-        Kmart continues to stand out as one of New Zealand’s leading budget retailers. Its vast range of products and competitive pricing make it an appealing choice for families and everyday shoppers. While some items may have varying quality, Kmart's **Click & Collect** service, extensive store network, and frequent promotions ensure it remains a top contender in the retail market.
+        Kmart continues to stand out as one of New Zealand’s leading budget retailers. Its vast range of products and competitive pricing make it an appealing choice for families and everyday shoppers. While some items may have varying quality, Kmart's Click & Collect service, extensive store network, and frequent promotions ensure it remains a top contender in the retail market.
       </p>
       <p>
         Whether you're shopping for home essentials, fashion, or kids' toys, Kmart offers convenience and affordability in every category.
@@ -119,9 +121,20 @@
   </div>
 
   <!-- Footer Include -->
-  <div class="mt-5" data-include="footer.html"></div>
+  <div data-include="footer.html"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    // JavaScript to dynamically load navbar and footer
+    document.querySelectorAll('[data-include]').forEach(async (el) => {
+      const file = el.getAttribute('data-include');
+      const response = await fetch(file);
+      if (response.ok) {
+        el.innerHTML = await response.text();
+      } else {
+        console.error(`Error loading ${file}: ${response.statusText}`);
+      }
+    });
+  </script>
 </body>
 </html>
