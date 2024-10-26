@@ -7,12 +7,19 @@ body {
   font-size: 18px; /* Increase base font size for readability */
 }
 
+/* Link styles */
 a {
   text-decoration: none;
 }
 
 a:focus {
   outline: 2px dashed #00bfa5; /* Focus indicator for keyboard users */
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #343a40; /* Dark background to match the footer */
+  border-bottom: 1px solid #e0e0e0; /* Light border for separation */
 }
 
 .nav-link {
@@ -24,11 +31,16 @@ a:focus {
   text-decoration: underline;
 }
 
-/* Responsive footer spacing */
+/* Footer styling */
 footer {
-  margin-top: 50px;
+  background-color: #343a40; /* Match navbar background color */
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 50px; /* Ensure spacing between content and footer */
 }
 
+/* Responsive image styling */
 img {
   max-width: 100%;
   height: auto;
