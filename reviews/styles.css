@@ -3,19 +3,40 @@
   background-color: #343a40;
 }
 
+/* Nav Links Styling */
 .navbar .nav-link {
   color: #ffffff !important;
   transition: none; /* Disable color change on hover */
 }
 
+/* Dropdown Menu Styling */
 .navbar .dropdown-menu {
   background-color: #343a40;
 }
 
+/* Dropdown Item Styling */
 .navbar .dropdown-item {
   color: #ffffff;
 }
 
 .navbar .dropdown-item:hover {
   background-color: #495057; /* Subtle background on hover */
+}
+
+/* Submenu Styling */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0;
+  margin-top: -1px;
+  background-color: #343a40; /* Ensure consistency with parent dropdown */
+}
+
+/* Submenu Hover Fix */
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
 }
