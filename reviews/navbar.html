@@ -1,34 +1,53 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">TDBNZ Reviews</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
+        
+        <!-- Home -->
         <li class="nav-item">
-          <a class="nav-link" href="index.html" aria-label="Home Page">Home</a>
+          <a class="nav-link" href="index.html">Home</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="retailDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Retail
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="retailDropdown">
-            <li><a class="dropdown-item" href="warehouse.html">The Warehouse Review</a></li>
-            <li><a class="dropdown-item" href="kmart.html">Kmart Review</a></li>
-          </ul>
-        </li>
+
+        <!-- Website Section -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="websiteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Websites
+            Website
           </a>
           <ul class="dropdown-menu" aria-labelledby="websiteDropdown">
             <li><a class="dropdown-item" href="trade-me.html">Trade Me</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="wise.html" aria-label="Wise Debit Card Review">Wise Debit Card</a>
+
+        <!-- Retail Section -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="retailDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Retail
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="retailDropdown">
+            <li><a class="dropdown-item" href="warehouse.html">The Warehouse</a></li>
+            <li><a class="dropdown-item" href="kmart.html">Kmart</a></li>
+          </ul>
         </li>
+
+        <!-- Food & Drink Section -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="foodDrinkDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Food & Drink
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="foodDrinkDropdown">
+            <li><a class="dropdown-item" href="milkrun.html">Milkrun</a></li>
+          </ul>
+        </li>
+
+        <!-- Wise Section -->
+        <li class="nav-item">
+          <a class="nav-link" href="wise.html">Wise Debit Card</a>
+        </li>
+
       </ul>
     </div>
   </div>
