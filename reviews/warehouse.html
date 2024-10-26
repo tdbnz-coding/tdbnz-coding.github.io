@@ -7,41 +7,62 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Consistent Flexbox Layout */
     body {
       display: flex;
       min-height: 100vh;
       flex-direction: column;
       margin: 0;
     }
-
     .container {
       flex: 1;
     }
-
     footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      width: 100%; /* Ensure full width */
+      width: 100%;
     }
   </style>
 </head>
 <body>
 
+  <!-- Navbar Include -->
   <div data-include="navbar.html"></div>
 
+  <!-- Main Content -->
   <div class="container mt-5">
     <h1 class="text-center">The Warehouse Review</h1>
 
+    <!-- Logo Section -->
     <div class="text-center">
       <img src="https://www.thewarehousegroup.co.nz/application/files/9816/0566/4901/thewarehouse_red_background_logo.png" 
            alt="The Warehouse Logo" class="img-fluid mb-4" style="max-width: 300px;">
     </div>
 
     <section class="mt-4">
-      <h2>The Warehouse vs Competitors</h2>
+      <h2>How The Warehouse Became "The Red Shed"</h2>
+      <p>
+        Established in 1982, **The Warehouse** has become a household name across New Zealand. Nicknamed "The Red Shed," the retailer is known for offering a wide range of affordable products, from clothing and electronics to homeware and groceries. With over 90 stores nationwide, The Warehouse aims to provide accessible shopping for every Kiwi.
+      </p>
+      <p>
+        Over the years, The Warehouse has expanded its services, including **Click & Collect** and home delivery options, making it even easier for customers to shop. The company's mission has always been to make everyday items affordable, and its frequent sales and promotions reflect this goal.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>Product Range and Services</h2>
+      <p>The Warehouse offers a diverse product range, including:</p>
+      <ul>
+        <li>**Electronics:** TVs, laptops, smartphones, and small appliances.</li>
+        <li>**Clothing:** Fashion for men, women, and children.</li>
+        <li>**Homeware:** Furniture, bedding, and kitchen essentials.</li>
+        <li>**Groceries:** Pantry items, snacks, and household products.</li>
+        <li>**Toys & Outdoor:** Toys, games, bikes, and camping equipment.</li>
+      </ul>
+      <p>
+        Customers can take advantage of The Warehouse's **Click & Collect** service, enabling them to order online and pick up in-store. Delivery services are also available, with competitive shipping options.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>The Warehouse vs. Competitors</h2>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -54,15 +75,56 @@
         <tbody>
           <tr>
             <td>Product Range</td>
-            <td>Wide (Clothing, electronics, homeware)</td>
-            <td>Similar (Homeware, toys, clothing)</td>
-            <td>Focus on premium fashion and homeware</td>
+            <td>Wide (Clothing, electronics, groceries)</td>
+            <td>Broad (Homeware, toys, fashion)</td>
+            <td>Premium focus (Clothing, beauty, homeware)</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>Low to Medium</td>
+            <td>Low</td>
+            <td>Medium to High</td>
+          </tr>
+          <tr>
+            <td>Store Network</td>
+            <td>90+ stores nationwide</td>
+            <td>20+ stores nationwide</td>
+            <td>50+ stores</td>
+          </tr>
+          <tr>
+            <td>Online Shopping</td>
+            <td>Yes (Click & Collect, Delivery)</td>
+            <td>Yes (Click & Collect, Delivery)</td>
+            <td>Yes</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <div class="mt-5" data-include="footer.html"></div>
+    <section class="mt-4 text-center">
+      <h2>Warehouse Coupons & Deals</h2>
+      <p>
+        Looking for discounts and special deals? Visit **Choice Cheapies** for exclusive offers and promotions at The Warehouse.
+      </p>
+      <a href="https://www.cheapies.nz/deals/thewarehouse.co.nz" target="_blank" class="btn btn-secondary mb-4">
+        Explore Choice Cheapies - The Warehouse
+      </a>
+    </section>
+
+    <section class="mt-4">
+      <h2>Our Verdict</h2>
+      <p>
+        The Warehouse remains a leader in New Zealand’s retail landscape, offering a wide selection of products at competitive prices. While some items may vary in quality, the frequent sales, Click & Collect service, and extensive store network make The Warehouse a reliable option for everyday shopping.
+      </p>
+      <p>
+        Whether you're shopping for homeware, groceries, or fashion, The Warehouse provides a convenient and affordable solution for all your needs.
+      </p>
+      <a href="https://www.thewarehouse.co.nz" target="_blank" class="btn btn-primary">Visit The Warehouse</a>
+    </section>
+  </div>
+
+  <!-- Footer Include -->
+  <div class="mt-5" data-include="footer.html"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
