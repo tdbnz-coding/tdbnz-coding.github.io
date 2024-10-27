@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Embed Movies & TV Shows</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">  <!-- Ensure correct path -->
+</head>
+<body>
+
+<div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
+    <h1 class="mb-4">Auto Embed Movies & TV Shows</h1>
+
+    <!-- Movie Input Section -->
+    <div class="mb-4">
+        <h2>Embed a Movie</h2>
+        <input type="text" id="movieId" class="form-control mb-2" placeholder="Enter Movie ID (e.g., tt3359350)" />
+        <button class="btn btn-primary" onclick="embedMovie()">Embed Movie</button>
+    </div>
+
+    <!-- TV Show Input Section -->
+    <div class="mb-4">
+        <h2>Embed a TV Show</h2>
+        <input type="text" id="tvId" class="form-control mb-2" placeholder="Enter TV Show ID (e.g., tt0903747)" />
+        <input type="number" id="season" class="form-control mb-2" placeholder="Season Number" min="1" />
+        <input type="number" id="episode" class="form-control mb-2" placeholder="Episode Number" min="1" />
+        <button class="btn btn-primary" onclick="embedTvShow()">Embed TV Show</button>
+    </div>
+
+    <!-- Embed Frame -->
+    <iframe id="embedFrame" class="w-100" style="max-width: 800px; height: 450px;" allowfullscreen></iframe>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Function to embed a movie
+    function embedMovie() {
+        const movieId = document.getElementById('movieId').value.trim();
+        if (movieId) {
+            document.getElementById('embedFrame').src = `https://player.autoembed.cc/embed/movie/${movieId}`;
+        } else {
+            alert('Please enter a valid movie ID.');
+        }
+    }
+
+    // Function to embed a TV show
+    function embedTvShow() {
+        const tvId = document.getElementById('tvId').value.trim();
+        const season = document.getElementById('season').value;
+        const episode = document.getElementById('episode').value;
+
+        if (tvId && season && episode) {
+            document.getElementById('embedFrame').src =
+                `https://player.autoembed.cc/embed/tv/${tvId}/${season}/${episode}`;
+        } else {
+            alert('Please enter valid TV show ID, season, and episode.');
+        }
+    }
+</script>
+
+</body>
+</html>
