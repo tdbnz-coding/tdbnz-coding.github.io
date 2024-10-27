@@ -1,95 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Embed Movies & TV Shows</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css"> <!-- Ensure correct path -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search & Embed Movies / TV Shows</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-rbsA2VBKQfNfGJWGeWl9/k4iKt5Z7vBJ6fTVfbBODN8ulj1VbQbsAJktPjA4c6Nf"
+    crossorigin="anonymous"
+  />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    .embed-responsive {
+      border: 2px solid #000;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
-    <h1 class="mb-4">Auto Embed Movies & TV Shows</h1>
-
-    <!-- Movie Name Search Section -->
-    <div class="mb-4">
-        <h2>Search and Embed a Movie</h2>
-        <input type="text" id="movieName" class="form-control mb-2" placeholder="Enter Movie Name (e.g., Mean Girls)" />
-        <button class="btn btn-primary" onclick="searchMovie()">Search & Embed Movie</button>
+  <div class="container text-center">
+    <h1 class="mb-4">Search & Embed Movies / TV Shows</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <input
+          type="text"
+          id="searchBox"
+          class="form-control mb-3"
+          placeholder="Enter movie/TV name or ID (e.g., tt3359350)"
+        />
+        <button class="btn btn-primary w-100" onclick="searchContent()">Search</button>
+      </div>
     </div>
 
-    <!-- Direct Movie ID Input Section -->
-    <div class="mb-4">
-        <h2>Embed a Movie by ID</h2>
-        <input type="text" id="movieId" class="form-control mb-2" placeholder="Enter Movie ID (e.g., tt3359350)" />
-        <button class="btn btn-primary" onclick="embedMovie()">Embed Movie</button>
+    <div class="row mt-4 justify-content-center">
+      <div class="col-md-10">
+        <div class="ratio ratio-16x9">
+          <iframe
+            id="embedFrame"
+            src=""
+            allowfullscreen
+            class="embed-responsive"
+          ></iframe>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- TV Show Input Section -->
-    <div class="mb-4">
-        <h2>Embed a TV Show</h2>
-        <input type="text" id="tvId" class="form-control mb-2" placeholder="Enter TV Show ID (e.g., tt0903747)" />
-        <input type="number" id="season" class="form-control mb-2" placeholder="Season Number" min="1" />
-        <input type="number" id="episode" class="form-control mb-2" placeholder="Episode Number" min="1" />
-        <button class="btn btn-primary" onclick="embedTvShow()">Embed TV Show</button>
-    </div>
+  <script>
+    const TMDB_API_KEY = '3c388e32d5258a951b7525ba8e8e7d84';
 
-    <!-- Embed Frame -->
-    <iframe id="embedFrame" class="w-100" style="max-width: 800px; height: 450px;" allowfullscreen></iframe>
-</div>
+    async function searchContent() {
+      const userInput = document.getElementById('searchBox').value.trim();
 
-<script>
-    const OMDB_API_KEY = '17010cf6'; // Your OMDB API key
+      if (!userInput) {
+        alert('Please enter a valid name or ID.');
+        return;
+      }
 
-    // Function to embed a movie by IMDb ID
-    function embedMovie() {
-        const movieId = document.getElementById('movieId').value.trim();
-        if (movieId) {
-            document.getElementById('embedFrame').src = `https://player.autoembed.cc/embed/movie/${movieId}`;
+      if (userInput.startsWith('tt') || !isNaN(userInput)) {
+        handleIDInput(userInput);
+      } else {
+        await searchByName(userInput);
+      }
+    }
+
+    function handleIDInput(id) {
+      if (id.startsWith('tt')) {
+        if (confirm('Is this a TV show? If yes, click OK.')) {
+          promptForTvShowDetails(id);
         } else {
-            alert('Please enter a valid movie ID.');
+          embedMovie(id);
         }
+      } else {
+        promptForTvShowDetails(id);
+      }
     }
 
-    // Function to embed a TV show
-    function embedTvShow() {
-        const tvId = document.getElementById('tvId').value.trim();
-        const season = document.getElementById('season').value;
-        const episode = document.getElementById('episode').value;
+    async function searchByName(query) {
+      const url = `https://api.themoviedb.org/3/search/multi?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(query)}`;
 
-        if (tvId && season && episode) {
-            document.getElementById('embedFrame').src = 
-                `https://player.autoembed.cc/embed/tv/${tvId}/${season}/${episode}`;
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.results.length > 0) {
+          const firstResult = data.results[0];
+          const id = firstResult.id;
+
+          if (firstResult.media_type === 'movie') {
+            embedMovie(id);
+          } else if (firstResult.media_type === 'tv') {
+            promptForTvShowDetails(id);
+          }
         } else {
-            alert('Please enter valid TV show ID, season, and episode.');
+          alert('No results found.');
         }
+      } catch (error) {
+        alert('Error fetching data. Please try again.');
+        console.error(error);
+      }
     }
 
-    // Function to search for a movie by name and embed it
-    function searchMovie() {
-        const movieName = document.getElementById('movieName').value.trim();
-        if (!movieName) {
-            alert('Please enter a movie name.');
-            return;
-        }
+    function promptForTvShowDetails(id) {
+      const season = prompt('Enter the season number:');
+      const episode = prompt('Enter the episode number:');
 
-        fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(movieName)}&apikey=${OMDB_API_KEY}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.Response === "True") {
-                    const imdbID = data.imdbID;
-                    document.getElementById('embedFrame').src = `https://player.autoembed.cc/embed/movie/${imdbID}`;
-                } else {
-                    alert('Movie not found. Please try another name.');
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching movie:', error);
-                alert('An error occurred. Please try again.');
-            });
+      if (season && episode) {
+        const url = `https://player.autoembed.cc/embed/tv/${id}/${season}/${episode}`;
+        setIframeSrc(url);
+      } else {
+        alert('Both season and episode numbers are required.');
+      }
     }
-</script>
 
+    function embedMovie(id) {
+      const url = `https://player.autoembed.cc/embed/movie/${id}`;
+      setIframeSrc(url);
+    }
+
+    function setIframeSrc(url) {
+      const iframe = document.getElementById('embedFrame');
+      iframe.src = url;
+
+      iframe.onload = () => console.log('Content loaded successfully.');
+      iframe.onerror = () =>
+        alert('Failed to load content. Please try again.');
+    }
+  </script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+YlKw1Qp36AB+1U8FUFAp6RdBLoEX"
+    crossorigin="anonymous"
+  ></script>
 </body>
 </html>
