@@ -7,7 +7,7 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  
+
   <style>
     body {
       background-color: #f8f9fa;
@@ -23,6 +23,10 @@
       text-align: left;
       font-size: 1.2rem;
     }
+    .link-section p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -33,31 +37,24 @@
 
     <div class="text-center mt-3" aria-label="System Modes">
       <h2>My Multi Mode System</h2>
-      <p>
-        Echolink: <b>304602 (ZL3TOM-L)</b> | 
-        AllStar: <a href="https://stats.allstarlink.org/stats/40452" target="_blank" 
-                    aria-label="AllStar 40452 Status">
-                    40452
-                 </a>
-      </p>
-      <p>
-        AllStar: <a href="https://stats.allstarlink.org/stats/40452" target="_blank">40452 - Status</a> |
-        <a href="https://stats.allstarlink.org/stats/40452/networkMap" target="_blank">Bubble Map</a>
-      </p>
-      <p><a href="https://www.qrz.com/db/zl3tom" target="_blank" aria-label="ZL3TOM QRZ Profile">Visit My QRZ Profile</a></p>
-    </div>
+      <p>Echolink: <b>304602 (ZL3TOM-L)</b></p>
 
-    <!-- Embedded Node Status -->
-    <div class="mt-4">
-      <iframe src="http://165.22.121.189/link.php?nodes=40452" 
-              width="100%" height="400" frameborder="0" 
-              title="ZL3TOM Node Status" aria-label="ZL3TOM Node Status">
-      </iframe>
+      <div class="link-section">
+        <p>
+          AllStar: <b>40452</b> – 
+          <a href="https://stats.allstarlink.org/stats/40452" target="_blank" aria-label="40452 Status Link">Status</a> | 
+          <a href="https://stats.allstarlink.org/stats/40452/networkMap" target="_blank" aria-label="40452 Bubble Map">Bubble Map</a>
+        </p>
+        <p>
+          <a href="https://www.qrz.com/db/zl3tom" target="_blank" aria-label="ZL3TOM ALLSTAR NODE PAGE">ZL3TOM - ALLSTAR NODE Dashboard</a>
+        </p>
+        <p>
+          <a href="https://www.qrz.com/db/zl3tom" target="_blank" aria-label="ZL3TOM QRZ Profile">Visit My QRZ Profile</a>
+        </p>
+      </div>
     </div>
 
     <div class="accordion mt-5" id="dtmfCommands" role="region" aria-labelledby="dtmfCommandsHeader">
-      
-      <!-- Link Commands Section -->
       <div class="card">
         <div class="card-header" id="linkCommandsHeading">
           <h2 class="mb-0">
@@ -84,7 +81,6 @@
         </div>
       </div>
 
-      <!-- System Status Commands Section -->
       <div class="card">
         <div class="card-header" id="statusCommandsHeading">
           <h2 class="mb-0">
@@ -110,7 +106,6 @@
         </div>
       </div>
 
-      <!-- Control Commands Section -->
       <div class="card">
         <div class="card-header" id="controlCommandsHeading">
           <h2 class="mb-0">
@@ -139,7 +134,6 @@
         </div>
       </div>
 
-      <!-- Autopatch Commands Section -->
       <div class="card">
         <div class="card-header" id="autopatchCommandsHeading">
           <h2 class="mb-0">
@@ -161,7 +155,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
