@@ -5,17 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Streaming Hub - NZ Channels</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.11.4/video-js.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #121212; color: #fff; font-family: Arial, sans-serif; }
-        .container { margin-top: 30px; }
-        .video-player { border-radius: 10px; overflow: hidden; }
-        .channel-list { overflow-y: auto; max-height: 70vh; padding: 20px; background-color: #1c1c1c; border-radius: 10px; }
-        .channel-item { padding: 15px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; display: flex; align-items: center; }
-        .channel-item:hover { background-color: #333; }
-        .channel-logo { width: 50px; height: 50px; margin-right: 10px; }
-        .epg { background-color: #1c1c1c; border-radius: 10px; padding: 20px; margin-top: 20px; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -33,7 +23,7 @@
         <!-- Video Player -->
         <div class="col-lg-6 col-md-8 col-sm-12">
             <div class="video-player">
-                <video id="tvPlayer" class="video-js vjs-fluid" controls autoplay></video>
+                <video id="video" controls autoplay></video>
             </div>
         </div>
 
@@ -46,7 +36,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.11.4/video.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
     const channels = [
@@ -92,9 +81,8 @@
         { name: 'Channel News Asia (CNA)', url: 'https://i.mjh.nz/.r/channel-news-asia.m3u8', logo: 'https://i.mjh.nz/.images/channel-news-asia.png' }
     ];
 
-
-    const epgUrl = "https://i.mjh.nz/nz/epg.xml.gz"; // URL for EPG data
-    const player = document.getElementById('tvPlayer');
+    const epgUrl = "https://i.mjh.nz/nz/epg.xml"; // Corrected URL for EPG data
+    const video = document.getElementById('video');
     const channelContainer = document.getElementById('channelList');
     const epgContent = document.getElementById('epgContent');
 
@@ -109,20 +97,27 @@
 
     // Function to play selected channel and load EPG
     function playChannel(url, channelName) {
+        if (window.hls) {
+            window.hls.destroy();
+            window.hls = null;
+        }
+
         if (Hls.isSupported()) {
             const hls = new Hls();
             hls.loadSource(url);
-            hls.attachMedia(player);
+            hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, () => {
-                player.play();
+                video.play();
             });
-        } else if (player.canPlayType('application/vnd.apple.mpegurl')) {
-            player.src = url;
-            player.addEventListener('canplay', () => {
-                player.play();
+            window.hls = hls;
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = url;
+            video.addEventListener('canplay', () => {
+                video.play();
             });
         }
-        // Load EPG data
+
+        // Load EPG data for the selected channel
         loadEpg(channelName);
     }
 
@@ -133,24 +128,64 @@
             const response = await fetch(epgUrl);
             const text = await response.text();
             const parser = new DOMParser();
-            const xml = parser.parseFromString(text, "text/xml");
+            const xml = parser.parseFromString(text, "application/xml");
             const events = xml.querySelectorAll("programme");
+
+            const nowNZTime = new Date().toLocaleString("en-US", { timeZone: "Pacific/Auckland" });
+            const currentDate = new Date(nowNZTime); // Set to current time in NZ
+            const today = currentDate.toISOString().slice(0, 10); // Extract the YYYY-MM-DD part for comparison
 
             let epgHTML = "";
             events.forEach(event => {
+                const channel = event.getAttribute("channel");
                 const title = event.querySelector("title")?.textContent || "No title";
                 const startTime = event.getAttribute("start");
-                const formattedTime = `${startTime.slice(6, 8)}:${startTime.slice(8, 10)}`;
-                epgHTML += `<div><strong>${formattedTime}</strong>: ${title}</div>`;
+                const endTime = event.getAttribute("stop");
+
+                // Only display events for the selected channel
+                if (channel && channel.includes(channelName.toLowerCase())) {
+                    // Convert start and end times to NZ time and format date
+                    const startDateTime = new Date(
+                        parseInt(startTime.slice(0, 4)),
+                        parseInt(startTime.slice(4, 6)) - 1,
+                        parseInt(startTime.slice(6, 8)),
+                        parseInt(startTime.slice(8, 10)),
+                        parseInt(startTime.slice(10, 12))
+                    ).toLocaleString("en-US", { timeZone: "Pacific/Auckland" });
+
+                    const endDateTime = new Date(
+                        parseInt(endTime.slice(0, 4)),
+                        parseInt(endTime.slice(4, 6)) - 1,
+                        parseInt(endTime.slice(6, 8)),
+                        parseInt(endTime.slice(8, 10)),
+                        parseInt(endTime.slice(10, 12))
+                    ).toLocaleString("en-US", { timeZone: "Pacific/Auckland" });
+
+                    const startDate = new Date(startDateTime);
+                    const endDate = new Date(endDateTime);
+
+                    // Filter to display today's programs and exclude past events
+                    if (startDate.toISOString().slice(0, 10) === today && endDate > currentDate) {
+                        const options = { hour: '2-digit', minute: '2-digit' };
+                        const startNZTime = new Intl.DateTimeFormat('en-NZ', options).format(startDate);
+
+                        // Highlight current show
+                        const isCurrentShow = currentDate >= startDate && currentDate < endDate;
+                        const prefix = isCurrentShow ? "<strong>Now:</strong> " : "";
+
+                        epgHTML += `<div>${prefix}<strong>${startNZTime}</strong>: ${title}</div>`;
+                    }
+                }
             });
-            epgContent.innerHTML = epgHTML;
+
+            epgContent.innerHTML = epgHTML || "No schedule available for this channel.";
         } catch (error) {
             epgContent.innerHTML = "Unable to load EPG data.";
+            console.error("EPG Loading Error:", error);
         }
     }
 
-    // Set default channel to play on load
-    playChannel(channels[0].url, channels[0].name);
+    playChannel(channels[0].url, channels[0].name); // Play default channel on load
 </script>
 
 </body>
