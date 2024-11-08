@@ -1,153 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NZ Live Streaming TV with EPG</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.11.4/video-js.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #121212; color: #fff; font-family: Arial, sans-serif; }
-        .container { margin-top: 30px; }
-        .video-player { border-radius: 10px; overflow: hidden; }
-        .channel-list { overflow-y: auto; max-height: 70vh; padding: 20px; background-color: #1c1c1c; border-radius: 10px; }
-        .channel-item { padding: 15px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; display: flex; align-items: center; }
-        .channel-item:hover { background-color: #333; }
-        .channel-logo { width: 50px; height: 50px; margin-right: 10px; }
-        .epg { background-color: #1c1c1c; border-radius: 10px; padding: 20px; margin-top: 20px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming Hub - NZ Channels</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
 
-<div class="container">
-    <h1 class="text-center mb-5">NZ Live Streaming TV with EPG</h1>
-    <div class="row">
-        <!-- Channel List -->
-        <div class="col-lg-3 col-md-4 col-sm-12 channel-list">
-            <h3>Channels</h3>
-            <ul id="channelList" class="list-unstyled">
-                <!-- JavaScript will populate channels here -->
-            </ul>
-        </div>
-
-        <!-- Video Player -->
-        <div class="col-lg-6 col-md-8 col-sm-12">
-            <div class="video-player">
-                <video id="tvPlayer" class="video-js vjs-fluid" controls autoplay>
-                    <source src="" type="application/x-mpegURL">
-                </video>
-            </div>
-        </div>
-
-        <!-- EPG Section -->
-        <div class="col-lg-3 col-md-12 col-sm-12 epg" id="epgSection">
-            <h3>Program Guide</h3>
-            <div id="epgContent">Select a channel to view the schedule.</div>
-        </div>
+<div class="container-fluid">
+  <div class="row mt-4">
+    <!-- Channel List -->
+    <div class="col-md-3">
+      <h5>Channel List</h5>
+      <ul class="list-group" id="channelList">
+        <!-- Channels will be loaded dynamically here -->
+      </ul>
     </div>
+
+    <!-- Video Player -->
+    <div class="col-md-9">
+      <h5>Now Playing</h5>
+      <video id="video" controls width="100%" height="auto"></video>
+    </div>
+  </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.11.4/video.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
-    const channels = [
-        { name: 'ThreeNow Sport 1', url: 'https://i.mjh.nz/.r/discovery-popup1.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1709691768464/20240503T165613_threenow_sport_1_epg_750x500.png' },
-        { name: 'HGTV', url: 'https://i.mjh.nz/.r/discovery-hgtv.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1710370016016/20240314T115242_hgtvlogo.png' },
-        { name: 'CNN Fast', url: 'https://i.mjh.nz/.r/discovery-ptcn.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1715808491150/20240516T093155_cnnfast_logo_750x500.png' },
-        { name: 'MovieSphere', url: 'https://i.mjh.nz/.r/discovery-ptms.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1711490737342/20240327T110809_moviespherelogo.png' },
-        { name: 'The Graham Norton Show', url: 'https://i.mjh.nz/.r/discovery-ptgn.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1715808217223/20240516T092707_graham_norton_logo_small_750x500.png' },
-        { name: 'Warner Bros TV True Crime', url: 'https://i.mjh.nz/.r/discovery-fast4.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1700521491288/20231121T121011_truecrimelogo.png' },
-        { name: 'Warner Bros TV Paranormal', url: 'https://i.mjh.nz/.r/discovery-fast5.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1700521701602/20231121T120842_paranormallogo.png' },
-        { name: 'Warner Bros TV Motorheads', url: 'https://i.mjh.nz/.r/discovery-fast1.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1701633988394/20231204T090843_motorheadslogo.png' },
-        { name: 'West Family Sagas', url: 'https://i.mjh.nz/.r/discovery-fast7.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1701634634905/20231204T091943_westfamilylogo.png' },
-        { name: 'Warner Bros TV Deadliest Catch', url: 'https://i.mjh.nz/.r/discovery-fast2.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1701634318032/20231204T091616_deadliestcatchlogo.png' },
-        { name: 'Warner Bros TV House Hunters', url: 'https://i.mjh.nz/.r/discovery-fast6.m3u8', logo: 'https://cdn.fullscreen.nz/threenow/prod/channels/livestream/1700521489922/20231121T120747_househunterslogo.png' },
-        { name: 'TVNZ 1', url: 'https://i.mjh.nz/.r/tvnz-1.m3u8', logo: 'https://i.mjh.nz/.images/tvnz-1.png' },
-        { name: 'TVNZ 2', url: 'https://i.mjh.nz/.r/tvnz-2.m3u8', logo: 'https://i.mjh.nz/.images/tvnz-2.png' },
-        { name: 'Three', url: 'https://i.mjh.nz/.r/three.m3u8', logo: 'https://i.mjh.nz/.images/three.png' },
-        { name: 'Bravo', url: 'https://i.mjh.nz/.r/bravo.m3u8', logo: 'https://i.mjh.nz/.images/bravo.png' },
-        { name: 'Whakaata Māori', url: 'https://i.mjh.nz/.r/maori-tv.m3u8', logo: 'https://i.mjh.nz/.images/maori-tv.png' },
-        { name: 'DUKE', url: 'https://i.mjh.nz/.r/tvnz-duke.m3u8', logo: 'https://i.mjh.nz/.images/tvnz-duke.png' },
-        { name: 'eden', url: 'https://i.mjh.nz/.r/eden.m3u8', logo: 'https://i.mjh.nz/.images/eden.png' },
-        { name: 'RUSH', url: 'https://i.mjh.nz/.r/rush-nz.m3u8', logo: 'https://i.mjh.nz/.images/rush-nz.png' },
-        { name: 'Te Reo', url: 'https://i.mjh.nz/.r/te-reo.m3u8', logo: 'https://i.mjh.nz/.images/te-reo.png' },
-        { name: 'Sky Open', url: 'https://i.mjh.nz/.r/prime.m3u8', logo: 'https://i.mjh.nz/.images/sky-open.png' },
-        { name: 'Al Jazeera', url: 'https://i.mjh.nz/.r/al-jazeera.m3u8', logo: 'https://i.mjh.nz/.images/al-jazeera.png' },
-        { name: 'Sky Open+1', url: 'https://i.mjh.nz/.r/prime-plus1.m3u8', logo: 'https://i.mjh.nz/.images/sky-open.png' },
-        { name: 'Shine TV', url: 'https://i.mjh.nz/.r/shine-tv.m3u8', logo: 'https://i.mjh.nz/.images/shine-tv.png' },
-        { name: 'Firstlight', url: 'https://i.mjh.nz/.r/firstlight.m3u8', logo: 'https://i.mjh.nz/.images/firstlight.png' },
-        { name: 'Hope Channel', url: 'https://i.mjh.nz/.r/hope-channel.m3u8', logo: 'https://i.mjh.nz/.images/hope-channel.png' },
-        { name: 'Chinese TV28', url: 'https://i.mjh.nz/.r/chinese-tv28.m3u8', logo: 'https://i.mjh.nz/.images/chinese-tv28.png' },
-        { name: 'Chinese TV29', url: 'https://i.mjh.nz/.r/chinese-tv29.m3u8', logo: 'https://i.mjh.nz/.images/chinese-tv29.png' },
-        { name: 'Parliament TV', url: 'https://i.mjh.nz/.r/parliament-tv.m3u8', logo: 'https://i.mjh.nz/.images/parliament-tv.png' },
-        { name: 'APNA Television', url: 'https://i.mjh.nz/.r/apna-television.m3u8', logo: 'https://i.mjh.nz/.images/apna-television.png' },
-        { name: 'Panda TV', url: 'https://i.mjh.nz/.r/panda-tv.m3u8', logo: 'https://i.mjh.nz/.images/panda-tv.png' },
-        { name: 'Wairarapa TV', url: 'https://i.mjh.nz/.r/wairarapa-tv.m3u8', logo: 'https://i.mjh.nz/.images/wairarapa-tv.png' },
-        { name: 'TAB Trackside 1', url: 'https://i.mjh.nz/.r/trackside-1.m3u8', logo: 'https://i.mjh.nz/.images/trackside-1.png' },
-        { name: 'TAB Trackside 2', url: 'https://i.mjh.nz/.r/trackside-2.m3u8', logo: 'https://i.mjh.nz/.images/trackside-2.png' },
-        { name: 'CH200', url: 'https://i.mjh.nz/.r/ch200.m3u8', logo: 'https://i.mjh.nz/.images/ch200.png' },
-        { name: 'JuiceTV', url: 'https://i.mjh.nz/.r/juice-tv.m3u8', logo: 'https://i.mjh.nz/.images/juice-tv.png' },
-        { name: 'JuiceX', url: 'https://i.mjh.nz/.r/juice-x.m3u8', logo: 'https://i.mjh.nz/.images/juice-x.png' },
-        { name: 'TVSN Shopping', url: 'https://i.mjh.nz/.r/tvsn-shopping.m3u8', logo: 'https://i.mjh.nz/.images/tvsn-shopping.png' },
-        { name: 'Redbull TV', url: 'https://i.mjh.nz/.r/redbull-tv.m3u8', logo: 'https://i.mjh.nz/.images/redbull-tv.png' },
-        { name: 'Channel News Asia (CNA)', url: 'https://i.mjh.nz/.r/channel-news-asia.m3u8', logo: 'https://i.mjh.nz/.images/channel-news-asia.png' }
-    ];
+// Load channels from channels.json and initialize the player
+fetch('channels.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok: ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(channels => {
+    console.log(channels); // Log channels to check if data is loaded correctly
+    loadChannelList(channels);
+  })
+  .catch(error => console.error('Error loading channels:', error));
 
-    const epgUrl = "https://i.mjh.nz/nz/epg.xml.gz"; // URL for EPG data
-    
-    const player = videojs('tvPlayer');
-    const channelContainer = document.getElementById('channelList');
-    const epgContent = document.getElementById('epgContent');
+// Function to load channel list into the HTML
+function loadChannelList(channels) {
+  const channelListElement = document.getElementById('channelList');
+  channels.forEach(channel => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('list-group-item', 'd-flex', 'align-items-center', 'cursor-pointer');
+    listItem.innerHTML = `
+      <img src="${channel.logo}" alt="${channel.name}" class="img-thumbnail mr-3" style="width: 50px; height: 50px;">
+      <span>${channel.name}</span>
+    `;
+    listItem.onclick = () => loadStream(channel.stream);
+    channelListElement.appendChild(listItem);
+  });
+}
 
-    // Populate channels list dynamically
-    channels.forEach((channel) => {
-        const li = document.createElement('li');
-        li.className = 'channel-item';
-        li.innerHTML = `<img src="${channel.logo}" alt="${channel.name}" class="channel-logo"><span>${channel.name}</span>`;
-        li.onclick = () => playChannel(channel.url, channel.name);
-        channelContainer.appendChild(li);
+// Function to load the stream in the video player
+function loadStream(streamUrl) {
+  const video = document.getElementById('video');
+  
+  if(Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(streamUrl);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      video.play();
     });
-
-    // Function to play selected channel and load EPG
-    function playChannel(url, channelName) {
-        // Load channel video
-        if (Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource(url);
-            hls.attachMedia(player.tech().el());
-        } else {
-            player.src({ src: url, type: 'application/x-mpegURL' });
-        }
-        // Fetch and display EPG data
-        loadEpg(channelName);
-    }
-
-    // Function to load and display EPG data for selected channel
-    async function loadEpg(channelName) {
-        epgContent.innerHTML = "Loading EPG...";
-        try {
-            const response = await fetch(epgUrl);
-            const text = await response.text();
-            const parser = new DOMParser();
-            const xml = parser.parseFromString(text, "text/xml");
-            const events = xml.querySelectorAll("programme");
-
-            let epgHTML = "";
-            events.forEach(event => {
-                const title = event.querySelector("title")?.textContent || "No title";
-                const startTime = event.getAttribute("start");
-                const formattedTime = `${startTime.slice(6, 8)}:${startTime.slice(8, 10)}`;
-                epgHTML += `<div><strong>${formattedTime}</strong>: ${title}</div>`;
-            });
-            epgContent.innerHTML = epgHTML;
-        } catch (error) {
-            epgContent.innerHTML = "Unable to load EPG data.";
-        }
-    }
-
-    // Set default channel to play on load
-    playChannel(channels[0].url, channels[0].name);
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = streamUrl;
+    video.addEventListener('canplay', function() {
+      video.play();
+    });
+  }
+}
 </script>
 
 </body>
