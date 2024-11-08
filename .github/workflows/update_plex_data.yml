@@ -1,8 +1,9 @@
 name: Update Plex Data
 
 on:
+  workflow_dispatch:  # Allows manual triggering
   schedule:
-    - cron: "*/3 * * * *"  # Runs every 3 minutes
+    - cron: "*/3 * * * *"  # Also runs every 3 minutes
 
 jobs:
   update-plex-data:
@@ -10,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # Updated to latest version
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4  # Updated to latest version
         with:
           python-version: '3.x'
 
@@ -28,7 +29,7 @@ jobs:
           import json
           import os
 
-          # Plex server URL
+          # Updated Plex server URL
           PLEX_URL = 'http://65.21.82.220:42428'
           HEADERS = {'X-Plex-Token': os.environ['PLEX_TOKEN']}
 
@@ -63,6 +64,6 @@ jobs:
         run: |
           git config --local user.email "bise@smartbusiness.me"
           git config --local user.name "tdbnz-coding"
-          git add bangmedia/plex_data.json
+          git add plex/plex_data.json
           git commit -m "Update Plex data from API"
           git push
