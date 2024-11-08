@@ -3,7 +3,7 @@ name: Update Plex Data
 on:
   workflow_dispatch:  # Allows manual triggering
   schedule:
-    - cron: "*/3 * * * *"  # Also runs every 3 minutes
+    - cron: "*/3 * * * *"  # Runs every 3 minutes
 
 jobs:
   update-plex-data:
@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  # Updated to latest version
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v4  # Updated to latest version
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -29,28 +29,40 @@ jobs:
           import json
           import os
 
-          # Updated Plex server URL
+          # Define the Plex server URL and headers
           PLEX_URL = 'http://65.21.82.220:42428'
           HEADERS = {'X-Plex-Token': os.environ['PLEX_TOKEN']}
 
           # Fetch active sessions
           sessions_url = f"{PLEX_URL}/status/sessions"
-          sessions_response = requests.get(sessions_url, headers=HEADERS)
-          sessions_data = sessions_response.json().get('MediaContainer', {}).get('Video', [])
+          try:
+              sessions_response = requests.get(sessions_url, headers=HEADERS)
+              sessions_response.raise_for_status()  # Raise an error for bad status codes
+              sessions_data = sessions_response.json().get('MediaContainer', {}).get('Video', [])
+              print("Active Sessions Data:", sessions_data)  # Log response for debugging
+          except Exception as e:
+              print("Error fetching active sessions:", e)
+              sessions_data = []
 
           # Fetch library sections
           library_url = f"{PLEX_URL}/library/sections"
-          library_response = requests.get(library_url, headers=HEADERS)
           libraries_data = []
-          for library in library_response.json().get('MediaContainer', {}).get('Directory', []):
-              # Fetch each library section's items
-              section_url = f"{PLEX_URL}/library/sections/{library['key']}/all"
-              section_response = requests.get(section_url, headers=HEADERS)
-              libraries_data.append({
-                  "title": library['title'],
-                  "type": library['type'],
-                  "items": section_response.json().get('MediaContainer', {}).get('Metadata', [])
-              })
+          try:
+              library_response = requests.get(library_url, headers=HEADERS)
+              library_response.raise_for_status()
+              for library in library_response.json().get('MediaContainer', {}).get('Directory', []):
+                  # Fetch each library section's items
+                  section_url = f"{PLEX_URL}/library/sections/{library['key']}/all"
+                  section_response = requests.get(section_url, headers=HEADERS)
+                  section_response.raise_for_status()
+                  libraries_data.append({
+                      "title": library['title'],
+                      "type": library['type'],
+                      "items": section_response.json().get('MediaContainer', {}).get('Metadata', [])
+                  })
+                  print(f"Library Section {library['title']} Data:", libraries_data[-1])  # Log each library section for debugging
+          except Exception as e:
+              print("Error fetching library sections:", e)
 
           # Save data to JSON in the 'plex' folder
           data = {
@@ -59,7 +71,8 @@ jobs:
           }
           with open('plex/plex_data.json', 'w') as json_file:
               json.dump(data, json_file)
-
+          print("Data saved to plex_data.json:", data)  # Confirm data saved
+          
       - name: Commit and push changes
         run: |
           git config --local user.email "bise@smartbusiness.me"
