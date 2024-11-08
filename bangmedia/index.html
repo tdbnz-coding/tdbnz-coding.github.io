@@ -20,16 +20,41 @@
 </div>
 
 <script>
+  let plexData = {};  // Global variable to store Plex data
+
   async function loadPlexData() {
-    const response = await fetch('plex_data.json');
-    const plexData = await response.json();
-    displayActiveSessions(plexData.active_sessions);
-    displayLibraries(plexData.libraries);
+    try {
+      const response = await fetch('plex_data.json');
+      if (!response.ok) {
+        throw new Error("Failed to load Plex data.");
+      }
+
+      const text = await response.text();
+      if (!text) {
+        console.error("Empty JSON response");
+        document.getElementById('active-sessions').innerHTML = "<p>No data available.</p>";
+        document.getElementById('libraries').innerHTML = "<p>No data available.</p>";
+        return;
+      }
+
+      plexData = JSON.parse(text); // Manually parse after checking for empty response
+      displayActiveSessions(plexData.active_sessions);
+      displayLibraries(plexData.libraries);
+    } catch (error) {
+      console.error("Error loading Plex data:", error);
+      document.getElementById("active-sessions").innerHTML = "<p>Unable to load data.</p>";
+      document.getElementById("libraries").innerHTML = "<p>Unable to load data.</p>";
+    }
   }
 
   function displayActiveSessions(sessions) {
     const activeSessionsDiv = document.getElementById('active-sessions');
     activeSessionsDiv.innerHTML = '';
+
+    if (sessions.length === 0) {
+      activeSessionsDiv.innerHTML = "<p>No active sessions.</p>";
+      return;
+    }
 
     sessions.forEach(session => {
       const sessionDiv = document.createElement('div');
@@ -37,10 +62,10 @@
       sessionDiv.innerHTML = `
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">${session.User.title}</h5>
-            <p class="card-text">Watching: ${session.title}</p>
-            <p class="card-text">Type: ${session.type}</p>
-            <p class="card-text">Status: ${session.Player.state}</p>
+            <h5 class="card-title">${session.User?.title || 'Unknown User'}</h5>
+            <p class="card-text">Watching: ${session.title || 'Unknown Title'}</p>
+            <p class="card-text">Type: ${session.type || 'Unknown Type'}</p>
+            <p class="card-text">Status: ${session.Player?.state || 'Unknown Status'}</p>
           </div>
         </div>`;
       activeSessionsDiv.appendChild(sessionDiv);
@@ -51,6 +76,11 @@
     const librariesDiv = document.getElementById('libraries');
     librariesDiv.innerHTML = '';
 
+    if (libraries.length === 0) {
+      librariesDiv.innerHTML = "<p>No library contents available.</p>";
+      return;
+    }
+
     libraries.forEach(library => {
       library.items.forEach(item => {
         const itemDiv = document.createElement('div');
@@ -59,8 +89,8 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">${item.title || 'Untitled'}</h5>
-              <p class="card-text">Type: ${library.type}</p>
-              <p class="card-text">Year: ${item.year || 'Unknown'}</p>
+              <p class="card-text">Type: ${library.type || 'Unknown Type'}</p>
+              <p class="card-text">Year: ${item.year || 'Unknown Year'}</p>
             </div>
           </div>`;
         librariesDiv.appendChild(itemDiv);
@@ -70,9 +100,29 @@
 
   function searchPlexData() {
     const input = document.getElementById('searchInput').value.toLowerCase();
-    displayLibraries(plexData.libraries.filter(library => library.items.some(item => item.title.toLowerCase().includes(input))));
+    const librariesDiv = document.getElementById('libraries');
+    librariesDiv.innerHTML = '';
+
+    plexData.libraries.forEach(library => {
+      library.items.forEach(item => {
+        if (item.title && item.title.toLowerCase().includes(input)) {
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'col-md-4 mb-4';
+          itemDiv.innerHTML = `
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">${item.title}</h5>
+                <p class="card-text">Type: ${library.type}</p>
+                <p class="card-text">Year: ${item.year || 'Unknown'}</p>
+              </div>
+            </div>`;
+          librariesDiv.appendChild(itemDiv);
+        }
+      });
+    });
   }
 
+  // Load data on page load
   loadPlexData();
 </script>
 
