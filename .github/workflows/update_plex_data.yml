@@ -1,0 +1,68 @@
+name: Update Plex Data
+
+on:
+  schedule:
+    - cron: "*/3 * * * *"  # Runs every 3 minutes
+
+jobs:
+  update-plex-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch data from Plex API
+        env:
+          PLEX_TOKEN: ${{ secrets.PLEX_TOKEN }}
+        run: |
+          import requests
+          import json
+          import os
+
+          # Plex server URL
+          PLEX_URL = 'http://65.21.82.220:42428'
+          HEADERS = {'X-Plex-Token': os.environ['PLEX_TOKEN']}
+
+          # Fetch active sessions
+          sessions_url = f"{PLEX_URL}/status/sessions"
+          sessions_response = requests.get(sessions_url, headers=HEADERS)
+          sessions_data = sessions_response.json().get('MediaContainer', {}).get('Video', [])
+
+          # Fetch library sections
+          library_url = f"{PLEX_URL}/library/sections"
+          library_response = requests.get(library_url, headers=HEADERS)
+          libraries_data = []
+          for library in library_response.json().get('MediaContainer', {}).get('Directory', []):
+              # Fetch each library section's items
+              section_url = f"{PLEX_URL}/library/sections/{library['key']}/all"
+              section_response = requests.get(section_url, headers=HEADERS)
+              libraries_data.append({
+                  "title": library['title'],
+                  "type": library['type'],
+                  "items": section_response.json().get('MediaContainer', {}).get('Metadata', [])
+              })
+
+          # Save data to JSON in the 'plex' folder
+          data = {
+              "active_sessions": sessions_data,
+              "libraries": libraries_data
+          }
+          with open('plex/plex_data.json', 'w') as json_file:
+              json.dump(data, json_file)
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "bise@smartbusiness.me"
+          git config --local user.name "tdbnz-coding"
+          git add bangmedia/plex_data.json
+          git commit -m "Update Plex data from API"
+          git push
