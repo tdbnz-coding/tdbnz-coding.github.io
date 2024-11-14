@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Roulette</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Intro Section -->
+  <section id="intro" class="d-flex flex-column justify-content-center align-items-center text-center vh-100">
+    <h1 class="display-4 fancy-title">🎬 Movie Roulette 🎬</h1>
+    <p class="lead mb-4">Not sure what to watch? Let fate decide!</p>
+    <button class="btn btn-primary btn-lg fancy-button" onclick="startRoulette()">Spin Roulette Wheel</button>
+  </section>
+
+  <!-- Roulette Animation Section -->
+  <section id="roulette-spin" class="container text-center my-5" style="display: none;">
+    <div class="roulette-animation mx-auto"></div>
+  </section>
+
+  <!-- Movie Info Section -->
+  <section id="movie-info" class="container text-center my-5" style="display: none;">
+    <div class="card mx-auto fancy-card">
+      <img id="movie-poster" class="card-img-top fancy-poster" src="" alt="Movie Poster">
+      <div class="card-body">
+        <h5 id="movie-title" class="card-title font-weight-bold"></h5>
+        <p id="movie-description" class="card-text"></p>
+        <p><strong>Cast:</strong> <span id="movie-cast"></span></p>
+        <p><strong>Year:</strong> <span id="movie-year"></span></p>
+        <button class="btn btn-primary btn-lg fancy-button mt-3" onclick="startRoulette()">Spin Roulette Table Again</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

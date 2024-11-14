@@ -165,7 +165,7 @@
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
     const channels = [
-        { name: 'TVNZ 1', url: 'https://i.mjh.nz/.r/tvnz-1.m3u8', logo: 'https://i.mjh.nz/.images/tvnz-1.png', epgId: 'mjh-tvnz-1' },
+       { name: 'TVNZ 1', url: 'https://i.mjh.nz/.r/tvnz-1.m3u8', logo: 'https://i.mjh.nz/.images/tvnz-1.png', epgId: 'mjh-tvnz-1' },
         { name: 'TVNZ 2', url: 'https://i.mjh.nz/.r/tvnz-2.m3u8', logo: 'https://i.mjh.nz/.images/tvnz-2.png', epgId: 'mjh-tvnz-2' },
         { name: 'DUKE', url: 'https://i.mjh.nz/.r/tvnz-duke.m3u8', logo: 'https://i.mjh.nz/.images/tvnz-duke.png', epgId: 'mjh-tvnz-duke' },
         { name: 'Al Jazeera', url: 'https://i.mjh.nz/.r/al-jazeera.m3u8', logo: 'https://i.mjh.nz/.images/al-jazeera.png', epgId: 'mjh-al-jazeera' },
@@ -226,16 +226,18 @@
             window.hls = null;
         }
 
+        const modifiedUrl = `${url}|user-agent=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/98.0.4758.102%20Safari/537.36`;
+
         if (Hls.isSupported()) {
             const hls = new Hls();
-            hls.loadSource(url);
+            hls.loadSource(modifiedUrl);
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, () => {
                 video.play();
             });
             window.hls = hls;
         } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = url;
+            video.src = modifiedUrl;
             video.addEventListener('canplay', () => {
                 video.play();
             });
