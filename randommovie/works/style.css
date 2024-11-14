@@ -1,16 +1,43 @@
-/* Basic Reset */
+/* Import a fancy font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+/* Dark Gradient Background */
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  font-family: 'Poppins', sans-serif;
+  background: #141414;
+  color: #e5e5e5;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Light Theme */
+body.light-theme {
+  background: #f0f0f0;
   color: #333;
 }
 
-/* Centered Content Styling */
+body.light-theme .content {
+  color: #333;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
+  color: #e50914;
+}
+
+/* Dark Mode Container Styling */
 .container {
-  max-width: 800px;
-  padding: 1rem; /* Add padding to keep the container from touching page edges */
+  max-width: 700px;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 /* Intro and Movie Info Styling */
@@ -19,37 +46,41 @@ body, html {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   box-sizing: border-box;
-  margin: 0 auto; /* Center container horizontally */
+  background-color: rgba(24, 24, 24, 0.85);
+  border-radius: 8px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Background Styling for Text Area */
-.bg-white {
-  background-color: #ffffff;
+body.light-theme .content {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
 }
 
 /* Fancy Title Styling */
 .fancy-title {
-  font-weight: 700;
-  color: #333;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 800;
+  color: #e50914;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   margin-bottom: 1rem;
 }
 
 /* Button Styling */
 .fancy-button {
-  background-color: #4e54c8;
+  background-color: #e50914;
   border: none;
   color: #ffffff;
   font-size: 1.1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .fancy-button:hover, .fancy-button:focus {
-  background-color: #373baf;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(229, 9, 20, 0.5);
   outline: none;
 }
 
@@ -58,9 +89,10 @@ body, html {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 8px solid #eeeeee;
-  border-top: 8px solid #4e54c8;
+  border: 8px solid #333;
+  border-top: 8px solid #e50914;
   animation: spin 2s linear infinite;
+  box-shadow: 0px 0px 15px rgba(229, 9, 20, 0.6);
 }
 
 @keyframes spin {
@@ -70,11 +102,11 @@ body, html {
 
 /* Poster and Frame Styling */
 .fancy-poster-container {
-  padding: 10px; /* Space inside frame */
-  border: 3px solid #ddd; /* Frame around the poster */
+  padding: 10px;
+  border: 3px solid #333;
   border-radius: 12px;
-  background-color: #ffffff; /* Frame background */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #181818;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
   margin-bottom: 1rem;
 }
 
@@ -85,19 +117,18 @@ body, html {
   border-radius: 8px;
 }
 
-/* Centering and Layout for Movie Info */
-.col-md-8 {
+/* Description Styling */
+.description {
   text-align: center;
+  padding: 10px;
+  color: inherit;
 }
 
-.btn-secondary {
-  background-color: #8f94fb;
-  border: none;
-}
-
-.btn-secondary:hover, .btn-secondary:focus {
-  background-color: #4e54c8;
-  outline: none;
+/* Button Group Styling */
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
 /* Responsive Design Adjustments */
@@ -105,14 +136,6 @@ body, html {
   .container {
     max-width: 100%;
     padding: 10px;
-  }
-
-  .card-title {
-    font-size: 1.2rem;
-  }
-
-  .fancy-button {
-    font-size: 1rem;
   }
 
   .fancy-poster {

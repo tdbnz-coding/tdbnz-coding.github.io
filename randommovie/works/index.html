@@ -7,16 +7,21 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100 bg-gradient">
+<body class="d-flex justify-content-center align-items-center min-vh-100 bg-dark-gradient">
+
+  <!-- Theme Toggle Button -->
+  <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+    💡
+  </div>
 
   <!-- Main Content Container -->
   <div class="container text-center" role="main">
     
     <!-- Intro Section -->
-    <div id="intro" class="content bg-white p-4 rounded shadow">
+    <div id="intro" class="content p-4 rounded shadow animate__animated animate__fadeInDown">
       <h1 class="display-4 fancy-title" aria-label="Movie Roulette">🎬 Movie Roulette 🎬</h1>
       <p class="lead mb-4" aria-label="Not sure what to watch? Let fate decide!">Not sure what to watch? Let fate decide!</p>
-      <button class="btn btn-primary btn-lg fancy-button" onclick="startRoulette()" aria-label="Spin Roulette Wheel">Spin Roulette Wheel</button>
+      <button class="btn btn-danger btn-lg fancy-button" onclick="startRoulette()" aria-label="Spin Roulette Wheel">Spin Roulette Wheel</button>
     </div>
 
     <!-- Roulette Animation Section -->
@@ -25,21 +30,23 @@
     </div>
 
     <!-- Movie Info Section -->
-    <div id="movie-info" class="content row mt-5 align-items-center bg-white p-4 rounded shadow" style="display: none;">
-      <div class="col-md-4 text-center">
+    <div id="movie-info" class="content p-4 rounded shadow animate__animated animate__fadeInUp" style="display: none;">
+      <div class="text-center mb-3">
         <a id="tmdb-link" href="#" target="_blank" aria-label="View on TMDB">
           <div class="fancy-poster-container">
             <img id="movie-poster" class="fancy-poster" src="" alt="Movie Poster" aria-hidden="false">
           </div>
         </a>
       </div>
-      <div class="col-md-8 text-center">
-        <h5 id="movie-title" class="card-title font-weight-bold" tabindex="0"></h5>
+      <div class="description">
         <p id="movie-description" class="card-text" tabindex="0"></p>
-        <p><strong>Cast:</strong> <span id="movie-cast" tabindex="0"></span></p>
-        <p><strong>Year:</strong> <span id="movie-year" tabindex="0"></span></p>
-        <button class="btn btn-primary fancy-button mt-3" onclick="startRoulette()" aria-label="Spin Roulette Wheel">Spin Roulette Wheel</button>
-        <button id="view-tmdb-btn" class="btn btn-secondary fancy-button mt-3" aria-label="View on TMDB">View on TMDB</button>
+        <p><strong>Status:</strong> <span id="movie-status"></span></p>
+        <p><strong>Cast:</strong> <span id="movie-cast"></span></p>
+        <p><strong>Year:</strong> <span id="movie-year"></span></p>
+      </div>
+      <div class="button-group mt-3">
+        <button class="btn btn-danger fancy-button" onclick="startRoulette()" aria-label="Spin Roulette Wheel">Spin Again</button>
+        <button id="view-tmdb-btn" class="btn btn-secondary fancy-button" aria-label="View on TMDB">View on TMDB</button>
       </div>
     </div>
 

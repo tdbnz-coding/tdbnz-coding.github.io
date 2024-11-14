@@ -1,20 +1,24 @@
 // TMDB API Key
 const TMDB_API_KEY = '3c388e32d5258a951b7525ba8e8e7d84';
 
+// Toggle between light and dark themes
+function toggleTheme() {
+  document.body.classList.toggle('light-theme');
+}
+
 // Function to trigger roulette animation and fetch movie info after animation
 function startRoulette() {
   document.getElementById('intro').style.display = 'none';
-  document.getElementById('movie-info').style.display = 'none'; // Hide movie info if visible
+  document.getElementById('movie-info').style.display = 'none';
   document.getElementById('roulette-spin').style.display = 'block';
 
-  // Display the movie info after a delay (e.g., 2 seconds for the spinning animation)
   setTimeout(() => {
     document.getElementById('roulette-spin').style.display = 'none';
-    getRandomMovie(); // Call function to fetch and display random movie
+    getRandomMovie();
   }, 2000);
 }
 
-// Function to fetch a random movie
+// Function to fetch a random movie from TMDB API
 async function getRandomMovie() {
   const randomPage = Math.floor(Math.random() * 500) + 1;
   const movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_API_KEY}&page=${randomPage}`;
@@ -31,12 +35,24 @@ async function getRandomMovie() {
   }
 }
 
-// Function to display movie details including cast, year, and TMDB link
+// Function to display movie details, including poster, description, cast, year, and status
 async function displayMovieInfo(movie) {
-  const movieTitle = movie.title;
   const movieDescription = movie.overview || "No description available.";
   const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'default-poster.jpg';
-  const movieYear = movie.release_date ? movie.release_date.split('-')[0] : "Unknown";
+  const releaseDate = movie.release_date || "Unknown";
+  const movieYear = releaseDate.split('-')[0];
+  
+  // Determine release status
+  const today = new Date();
+  const releaseDateObj = new Date(releaseDate);
+  let movieStatus;
+  
+  if (releaseDateObj > today) {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    movieStatus = `Coming Out on ${releaseDateObj.toLocaleDateString("en-US", options)}`;
+  } else {
+    movieStatus = "Released";
+  }
 
   // Set TMDB link
   const tmdbLink = `https://www.themoviedb.org/movie/${movie.id}`;
@@ -55,9 +71,9 @@ async function displayMovieInfo(movie) {
   }
 
   // Update movie info display
-  document.getElementById('movie-title').textContent = movieTitle;
   document.getElementById('movie-description').textContent = movieDescription;
   document.getElementById('movie-poster').src = posterUrl;
+  document.getElementById('movie-status').textContent = movieStatus;
   document.getElementById('movie-cast').textContent = castList;
   document.getElementById('movie-year').textContent = movieYear;
 
