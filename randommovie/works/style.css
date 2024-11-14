@@ -1,7 +1,5 @@
-/* Import a fancy font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
-/* Dark Gradient Background */
 body, html {
   margin: 0;
   padding: 0;
@@ -11,17 +9,11 @@ body, html {
   transition: background 0.3s, color 0.3s;
 }
 
-/* Light Theme */
 body.light-theme {
   background: #f0f0f0;
   color: #333;
 }
 
-body.light-theme .content {
-  color: #333;
-}
-
-/* Theme Toggle Button */
 .theme-toggle {
   position: fixed;
   top: 20px;
@@ -32,7 +24,6 @@ body.light-theme .content {
   color: #e50914;
 }
 
-/* Dark Mode Container Styling */
 .container {
   max-width: 700px;
   padding: 1rem;
@@ -40,7 +31,6 @@ body.light-theme .content {
   margin: 0 auto;
 }
 
-/* Intro and Movie Info Styling */
 .content {
   display: flex;
   flex-direction: column;
@@ -51,15 +41,13 @@ body.light-theme .content {
   background-color: rgba(24, 24, 24, 0.85);
   border-radius: 8px;
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 body.light-theme .content {
   background-color: rgba(255, 255, 255, 0.85);
-  color: #333;
 }
 
-/* Fancy Title Styling */
 .fancy-title {
   font-weight: 800;
   color: #e50914;
@@ -67,7 +55,6 @@ body.light-theme .content {
   margin-bottom: 1rem;
 }
 
-/* Button Styling */
 .fancy-button {
   background-color: #e50914;
   border: none;
@@ -75,7 +62,7 @@ body.light-theme .content {
   font-size: 1.1rem;
   padding: 0.6rem 1.2rem;
   border-radius: 5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .fancy-button:hover, .fancy-button:focus {
@@ -84,7 +71,6 @@ body.light-theme .content {
   outline: none;
 }
 
-/* Roulette Animation */
 .roulette-animation {
   width: 60px;
   height: 60px;
@@ -92,7 +78,6 @@ body.light-theme .content {
   border: 8px solid #333;
   border-top: 8px solid #e50914;
   animation: spin 2s linear infinite;
-  box-shadow: 0px 0px 15px rgba(229, 9, 20, 0.6);
 }
 
 @keyframes spin {
@@ -100,38 +85,24 @@ body.light-theme .content {
   100% { transform: rotate(360deg); }
 }
 
-/* Poster and Frame Styling */
-.fancy-poster-container {
-  padding: 10px;
-  border: 3px solid #333;
-  border-radius: 12px;
-  background-color: #181818;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-  margin-bottom: 1rem;
-}
-
 .fancy-poster {
   width: 100%;
   max-width: 250px;
-  height: auto;
   border-radius: 8px;
 }
 
-/* Description Styling */
 .description {
   text-align: center;
   padding: 10px;
   color: inherit;
 }
 
-/* Button Group Styling */
 .button-group {
   display: flex;
   gap: 10px;
   justify-content: center;
 }
 
-/* Responsive Design Adjustments */
 @media (max-width: 576px) {
   .container {
     max-width: 100%;
