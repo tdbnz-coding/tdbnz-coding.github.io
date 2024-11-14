@@ -31,17 +31,12 @@ async function getRandomMovie() {
   }
 }
 
-// Function to display movie details including cast, year, and TMDB link
+// Function to display movie details including cast and year
 async function displayMovieInfo(movie) {
   const movieTitle = movie.title;
   const movieDescription = movie.overview || "No description available.";
   const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'default-poster.jpg';
   const movieYear = movie.release_date ? movie.release_date.split('-')[0] : "Unknown";
-
-  // Set TMDB link
-  const tmdbLink = `https://www.themoviedb.org/movie/${movie.id}`;
-  document.getElementById('tmdb-link').href = tmdbLink;
-  document.getElementById('view-tmdb-btn').onclick = () => window.open(tmdbLink, '_blank');
 
   // Fetch cast information
   const castUrl = `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${TMDB_API_KEY}`;
@@ -49,7 +44,7 @@ async function displayMovieInfo(movie) {
   try {
     const castResponse = await fetch(castUrl);
     const castData = await castResponse.json();
-    castList = castData.cast.slice(0, 5).map(actor => actor.name).join(', ');
+    castList = castData.cast.slice(0, 5).map(actor => actor.name).join(', '); // Show top 5 cast members
   } catch (error) {
     console.error('Error fetching cast:', error);
   }

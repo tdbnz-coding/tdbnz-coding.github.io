@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Roulette</title>
+  <title>Accessible Movie Roulette</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -27,19 +27,14 @@
     <!-- Movie Info Section -->
     <div id="movie-info" class="content row mt-5 align-items-center bg-white p-4 rounded shadow" style="display: none;">
       <div class="col-md-4 text-center">
-        <a id="tmdb-link" href="#" target="_blank" aria-label="View on TMDB">
-          <div class="fancy-poster-container">
-            <img id="movie-poster" class="fancy-poster" src="" alt="Movie Poster" aria-hidden="false">
-          </div>
-        </a>
+        <img id="movie-poster" class="fancy-poster" src="" alt="Movie Poster" aria-hidden="false">
       </div>
-      <div class="col-md-8 text-center">
+      <div class="col-md-8 text-left">
         <h5 id="movie-title" class="card-title font-weight-bold" tabindex="0"></h5>
         <p id="movie-description" class="card-text" tabindex="0"></p>
         <p><strong>Cast:</strong> <span id="movie-cast" tabindex="0"></span></p>
         <p><strong>Year:</strong> <span id="movie-year" tabindex="0"></span></p>
         <button class="btn btn-primary fancy-button mt-3" onclick="startRoulette()" aria-label="Spin Roulette Wheel">Spin Roulette Wheel</button>
-        <button id="view-tmdb-btn" class="btn btn-secondary fancy-button mt-3" aria-label="View on TMDB">View on TMDB</button>
       </div>
     </div>
 
