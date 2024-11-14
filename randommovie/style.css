@@ -1,115 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
-
-body, html {
+body {
+  font-family: Arial, sans-serif;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #141414;
-  color: #e5e5e5;
-  transition: background 0.3s, color 0.3s;
-}
-
-body.light-theme {
-  background: #f0f0f0;
-  color: #333;
-}
-
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 100;
-  color: #e50914;
 }
 
 .container {
-  max-width: 700px;
-  padding: 1rem;
-  box-sizing: border-box;
-  margin: 0 auto;
+  max-width: 500px;
+  padding: 20px;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 1.5rem;
-  box-sizing: border-box;
-  background-color: rgba(24, 24, 24, 0.85);
-  border-radius: 8px;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+.title {
+  font-size: 2em;
+  color: #e50914;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
-body.light-theme .content {
-  background-color: rgba(255, 255, 255, 0.85);
+button:hover {
+  background-color: #b2060f;
 }
 
-.fancy-title {
-  font-weight: 800;
-  color: #e50914;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  margin-bottom: 1rem;
+.content.hidden {
+  display: none;
 }
 
-.fancy-button {
-  background-color: #e50914;
-  border: none;
-  color: #ffffff;
-  font-size: 1.1rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-.fancy-button:hover, .fancy-button:focus {
-  transform: scale(1.05);
-  box-shadow: 0px 4px 10px rgba(229, 9, 20, 0.5);
-  outline: none;
-}
-
-.roulette-animation {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 8px solid #333;
-  border-top: 8px solid #e50914;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.fancy-poster {
+#movie-poster {
   width: 100%;
-  max-width: 250px;
-  border-radius: 8px;
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .description {
-  text-align: center;
-  padding: 10px;
-  color: inherit;
-}
-
-.button-group {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-@media (max-width: 576px) {
-  .container {
-    max-width: 100%;
-    padding: 10px;
-  }
-
-  .fancy-poster {
-    max-width: 100%;
-  }
+  text-align: left;
 }

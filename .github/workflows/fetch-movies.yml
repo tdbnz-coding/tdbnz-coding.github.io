@@ -1,0 +1,32 @@
+name: Fetch Movies Data
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+
+jobs:
+  fetch-movies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Fetch movies from TMDB
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        run: |
+          mkdir -p movies_data
+          page=$(($RANDOM % 500 + 1))
+          curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page" -o movies_data/movies.json
+
+      - name: Commit and push movie data
+        run: |
+          git config user.name "tdbnz-coding"
+          git config user.email "bise@smartbusiness.me"
+          git add movies_data/movies.json
+          git commit -m "Update movies data"
+          git push origin main
