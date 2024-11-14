@@ -4,15 +4,32 @@ body, html {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(135deg, #4e54c8, #8f94fb);
-  color: #fff;
-  overflow-x: hidden;
+  color: #333;
 }
 
-/* Intro Title Styling */
+/* Centered Content Styling */
+.container {
+  max-width: 800px;
+}
+
+/* Intro and Movie Info Styling */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Background Styling for Text Area */
+.bg-white {
+  background-color: #ffffff;
+}
+
+/* Fancy Title Styling */
 .fancy-title {
   font-weight: 700;
-  color: #ffffff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   margin-bottom: 1rem;
 }
 
@@ -22,22 +39,23 @@ body, html {
   border: none;
   color: #ffffff;
   font-size: 1.1rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
-.fancy-button:hover {
+.fancy-button:hover, .fancy-button:focus {
   background-color: #373baf;
+  outline: none;
 }
 
 /* Roulette Animation */
 .roulette-animation {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  border: 10px solid #ffffff;
-  border-top: 10px solid #4e54c8;
+  border: 8px solid #eeeeee;
+  border-top: 8px solid #4e54c8;
   animation: spin 2s linear infinite;
 }
 
@@ -46,30 +64,37 @@ body, html {
   100% { transform: rotate(360deg); }
 }
 
-/* Card Styling */
-.fancy-card {
-  max-width: 400px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  color: #333;
-}
-
-/* Poster Styling */
+/* Poster and Details Layout */
 .fancy-poster {
-  border-radius: 10px 10px 0 0;
+  width: 100%;
+  max-width: 250px;
   height: auto;
-  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .fancy-card {
+.card-title, .card-text, p {
+  color: #333;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 576px) {
+  .container {
     max-width: 100%;
+    padding: 10px;
   }
 
-  .fancy-title {
-    font-size: 2rem;
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .fancy-button {
+    font-size: 1rem;
+  }
+
+  .fancy-poster {
+    max-width: 100%;
   }
 }

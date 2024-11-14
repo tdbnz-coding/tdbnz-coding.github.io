@@ -4,13 +4,14 @@ const TMDB_API_KEY = '3c388e32d5258a951b7525ba8e8e7d84';
 // Function to trigger roulette animation and fetch movie info after animation
 function startRoulette() {
   document.getElementById('intro').style.display = 'none';
+  document.getElementById('movie-info').style.display = 'none'; // Hide movie info if visible
   document.getElementById('roulette-spin').style.display = 'block';
 
   // Display the movie info after a delay (e.g., 2 seconds for the spinning animation)
   setTimeout(() => {
     document.getElementById('roulette-spin').style.display = 'none';
-    getRandomMovie();
-  }, 2000); // Adjust timing to match animation length
+    getRandomMovie(); // Call function to fetch and display random movie
+  }, 2000);
 }
 
 // Function to fetch a random movie
@@ -42,4 +43,19 @@ async function displayMovieInfo(movie) {
   let castList = "Unknown";
   try {
     const castResponse = await fetch(castUrl);
-    const castData = await castResponse.json(
+    const castData = await castResponse.json();
+    castList = castData.cast.slice(0, 5).map(actor => actor.name).join(', '); // Show top 5 cast members
+  } catch (error) {
+    console.error('Error fetching cast:', error);
+  }
+
+  // Update movie info display
+  document.getElementById('movie-title').textContent = movieTitle;
+  document.getElementById('movie-description').textContent = movieDescription;
+  document.getElementById('movie-poster').src = posterUrl;
+  document.getElementById('movie-cast').textContent = castList;
+  document.getElementById('movie-year').textContent = movieYear;
+
+  // Show movie info section
+  document.getElementById('movie-info').style.display = 'flex';
+}
