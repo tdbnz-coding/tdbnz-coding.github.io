@@ -1,4 +1,4 @@
-name: Fetch Movies Data
+name: Fetch 5000 Movies Data
 
 on:
   schedule:
@@ -18,27 +18,25 @@ jobs:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: |
           mkdir -p movies_data
-
-          # Initialize the JSON structure
-          echo '{"results":[' > movies_data/movies.json
+          > movies_data/movies_tmp.json  # Temporary file to store all movie objects
 
           # Loop through up to 250 pages (5000 movies total)
           for page in $(seq 1 250); do
-            response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page" | jq '.results[]')
+            response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page" | jq '.results')
             
-            # Append each movie as a valid JSON object
-            echo "$response," >> movies_data/movies.json
+            # Append each page's results to the temporary file
+            echo "$response" >> movies_data/movies_tmp.json
           done
 
-          # Remove trailing comma from the last entry
-          sed -i '$ s/,$//' movies_data/movies.json
+          # Combine all results into a single JSON array and format as { "results": [...] }
+          jq -s '{results: map(.[])}' movies_data/movies_tmp.json > movies_data/movies.json
 
-          # Close the JSON structure
-          echo ']}' >> movies_data/movies.json
+          # Remove the temporary file
+          rm movies_data/movies_tmp.json
 
       - name: Validate JSON File
         run: |
-          cat movies_data/movies.json | jq . > /dev/null || { echo "Invalid JSON"; exit 1; }
+          jq . movies_data/movies.json > /dev/null || { echo "Invalid JSON"; exit 1; }
 
       - name: Commit and push movie data
         run: |
