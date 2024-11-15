@@ -12,6 +12,7 @@ body, html {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Light and Dark Themes */
 body.light-theme {
   background-color: #ffffff;
   color: #000000;
@@ -42,8 +43,10 @@ body.dark-theme .content {
   color: #ffffff;
 }
 
-h1.display-4 {
-  white-space: nowrap; /* Keep title on one line */
+/* Responsive Title */
+.responsive-title {
+  font-size: 6vw;  /* Scales with viewport width */
+  white-space: nowrap; /* Keeps title on one line */
 }
 
 .content {

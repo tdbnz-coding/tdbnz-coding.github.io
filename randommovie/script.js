@@ -49,7 +49,7 @@ function getRandomMovie() {
 }
 
 // Display movie information on the page
-function displayMovieInfo(movie) {
+async function displayMovieInfo(movie) {
   const today = new Date();
   const releaseDate = new Date(movie.release_date);
   const releaseYear = movie.release_date ? movie.release_date.split('-')[0] : "Unknown";
@@ -60,8 +60,18 @@ function displayMovieInfo(movie) {
   document.getElementById('movie-description').textContent = movie.overview || "No description available.";
   document.getElementById('movie-poster').src = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'default-poster.jpg';
   document.getElementById('movie-status').textContent = movieStatus;
-  document.getElementById('movie-cast').textContent = "Cast information not available";
   document.getElementById('movie-year').textContent = releaseYear;
+
+  // Fetch cast information and display it if available
+  try {
+    const castResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=YOUR_TMDB_API_KEY`);
+    const castData = await castResponse.json();
+    const castList = castData.cast.slice(0, 5).map(actor => actor.name).join(', ') || "No cast information available";
+    document.getElementById('movie-cast').textContent = castList;
+  } catch (error) {
+    console.error("Error fetching cast information:", error);
+    document.getElementById('movie-cast').textContent = "Cast information not available";
+  }
 
   const tmdbLink = `https://www.themoviedb.org/movie/${movie.id}`;
   document.getElementById('tmdb-link').href = tmdbLink;
