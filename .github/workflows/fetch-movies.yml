@@ -1,28 +1,29 @@
+---
 name: Fetch Movies Data with Cast Information
-
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Runs every 4 hours
-  workflow_dispatch:  # Allow manual triggering
-
+    - cron: 0 */4 * * *
+  workflow_dispatch: null
 jobs:
   fetch-movies:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
       - name: Fetch movies and cast information with rate limiting
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-        run: |
+        run: >
           mkdir -p movies_data
 
+
           # Initialize the JSON structure
+
           echo '{"results":[' > movies_data/movies.json
 
+
           # Fetch up to 250 pages (5000 movies max, 20 per page)
+
           for page in $(seq 1 250); do
             echo "Fetching movies for page $page..."
 
@@ -94,7 +95,9 @@ jobs:
             done
           done
 
+
           # Combine all results into a valid JSON structure
+
           if [ -f movies_data/tmp_movies.json ]; then
             jq -s '{results: .}' movies_data/tmp_movies.json > movies_data/movies.json
             rm movies_data/tmp_movies.json
@@ -102,12 +105,11 @@ jobs:
             echo "Error: No movies data was fetched."
             exit 4
           fi
-
       - name: Validate JSON
-        run: jq . movies_data/movies.json > /dev/null || { echo "Invalid JSON"; exit 1; }
-
+        run: jq . movies_data/movies.json > /dev/null || { echo "Invalid JSON"; exit 1;
+          }
       - name: Commit and push movie data
-       run: |
+        run: |
           git config user.name "tdbnz-coding"
           git config user.email "bise@smartbusiness.me"
           git add movies_data/movies.json
