@@ -61,13 +61,25 @@ window.addEventListener('load', () => {
   }
 });
 
-// Load movies data from JSON
+// decoding
+function recursiveDecode(base64String, times) {
+  let decodedString = base64String;
+  for (let i = 0; i < times; i++) {
+    decodedString = atob(decodedString);
+  }
+  return decodedString;
+}
+
+// Load movies data from encrypted  JSON
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/movies.json'); // Fetch the movie data
+    const response = await fetch('/movies_data/movies_encrypted.json'); // Fetch the encoded movie data
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     
-    const data = await response.json();
+    const base64Data = await response.text();
+    const decodedData = recursiveDecode(base64Data, 999); // Decode 999 times
+    const data = JSON.parse(decodedData); // Parse the decoded JSON
+
     if (!data.results || data.results.length === 0) {
       throw new Error("No movies found in JSON data");
     }
