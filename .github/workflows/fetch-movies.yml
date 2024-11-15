@@ -26,9 +26,15 @@ jobs:
           for page in $(seq 1 250); do
             echo "Fetching movies for page $page..."
 
-            # Retry logic for fetching movies
+            # Fetch movies with retry and logging
             for attempt in {1..3}; do
               movie_response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page")
+              
+              # Log the raw response for debugging
+              echo "Raw movie response for page $page, attempt $attempt:"
+              echo "$movie_response"
+
+              # Validate the response to check if it's valid JSON
               if echo "$movie_response" | jq empty > /dev/null 2>&1; then
                 break
               else
@@ -37,9 +43,9 @@ jobs:
               fi
             done
 
-            # If the response is still invalid, exit with error
+            # If the response is still invalid after retries, exit with error
             if ! echo "$movie_response" | jq empty > /dev/null 2>&1; then
-              echo "Error: Failed to fetch valid data for page $page after 3 attempts."
+              echo "Error: Failed to fetch valid data for page $page after 3 attempts. Exiting..."
               exit 4
             fi
 
@@ -53,9 +59,15 @@ jobs:
               # Rate limiting: pause between requests to respect TMDB rate limits
               sleep 0.2
 
-              # Retry logic for fetching credits
+              # Fetch cast information with retry and logging
               for attempt in {1..3}; do
                 credits=$(curl -s "https://api.themoviedb.org/3/movie/$movie_id/credits?api_key=$TMDB_API_KEY")
+                
+                # Log the raw response for debugging
+                echo "Raw credits response for movie ID $movie_id, attempt $attempt:"
+                echo "$credits"
+
+                # Validate the credits response
                 if echo "$credits" | jq empty > /dev/null 2>&1; then
                   break
                 else
@@ -64,7 +76,7 @@ jobs:
                 fi
               done
 
-              # If the response is still invalid, skip this movie
+              # If the credits response is still invalid, skip this movie
               if ! echo "$credits" | jq empty > /dev/null 2>&1; then
                 echo "Error: Failed to fetch valid credits for movie ID $movie_id after 3 attempts. Skipping..."
                 continue
@@ -95,7 +107,7 @@ jobs:
         run: jq . movies_data/movies.json > /dev/null || { echo "Invalid JSON"; exit 1; }
 
       - name: Commit and push movie data
-        run: |
+       run: |
           git config user.name "tdbnz-coding"
           git config user.email "bise@smartbusiness.me"
           git add movies_data/movies.json
