@@ -7,54 +7,33 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="d-flex justify-content-center align-items-center min-vh-100 bg-dark text-white dark-theme">
+<body>
+  <!-- Light bulb toggle -->
+  <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">💡</div>
 
-  <!-- Theme Toggle Button -->
-  <div class="theme-toggle position-fixed top-0 end-0 m-3 p-2 rounded-circle bg-light text-dark" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
-    💡
-  </div>
-
-  <!-- Main Content Container -->
   <div class="container text-center" role="main">
-    
-    <!-- Intro Section -->
-    <div id="intro" class="content p-5 rounded shadow bg-light text-dark animate__animated animate__fadeInDown">
-      <h1 class="display-4 text-danger font-weight-bold responsive-title">🎬 Movie Roulette 🎬</h1>
-      <p class="lead mb-4 responsive-subtitle">Not sure what to watch? Let fate decide!</p>
+    <div id="intro" class="content p-4 rounded shadow">
+      <h1 class="display-4 fancy-title">🎬 Movie Roulette 🎬</h1>
+      <p class="lead mb-4">Not sure what to watch? Let fate decide!</p>
       <button id="spin-btn" class="btn btn-danger btn-lg fancy-button" onclick="getRandomMovie()">Spin Roulette Wheel</button>
     </div>
 
-    <!-- Roulette Animation Section (hidden initially) -->
-    <div id="roulette-spin" class="content p-4" style="display: none;">
-      <div class="spinner-border text-danger mx-auto" role="status">
-        <span class="sr-only">Loading...</span>
+    <div id="movie-info" class="content p-4 rounded shadow" style="display: none;">
+      <div class="text-center mb-3">
+        <a id="tmdb-link" href="#" target="_blank"><img id="movie-poster" class="fancy-poster" src="" alt="Movie Poster"></a>
       </div>
-    </div>
-
-    <!-- Movie Info Section (hidden initially) -->
-    <div id="movie-info" class="content p-5 rounded shadow bg-light text-dark animate__animated animate__fadeInUp" style="display: none;">
-      <div class="row align-items-center">
-        <div class="col-md-4 text-center mb-3">
-          <a id="tmdb-link" href="#" target="_blank">
-            <img id="movie-poster" class="img-fluid rounded shadow" src="" alt="Movie Poster">
-          </a>
-        </div>
-        <div class="col-md-8 text-left">
-          <h5 class="font-weight-bold" id="movie-title"></h5>
-          <p id="movie-description" class="text-muted"></p>
-          <p><strong>Status:</strong> <span id="movie-status"></span></p>
-          <p><strong>Cast:</strong> <span id="movie-cast"></span></p>
-          <p><strong>Year:</strong> <span id="movie-year"></span></p>
-          <div class="button-group mt-3 d-flex gap-2">
-            <button class="btn btn-danger fancy-button flex-fill" onclick="getRandomMovie()">Spin Again</button>
-            <button id="view-tmdb-btn" class="btn btn-secondary fancy-button flex-fill">View on TMDB</button>
-          </div>
-        </div>
+      <div class="description">
+        <p id="movie-description" class="card-text"></p>
+        <p><strong>Status:</strong> <span id="movie-status"></span></p>
+        <p><strong>Year:</strong> <span id="movie-year"></span></p>
+      </div>
+      <div class="button-group mt-3">
+        <button class="btn btn-danger fancy-button" onclick="getRandomMovie()">Spin Again</button>
+        <button id="view-tmdb-btn" class="btn btn-secondary fancy-button">View on TMDB</button>
       </div>
     </div>
   </div>
 
-  <!-- Link to JavaScript file -->
   <script src="script.js"></script>
 </body>
 </html>

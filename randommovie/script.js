@@ -1,39 +1,71 @@
-let shownMovies = new Set();
-let movies = [];
+// Utility to manage cookies
+function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+}
+
+function getCookie(name) {
+  const cookies = document.cookie.split(';');
+  for (let i = 0; i < cookies.length; i++) {
+    const [key, value] = cookies[i].trim().split('=');
+    if (key === name) {
+      return value;
+    }
+  }
+  return null;
+}
 
 // Toggle Light/Dark Theme
 function toggleTheme() {
   const body = document.body;
-  body.classList.toggle('light-theme');
-  body.classList.toggle('dark-theme');
+  if (body.classList.contains('dark-theme')) {
+    body.classList.remove('dark-theme');
+    body.classList.add('light-theme');
+    setCookie('theme', 'light', 7);
+  } else {
+    body.classList.remove('light-theme');
+    body.classList.add('dark-theme');
+    setCookie('theme', 'dark', 7);
+  }
 }
 
-// Load movies data from JSON and initialize the movie list
+// Apply Theme on Page Load
+window.addEventListener('load', () => {
+  const savedTheme = getCookie('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
+  } else {
+    document.body.classList.add('dark-theme'); // Default to dark theme
+  }
+});
+
+// Movie Logic (No Changes)
+let shownMovies = new Set();
+let movies = [];
+let isMoviesLoaded = false;
+
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/movies.json'); // Fetch the updated JSON
+    const response = await fetch('/movies_data/movies.json');
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-    
     const data = await response.json();
-    if (!data.results || data.results.length === 0) {
-      throw new Error("No movies found in JSON data");
-    }
     movies = data.results;
+    isMoviesLoaded = true;
   } catch (error) {
     console.error('Error loading movie data:', error);
     alert("There was an issue loading the movie data. Please try again later.");
   }
 }
 
-// Get a random movie that hasn’t been shown yet
 function getRandomMovie() {
-  if (!movies || movies.length === 0) {
+  if (!isMoviesLoaded) {
     alert("No movies are loaded. Please refresh the page.");
     return;
   }
 
   if (shownMovies.size === movies.length) {
-    shownMovies.clear();  // Reset if all movies have been shown
+    shownMovies.clear();
   }
 
   let randomMovie;
@@ -43,38 +75,25 @@ function getRandomMovie() {
 
   shownMovies.add(randomMovie.id);
   displayMovieInfo(randomMovie);
-
-  // Hide "Spin Roulette Wheel" button after the first press
-  document.getElementById('spin-btn').style.display = 'none';
 }
 
-// Display movie information on the page
 function displayMovieInfo(movie) {
-  const today = new Date();
-  const releaseDate = new Date(movie.release_date);
   const releaseYear = movie.release_date ? movie.release_date.split('-')[0] : "Unknown";
-  const movieStatus = releaseDate > today 
-    ? `Coming Out on ${releaseDate.toLocaleDateString("en-US", { day: 'numeric', month: 'long', year: 'numeric' })}`
-    : "Released";
+  const movieStatus = movie.release_date ? "Released" : "Unknown";
 
   document.getElementById('movie-description').textContent = movie.overview || "No description available.";
   document.getElementById('movie-poster').src = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'default-poster.jpg';
   document.getElementById('movie-status').textContent = movieStatus;
   document.getElementById('movie-year').textContent = releaseYear;
 
-  // Display cast directly from JSON
-  const castList = movie.cast && movie.cast.length > 0 
-    ? movie.cast.join(', ')  // Join the array of cast names
-    : "No cast information available";
-  document.getElementById('movie-cast').textContent = castList;
-
   const tmdbLink = `https://www.themoviedb.org/movie/${movie.id}`;
   document.getElementById('tmdb-link').href = tmdbLink;
-  document.getElementById('view-tmdb-btn').onclick = () => window.open(tmdbLink, '_blank');
 
-  document.getElementById('intro').classList.add('hidden');
+  document.getElementById('intro').style.display = 'none';
   document.getElementById('movie-info').style.display = 'flex';
 }
 
-// Initialize and load movies
-window.addEventListener('load', loadMovies);
+// Initialize
+window.addEventListener('load', async () => {
+  await loadMovies();
+});

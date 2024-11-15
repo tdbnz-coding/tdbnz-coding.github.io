@@ -1,64 +1,113 @@
-/* Base Styling */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  transition: background-color 0.5s, color 0.5s;
-}
-
+/* Theme Toggle */
 .theme-toggle {
-  font-size: 1.5rem;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  z-index: 1000;
 }
 
-/* Light and Dark Themes */
-body.light-theme {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-body.light-theme .theme-toggle {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-body.light-theme .content {
-  background-color: #f8f9fa;
-  color: #000000;
-}
-
+/* Light/Dark Themes */
 body.dark-theme {
   background-color: #141414;
-  color: #ffffff;
+  color: #e5e5e5;
 }
 
-body.dark-theme .theme-toggle {
-  background-color: #ffffff;
-  color: #000000;
+body.light-theme {
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-body.dark-theme .content {
-  background-color: #212529;
-  color: #ffffff;
-}
-
-/* Responsive Title */
-.responsive-title {
-  font-size: 6vw;  /* Scales with viewport width */
-  white-space: nowrap; /* Keeps title on one line */
-}
-
-/* Responsive Subtitle */
-.responsive-subtitle {
-  font-size: 4vw;  /* Scales with viewport width */
-  white-space: nowrap; /* Keeps subtitle on one line */
+.container {
+  max-width: 700px;
+  margin-top: 50px;
 }
 
 .content {
-  padding: 1.5rem;
-  box-sizing: border-box;
-  border-radius: 8px;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.5s, color 0.5s;
+  background-color: rgba(24, 24, 24, 0.85);
+  color: white;
+  border-radius: 10px;
+}
+
+body.light-theme .content {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+}
+
+/* Buttons */
+.fancy-button {
+  background-color: #e50914;
+  border: none;
+  color: white;
+}
+
+.fancy-button:hover, .fancy-button:focus {
+  background-color: #c40812;
+}
+
+.fancy-poster {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 10px;
+}
+
+.description {
+  text-align: center;
+}/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Light/Dark Themes */
+body.dark-theme {
+  background-color: #141414;
+  color: #e5e5e5;
+}
+
+body.light-theme {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  max-width: 700px;
+  margin-top: 50px;
+}
+
+.content {
+  background-color: rgba(24, 24, 24, 0.85);
+  color: white;
+  border-radius: 10px;
+}
+
+body.light-theme .content {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+}
+
+/* Buttons */
+.fancy-button {
+  background-color: #e50914;
+  border: none;
+  color: white;
+}
+
+.fancy-button:hover, .fancy-button:focus {
+  background-color: #c40812;
+}
+
+.fancy-poster {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 10px;
+}
+
+.description {
+  text-align: center;
 }
