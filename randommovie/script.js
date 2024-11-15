@@ -45,9 +45,15 @@ function displayMovieInfo(movie) {
   document.getElementById('movie-cast').textContent = "Cast information not available";
   document.getElementById('movie-year').textContent = releaseYear;
 
-  document.getElementById('tmdb-link').href = `https://www.themoviedb.org/movie/${movie.id}`;
-  document.getElementById('view-tmdb-btn').onclick = () => window.open(document.getElementById('tmdb-link').href, '_blank');
+  // Link to TMDB
+  const tmdbLink = `https://www.themoviedb.org/movie/${movie.id}`;
+  document.getElementById('tmdb-link').href = tmdbLink;
+  document.getElementById('view-tmdb-btn').onclick = () => window.open(tmdbLink, '_blank');
 
+  // Hide "Spin Roulette Wheel" button after the first press
+  document.getElementById('spin-btn').style.display = 'none';
+
+  // Show movie info and hide the intro
   document.getElementById('intro').classList.add('hidden');
   document.getElementById('movie-info').style.display = 'flex';
 }

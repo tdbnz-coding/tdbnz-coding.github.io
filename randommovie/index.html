@@ -19,7 +19,7 @@
     <div id="intro" class="content p-4 rounded shadow animate__animated animate__fadeInDown">
       <h1 class="display-4 fancy-title">🎬 Movie Roulette 🎬</h1>
       <p class="lead mb-4">Not sure what to watch? Let fate decide!</p>
-      <button class="btn btn-danger btn-lg fancy-button" onclick="getRandomMovie()">Spin Roulette Wheel</button>
+      <button id="spin-btn" class="btn btn-danger btn-lg fancy-button" onclick="getRandomMovie()">Spin Roulette Wheel</button>
     </div>
 
     <!-- Roulette Animation Section (hidden initially) -->
@@ -30,9 +30,7 @@
     <!-- Movie Info Section (hidden initially) -->
     <div id="movie-info" class="content p-4 rounded shadow animate__animated animate__fadeInUp" style="display: none;">
       <div class="text-center mb-3">
-        <a id="tmdb-link" href="#" target="_blank">
-          <img id="movie-poster" class="fancy-poster" src="" alt="Movie Poster">
-        </a>
+        <a id="tmdb-link" href="#" target="_blank"><img id="movie-poster" class="fancy-poster" src="" alt="Movie Poster"></a>
       </div>
       <div class="description">
         <p id="movie-description" class="card-text"></p>
@@ -41,8 +39,8 @@
         <p><strong>Year:</strong> <span id="movie-year"></span></p>
       </div>
       <div class="button-group mt-3">
-        <button class="btn btn-danger fancy-button" onclick="getRandomMovie()">Spin Roulette Wheel Again</button>
-        <button id="view-tmdb-btn" class="btn btn-secondary fancy-button">View on TMDB</button>
+        <button class="btn btn-danger fancy-button" onclick="getRandomMovie()">Spin Again</button>
+        <button id="view-tmdb-btn" class="btn btn-danger fancy-button">View on TMDB</button>
       </div>
     </div>
 
