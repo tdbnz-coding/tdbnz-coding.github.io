@@ -1,11 +1,9 @@
 name: Fetch Movies Data
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: '0 0 * * *'  # Run daily at midnight
+    - cron: '0 */4 * * *'  # Runs every 4 hours
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   fetch-movies:
@@ -15,13 +13,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Fetch movies from TMDB
+      - name: Fetch 5000 movies from TMDB
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: |
           mkdir -p movies_data
-          page=$(($RANDOM % 500 + 1))
-          curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page" -o movies_data/movies.json
+          echo '{"results":[' > movies_data/movies.json
+
+          # Fetch movies in batches of 20 per page, up to 250 pages (5000 movies)
+          for page in $(seq 1 250); do
+            response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page")
+            
+            # Remove the last bracket and comma to merge JSON data
+            if [ "$page" -lt 250 ]; then
+              echo "${response%]}}"', ' >> movies_data/movies.json
+            else
+              echo "$response" >> movies_data/movies.json
+            fi
+          done
+
+          # Close the JSON array and file
+          echo ']}' >> movies_data/movies.json
 
       - name: Commit and push movie data
         run: |
