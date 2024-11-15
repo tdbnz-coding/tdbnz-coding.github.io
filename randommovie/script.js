@@ -1,3 +1,7 @@
+let shownMovies = new Set();
+let movies = [];
+let isMoviesLoaded = false;
+
 // Utility to manage cookies
 function setCookie(name, value, days) {
   const date = new Date();
@@ -14,6 +18,23 @@ function getCookie(name) {
     }
   }
   return null;
+}
+
+// Save shown movies in a cookie
+function saveShownMovies() {
+  setCookie('shownMovies', JSON.stringify(Array.from(shownMovies)), 7);
+}
+
+// Load shown movies from a cookie
+function loadShownMovies() {
+  const cookieValue = getCookie('shownMovies');
+  if (cookieValue) {
+    try {
+      shownMovies = new Set(JSON.parse(cookieValue));
+    } catch (error) {
+      console.error('Error parsing shownMovies cookie:', error);
+    }
+  }
 }
 
 // Toggle Light/Dark Theme
@@ -40,32 +61,40 @@ window.addEventListener('load', () => {
   }
 });
 
-// Movie Logic (No Changes)
-let shownMovies = new Set();
-let movies = [];
-let isMoviesLoaded = false;
-
+// Load movies data from JSON
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/movies.json');
+    const response = await fetch('/movies_data/movies.json'); // Fetch the movie data
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    
     const data = await response.json();
+    if (!data.results || data.results.length === 0) {
+      throw new Error("No movies found in JSON data");
+    }
+
     movies = data.results;
-    isMoviesLoaded = true;
+    isMoviesLoaded = true; // Mark as loaded
+
+    // Enable the "Spin Roulette Wheel" button
+    document.getElementById('spin-btn').disabled = false;
   } catch (error) {
     console.error('Error loading movie data:', error);
-    alert("There was an issue loading the movie data. Please try again later.");
+    if (!isMoviesLoaded) {
+      alert("There was an issue loading the movie data. Please try again later.");
+    }
   }
 }
 
+// Get a random movie that hasn’t been shown yet
 function getRandomMovie() {
-  if (!isMoviesLoaded) {
+  if (!isMoviesLoaded || movies.length === 0) {
     alert("No movies are loaded. Please refresh the page.");
     return;
   }
 
   if (shownMovies.size === movies.length) {
-    shownMovies.clear();
+    alert("All movies have been shown. Resetting the list.");
+    shownMovies.clear(); // Reset if all movies have been shown
   }
 
   let randomMovie;
@@ -74,9 +103,11 @@ function getRandomMovie() {
   } while (shownMovies.has(randomMovie.id));
 
   shownMovies.add(randomMovie.id);
+  saveShownMovies(); // Save shown movies to cookie
   displayMovieInfo(randomMovie);
 }
 
+// Display movie information on the page
 function displayMovieInfo(movie) {
   const releaseYear = movie.release_date ? movie.release_date.split('-')[0] : "Unknown";
   const movieStatus = movie.release_date ? "Released" : "Unknown";
@@ -95,5 +126,12 @@ function displayMovieInfo(movie) {
 
 // Initialize
 window.addEventListener('load', async () => {
+  // Disable the "Spin Roulette Wheel" button initially
+  document.getElementById('spin-btn').disabled = true;
+
+  // Load shown movies from cookies
+  loadShownMovies();
+
+  // Load movies
   await loadMovies();
 });
