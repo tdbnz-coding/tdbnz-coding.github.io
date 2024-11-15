@@ -1,11 +1,11 @@
 /* Theme Toggle */
 .theme-toggle {
-  position: fixed;
+  position: fixed; /* Fix the light bulb at the top-right of the screen */
   top: 20px;
   right: 20px;
   font-size: 24px;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 1000; /* Ensure it stays above other elements */
 }
 
 /* Light/Dark Themes */
@@ -19,71 +19,26 @@ body.light-theme {
   color: #333;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure it covers the full viewport */
+  margin: 0;
+}
+
 .container {
   max-width: 700px;
-  margin-top: 50px;
+  width: 100%;
+  text-align: center; /* Center text alignment */
 }
 
 .content {
   background-color: rgba(24, 24, 24, 0.85);
   color: white;
   border-radius: 10px;
-}
-
-body.light-theme .content {
-  background-color: rgba(255, 255, 255, 0.85);
-  color: #333;
-}
-
-/* Buttons */
-.fancy-button {
-  background-color: #e50914;
-  border: none;
-  color: white;
-}
-
-.fancy-button:hover, .fancy-button:focus {
-  background-color: #c40812;
-}
-
-.fancy-poster {
-  width: 100%;
-  max-width: 250px;
-  border-radius: 10px;
-}
-
-.description {
+  padding: 20px;
   text-align: center;
-}/* Theme Toggle */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-/* Light/Dark Themes */
-body.dark-theme {
-  background-color: #141414;
-  color: #e5e5e5;
-}
-
-body.light-theme {
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-.container {
-  max-width: 700px;
-  margin-top: 50px;
-}
-
-.content {
-  background-color: rgba(24, 24, 24, 0.85);
-  color: white;
-  border-radius: 10px;
 }
 
 body.light-theme .content {
@@ -96,6 +51,10 @@ body.light-theme .content {
   background-color: #e50914;
   border: none;
   color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .fancy-button:hover, .fancy-button:focus {
@@ -106,6 +65,7 @@ body.light-theme .content {
   width: 100%;
   max-width: 250px;
   border-radius: 10px;
+  margin: 20px 0;
 }
 
 .description {
