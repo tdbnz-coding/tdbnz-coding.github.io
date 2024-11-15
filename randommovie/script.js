@@ -62,7 +62,7 @@ function applyThemeOnLoad() {
   }
 }
 
-// Recursive Base64 decoding
+// Recursive Base64 decoding (10 passes)
 function recursiveDecode(base64String, times) {
   let decodedString = base64String;
   for (let i = 0; i < times; i++) {
@@ -79,14 +79,11 @@ function recursiveDecode(base64String, times) {
 // Load movies data from encrypted JSON
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/movies_encrypted.json.gz'); // Fetch the compressed movie data
+    const response = await fetch('/movies_data/movies_encrypted.json');
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-    const compressedData = await response.arrayBuffer();
-    const decompressedData = new TextDecoder().decode(pako.inflate(new Uint8Array(compressedData))); // Decompress gzip
-    const base64Data = decompressedData;
-
-    const decodedData = recursiveDecode(base64Data, 100); // Decode 100 times (adjusted)
+    const base64Data = await response.text();
+    const decodedData = recursiveDecode(base64Data, 10); // Decode 10 times
     const data = JSON.parse(decodedData);
 
     if (!data.results || data.results.length === 0) {

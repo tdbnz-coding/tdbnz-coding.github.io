@@ -1,26 +1,24 @@
-name: Fetch Movies & Encrypted
+name: Fetch Movies Data
 
 on:
   schedule:
-    - cron: '0 */4 * * *'
-  workflow_dispatch:
+    - cron: '0 */4 * * *' # Runs every 4 hours
+  workflow_dispatch: # Allow manual triggering
 
 jobs:
   fetch-movies:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout Repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Fetch Movies
       - name: Fetch movies
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: |
           mkdir -p movies_data
-          for page in $(seq 1 50); do
+          for page in $(seq 1 50); do # Fetch 50 pages (1000 movies max)
             echo "Fetching movies for page $page..."
             movie_response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page")
             echo "$movie_response" | jq -c '.results[]' >> movies_data/tmp_movies.json
@@ -28,23 +26,24 @@ jobs:
           jq -s '{results: .}' movies_data/tmp_movies.json > movies_data/movies.json
           rm -f movies_data/tmp_movies.json
 
-      # Encrypt JSON
-      - name: Encrypt JSON file (100 passes)
+      - name: Encrypt JSON file (10 passes)
         run: |
           cp movies_data/movies.json movies_data/movies_encrypted.json
-          for i in $(seq 1 100); do
+          for i in $(seq 1 10); do
             cat movies_data/movies_encrypted.json | base64 > movies_data/tmp.json
             mv movies_data/tmp.json movies_data/movies_encrypted.json
           done
           rm movies_data/movies.json
 
-      # Compress Encrypted JSON
-      - name: Compress encrypted JSON
+      - name: Validate Encrypted JSON
         run: |
-          gzip -c movies_data/movies_encrypted.json > movies_data/movies_encrypted.json.gz
-          rm -f movies_data/movies_encrypted.json
+          if base64 --decode movies_data/movies_encrypted.json > /dev/null 2>&1; then
+            echo "Validation passed."
+          else
+            echo "Validation failed."
+            exit 1
+          fi
 
-      # Commit Encrypted Data
       - name: Commit and push encrypted movie data
         run: |
           git config user.name "tdbnz-coding"
