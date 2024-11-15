@@ -25,18 +25,26 @@ jobs:
           # Fetch up to 250 pages (5000 movies max, 20 per page)
           for page in $(seq 1 250); do
             echo "Fetching movies for page $page..."
-            movie_response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page" | jq -c '.results[]')
-            if [ $? -ne 0 ]; then
-              echo "Error: Failed to fetch movies for page $page."
+            movie_response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page")
+
+            # Validate the API response
+            if ! echo "$movie_response" | jq empty; then
+              echo "Error: Invalid JSON response for page $page."
+              echo "Response: $movie_response"
               exit 4
             fi
 
+            # Extract movies from the response
+            movies=$(echo "$movie_response" | jq -c '.results[]')
+
             # Loop through each movie in the page to fetch cast information
-            for movie in $movie_response; do
+            for movie in $movies; do
               movie_id=$(echo "$movie" | jq -r '.id')
               credits=$(curl -s "https://api.themoviedb.org/3/movie/$movie_id/credits?api_key=$TMDB_API_KEY")
-              if [ $? -ne 0 ]; then
-                echo "Error: Failed to fetch credits for movie ID $movie_id."
+
+              # Validate the credits response
+              if ! echo "$credits" | jq empty; then
+                echo "Error: Invalid JSON response for movie ID $movie_id."
                 continue
               fi
 
