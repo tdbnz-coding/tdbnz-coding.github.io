@@ -1,6 +1,11 @@
 let shownMovies = new Set();
 let movies = [];
 
+// Theme Toggle Function
+function toggleTheme() {
+  document.body.classList.toggle('light-theme');
+}
+
 // Load movies data from JSON and initialize the movie list
 async function loadMovies() {
   try {
@@ -17,10 +22,16 @@ async function loadMovies() {
 
 // Get a random movie that hasn’t been shown yet
 function getRandomMovie() {
+  if (!movies || movies.length === 0) {
+    console.error("No movies loaded or JSON data is empty");
+    alert("Movie data is not loaded. Please try again later.");
+    return;
+  }
+
   if (shownMovies.size === movies.length) {
     shownMovies.clear();  // Reset if all movies have been shown
   }
-  
+
   let randomMovie;
   do {
     randomMovie = movies[Math.floor(Math.random() * movies.length)];
@@ -28,6 +39,9 @@ function getRandomMovie() {
 
   shownMovies.add(randomMovie.id);
   displayMovieInfo(randomMovie);
+
+  // Hide "Spin Roulette Wheel" button after the first press
+  document.getElementById('spin-btn').style.display = 'none';
 }
 
 // Display movie information on the page
@@ -49,9 +63,6 @@ function displayMovieInfo(movie) {
   const tmdbLink = `https://www.themoviedb.org/movie/${movie.id}`;
   document.getElementById('tmdb-link').href = tmdbLink;
   document.getElementById('view-tmdb-btn').onclick = () => window.open(tmdbLink, '_blank');
-
-  // Hide "Spin Roulette Wheel" button after the first press
-  document.getElementById('spin-btn').style.display = 'none';
 
   // Show movie info and hide the intro
   document.getElementById('intro').classList.add('hidden');

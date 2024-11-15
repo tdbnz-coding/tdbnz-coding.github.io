@@ -40,5 +40,5 @@ jobs:
           git config user.name "tdbnz-coding"
           git config user.email "bise@smartbusiness.me"
           git add movies_data/movies.json
-          git commit -m "Update movies data"
+          git commit -m "Update movies data with 5000 movies"
           git push origin main
