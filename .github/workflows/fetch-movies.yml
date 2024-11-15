@@ -1,9 +1,9 @@
-name: Fetch 5000 Movies Data
+name: Fetch Movies Data with Cast Information
 
 on:
   schedule:
     - cron: '0 */4 * * *'  # Runs every 4 hours
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
   fetch-movies:
@@ -13,30 +13,40 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Fetch 5000 movies from TMDB
+      - name: Fetch movies and cast information
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: |
           mkdir -p movies_data
-          > movies_data/movies_tmp.json  # Temporary file to store all movie objects
 
-          # Loop through up to 250 pages (5000 movies total)
+          # Initialize the JSON structure
+          echo '{"results":[' > movies_data/movies.json
+
+          # Fetch up to 250 pages (5000 movies max, 20 per page)
           for page in $(seq 1 250); do
-            response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page" | jq '.results')
-            
-            # Append each page's results to the temporary file
-            echo "$response" >> movies_data/movies_tmp.json
+            movie_response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page" | jq -c '.results[]')
+
+            # Loop through each movie in the page to fetch cast information
+            for movie in $movie_response; do
+              movie_id=$(echo "$movie" | jq -r '.id')
+              credits=$(curl -s "https://api.themoviedb.org/3/movie/$movie_id/credits?api_key=$TMDB_API_KEY")
+
+              # Extract top 5 cast members
+              cast=$(echo "$credits" | jq -c '[.cast[] | {name: .name}] | map(.name) | .[:5]')
+
+              # Merge cast into movie object
+              echo "$movie" | jq --argjson cast "$cast" '. + {cast: $cast}' >> movies_data/tmp_movies.json
+            done
           done
 
-          # Combine all results into a single JSON array and format as { "results": [...] }
-          jq -s '{results: map(.[])}' movies_data/movies_tmp.json > movies_data/movies.json
+          # Combine all results into a valid JSON structure
+          jq -s '{results: .}' movies_data/tmp_movies.json > movies_data/movies.json
 
-          # Remove the temporary file
-          rm movies_data/movies_tmp.json
+          # Cleanup temporary file
+          rm movies_data/tmp_movies.json
 
-      - name: Validate JSON File
-        run: |
-          jq . movies_data/movies.json > /dev/null || { echo "Invalid JSON"; exit 1; }
+      - name: Validate JSON
+        run: jq . movies_data/movies.json > /dev/null || { echo "Invalid JSON"; exit 1; }
 
       - name: Commit and push movie data
         run: |

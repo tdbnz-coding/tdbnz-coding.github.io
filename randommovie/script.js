@@ -11,7 +11,7 @@ function toggleTheme() {
 // Load movies data from JSON and initialize the movie list
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/movies.json');
+    const response = await fetch('/movies_data/movies.json'); // Fetch the updated JSON
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     
     const data = await response.json();
@@ -49,7 +49,7 @@ function getRandomMovie() {
 }
 
 // Display movie information on the page
-async function displayMovieInfo(movie) {
+function displayMovieInfo(movie) {
   const today = new Date();
   const releaseDate = new Date(movie.release_date);
   const releaseYear = movie.release_date ? movie.release_date.split('-')[0] : "Unknown";
@@ -62,16 +62,11 @@ async function displayMovieInfo(movie) {
   document.getElementById('movie-status').textContent = movieStatus;
   document.getElementById('movie-year').textContent = releaseYear;
 
-  // Fetch cast information and display it if available
-  try {
-    const castResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=YOUR_TMDB_API_KEY`);
-    const castData = await castResponse.json();
-    const castList = castData.cast.slice(0, 5).map(actor => actor.name).join(', ') || "No cast information available";
-    document.getElementById('movie-cast').textContent = castList;
-  } catch (error) {
-    console.error("Error fetching cast information:", error);
-    document.getElementById('movie-cast').textContent = "Cast information not available";
-  }
+  // Display cast directly from JSON
+  const castList = movie.cast && movie.cast.length > 0 
+    ? movie.cast.join(', ')  // Join the array of cast names
+    : "No cast information available";
+  document.getElementById('movie-cast').textContent = castList;
 
   const tmdbLink = `https://www.themoviedb.org/movie/${movie.id}`;
   document.getElementById('tmdb-link').href = tmdbLink;
