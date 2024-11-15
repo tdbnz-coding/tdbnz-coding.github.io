@@ -1,7 +1,3 @@
-let shownMovies = new Set();
-let movies = [];
-let isMoviesLoaded = false;
-
 // Utility to manage cookies
 function setCookie(name, value, days) {
   const date = new Date();
@@ -20,6 +16,7 @@ function getCookie(name) {
   return null;
 }
 
+<<<<<<< HEAD
 // Save shown movies in a cookie
 function saveShownMovies() {
   setCookie('shownMovies', JSON.stringify(Array.from(shownMovies)), 7);
@@ -38,6 +35,8 @@ function loadShownMovies() {
   }
 }
 
+=======
+>>>>>>> parent of d64196b (update)
 // Toggle Light/Dark Theme
 function toggleTheme() {
   const body = document.body;
@@ -62,6 +61,7 @@ function applyThemeOnLoad() {
   }
 }
 
+<<<<<<< HEAD
 // Recursive Base64 decoding (10 passes)
 function recursiveDecode(base64String, times) {
   let decodedString = base64String;
@@ -98,18 +98,37 @@ async function loadMovies() {
     if (!isMoviesLoaded) {
       alert("There was an issue loading the movie data. Please refresh the page or try again later.");
     }
+=======
+// Movie Logic (No Changes)
+let shownMovies = new Set();
+let movies = [];
+let isMoviesLoaded = false;
+
+async function loadMovies() {
+  try {
+    const response = await fetch('/movies_data/movies.json');
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    const data = await response.json();
+    movies = data.results;
+    isMoviesLoaded = true;
+  } catch (error) {
+    console.error('Error loading movie data:', error);
+    alert("There was an issue loading the movie data. Please try again later.");
+>>>>>>> parent of d64196b (update)
   }
 }
 
-// Get a random movie that hasn’t been shown yet
 function getRandomMovie() {
-  if (!isMoviesLoaded || movies.length === 0) {
+  if (!isMoviesLoaded) {
     alert("No movies are loaded. Please refresh the page.");
     return;
   }
 
   if (shownMovies.size === movies.length) {
+<<<<<<< HEAD
     alert("All movies have been shown. Resetting the list.");
+=======
+>>>>>>> parent of d64196b (update)
     shownMovies.clear();
   }
 
@@ -119,11 +138,13 @@ function getRandomMovie() {
   } while (shownMovies.has(randomMovie.id));
 
   shownMovies.add(randomMovie.id);
+<<<<<<< HEAD
   saveShownMovies();
+=======
+>>>>>>> parent of d64196b (update)
   displayMovieInfo(randomMovie);
 }
 
-// Display movie information on the page
 function displayMovieInfo(movie) {
   const releaseYear = movie.release_date ? movie.release_date.split('-')[0] : "Unknown";
   const movieStatus = movie.release_date ? "Released" : "Unknown";
@@ -142,6 +163,7 @@ function displayMovieInfo(movie) {
 
 // Initialize
 window.addEventListener('load', async () => {
+<<<<<<< HEAD
   document.getElementById('spin-btn').disabled = true;
 
   // Apply theme and load cookies
@@ -149,5 +171,7 @@ window.addEventListener('load', async () => {
   loadShownMovies();
 
   // Load movies
+=======
+>>>>>>> parent of d64196b (update)
   await loadMovies();
 });
