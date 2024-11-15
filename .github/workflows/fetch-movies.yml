@@ -1,31 +1,116 @@
-name: Fetch Movies Data
-
+---
+name: Fetch Movies Data with Cast Information
 on:
   schedule:
+<<<<<<< HEAD
     - cron: '0 */4 * * *' # Runs every 4 hours
   workflow_dispatch: # Allow manual triggering
 
+=======
+    - cron: 0 */4 * * *
+  workflow_dispatch: null
+>>>>>>> parent of c5d6c32 (simple)
 jobs:
   fetch-movies:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Fetch movies
+      - name: Fetch movies and cast information with rate limiting
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-        run: |
+        run: >
           mkdir -p movies_data
+<<<<<<< HEAD
           for page in $(seq 1 50); do # Fetch 50 pages (1000 movies max)
             echo "Fetching movies for page $page..."
             movie_response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page")
             echo "$movie_response" | jq -c '.results[]' >> movies_data/tmp_movies.json
+=======
+
+
+          # Initialize the JSON structure
+
+          echo '{"results":[' > movies_data/movies.json
+
+
+          # Fetch up to 250 pages (5000 movies max, 20 per page)
+
+          for page in $(seq 1 250); do
+            echo "Fetching movies for page $page..."
+
+            # Fetch movies with retry and logging
+            for attempt in {1..3}; do
+              movie_response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page")
+              
+              # Log the raw response for debugging
+              echo "Raw movie response for page $page, attempt $attempt:"
+              echo "$movie_response"
+
+              # Validate the response to check if it's valid JSON
+              if echo "$movie_response" | jq empty > /dev/null 2>&1; then
+                break
+              else
+                echo "Warning: Invalid or empty response for page $page. Retrying... ($attempt/3)"
+                sleep 5
+              fi
+            done
+
+            # If the response is still invalid after retries, exit with error
+            if ! echo "$movie_response" | jq empty > /dev/null 2>&1; then
+              echo "Error: Failed to fetch valid data for page $page after 3 attempts. Exiting..."
+              exit 4
+            fi
+
+            # Extract movies from the response
+            movies=$(echo "$movie_response" | jq -c '.results[]')
+
+            # Loop through each movie in the page to fetch cast information
+            for movie in $movies; do
+              movie_id=$(echo "$movie" | jq -r '.id')
+
+              # Rate limiting: pause between requests to respect TMDB rate limits
+              sleep 0.2
+
+              # Fetch cast information with retry and logging
+              for attempt in {1..3}; do
+                credits=$(curl -s "https://api.themoviedb.org/3/movie/$movie_id/credits?api_key=$TMDB_API_KEY")
+                
+                # Log the raw response for debugging
+                echo "Raw credits response for movie ID $movie_id, attempt $attempt:"
+                echo "$credits"
+
+                # Validate the credits response
+                if echo "$credits" | jq empty > /dev/null 2>&1; then
+                  break
+                else
+                  echo "Warning: Invalid or empty response for credits of movie ID $movie_id. Retrying... ($attempt/3)"
+                  sleep 5
+                fi
+              done
+
+              # If the credits response is still invalid, skip this movie
+              if ! echo "$credits" | jq empty > /dev/null 2>&1; then
+                echo "Error: Failed to fetch valid credits for movie ID $movie_id after 3 attempts. Skipping..."
+                continue
+              fi
+
+              # Extract top 5 cast members
+              cast=$(echo "$credits" | jq -c '[.cast[] | {name: .name}] | map(.name) | .[:5]')
+              if [ $? -ne 0 ]; then
+                echo "Error: Failed to process credits for movie ID $movie_id."
+                continue
+              fi
+
+              # Merge cast into movie object
+              echo "$movie" | jq --argjson cast "$cast" '. + {cast: $cast}' >> movies_data/tmp_movies.json
+            done
+>>>>>>> parent of c5d6c32 (simple)
           done
           jq -s '{results: .}' movies_data/tmp_movies.json > movies_data/movies.json
           rm -f movies_data/tmp_movies.json
 
+<<<<<<< HEAD
       - name: Encrypt JSON file (10 passes)
         run: |
           cp movies_data/movies.json movies_data/movies_encrypted.json
@@ -39,12 +124,27 @@ jobs:
         run: |
           if base64 --decode movies_data/movies_encrypted.json > /dev/null 2>&1; then
             echo "Validation passed."
+=======
+
+          # Combine all results into a valid JSON structure
+
+          if [ -f movies_data/tmp_movies.json ]; then
+            jq -s '{results: .}' movies_data/tmp_movies.json > movies_data/movies.json
+            rm movies_data/tmp_movies.json
+>>>>>>> parent of c5d6c32 (simple)
           else
             echo "Validation failed."
             exit 1
           fi
+<<<<<<< HEAD
 
       - name: Commit and push encrypted movie data
+=======
+      - name: Validate JSON
+        run: jq . movies_data/movies.json > /dev/null || { echo "Invalid JSON"; exit 1;
+          }
+      - name: Commit and push movie data
+>>>>>>> parent of c5d6c32 (simple)
         run: |
           git config user.name "tdbnz-coding"
           git config user.email "bise@smartbusiness.me"
