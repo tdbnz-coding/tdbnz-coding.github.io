@@ -79,11 +79,14 @@ function recursiveDecode(base64String, times) {
 // Load movies data from encrypted JSON
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/movies_encrypted.json');
+    const response = await fetch('/movies_data/movies_encrypted.json.gz'); // Fetch the compressed movie data
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-    
-    const base64Data = await response.text();
-    const decodedData = recursiveDecode(base64Data, 999);
+
+    const compressedData = await response.arrayBuffer();
+    const decompressedData = new TextDecoder().decode(pako.inflate(new Uint8Array(compressedData))); // Decompress gzip
+    const base64Data = decompressedData;
+
+    const decodedData = recursiveDecode(base64Data, 100); // Decode 100 times (adjusted)
     const data = JSON.parse(decodedData);
 
     if (!data.results || data.results.length === 0) {

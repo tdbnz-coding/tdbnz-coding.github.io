@@ -1,66 +1,50 @@
-name: Fetch Movies & Encrypt
+name: Fetch Movies & Encrypted
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Runs every 4 hours
-  workflow_dispatch:  # Allow manual triggering
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
 
 jobs:
   fetch-movies:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repository
+      # Checkout Repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Fetch movies
+      # Fetch Movies
       - name: Fetch movies
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: |
           mkdir -p movies_data
-
-          # Fetch up to 50 pages (reduce to limit file size)
           for page in $(seq 1 50); do
             echo "Fetching movies for page $page..."
             movie_response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page")
-
-            # Validate response and append to file
-            echo "$movie_response" | jq -c '.results[]' >> movies_data/tmp_movies.json || echo "Invalid response for page $page"
+            echo "$movie_response" | jq -c '.results[]' >> movies_data/tmp_movies.json
           done
-
-          # Combine results into JSON
           jq -s '{results: .}' movies_data/tmp_movies.json > movies_data/movies.json
           rm -f movies_data/tmp_movies.json
 
       # Encrypt JSON
-      - name: Encrypt JSON file (reduced passes)
+      - name: Encrypt JSON file (100 passes)
         run: |
-          if [ -f movies_data/movies.json ]; then
-            cp movies_data/movies.json movies_data/movies_encrypted.json
-            for i in $(seq 1 100); do
-              cat movies_data/movies_encrypted.json | base64 > movies_data/tmp.json
-              mv movies_data/tmp.json movies_data/movies_encrypted.json
-              echo "Encryption pass $i completed."
-            done
-            rm movies_data/movies.json
-          else
-            echo "movies.json not found. Exiting..."
-            exit 1
-          fi
+          cp movies_data/movies.json movies_data/movies_encrypted.json
+          for i in $(seq 1 100); do
+            cat movies_data/movies_encrypted.json | base64 > movies_data/tmp.json
+            mv movies_data/tmp.json movies_data/movies_encrypted.json
+          done
+          rm movies_data/movies.json
 
-      # Validate encrypted file
-      - name: Validate Base64 file
+      # Compress Encrypted JSON
+      - name: Compress encrypted JSON
         run: |
-          if base64 --decode movies_data/movies_encrypted.json > /dev/null 2>&1; then
-            echo "Base64 validation passed."
-          else
-            echo "Base64 validation failed. Exiting..."
-            exit 1
-          fi
+          gzip -c movies_data/movies_encrypted.json > movies_data/movies_encrypted.json.gz
+          rm -f movies_data/movies_encrypted.json
 
-      # Commit and push the encrypted file
+      # Commit Encrypted Data
       - name: Commit and push encrypted movie data
         run: |
           git config user.name "tdbnz-coding"
@@ -68,4 +52,3 @@ jobs:
           git add movies_data/movies.json
           git commit -m "Update movies & Encrypt"
           git push origin main
-
