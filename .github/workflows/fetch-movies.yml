@@ -18,21 +18,23 @@ jobs:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: |
           mkdir -p movies_data
+
+          # Initialize the JSON array
           echo '{"results":[' > movies_data/movies.json
 
-          # Fetch movies in batches of 20 per page, up to 250 pages (5000 movies)
+          # Loop through pages to fetch up to 5000 movies (20 per page, up to 250 pages)
           for page in $(seq 1 250); do
             response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page")
-            
-            # Remove the last bracket and comma to merge JSON data
-            if [ "$page" -lt 250 ]; then
-              echo "${response%]}}"', ' >> movies_data/movies.json
-            else
-              echo "$response" >> movies_data/movies.json
-            fi
+
+            # Extract the results array from each page response and append it
+            movies=$(echo "$response" | jq -c '.results[]')
+            for movie in $movies; do
+              echo "$movie," >> movies_data/movies.json
+            done
           done
 
-          # Close the JSON array and file
+          # Remove the trailing comma and close the JSON array
+          sed -i '$ s/,$//' movies_data/movies.json
           echo ']}' >> movies_data/movies.json
 
       - name: Commit and push movie data
