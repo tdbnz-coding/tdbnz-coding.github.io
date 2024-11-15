@@ -1,9 +1,11 @@
 let shownMovies = new Set();
 let movies = [];
 
-// Theme Toggle Function
+// Toggle Light/Dark Theme
 function toggleTheme() {
-  document.body.classList.toggle('light-theme');
+  const body = document.body;
+  body.classList.toggle('light-theme');
+  body.classList.toggle('dark-theme');
 }
 
 // Load movies data from JSON and initialize the movie list
@@ -13,6 +15,9 @@ async function loadMovies() {
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     
     const data = await response.json();
+    if (!data.results || data.results.length === 0) {
+      throw new Error("No movies found in JSON data");
+    }
     movies = data.results;
   } catch (error) {
     console.error('Error loading movie data:', error);
@@ -23,8 +28,7 @@ async function loadMovies() {
 // Get a random movie that hasn’t been shown yet
 function getRandomMovie() {
   if (!movies || movies.length === 0) {
-    console.error("No movies loaded or JSON data is empty");
-    alert("Movie data is not loaded. Please try again later.");
+    alert("No movies are loaded. Please refresh the page.");
     return;
   }
 
@@ -59,12 +63,10 @@ function displayMovieInfo(movie) {
   document.getElementById('movie-cast').textContent = "Cast information not available";
   document.getElementById('movie-year').textContent = releaseYear;
 
-  // Link to TMDB
   const tmdbLink = `https://www.themoviedb.org/movie/${movie.id}`;
   document.getElementById('tmdb-link').href = tmdbLink;
   document.getElementById('view-tmdb-btn').onclick = () => window.open(tmdbLink, '_blank');
 
-  // Show movie info and hide the intro
   document.getElementById('intro').classList.add('hidden');
   document.getElementById('movie-info').style.display = 'flex';
 }
