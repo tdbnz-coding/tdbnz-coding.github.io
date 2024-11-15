@@ -1,11 +1,11 @@
 /* Theme Toggle */
 .theme-toggle {
-  position: fixed; /* Fix the light bulb at the top-right of the screen */
+  position: fixed;
   top: 20px;
   right: 20px;
   font-size: 24px;
   cursor: pointer;
-  z-index: 1000; /* Ensure it stays above other elements */
+  z-index: 1000;
 }
 
 /* Light/Dark Themes */
@@ -23,14 +23,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensure it covers the full viewport */
+  min-height: 100vh;
   margin: 0;
 }
 
 .container {
   max-width: 700px;
   width: 100%;
-  text-align: center; /* Center text alignment */
 }
 
 .content {
@@ -52,7 +51,7 @@ body.light-theme .content {
   border: none;
   color: white;
   padding: 10px 20px;
-  margin: 10px 0;
+  margin: 5px 0;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -65,9 +64,20 @@ body.light-theme .content {
   width: 100%;
   max-width: 250px;
   border-radius: 10px;
-  margin: 20px 0;
 }
 
-.description {
-  text-align: center;
+.card-text {
+  margin-bottom: 15px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .content {
+    text-align: center;
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+  }
 }
