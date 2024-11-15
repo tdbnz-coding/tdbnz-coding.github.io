@@ -4,29 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie Roulette</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Main Content Container -->
-  <div class="container text-center">
-    <!-- Intro Section -->
-    <div id="intro" class="content">
-      <h1 class="title">🎬 Movie Roulette 🎬</h1>
-      <p class="subtitle">Not sure what to watch? Let fate decide!</p>
-      <button onclick="getRandomMovie()">Spin Roulette Wheel</button>
+<body class="d-flex justify-content-center align-items-center min-vh-100 bg-dark-gradient">
+  
+  <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">💡</div>
+
+  <div class="container text-center" role="main">
+    <div id="intro" class="content p-4 rounded shadow animate__animated animate__fadeInDown">
+      <h1 class="display-4 fancy-title">🎬 Movie Roulette 🎬</h1>
+      <p class="lead mb-4">Not sure what to watch? Let fate decide!</p>
+      <button class="btn btn-danger btn-lg fancy-button" onclick="getRandomMovie()">Spin Roulette Wheel Again</button>
     </div>
 
-    <!-- Movie Info Section -->
-    <div id="movie-info" class="content hidden">
-      <div>
-        <img id="movie-poster" src="" alt="Movie Poster">
+    <div id="movie-info" class="content p-4 rounded shadow animate__animated animate__fadeInUp" style="display: none;">
+      <div class="text-center mb-3">
+        <a id="tmdb-link" href="#" target="_blank"><img id="movie-poster" class="fancy-poster" src="" alt="Movie Poster"></a>
       </div>
       <div class="description">
-        <p id="movie-title"></p>
+        <p id="movie-description" class="card-text"></p>
         <p><strong>Status:</strong> <span id="movie-status"></span></p>
         <p><strong>Cast:</strong> <span id="movie-cast"></span></p>
         <p><strong>Year:</strong> <span id="movie-year"></span></p>
-        <button onclick="getRandomMovie()">Spin Roulette Wheel Again</button>
+      </div>
+      <div class="button-group mt-3">
+        <button class="btn btn-danger fancy-button" onclick="getRandomMovie()">Spin Again</button>
+        <button id="view-tmdb-btn" class="btn btn-secondary fancy-button">View on TMDB</button>
       </div>
     </div>
   </div>
