@@ -6,7 +6,7 @@ let isMoviesLoaded = false;
 function setCookie(name, value, days) {
   const date = new Date();
   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=None;Secure`;
 }
 
 function getCookie(name) {
@@ -33,6 +33,7 @@ function loadShownMovies() {
       shownMovies = new Set(JSON.parse(cookieValue));
     } catch (error) {
       console.error('Error parsing shownMovies cookie:', error);
+      shownMovies = new Set(); // Reset to avoid further errors
     }
   }
 }
@@ -52,47 +53,50 @@ function toggleTheme() {
 }
 
 // Apply Theme on Page Load
-window.addEventListener('load', () => {
+function applyThemeOnLoad() {
   const savedTheme = getCookie('theme');
   if (savedTheme === 'light') {
     document.body.classList.add('light-theme');
   } else {
     document.body.classList.add('dark-theme'); // Default to dark theme
   }
-});
+}
 
-// decoding
+// Recursive Base64 decoding
 function recursiveDecode(base64String, times) {
   let decodedString = base64String;
   for (let i = 0; i < times; i++) {
-    decodedString = atob(decodedString);
+    try {
+      decodedString = atob(decodedString);
+    } catch (error) {
+      console.error(`Error decoding Base64 at iteration ${i}:`, error);
+      throw new Error("Failed to decode Base64-encoded movie data.");
+    }
   }
   return decodedString;
 }
 
-// Load movies data from encrypted  JSON
+// Load movies data from encrypted JSON
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/movies_encrypted.json'); // Fetch the encoded movie data
+    const response = await fetch('/movies_data/movies_encrypted.json');
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     
     const base64Data = await response.text();
-    const decodedData = recursiveDecode(base64Data, 999); // Decode 999 times
-    const data = JSON.parse(decodedData); // Parse the decoded JSON
+    const decodedData = recursiveDecode(base64Data, 999);
+    const data = JSON.parse(decodedData);
 
     if (!data.results || data.results.length === 0) {
-      throw new Error("No movies found in JSON data");
+      throw new Error("No movies found in the decrypted JSON data.");
     }
 
     movies = data.results;
-    isMoviesLoaded = true; // Mark as loaded
-
-    // Enable the "Spin Roulette Wheel" button
+    isMoviesLoaded = true;
     document.getElementById('spin-btn').disabled = false;
   } catch (error) {
     console.error('Error loading movie data:', error);
     if (!isMoviesLoaded) {
-      alert("There was an issue loading the movie data. Please try again later.");
+      alert("There was an issue loading the movie data. Please refresh the page or try again later.");
     }
   }
 }
@@ -106,7 +110,7 @@ function getRandomMovie() {
 
   if (shownMovies.size === movies.length) {
     alert("All movies have been shown. Resetting the list.");
-    shownMovies.clear(); // Reset if all movies have been shown
+    shownMovies.clear();
   }
 
   let randomMovie;
@@ -115,7 +119,7 @@ function getRandomMovie() {
   } while (shownMovies.has(randomMovie.id));
 
   shownMovies.add(randomMovie.id);
-  saveShownMovies(); // Save shown movies to cookie
+  saveShownMovies();
   displayMovieInfo(randomMovie);
 }
 
@@ -138,10 +142,10 @@ function displayMovieInfo(movie) {
 
 // Initialize
 window.addEventListener('load', async () => {
-  // Disable the "Spin Roulette Wheel" button initially
   document.getElementById('spin-btn').disabled = true;
 
-  // Load shown movies from cookies
+  // Apply theme and load cookies
+  applyThemeOnLoad();
   loadShownMovies();
 
   // Load movies
