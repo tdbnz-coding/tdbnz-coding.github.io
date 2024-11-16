@@ -6,16 +6,46 @@
     <title>PPV Streaming</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background-color: #121212;
-            color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        h1, .main-title {
+            font-weight: 700;
+            color: #e50914;
+        }
+        .main-title {
+            font-size: 2.5rem;
+        }
+        .lightbulb {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        .lightbulb:hover {
+            color: yellow;
         }
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
+            border: 5px solid #e50914;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(229, 9, 20, 0.6);
         }
         .video-container iframe {
             position: absolute;
@@ -23,37 +53,56 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border: 0;
+            border-radius: 10px;
         }
         .stream-buttons {
-            margin: 20px 0;
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
-        .main-title {
-            font-size: 2rem;
+        .btn-stream {
+            background-color: #e50914;
+            color: #ffffff;
             font-weight: bold;
-            margin-bottom: 20px;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            transition: transform 0.2s ease, background-color 0.3s ease;
         }
-        .lightbulb {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
-            cursor: pointer;
+        .btn-stream:hover {
+            background-color: #b20710;
+            transform: scale(1.1);
         }
-        .lightbulb:hover {
-            color: yellow;
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px 0;
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px solid #444;
+        }
+        footer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container text-center position-relative">
-        <div class="lightbulb text-light" onclick="toggleTheme()">
-            <i class="bi bi-lightbulb"></i>
+        <div class="lightbulb" onclick="toggleTheme()">
+            <i class="bi bi-lightbulb-fill"></i>
         </div>
         <h1 class="my-4">PPV Streaming</h1>
         <div class="main-title">Mike Tyson vs Jake Paul</div>
-        <div class="video-container">
+        <div class="video-container my-4">
             <iframe id="streamFrame" 
-                    src="https://thedaddy.to/embed/stream-76.php" 
+                    src="https://thedaddy.to/embed/stream-69.php" 
                     name="iframe_a" 
                     allowfullscreen="yes" 
                     frameborder="0">
@@ -61,20 +110,19 @@
             </iframe>
         </div>
         <div class="stream-buttons">
-        	<button class="btn btn-outline-light m-2" onclick="changeStream('76')">Stream 76</button>
-            <button class="btn btn-outline-light m-2" onclick="changeStream('1011')">Stream 1011</button>
-            <button class="btn btn-outline-light m-2" onclick="changeStream('1012')">Stream 1012</button>
-            <button class="btn btn-outline-light m-2" onclick="changeStream('303')">Stream 303</button>
-            <button class="btn btn-outline-light m-2" onclick="changeStream('402')">Stream 402</button>
-            <button class="btn btn-outline-light m-2" onclick="changeStream('401')">Stream 401</button>
-            <button class="btn btn-outline-light m-2" onclick="changeStream('46')">Stream 46</button>
+            <button class="btn btn-stream" onclick="changeStream('69')">Stream 69</button>
+            <button class="btn btn-stream" onclick="changeStream('76')">Stream 76</button>
+            <button class="btn btn-stream" onclick="changeStream('77')">Stream 77</button>
+            <button class="btn btn-stream" onclick="changeStream('588')">Stream 588</button>
         </div>
     </div>
 
+    <footer>
+        &copy; 2024 PPV Streaming. Inspired by <a href="https://www.netflix.com" target="_blank">Netflix</a>. All rights reserved.
+    </footer>
+
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script>
         function changeStream(streamId) {
             const streamFrame = document.getElementById('streamFrame');
@@ -84,10 +132,14 @@
 
         function toggleTheme() {
             const body = document.body;
-            body.classList.toggle('bg-light');
-            body.classList.toggle('bg-dark');
-            body.classList.toggle('text-dark');
-            body.classList.toggle('text-light');
+            const isDark = body.style.background.includes('linear-gradient(135deg, #1a1a1a, #000000)');
+            if (isDark) {
+                body.style.background = 'linear-gradient(135deg, #f0f0f0, #ffffff)';
+                body.style.color = '#000000';
+            } else {
+                body.style.background = 'linear-gradient(135deg, #1a1a1a, #000000)';
+                body.style.color = '#ffffff';
+            }
         }
     </script>
 </body>
