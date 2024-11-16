@@ -1,0 +1,53 @@
+name: Fetch Movies Data
+
+on:
+  schedule:
+    - cron: '0 */4 * * *' # Runs every 4 hours
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  fetch-movies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Fetch movies
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        run: |
+          mkdir -p movies_data
+          echo '{"results":[' > movies_data/movies.json # Start JSON file
+
+          for page in $(seq 1 250); do # Fetch 250 pages (5000 movies max)
+            echo "Fetching movies for page $page..."
+            movie_response=$(curl -s "https://api.themoviedb.org/3/discover/movie?api_key=$TMDB_API_KEY&page=$page")
+            
+            # Validate the response is JSON
+            if echo "$movie_response" | jq empty > /dev/null 2>&1; then
+              echo "$movie_response" | jq -c '.results[]' >> movies_data/tmp_movies.json
+            else
+              echo "Error: Invalid JSON response for page $page. Skipping..."
+            fi
+          done
+
+          # Combine all movies into a single JSON array
+          if [ -f movies_data/tmp_movies.json ]; then
+            jq -s '{results: .}' movies_data/tmp_movies.json > movies_data/movies.json
+            rm -f movies_data/tmp_movies.json
+          else
+            echo "Error: No valid movies data fetched."
+            exit 1
+          fi
+
+      - name: Validate JSON
+        run: jq . movies_data/movies.json > /dev/null || { echo "Invalid JSON"; exit 1; }
+
+      - name: Commit and push movie data
+        run: |
+          git config user.name "tdbnz-coding"
+          git config user.email "bise@smartbusiness.me"
+          git add movies_data/movies.json
+          git commit -m "Update movies data with 5000 movies"
+          git push origin main
