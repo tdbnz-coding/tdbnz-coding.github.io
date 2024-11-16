@@ -6,8 +6,6 @@
   <title>Movie Roulette</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
-  <!-- Include pako for gzip decompression -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
 </head>
 <body>
   <!-- Light bulb toggle -->
@@ -35,7 +33,7 @@
           <p><strong>Year:</strong> <span id="movie-year"></span></p>
           <!-- Buttons -->
           <div class="button-group mt-3">
-            <button class="btn btn-danger fancy-button mb-2" onclick="getRandomMovie()">Spin Again</button>
+            <button class="btn btn-danger fancy-button mb-2" onclick="getRandomMovie()">Spin Roulette Wheel Again</button>
             <button id="view-tmdb-btn" class="btn btn-secondary fancy-button">View on TMDB</button>
           </div>
         </div>
@@ -43,7 +41,6 @@
     </div>
   </div>
 
-  <!-- Custom script -->
   <script src="script.js"></script>
 </body>
 </html>

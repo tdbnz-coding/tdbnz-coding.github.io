@@ -1,8 +1,12 @@
+let shownMovies = new Set();
+let movies = [];
+let isMoviesLoaded = false;
+
 // Utility to manage cookies
 function setCookie(name, value, days) {
   const date = new Date();
   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=None;Secure`;
+  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
 }
 
 function getCookie(name) {
@@ -16,7 +20,6 @@ function getCookie(name) {
   return null;
 }
 
-<<<<<<< HEAD
 // Save shown movies in a cookie
 function saveShownMovies() {
   setCookie('shownMovies', JSON.stringify(Array.from(shownMovies)), 7);
@@ -30,13 +33,10 @@ function loadShownMovies() {
       shownMovies = new Set(JSON.parse(cookieValue));
     } catch (error) {
       console.error('Error parsing shownMovies cookie:', error);
-      shownMovies = new Set(); // Reset to avoid further errors
     }
   }
 }
 
-=======
->>>>>>> parent of d64196b (update)
 // Toggle Light/Dark Theme
 function toggleTheme() {
   const body = document.body;
@@ -52,84 +52,49 @@ function toggleTheme() {
 }
 
 // Apply Theme on Page Load
-function applyThemeOnLoad() {
+window.addEventListener('load', () => {
   const savedTheme = getCookie('theme');
   if (savedTheme === 'light') {
     document.body.classList.add('light-theme');
   } else {
     document.body.classList.add('dark-theme'); // Default to dark theme
   }
-}
+});
 
-<<<<<<< HEAD
-// Recursive Base64 decoding (10 passes)
-function recursiveDecode(base64String, times) {
-  let decodedString = base64String;
-  for (let i = 0; i < times; i++) {
-    try {
-      decodedString = atob(decodedString);
-    } catch (error) {
-      console.error(`Error decoding Base64 at iteration ${i}:`, error);
-      throw new Error("Failed to decode Base64-encoded movie data.");
-    }
-  }
-  return decodedString;
-}
-
-// Load movies data from encrypted JSON
+// Load movies data from JSON
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/movies_encrypted.json');
+    const response = await fetch('/movies_data/movies.json'); // Fetch the movie data
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-
-    const base64Data = await response.text();
-    const decodedData = recursiveDecode(base64Data, 10); // Decode 10 times
-    const data = JSON.parse(decodedData);
-
+    
+    const data = await response.json();
     if (!data.results || data.results.length === 0) {
-      throw new Error("No movies found in the decrypted JSON data.");
+      throw new Error("No movies found in JSON data");
     }
 
     movies = data.results;
-    isMoviesLoaded = true;
+    isMoviesLoaded = true; // Mark as loaded
+
+    // Enable the "Spin Roulette Wheel" button
     document.getElementById('spin-btn').disabled = false;
   } catch (error) {
     console.error('Error loading movie data:', error);
     if (!isMoviesLoaded) {
-      alert("There was an issue loading the movie data. Please refresh the page or try again later.");
+      alert("There was an issue loading the movie data. Please try again later.");
     }
-=======
-// Movie Logic (No Changes)
-let shownMovies = new Set();
-let movies = [];
-let isMoviesLoaded = false;
-
-async function loadMovies() {
-  try {
-    const response = await fetch('/movies_data/movies.json');
-    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-    const data = await response.json();
-    movies = data.results;
-    isMoviesLoaded = true;
-  } catch (error) {
-    console.error('Error loading movie data:', error);
-    alert("There was an issue loading the movie data. Please try again later.");
->>>>>>> parent of d64196b (update)
   }
 }
 
+// Get a random movie that hasn’t been shown yet
 function getRandomMovie() {
-  if (!isMoviesLoaded) {
+  if (!isMoviesLoaded || movies.length === 0) {
     alert("No movies are loaded. Please refresh the page.");
     return;
   }
 
   if (shownMovies.size === movies.length) {
-<<<<<<< HEAD
     alert("All movies have been shown. Resetting the list.");
-=======
->>>>>>> parent of d64196b (update)
-    shownMovies.clear();
+    shownMovies.clear(); // Reset if all movies have been shown
   }
 
   let randomMovie;
@@ -138,13 +103,11 @@ function getRandomMovie() {
   } while (shownMovies.has(randomMovie.id));
 
   shownMovies.add(randomMovie.id);
-<<<<<<< HEAD
-  saveShownMovies();
-=======
->>>>>>> parent of d64196b (update)
+  saveShownMovies(); // Save shown movies to cookie
   displayMovieInfo(randomMovie);
 }
 
+// Display movie information on the page
 function displayMovieInfo(movie) {
   const releaseYear = movie.release_date ? movie.release_date.split('-')[0] : "Unknown";
   const movieStatus = movie.release_date ? "Released" : "Unknown";
@@ -163,15 +126,12 @@ function displayMovieInfo(movie) {
 
 // Initialize
 window.addEventListener('load', async () => {
-<<<<<<< HEAD
+  // Disable the "Spin Roulette Wheel" button initially
   document.getElementById('spin-btn').disabled = true;
 
-  // Apply theme and load cookies
-  applyThemeOnLoad();
+  // Load shown movies from cookies
   loadShownMovies();
 
   // Load movies
-=======
->>>>>>> parent of d64196b (update)
   await loadMovies();
 });
