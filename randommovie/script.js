@@ -6,7 +6,7 @@ let isMoviesLoaded = false;
 function setCookie(name, value, days) {
   const date = new Date();
   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=None;Secure`;
 }
 
 function getCookie(name) {
@@ -52,35 +52,33 @@ function toggleTheme() {
 }
 
 // Apply Theme on Page Load
-window.addEventListener('load', () => {
+function applyThemeOnLoad() {
   const savedTheme = getCookie('theme');
   if (savedTheme === 'light') {
     document.body.classList.add('light-theme');
   } else {
-    document.body.classList.add('dark-theme'); // Default to dark theme
+    document.body.classList.add('dark-theme');
   }
-});
+}
 
 // Load movies data from JSON
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/movies.json'); // Fetch the movie data
+    const response = await fetch('/movies_data/movies.json');
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-    
     const data = await response.json();
+
     if (!data.results || data.results.length === 0) {
-      throw new Error("No movies found in JSON data");
+      throw new Error("No movies found in JSON data.");
     }
 
     movies = data.results;
-    isMoviesLoaded = true; // Mark as loaded
-
-    // Enable the "Spin Roulette Wheel" button
+    isMoviesLoaded = true;
     document.getElementById('spin-btn').disabled = false;
   } catch (error) {
     console.error('Error loading movie data:', error);
     if (!isMoviesLoaded) {
-      alert("There was an issue loading the movie data. Please try again later.");
+      alert("There was an issue loading the movie data. Please refresh the page.");
     }
   }
 }
@@ -94,7 +92,7 @@ function getRandomMovie() {
 
   if (shownMovies.size === movies.length) {
     alert("All movies have been shown. Resetting the list.");
-    shownMovies.clear(); // Reset if all movies have been shown
+    shownMovies.clear();
   }
 
   let randomMovie;
@@ -103,7 +101,7 @@ function getRandomMovie() {
   } while (shownMovies.has(randomMovie.id));
 
   shownMovies.add(randomMovie.id);
-  saveShownMovies(); // Save shown movies to cookie
+  saveShownMovies();
   displayMovieInfo(randomMovie);
 }
 
@@ -126,12 +124,8 @@ function displayMovieInfo(movie) {
 
 // Initialize
 window.addEventListener('load', async () => {
-  // Disable the "Spin Roulette Wheel" button initially
   document.getElementById('spin-btn').disabled = true;
-
-  // Load shown movies from cookies
+  applyThemeOnLoad();
   loadShownMovies();
-
-  // Load movies
   await loadMovies();
 });
