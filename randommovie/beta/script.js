@@ -2,7 +2,14 @@ let shownMovies = new Set();
 let movies = [];
 let filteredMovies = [];
 let isMoviesLoaded = false;
-const genres = {}; // Store genre ID-to-name mapping
+let selectedGenre = "all"; // Default to "all"
+const genres = {};
+
+// Show or hide the settings popup
+function toggleSettings() {
+  const popup = document.getElementById('settings-popup');
+  popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+}
 
 // Load genres from TMDB API
 async function loadGenres() {
@@ -14,18 +21,24 @@ async function loadGenres() {
         genres[genre.id] = genre.name;
       });
 
-      // Populate genre dropdown
-      const genreFilter = document.getElementById("genre-filter");
+      // Populate the genre dropdown
+      const genreFilter = document.getElementById('genre-filter');
       Object.entries(genres).forEach(([id, name]) => {
-        const option = document.createElement("option");
+        const option = document.createElement('option');
         option.value = id;
         option.textContent = name;
         genreFilter.appendChild(option);
       });
     }
   } catch (error) {
-    console.error("Error loading genres:", error);
+    console.error('Error loading genres:', error);
   }
+}
+
+// Save the selected genre and filter movies
+function applyGenreFilter() {
+  selectedGenre = document.getElementById('genre-filter').value;
+  toggleSettings(); // Close the popup
 }
 
 // Load movies from JSON
@@ -40,7 +53,6 @@ async function loadMovies() {
     }
 
     movies = data.results;
-    filteredMovies = [...movies];
     isMoviesLoaded = true;
     document.getElementById('spin-btn').disabled = false;
   } catch (error) {
@@ -51,17 +63,20 @@ async function loadMovies() {
   }
 }
 
-// Filter movies by selected genre
-function filterMoviesByGenre() {
-  const genreId = document.getElementById("genre-filter").value;
-  filteredMovies = genreId === "all" ? [...movies] : movies.filter((movie) => movie.genre_ids.includes(Number(genreId)));
-  shownMovies.clear(); // Reset shown movies when filtering
-}
-
-// Get a random movie from filtered list
+// Get a random movie filtered by genre
 function getRandomMovie() {
-  if (!isMoviesLoaded || filteredMovies.length === 0) {
-    alert("No movies available for the selected filter. Please refresh the page or change the filter.");
+  if (!isMoviesLoaded || movies.length === 0) {
+    alert("No movies are loaded. Please refresh the page.");
+    return;
+  }
+
+  // Filter movies by genre
+  const filteredMovies = selectedGenre === "all"
+    ? movies
+    : movies.filter((movie) => movie.genre_ids.includes(Number(selectedGenre)));
+
+  if (filteredMovies.length === 0) {
+    alert("No movies available for the selected genre.");
     return;
   }
 
@@ -76,7 +91,6 @@ function getRandomMovie() {
   } while (shownMovies.has(randomMovie.id));
 
   shownMovies.add(randomMovie.id);
-  saveShownMovies();
   displayMovieInfo(randomMovie);
 }
 
@@ -101,8 +115,6 @@ function displayMovieInfo(movie) {
 // Initialize
 window.addEventListener('load', async () => {
   document.getElementById('spin-btn').disabled = true;
-  applyThemeOnLoad();
-  loadShownMovies();
-  await loadGenres(); // Load genres first
-  await loadMovies(); // Load movies
+  loadGenres();
+  await loadMovies();
 });

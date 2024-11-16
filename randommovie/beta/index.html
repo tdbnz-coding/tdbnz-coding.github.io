@@ -11,12 +11,20 @@
   <!-- Light bulb toggle -->
   <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">💡</div>
 
-  <!-- Filter dropdown -->
-  <div class="filter-dropdown">
-    <label for="genre-filter" class="filter-label">Filter by Genre:</label>
-    <select id="genre-filter" class="form-control" onchange="filterMoviesByGenre()">
-      <option value="all">All Genres</option>
-    </select>
+  <!-- Gear Icon -->
+  <div class="settings">
+    <span class="gear-icon" onclick="toggleSettings()">⚙️</span>
+  </div>
+
+  <!-- Genre Selection Popup -->
+  <div id="settings-popup" class="settings-popup" style="display: none;">
+    <div class="popup-content">
+      <h5>Select Genre</h5>
+      <select id="genre-filter" class="form-control">
+        <option value="all">All Genres</option>
+      </select>
+      <button class="btn btn-primary mt-3" onclick="applyGenreFilter()">Apply</button>
+    </div>
   </div>
 
   <div class="container text-center" role="main">
