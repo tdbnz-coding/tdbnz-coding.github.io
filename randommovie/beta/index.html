@@ -11,6 +11,14 @@
   <!-- Light bulb toggle -->
   <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">💡</div>
 
+  <!-- Filter dropdown -->
+  <div class="filter-dropdown">
+    <label for="genre-filter" class="filter-label">Filter by Genre:</label>
+    <select id="genre-filter" class="form-control" onchange="filterMoviesByGenre()">
+      <option value="all">All Genres</option>
+    </select>
+  </div>
+
   <div class="container text-center" role="main">
     <div id="intro" class="content p-4 rounded shadow">
       <h1 class="display-4 fancy-title">🎬 Movie Roulette 🎬</h1>
@@ -31,6 +39,7 @@
           <p id="movie-description" class="card-text"></p>
           <p><strong>Status:</strong> <span id="movie-status"></span></p>
           <p><strong>Year:</strong> <span id="movie-year"></span></p>
+          <p><strong>Genres:</strong> <span id="movie-genres"></span></p>
           <!-- Buttons -->
           <div class="button-group mt-3">
             <button class="btn btn-danger fancy-button mb-2" onclick="getRandomMovie()">Spin Roulette Wheel Again</button>

@@ -1,65 +1,37 @@
 let shownMovies = new Set();
 let movies = [];
+let filteredMovies = [];
 let isMoviesLoaded = false;
+const genres = {}; // Store genre ID-to-name mapping
 
-// Utility to manage cookies
-function setCookie(name, value, days) {
-  const date = new Date();
-  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=None;Secure`;
-}
+// Load genres from TMDB API
+async function loadGenres() {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${TMDB_API_KEY}`);
+    const data = await response.json();
+    if (data.genres) {
+      data.genres.forEach((genre) => {
+        genres[genre.id] = genre.name;
+      });
 
-function getCookie(name) {
-  const cookies = document.cookie.split(';');
-  for (let i = 0; i < cookies.length; i++) {
-    const [key, value] = cookies[i].trim().split('=');
-    if (key === name) {
-      return value;
+      // Populate genre dropdown
+      const genreFilter = document.getElementById("genre-filter");
+      Object.entries(genres).forEach(([id, name]) => {
+        const option = document.createElement("option");
+        option.value = id;
+        option.textContent = name;
+        genreFilter.appendChild(option);
+      });
     }
-  }
-  return null;
-}
-
-function saveShownMovies() {
-  setCookie('shownMovies', JSON.stringify(Array.from(shownMovies)), 7);
-}
-
-function loadShownMovies() {
-  const cookieValue = getCookie('shownMovies');
-  if (cookieValue) {
-    try {
-      shownMovies = new Set(JSON.parse(cookieValue));
-    } catch (error) {
-      console.error('Error parsing shownMovies cookie:', error);
-    }
+  } catch (error) {
+    console.error("Error loading genres:", error);
   }
 }
 
-function toggleTheme() {
-  const body = document.body;
-  if (body.classList.contains('dark-theme')) {
-    body.classList.remove('dark-theme');
-    body.classList.add('light-theme');
-    setCookie('theme', 'light', 7);
-  } else {
-    body.classList.remove('light-theme');
-    body.classList.add('dark-theme');
-    setCookie('theme', 'dark', 7);
-  }
-}
-
-function applyThemeOnLoad() {
-  const savedTheme = getCookie('theme');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-theme');
-  } else {
-    document.body.classList.add('dark-theme');
-  }
-}
-
+// Load movies from JSON
 async function loadMovies() {
   try {
-    const response = await fetch('/movies_data/moviesbeta.json'); // Updated file path
+    const response = await fetch('/movies_data/moviesbeta.json');
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     const data = await response.json();
 
@@ -68,6 +40,7 @@ async function loadMovies() {
     }
 
     movies = data.results;
+    filteredMovies = [...movies];
     isMoviesLoaded = true;
     document.getElementById('spin-btn').disabled = false;
   } catch (error) {
@@ -78,20 +51,28 @@ async function loadMovies() {
   }
 }
 
+// Filter movies by selected genre
+function filterMoviesByGenre() {
+  const genreId = document.getElementById("genre-filter").value;
+  filteredMovies = genreId === "all" ? [...movies] : movies.filter((movie) => movie.genre_ids.includes(Number(genreId)));
+  shownMovies.clear(); // Reset shown movies when filtering
+}
+
+// Get a random movie from filtered list
 function getRandomMovie() {
-  if (!isMoviesLoaded || movies.length === 0) {
-    alert("No movies are loaded. Please refresh the page.");
+  if (!isMoviesLoaded || filteredMovies.length === 0) {
+    alert("No movies available for the selected filter. Please refresh the page or change the filter.");
     return;
   }
 
-  if (shownMovies.size === movies.length) {
-    alert("All movies have been shown. Resetting the list.");
+  if (shownMovies.size === filteredMovies.length) {
+    alert("All movies in this category have been shown. Resetting the list.");
     shownMovies.clear();
   }
 
   let randomMovie;
   do {
-    randomMovie = movies[Math.floor(Math.random() * movies.length)];
+    randomMovie = filteredMovies[Math.floor(Math.random() * filteredMovies.length)];
   } while (shownMovies.has(randomMovie.id));
 
   shownMovies.add(randomMovie.id);
@@ -99,14 +80,16 @@ function getRandomMovie() {
   displayMovieInfo(randomMovie);
 }
 
+// Display movie information
 function displayMovieInfo(movie) {
   const releaseYear = movie.release_date ? movie.release_date.split('-')[0] : "Unknown";
-  const movieStatus = movie.release_date ? "Released" : "Unknown";
+  const movieGenres = movie.genre_ids.map((id) => genres[id] || "Unknown").join(", ");
 
   document.getElementById('movie-description').textContent = movie.overview || "No description available.";
   document.getElementById('movie-poster').src = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'default-poster.jpg';
-  document.getElementById('movie-status').textContent = movieStatus;
+  document.getElementById('movie-status').textContent = "Released";
   document.getElementById('movie-year').textContent = releaseYear;
+  document.getElementById('movie-genres').textContent = movieGenres;
 
   const tmdbLink = `https://www.themoviedb.org/movie/${movie.id}`;
   document.getElementById('tmdb-link').href = tmdbLink;
@@ -115,9 +98,11 @@ function displayMovieInfo(movie) {
   document.getElementById('movie-info').style.display = 'flex';
 }
 
+// Initialize
 window.addEventListener('load', async () => {
   document.getElementById('spin-btn').disabled = true;
   applyThemeOnLoad();
   loadShownMovies();
-  await loadMovies();
+  await loadGenres(); // Load genres first
+  await loadMovies(); // Load movies
 });
