@@ -8,7 +8,6 @@
   z-index: 1000;
 }
 
-/* Light/Dark Themes */
 body.dark-theme {
   background-color: #141414;
   color: #e5e5e5;
@@ -45,7 +44,6 @@ body.light-theme .content {
   color: #333;
 }
 
-/* Buttons */
 .fancy-button {
   background-color: #e50914;
   border: none;
@@ -64,20 +62,4 @@ body.light-theme .content {
   width: 100%;
   max-width: 250px;
   border-radius: 10px;
-}
-
-.card-text {
-  margin-bottom: 15px;
-}
-
-/* Responsive Layout */
-@media (max-width: 768px) {
-  .content {
-    text-align: center;
-  }
-
-  .button-group {
-    display: flex;
-    flex-direction: column;
-  }
 }
