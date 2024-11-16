@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Sport NZ Streaming</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- External Stylesheet -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="container-fluid text-center position-relative py-5">
+        <!-- Lightbulb Theme Toggle -->
+        <div class="lightbulb" onclick="toggleTheme()">
+            <i class="bi bi-lightbulb-fill"></i>
+        </div>
+
+        <!-- Title -->
+        <h1 class="my-4">Sky Sport NZ</h1>
+        <div class="main-title"></div>
+
+        <!-- Video Container -->
+        <div class="video-container my-5">
+            <iframe id="streamFrame" src="https://thedaddy.to/embed/stream-588.php" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Stream Buttons -->
+        <div class="stream-buttons">
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-588.php')">Sky Sport 1 NZ (Default)</button>
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-589.php')">Sky Sport 2 NZ</button>
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-590.php')">Sky Sport 3 NZ</button>
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-591.php')">Sky Sport 4 NZ</button>
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-592.php')">Sky Sport 5 NZ</button>
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-593.php')">Sky Sport 6 NZ</button>
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-594.php')">Sky Sport 7 NZ</button>
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-595.php')">Sky Sport Premier League NZ</button>
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-596.php')">Sky Sport 9 NZ</button>
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-587.php')">Sky Sport Select NZ</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Streaming Hub. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
