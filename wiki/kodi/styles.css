@@ -1,0 +1,62 @@
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #121212; /* Dark background for better contrast */
+  color: #ffffff;
+}
+
+a {
+  color: #ff4d4d; /* Bright red links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar Styling */
+.navbar {
+  padding: 1rem 0;
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  margin: 0 0.5rem;
+}
+
+.nav-link:hover {
+  color: #ff4d4d;
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: #1c1c1c; /* Slightly lighter dark background */
+  padding: 3rem 1rem;
+  border-bottom: 2px solid #ff4d4d;
+}
+
+/* Sections */
+h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid #ff4d4d;
+  padding-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: #000000;
+  padding: 2rem 1rem;
+}
+
+footer p {
+  margin: 0;
+}
