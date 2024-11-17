@@ -4,51 +4,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Source Quality Guide</title>
+  <title>Movie Guide</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="bg-dark text-light">
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm" role="navigation">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">Movie Wiki</a>
+      <a class="navbar-brand fw-bold text-danger" href="index.html" aria-label="Return to Home">Movie Wiki</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#high-quality">High Quality</a></li>
           <li class="nav-item"><a class="nav-link" href="#pre-bluray">Pre-Blu-ray</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resolutions">Resolutions</a></li>
+          <li class="nav-item"><a class="nav-link" href="#streaming-platforms">Streaming Platforms</a></li>
           <li class="nav-item"><a class="nav-link" href="#practical-use">Practical Use</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Main Content -->
-  <div class="container py-5">
-    <h1 class="text-center mb-5">Movie Source Quality Guide</h1>
+  <!-- Hero Section -->
+  <header class="hero-section text-center text-light py-5" role="banner">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Your ultimate Movie Guide</h1>
+      <p class="lead"></p>
+    </div>
+  </header>
 
+  <!-- Main Content -->
+  <main class="container py-5" role="main">
     <!-- High-Quality Sources -->
     <section id="high-quality">
-      <h2 class="mb-4">High-Quality Sources</h2>
+      <h2 class="mb-4 text-danger text-center">High-Quality Sources</h2>
       <div class="row">
-        <div class="col-md-6 mb-4">
-          <div class="card info-card">
+        <!-- Existing Cards for High-Quality Sources -->
+        <div class="col-md-4 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger" tabindex="0">
             <div class="card-body">
               <h5 class="card-title">Blu-ray Disc/Remux</h5>
               <p class="card-text">The original high-definition movie file from a physical Blu-ray disc. Remux removes extras for reduced size.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 mb-4">
-          <div class="card info-card">
+        <div class="col-md-4 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger" tabindex="0">
             <div class="card-body">
               <h5 class="card-title">WebDL</h5>
               <p class="card-text">Digital file directly from a streaming service, offering excellent quality without intermediate compression.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger" tabindex="0">
+            <div class="card-body">
+              <h5 class="card-title">Blu-ray Encode</h5>
+              <p class="card-text">A compressed version of the Blu-ray source to reduce file size while maintaining high quality.</p>
             </div>
           </div>
         </div>
@@ -57,21 +75,109 @@
 
     <!-- Pre-Blu-ray/Theater-Sourced Copies -->
     <section id="pre-bluray" class="mt-5">
-      <h2 class="mb-4">Pre-Blu-ray/Theater-Sourced Copies</h2>
+      <h2 class="mb-4 text-danger text-center">Pre-Blu-ray/Theater-Sourced Copies</h2>
       <div class="row">
-        <div class="col-md-6 mb-4">
-          <div class="card info-card">
+        <!-- Existing Cards for Pre-Blu-ray Sources -->
+        <div class="col-md-4 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger" tabindex="0">
             <div class="card-body">
               <h5 class="card-title">HDTC (Telecine)</h5>
               <p class="card-text">Created using a telecine machine, with potential artifacts from the film reel.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 mb-4">
-          <div class="card info-card">
+        <div class="col-md-4 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger" tabindex="0">
             <div class="card-body">
               <h5 class="card-title">HDTS (Telesync)</h5>
               <p class="card-text">Recorded in a theater with external audio for improved sound. Visuals often distorted.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger" tabindex="0">
+            <div class="card-body">
+              <h5 class="card-title">HQ-CAM</h5>
+              <p class="card-text">A recording made in a theater, often with poor lighting and audience sounds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resolutions -->
+    <section id="resolutions" class="mt-5">
+      <h2 class="text-danger text-center mb-4">Resolutions and Streaming Speeds</h2>
+      <div class="row">
+        <!-- Cards for Resolutions -->
+        <div class="col-md-6 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger">
+            <div class="card-body">
+              <h5 class="card-title">SD (Standard Definition)</h5>
+              <p class="card-text">Resolution: 480p (640x480). Suitable for smaller screens. File sizes: 700MB–1.5GB/hour.</p>
+              <p><strong>Streaming Speed:</strong> 3 Mbps or higher.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger">
+            <div class="card-body">
+              <h5 class="card-title">HD (High Definition)</h5>
+              <p class="card-text">Resolution: 720p/1080p. Suitable for most modern TVs. File sizes: 1.5GB–5GB/hour.</p>
+              <p><strong>Streaming Speed:</strong> 5–8 Mbps or higher.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger">
+            <div class="card-body">
+              <h5 class="card-title">HQ (High Quality)</h5>
+              <p class="card-text">High-bitrate 1080p content. File sizes: 4GB–10GB/hour depending on compression.</p>
+              <p><strong>Streaming Speed:</strong> Minimum 10 Mbps.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger">
+            <div class="card-body">
+              <h5 class="card-title">4K (Ultra HD)</h5>
+              <p class="card-text">Resolution: 2160p. Best for large screens. File sizes: 7GB–20GB/hour.</p>
+              <p><strong>Streaming Speed:</strong> 25 Mbps or higher.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Streaming Platforms -->
+    <section id="streaming-platforms" class="mt-5">
+      <h2 class="text-danger text-center mb-4">Popular Streaming Platforms</h2>
+      <div class="row">
+        <!-- Cards for Streaming Platforms -->
+        <div class="col-md-4 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger">
+            <div class="card-body">
+              <h5 class="card-title">Netflix</h5>
+              <p class="card-text">SD, HD, and 4K content. Known for Netflix Originals and diverse content.</p>
+              <a href="https://www.netflix.com" target="_blank" class="btn btn-outline-danger">Visit Netflix</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger">
+            <div class="card-body">
+              <h5 class="card-title">Amazon Prime Video</h5>
+              <p class="card-text">Extensive library with 4K HDR content available.</p>
+              <a href="https://www.primevideo.com" target="_blank" class="btn btn-outline-danger">Visit Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card bg-black text-light shadow-sm border-danger">
+            <div class="card-body">
+              <h5 class="card-title">Disney+</h5>
+              <p class="card-text">Exclusive Disney, Marvel, and Star Wars content with 4K streaming.</p>
+              <a href="https://www.disneyplus.com" target="_blank" class="btn btn-outline-danger">Visit Disney+</a>
             </div>
           </div>
         </div>
@@ -80,20 +186,19 @@
 
     <!-- Practical Use -->
     <section id="practical-use" class="mt-5">
-      <h2 class="mb-4">Practical Use</h2>
-      <div class="alert alert-info">
-        <p><strong>Highest Quality:</strong> Blu-ray Disc/Remux > WebDL > Blu-ray Encode > WebRip</p>
-        <p><strong>Lower Quality:</strong> BD-Rip/BR-Rip > HDRip > DVDRip</p>
-        <p><strong>Theater Rips:</strong> HDTC > HDTS > HD/HQ-CAM</p>
+      <h2 class="text-danger text-center mb-4">Practical Use</h2>
+      <div class="alert alert-dark border-danger shadow-sm">
+        <p><strong>Best Experience:</strong> Use 4K for large screens, HD for regular viewing, and SD for slow connections.</p>
+        <p><strong>Internet Requirements:</strong> Check your connection speed for desired resolutions.</p>
       </div>
-      <p>Prioritize WebDL or Blu-ray Encode for the best experience. Avoid CAM formats unless necessary.</p>
     </section>
-  </div>
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-dark text-light py-3">
+  <footer class="bg-black text-light py-3" role="contentinfo">
     <div class="container text-center">
-      <p class="mb-0">© 2024 Movie Wiki. All Rights Reserved.</p>
+      <p>© 2024 tdbnz-coding All Rights Reserved.</p>
+      <p><a href="/wiki/" class="text-danger">Return to Home</a></p>
     </div>
   </footer>
 
