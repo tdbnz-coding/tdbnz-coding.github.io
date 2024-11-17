@@ -2,195 +2,85 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Streaming Sites Wiki</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
-        .wiki-header {
-            background-color: #343a40;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .sidebar {
-            background-color: #f8f9fa;
-            padding: 15px;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-            border-right: 1px solid #dee2e6;
-        }
-
-        .content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-
-        .list-group-item a {
-            text-decoration: none;
-            color: #007bff;
-        }
-
-        .list-group-item a:hover {
-            text-decoration: underline;
-        }
-
-        .section-title {
-            margin-top: 20px;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiki - Home</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Header -->
-    <div class="wiki-header">
-        Streaming Sites Wiki
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/index.html">Wiki</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/wiki/terms/movieterms">Movie Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h5 class="fw-bold">Table of Contents</h5>
-        <div class="list-group">
-            <a href="#multi-server" class="list-group-item list-group-item-action">Multi Server</a>
-            <a href="#single-server" class="list-group-item list-group-item-action">Single Server</a>
-            <a href="#anime-streaming" class="list-group-item list-group-item-action">Anime Streaming</a>
-            <a href="#live-tv" class="list-group-item list-group-item-action">Live TV / Sports</a>
-            <a href="#drama-streaming" class="list-group-item list-group-item-action">Drama Streaming</a>
-            <a href="#specialty-streaming" class="list-group-item list-group-item-action">Specialty Streaming</a>
+  <!-- Hero Section -->
+  <header class="bg-dark text-light py-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Welcome to my Wiki</h1>
+      <p class="lead">Explore curated guides, resources, and knowledge with a touch of elegance.</p>
+      <a href="movie-guide.html" class="btn btn-primary btn-lg">Explore the Movie Guide</a>
+    </div>
+  </header>
+
+  <!-- Content Section -->
+  <main class="container py-5">
+    <h2 class="text-center mb-4">Our Wiki Sections</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card info-card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">Movie Source Guide</h5>
+            <p class="card-text">Learn about different movie sources and their quality for the best viewing experience.</p>
+            <a href="movie-guide.html" class="btn btn-outline-primary">View Guide</a>
+          </div>
         </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card info-card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">About Us</h5>
+            <p class="card-text">Discover who we are and the mission behind our Wiki.</p>
+            <a href="#" class="btn btn-outline-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card info-card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">Contact</h5>
+            <p class="card-text">Have questions? Reach out to us!</p>
+            <a href="#" class="btn btn-outline-primary">Get in Touch</a>
+          </div>
+        </div>
+      </div>
     </div>
+  </main>
 
-    <!-- Main Content -->
-    <div class="content">
-        <!-- Multi Server Section -->
-         <div id="multi-server" class="section-title">▷ Multi Server</div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a href="https://erynith.github.io/movie-web-instances/" target="_blank">⭐ movie-web Instances</a>, 
-                <a href="https://docs.undi.rest/instances" target="_blank">2</a> - Movies / TV / Anime / 4K / 1080p / Ad-Free / 
-                <a href="https://docs.undi.rest/" target="_blank">Docs</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://watch.lonelil.ru/" target="_blank">⭐ watch.lonelil</a> - Movies / TV / Anime / 4K / 1080p / 
-                <a href="https://watch.lonelil.ru/onboarding/extension" target="_blank">Add Sources</a> / 
-                <a href="https://discord.com/invite/BKts6Jb5sA" target="_blank">Discord</a> / 
-                <a href="https://t.me/watchlonelil" target="_blank">Telegram</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://www.braflix.is/" target="_blank">⭐ Braflix</a> - Movies / TV / Anime / 4K / 1080p / 
-                <a href="https://discord.com/invite/dexBcDVdEk" target="_blank">Discord</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://freek.to/" target="_blank">⭐ Freek</a> - Movies / TV / Anime / 1080p
-            </li>
-            <li class="list-group-item">
-                <a href="https://hydrahd.cc/" target="_blank">⭐ HydraHD</a> - Movies / TV / Anime / 1080p / 
-                <a href="https://t.me/+BUrW9XlfiW1lNDQ0" target="_blank">Telegram</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://kipstream.lol/" target="_blank">⭐ kipstream</a> - Movies / TV / Anime / 1080p / 
-                <a href="https://discord.gg/tDKYeh9eQn" target="_blank">Discord</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://nunflix.org/" target="_blank">⭐ Nunflix</a>, 
-                <a href="https://nunflix.com/" target="_blank">2</a>, 
-                <a href="https://nunflix-firebase.web.app/" target="_blank">3</a> - Movies / TV / Anime / 4K / 1080p / 
-                <a href="https://nunflix-info.vercel.app/" target="_blank">Docs</a> / 
-                <a href="https://discord.gg/CXVyfhgn26" target="_blank">Discord</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://novafork.com/" target="_blank">⭐ Novafork</a> - Movies / TV / 4K / 1080p / 
-                <a href="https://discord.gg/XbDBBmh5FY" target="_blank">Discord</a> / 
-                <a href="https://github.com/fanlimgames/novafork" target="_blank">GitHub</a>
-            </li>
-            <!-- Add more multi-server links here -->
-        </ul>
-
-        <!-- Single Server Section -->
-        <div id="single-server" class="section-title">▷ Single Server</div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a href="https://nepu.to/" target="_blank">⭐ NEPU</a> – Movies / TV / Anime / 1080p / 
-                <a href="https://discord.gg/nepu">Discord</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://susflix.tv/" target="_blank">⭐ SusFlix</a> – Movies / TV / Anime / 4K / 1080p / 
-                <a href="https://discord.gg/BE7kTVezBN">Discord</a>
-            </li>
-            <!-- Add more single-server links here -->
-        </ul>
-
-        <!-- Anime Streaming Section -->
-        <div id="anime-streaming" class="section-title">▷ Anime Streaming</div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a href="https://wotaku.wiki/websites" target="_blank">🌐 Wotaku</a> – Anime Streaming Index / 
-                <a href="https://discord.gg/vShRGx8ZBC">Discord</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://miruro.tv/" target="_blank">⭐ Miruro</a> – Sub / Dub / 1080p / 
-                <a href="https://discord.gg/miruro">Discord</a>
-            </li>
-            <!-- Add more anime streaming links here -->
-        </ul>
-
-        <!-- Live TV / Sports Section -->
-        <div id="live-tv" class="section-title">▷ Live TV / Sports</div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a href="https://thetvapp.to/" target="_blank">⭐ TheTVApp</a> – TV / Sports / Ad-Free
-            </li>
-            <li class="list-group-item">
-                <a href="https://streamed.su/" target="_blank">⭐ Streamed</a> – Sports / 
-                <a href="https://discord.gg/streamed">Discord</a>
-            </li>
-            <!-- Add more live TV / sports links here -->
-        </ul>
-
-        <!-- Drama Streaming Section -->
-        <div id="drama-streaming" class="section-title">▷ Drama Streaming</div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a href="https://asianc.to/" target="_blank">⭐ DramaCool</a> – TV / Movies / 1080p / 
-                <a href="https://asianwiki.co/">Clones List</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://kissasian.video/" target="_blank">⭐ KissAsian</a> – TV / Movies
-            </li>
-            <!-- Add more drama streaming links here -->
-        </ul>
-
-        <!-- Specialty Streaming Section -->
-        <div id="specialty-streaming" class="section-title">▷ Specialty Streaming</div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a href="https://rarefilmm.com/" target="_blank">⭐ RareFilmm</a> – Rare Movies
-            </li>
-            <li class="list-group-item">
-                <a href="https://tokuzilla.net/" target="_blank">⭐ Tokuzilla</a> – Tokuzilla Movies / Shows
-            </li>
-            <!-- Add more specialty streaming links here -->
-        </ul>
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-3">
+    <div class="container text-center">
+      <p class="mb-0">© 2024 tdbnz-coding. All Rights Reserved.</p>
     </div>
+  </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

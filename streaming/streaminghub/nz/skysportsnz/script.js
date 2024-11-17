@@ -1,8 +1,10 @@
+// Change the iframe stream source
 function changeStream(url) {
     const streamFrame = document.getElementById('streamFrame');
     streamFrame.src = url;
 }
 
+// Toggle between light and dark themes
 function toggleTheme() {
     const body = document.body;
     if (body.classList.contains('dark-theme')) {

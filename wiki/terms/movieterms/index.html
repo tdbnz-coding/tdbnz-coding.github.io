@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Source Quality Guide</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Movie Wiki</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#high-quality">High Quality</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pre-bluray">Pre-Blu-ray</a></li>
+          <li class="nav-item"><a class="nav-link" href="#practical-use">Practical Use</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container py-5">
+    <h1 class="text-center mb-5">Movie Source Quality Guide</h1>
+
+    <!-- High-Quality Sources -->
+    <section id="high-quality">
+      <h2 class="mb-4">High-Quality Sources</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card info-card">
+            <div class="card-body">
+              <h5 class="card-title">Blu-ray Disc/Remux</h5>
+              <p class="card-text">The original high-definition movie file from a physical Blu-ray disc. Remux removes extras for reduced size.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card info-card">
+            <div class="card-body">
+              <h5 class="card-title">WebDL</h5>
+              <p class="card-text">Digital file directly from a streaming service, offering excellent quality without intermediate compression.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pre-Blu-ray/Theater-Sourced Copies -->
+    <section id="pre-bluray" class="mt-5">
+      <h2 class="mb-4">Pre-Blu-ray/Theater-Sourced Copies</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card info-card">
+            <div class="card-body">
+              <h5 class="card-title">HDTC (Telecine)</h5>
+              <p class="card-text">Created using a telecine machine, with potential artifacts from the film reel.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card info-card">
+            <div class="card-body">
+              <h5 class="card-title">HDTS (Telesync)</h5>
+              <p class="card-text">Recorded in a theater with external audio for improved sound. Visuals often distorted.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practical Use -->
+    <section id="practical-use" class="mt-5">
+      <h2 class="mb-4">Practical Use</h2>
+      <div class="alert alert-info">
+        <p><strong>Highest Quality:</strong> Blu-ray Disc/Remux > WebDL > Blu-ray Encode > WebRip</p>
+        <p><strong>Lower Quality:</strong> BD-Rip/BR-Rip > HDRip > DVDRip</p>
+        <p><strong>Theater Rips:</strong> HDTC > HDTS > HD/HQ-CAM</p>
+      </div>
+      <p>Prioritize WebDL or Blu-ray Encode for the best experience. Avoid CAM formats unless necessary.</p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-3">
+    <div class="container text-center">
+      <p class="mb-0">© 2024 Movie Wiki. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

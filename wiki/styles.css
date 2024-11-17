@@ -1,0 +1,35 @@
+body {
+  background-color: #f8f9fa;
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+}
+
+h1, h2 {
+  color: #343a40;
+}
+
+header {
+  background: linear-gradient(to bottom right, #343a40, #007bff);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.info-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  background: #343a40;
+  color: white;
+}

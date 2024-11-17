@@ -14,13 +14,12 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body class="dark-theme">
-    <!-- Lightbulb for Theme Toggle -->
-    <div class="lightbulb">
-        <i class="bi bi-lightbulb-fill" onclick="toggleTheme()"></i>
-    </div>
+    <div class="container-fluid text-center position-relative py-5">
+        <!-- Lightbulb Theme Toggle -->
+        <div class="lightbulb" onclick="toggleTheme()">
+            <i class="bi bi-lightbulb-fill"></i>
+        </div>
 
-    <!-- Main Content -->
-    <div class="container text-center position-relative py-5">
         <!-- Title -->
         <h1 class="my-4">Sky Sport NZ Streaming</h1>
         <div class="main-title">Your Premium Sports Experience</div>
@@ -32,6 +31,8 @@
                     src="https://thedaddy.to/embed/stream-594.php" 
                     scrolling="no" 
                     allowfullscreen 
+                    width="100%" 
+                    height="100%" 
                     frameborder="0">
                 Your Browser Does Not Support Iframes
             </iframe>
