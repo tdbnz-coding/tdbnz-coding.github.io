@@ -5981,6 +5981,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/vZaIAIX5XcXLsF4jRSp5x7wsRzn.jpg",
+      "genre_ids": [
+        80,
+        28
+      ],
+      "id": 783110,
+      "original_language": "ko",
+      "original_title": "밀수",
+      "overview": "During the 1970s, in Kunchon, there were women divers who were able to dive without equipment, including two best friends Choon-ja and Jin-sook, Jin-sook's brother and Hammer. They always collected seafood under water for living. But, as fewer factories started to be built near the beach, the women divers started to have trouble with what they were doing for living. Without any choice, the ship crews decided to join the smuggling business in the water to seek a way for their living. But the smuggling business in their village got too big for Jin-sook's family to handle and the peaceful village was gradually broken.",
+      "popularity": 115.246,
+      "poster_path": "/j8Jx4vpBG258jPxd4o0kOLDwTvm.jpg",
+      "release_date": "2023-07-26",
+      "title": "Smugglers",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 47
+    },
+    {
+      "adult": false,
       "backdrop_path": "/epsz7OqjwmeK1ehItgz1OVzxOH9.jpg",
       "genre_ids": [
         28,
@@ -6100,26 +6119,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/wxr4Z6E83h14CogsZOzDm1vuDX3.jpg",
-      "genre_ids": [
-        878,
-        28,
-        12
-      ],
-      "id": 91314,
-      "original_language": "en",
-      "original_title": "Transformers: Age of Extinction",
-      "overview": "As humanity picks up the pieces after the battle of Chicago, a shadowy group reveals itself in an attempt to control the direction of history…while an ancient, powerful new menace sets Earth in its crosshairs. With help from Cade Yeager, Optimus Prime and the Autobots rise to meet their most fearsome challenge yet.",
-      "popularity": 111.928,
-      "poster_path": "/4ACxxNFsifxyZz8KQdd7zwQqTPW.jpg",
-      "release_date": "2014-06-25",
-      "title": "Transformers: Age of Extinction",
-      "video": false,
-      "vote_average": 5.939,
-      "vote_count": 8121
-    },
-    {
-      "adult": false,
       "backdrop_path": "/okVLmXL5y18dfN2R4ufMZEGaeCd.jpg",
       "genre_ids": [
         28,
@@ -6136,8 +6135,8 @@
       "release_date": "2024-07-03",
       "title": "Kill",
       "video": false,
-      "vote_average": 7.2,
-      "vote_count": 272
+      "vote_average": 7.185,
+      "vote_count": 273
     },
     {
       "adult": false,
@@ -6173,7 +6172,7 @@
       "release_date": "1994-09-10",
       "title": "Pulp Fiction",
       "video": false,
-      "vote_average": 8.487,
+      "vote_average": 8.5,
       "vote_count": 27953
     },
     {
@@ -6271,8 +6270,8 @@
       "release_date": "2024-04-12",
       "title": "Case Closed: The Million-Dollar Pentagram",
       "video": false,
-      "vote_average": 6.8,
-      "vote_count": 25
+      "vote_average": 6.846,
+      "vote_count": 26
     },
     {
       "adult": false,
@@ -6309,8 +6308,8 @@
       "release_date": "2024-05-03",
       "title": "I Saw the TV Glow",
       "video": false,
-      "vote_average": 6,
-      "vote_count": 324
+      "vote_average": 6.029,
+      "vote_count": 326
     },
     {
       "adult": false,
@@ -15529,29 +15528,8 @@
       "release_date": "2024-06-21",
       "title": "Thelma",
       "video": false,
-      "vote_average": 7.009,
+      "vote_average": 7,
       "vote_count": 170
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/vW7lwVHkRePHzayZfoKOyYBeZqO.jpg",
-      "genre_ids": [
-        16,
-        12,
-        35,
-        10751
-      ],
-      "id": 1221404,
-      "original_language": "ja",
-      "original_title": "映画クレヨンしんちゃん オラたちの恐竜日記",
-      "overview": "Follow the friendship between the Nobara family's pet dog Shiro and a \"small dinosaur\". Their connection helps the growth of Shinnosuke and the Kusakabe Defense Squad.",
-      "popularity": 69.923,
-      "poster_path": "/nVUZBgpWxGDiKHMI6ymm4neoBsE.jpg",
-      "release_date": "2024-08-09",
-      "title": "Crayon Shin-chan: Ora's Dinosaur Diary",
-      "video": false,
-      "vote_average": 8.7,
-      "vote_count": 3
     },
     {
       "adult": false,
@@ -15741,8 +15719,8 @@
       "release_date": "1999-04-16",
       "title": "The Mummy",
       "video": false,
-      "vote_average": 6.9,
-      "vote_count": 9040
+      "vote_average": 6.936,
+      "vote_count": 9042
     },
     {
       "adult": false,
@@ -15761,7 +15739,7 @@
       "release_date": "2018-06-27",
       "title": "Sicario: Day of the Soldado",
       "video": false,
-      "vote_average": 6.928,
+      "vote_average": 6.9,
       "vote_count": 3558
     },
     {
@@ -15838,6 +15816,24 @@
       "video": false,
       "vote_average": 4.5,
       "vote_count": 2
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cCBdL7v7msKHE0T5lPbaAY8GTJ5.jpg",
+      "genre_ids": [
+        27
+      ],
+      "id": 231001,
+      "original_language": "en",
+      "original_title": "All Hallows' Eve",
+      "overview": "While watching two children on Halloween night, a babysitter finds an old VHS tape in the kids' trick or treat bag. The tape features three tales of terror, all linked together by a murderous clown.",
+      "popularity": 74.315,
+      "poster_path": "/bSe8CBqK8HkbP6sqZWzcJfQV9Ci.jpg",
+      "release_date": "2013-10-29",
+      "title": "All Hallows' Eve",
+      "video": false,
+      "vote_average": 5.7,
+      "vote_count": 524
     },
     {
       "adult": false,
@@ -26066,6 +26062,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        28,
+        53
+      ],
+      "id": 762409,
+      "original_language": "en",
+      "original_title": "Night Has Fallen",
+      "overview": "The fourth entry in the \"... Has Fallen\" series, following the adventures of former Army Ranger and Secret Service Agent Mike Banning.",
+      "popularity": 52.438,
+      "poster_path": null,
+      "release_date": "",
+      "title": "Night Has Fallen",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
       "backdrop_path": "/vQYwarUtaeyDYgwmcaTJYX1yix2.jpg",
       "genre_ids": [
         35,
@@ -26119,8 +26134,8 @@
       "release_date": "2015-05-29",
       "title": "Hot Girls Wanted",
       "video": false,
-      "vote_average": 6.057,
-      "vote_count": 651
+      "vote_average": 6.063,
+      "vote_count": 652
     },
     {
       "adult": false,
@@ -26138,8 +26153,8 @@
       "release_date": "2022-03-24",
       "title": "RRR",
       "video": false,
-      "vote_average": 7.7,
-      "vote_count": 1306
+      "vote_average": 7.748,
+      "vote_count": 1307
     },
     {
       "adult": false,
@@ -26198,7 +26213,7 @@
       "title": "The Sixth Sense",
       "video": false,
       "vote_average": 7.955,
-      "vote_count": 11694
+      "vote_count": 11695
     },
     {
       "adult": false,
@@ -26436,27 +26451,6 @@
       "video": false,
       "vote_average": 7.7,
       "vote_count": 3263
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/wdUnHg8bOmTkHzkvxSY9sCeqJ6q.jpg",
-      "genre_ids": [
-        16,
-        878,
-        10751,
-        28
-      ],
-      "id": 829402,
-      "original_language": "en",
-      "original_title": "Ultraman: Rising",
-      "overview": "A star athlete reluctantly returns home to take over his father's duties as Ultraman, shielding Tokyo from giant monsters as he becomes a legendary hero.",
-      "popularity": 50.253,
-      "poster_path": "/j886YEkIUsiImY53px5VHKD4lRa.jpg",
-      "release_date": "2024-06-14",
-      "title": "Ultraman: Rising",
-      "video": false,
-      "vote_average": 8.272,
-      "vote_count": 283
     },
     {
       "adult": false,
@@ -29219,24 +29213,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/69zQPqavgtWhpvWS5dOU0sInjez.jpg",
-      "genre_ids": [
-        18
-      ],
-      "id": 1362101,
-      "original_language": "tr",
-      "original_title": "Mavi Mağara",
-      "overview": "When Cem finds himself at the brink of losing the love of his life, Alara, he embarks on an expedition to the Blue Cave, Alara's most beloved archeological site, to feel close to her again.",
-      "popularity": 62.746,
-      "poster_path": "/32hWYgxMOudSgA6tR8nlVTUtoOi.jpg",
-      "release_date": "2024-10-17",
-      "title": "Blue Cave",
-      "video": false,
-      "vote_average": 6.9,
-      "vote_count": 63
-    },
-    {
-      "adult": false,
       "backdrop_path": "/yKdZTl3Xu3FcKJuM8zkSoR5g21U.jpg",
       "genre_ids": [
         53,
@@ -29311,7 +29287,7 @@
       "release_date": "1940-02-23",
       "title": "Pinocchio",
       "video": false,
-      "vote_average": 7.103,
+      "vote_average": 7.1,
       "vote_count": 5824
     },
     {
@@ -29602,6 +29578,25 @@
       "video": false,
       "vote_average": 7.324,
       "vote_count": 4068
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dVr11o9or7AS8AMPfwjSpEU83iU.jpg",
+      "genre_ids": [
+        18,
+        10752
+      ],
+      "id": 423,
+      "original_language": "en",
+      "original_title": "The Pianist",
+      "overview": "The true story of pianist Władysław Szpilman's experiences in Warsaw during the Nazi occupation. When the Jews of the city find themselves forced into a ghetto, Szpilman finds work playing in a café; and when his family is deported in 1942, he stays behind, works for a while as a laborer, and eventually goes into hiding in the ruins of the war-torn city.",
+      "popularity": 47.412,
+      "poster_path": "/2hFvxCCWrTmCYwfy7yum0GKRi3Y.jpg",
+      "release_date": "2002-09-17",
+      "title": "The Pianist",
+      "video": false,
+      "vote_average": 8.379,
+      "vote_count": 9173
     },
     {
       "adult": false,
@@ -35105,6 +35100,44 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/cQW6UoDxwwfqIMTVfxdxHk4JLGP.jpg",
+      "genre_ids": [
+        35,
+        14,
+        10751
+      ],
+      "id": 35019,
+      "original_language": "en",
+      "original_title": "Nanny McPhee and the Big Bang",
+      "overview": "Nanny McPhee appears at the door of a harried young mother who is trying to run the family farm while her husband is away at war. But once she’s arrived, Nanny discovers that the children are fighting a war of their own against two spoiled city cousins who have just moved in. Relying on everything from a flying motorcycle and a statue that comes to life to a tree-climbing piglet and a baby elephant, Nanny uses her magic to teach her mischievous charges five new lessons.",
+      "popularity": 43.068,
+      "poster_path": "/9cgHfgBXVZmVR63AhwJ82R1kAFS.jpg",
+      "release_date": "2010-03-26",
+      "title": "Nanny McPhee and the Big Bang",
+      "video": false,
+      "vote_average": 6.296,
+      "vote_count": 1822
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bqlfDdEnDiyMp5DxYl50FIrvyNO.jpg",
+      "genre_ids": [
+        99
+      ],
+      "id": 899082,
+      "original_language": "en",
+      "original_title": "Harry Potter 20th Anniversary: Return to Hogwarts",
+      "overview": "An enchanting making-of story told through all-new in-depth interviews and cast conversations, inviting fans on a magical first-person journey through one of the most beloved film franchises of all time.",
+      "popularity": 49.081,
+      "poster_path": "/jntLBq0MLR3hrwKaTQswxACRPMs.jpg",
+      "release_date": "2022-01-01",
+      "title": "Harry Potter 20th Anniversary: Return to Hogwarts",
+      "video": false,
+      "vote_average": 7.311,
+      "vote_count": 3315
+    },
+    {
+      "adult": false,
       "backdrop_path": "/lU0zVj8KcQVkPczdGGraYGiRC72.jpg",
       "genre_ids": [
         878,
@@ -35239,7 +35272,7 @@
       "title": "Coming to America",
       "video": false,
       "vote_average": 6.882,
-      "vote_count": 4320
+      "vote_count": 4321
     },
     {
       "adult": false,
@@ -35296,8 +35329,8 @@
       "release_date": "2014-03-07",
       "title": "Noah",
       "video": false,
-      "vote_average": 5.672,
-      "vote_count": 6189
+      "vote_average": 5.673,
+      "vote_count": 6190
     },
     {
       "adult": false,
@@ -35461,46 +35494,6 @@
       "video": false,
       "vote_average": 7.1,
       "vote_count": 1229
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/p0boFm5Z1HzO6LHMBuLYUM48iVV.jpg",
-      "genre_ids": [
-        10751,
-        10770,
-        12,
-        14
-      ],
-      "id": 506574,
-      "original_language": "en",
-      "original_title": "Descendants 3",
-      "overview": "The teenagers of Disney's most infamous villains return to the Isle of the Lost to recruit a new batch of villainous offspring to join them at Auradon Prep.",
-      "popularity": 44.541,
-      "poster_path": "/7IRy0iHdaS0JI3ng4ZYlk5gLSFn.jpg",
-      "release_date": "2019-08-02",
-      "title": "Descendants 3",
-      "video": false,
-      "vote_average": 7.712,
-      "vote_count": 1507
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/rQKlcMY8i3elENXEHlkAbQr3xiG.jpg",
-      "genre_ids": [
-        16,
-        10751
-      ],
-      "id": 13700,
-      "original_language": "en",
-      "original_title": "Home on the Range",
-      "overview": "When a greedy outlaw schemes to take possession of the \"Patch Of Heaven\" dairy farm, three determined cows, a karate-kicking stallion and a colorful corral of critters join forces to save their home. The stakes are sky-high as this unlikely animal alliance risk their hides and match wits with a mysterious band of bad guys.",
-      "popularity": 40.529,
-      "poster_path": "/9xIIo4FMquy5SRqn8hppyr2QadR.jpg",
-      "release_date": "2004-04-02",
-      "title": "Home on the Range",
-      "video": false,
-      "vote_average": 6.061,
-      "vote_count": 2023
     },
     {
       "adult": false,
@@ -46936,26 +46929,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/oNoprEND25zXR6Fns8cIZUkuoMc.jpg",
-      "genre_ids": [
-        35,
-        80,
-        18
-      ],
-      "id": 308266,
-      "original_language": "en",
-      "original_title": "War Dogs",
-      "overview": "Based on the true story of two young men, David Packouz and Efraim Diveroli, who won a $300 million contract from the Pentagon to arm America's allies in Afghanistan.",
-      "popularity": 33.326,
-      "poster_path": "/mDcPRjZC1bb6LavFU3gwsWdVfCM.jpg",
-      "release_date": "2016-08-18",
-      "title": "War Dogs",
-      "video": false,
-      "vote_average": 6.922,
-      "vote_count": 4892
-    },
-    {
-      "adult": false,
       "backdrop_path": "/mo1eLCJTp5JGGz2tKlW98KXpRo0.jpg",
       "genre_ids": [
         16,
@@ -47210,7 +47183,7 @@
       "release_date": "2012-08-02",
       "title": "Total Recall",
       "video": false,
-      "vote_average": 6.015,
+      "vote_average": 6.014,
       "vote_count": 5435
     },
     {
@@ -47248,7 +47221,7 @@
       "release_date": "2001-06-08",
       "title": "Y Tu Mamá También",
       "video": false,
-      "vote_average": 7.413,
+      "vote_average": 7.4,
       "vote_count": 1503
     },
     {
@@ -47328,6 +47301,24 @@
       "video": false,
       "vote_average": 6.674,
       "vote_count": 6150
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/zgx6bBaVLAsFO5ip7gwndOjhE7U.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 122126,
+      "original_language": "ko",
+      "original_title": "후궁: 제왕의 첩",
+      "overview": "Living a torturous life of poverty and barely able to survive, Hwa-yeon decides to offer herself as one of the king’s concubines. Once inside the royal palace, two men are immediately seized by the woman - the Grand Prince Seong-won, a megalomaniacal ruler drunk with power and lust, and Kwon-yoo, who has everything to lose if his desire for Hwa-yeon is exposed.",
+      "popularity": 36.18,
+      "poster_path": "/2qkaLzpsC0X3zYwjhh1GPsjny2.jpg",
+      "release_date": "2012-06-06",
+      "title": "The Concubine",
+      "video": false,
+      "vote_average": 6,
+      "vote_count": 88
     },
     {
       "adult": false,
@@ -76347,7 +76338,7 @@
       "release_date": "2021-07-14",
       "title": "Titane",
       "video": false,
-      "vote_average": 6.366,
+      "vote_average": 6.4,
       "vote_count": 1443
     },
     {
@@ -85791,25 +85782,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/diPHTkeV6UFskO96OSCy1PCh4Rr.jpg",
-      "genre_ids": [
-        18,
-        80
-      ],
-      "id": 97367,
-      "original_language": "en",
-      "original_title": "The Place Beyond the Pines",
-      "overview": "A motorcycle stunt rider considers committing a crime in order to provide for his wife and child, an act that puts him on a collision course with a cop-turned-politician.",
-      "popularity": 23.516,
-      "poster_path": "/vY5j2xQzMGWmxBuhQo0HfA4Lxqb.jpg",
-      "release_date": "2013-03-20",
-      "title": "The Place Beyond the Pines",
-      "video": false,
-      "vote_average": 6.97,
-      "vote_count": 4805
-    },
-    {
-      "adult": false,
       "backdrop_path": "/vwYI3vWEwFs40HfmSQzPcGMVYfD.jpg",
       "genre_ids": [
         16,
@@ -86173,6 +86145,25 @@
       "video": false,
       "vote_average": 7.8,
       "vote_count": 757
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/w3LLngJIAA1R7Mp2S3G0HZl2R3H.jpg",
+      "genre_ids": [
+        16,
+        10751
+      ],
+      "id": 45772,
+      "original_language": "en",
+      "original_title": "Gnomeo & Juliet",
+      "overview": "A version of Shakespeare's play, set in the world of warring indoor and outdoor gnomes. Garden gnomes Gnomeo and Juliet have as many obstacles to overcome as their quasi namesakes when they are caught up in a feud between neighbors. But with plastic pink flamingos and lawnmower races in the mix, can this young couple find lasting happiness?",
+      "popularity": 23.758,
+      "poster_path": "/vVQwgfS9gSFviVT4gS7tZAmhRFc.jpg",
+      "release_date": "2011-01-13",
+      "title": "Gnomeo & Juliet",
+      "video": false,
+      "vote_average": 5.865,
+      "vote_count": 1939
     },
     {
       "adult": false,
