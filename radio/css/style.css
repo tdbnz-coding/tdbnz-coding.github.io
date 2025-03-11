@@ -4,6 +4,9 @@ body {
     color: #ffffff;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .navbar {
     background: linear-gradient(90deg, #ff7e5f, #feb47b);
@@ -14,7 +17,7 @@ body {
     font-size: 1.8rem;
 }
 .hero {
-    height: 90vh;
+    height: 80vh;
     background: url('../images/radio-background.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
@@ -42,12 +45,17 @@ body {
 .section {
     padding: 80px 0;
     text-align: center;
+    flex-grow: 1;
 }
 footer {
     background: #222;
     padding: 20px 0;
     text-align: center;
     font-size: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
 }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
