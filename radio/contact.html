@@ -9,23 +9,34 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <div id="navbar-placeholder"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">🎙️ Thomas Bernard - On Air</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">🏠 Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">📖 About</a></li>
+                <li class="nav-item"><a class="nav-link" href="audio.html">🎧 Demo Reel</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">📩 Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 
     <div class="container section text-center wrapper">
-        <h2>Contact Me</h2>
+        <h2>📩 Contact Me</h2>
         <p>Want to collaborate or hire me? Reach out directly!</p>
-        <a href="mailto:your.email@example.com" class="btn btn-custom">Email Me</a>
+        <a href="mailto:thomasnz@hotmail.com" class="btn btn-custom">✉️ Email Me</a>
     </div>
 
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        fetch("navbar.html").then(response => response.text()).then(data => document.getElementById("navbar-placeholder").innerHTML = data);
-        fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer-placeholder").innerHTML = data);
-    </script>
+    <footer class="text-center py-4 bg-dark text-white">
+    <p>&copy; 2025 Thomas Bernard All Rights Reserved. 🎤 Elevating the Airwaves</p>
+</footer>
 
 </body>
 </html>

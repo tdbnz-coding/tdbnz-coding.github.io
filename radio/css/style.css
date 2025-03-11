@@ -1,69 +1,168 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #0d0d0d;
+/* High-End Luxury Theme for Radio Host Portfolio - Final Fixes */
+
+/* General Styling */
+html, body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #121212, #1a1a1a);
     color: #ffffff;
     margin: 0;
-    padding-top: 70px; /* Offset for fixed navbar */
+    padding-top: 80px; /* Offset for fixed navbar */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
+/* Ensure wrapper pushes footer down */
+.wrapper {
+    flex: 1; /* Pushes the footer to the bottom when there's not enough content */
+}
+
+/* Floating Glass Navbar - Improved Readability */
 .navbar {
-    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
     padding: 15px 0;
     font-weight: bold;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .navbar-brand {
     font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffb400 !important;
+    text-shadow: 2px 2px 10px rgba(255, 180, 0, 0.5);
 }
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+    color: #f0f0f0 !important;
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffb400 !important;
+}
+
+/* Hero Section - Improved Text Readability */
 .hero {
     height: 100vh;
-    background: url('../images/radio-background.jpg') no-repeat center center/cover;
+    background: url('../images/radio-luxury-bg.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     animation: fadeIn 1.5s ease-in-out;
 }
+
 .hero h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: bold;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    color: #ffb400;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.8);
 }
-.btn-custom {
-    padding: 12px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    background: #ff7e5f;
-    border: none;
-    color: #fff;
-    transition: all 0.3s ease-in-out;
+
+.hero p {
+    font-size: 1.6rem;
+    margin-top: 10px;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
-.btn-custom:hover {
-    background: #feb47b;
-    transform: scale(1.1);
-}
+
+/* Sections - Better Background for Text Contrast */
 .section {
-    padding: 80px 0;
+    padding: 80px 10%;
     text-align: center;
-    flex-grow: 1;
+    background: rgba(30, 30, 30, 0.95);
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
 }
+
+/* Text Contrast for Readability */
+.section h2, .section h3 {
+    color: #ffb400;
+    text-shadow: 2px 2px 8px rgba(255, 180, 0, 0.4);
+}
+
+.section p, .section ul, .section li {
+    font-size: 1.3rem;
+    color: #ffffff !important;
+    line-height: 1.6;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section ul li {
+    margin: 10px 0;
+}
+
+/* Buttons - Improved Visibility */
+.btn-custom {
+    padding: 15px 35px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7e5f, #ffb400);
+    border: none;
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50px;
+    box-shadow: 0px 10px 30px rgba(255, 180, 0, 0.5);
+}
+
+.btn-custom:hover {
+    background: linear-gradient(90deg, #ffb400, #ff7e5f);
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* Footer - Always Sticks to Bottom */
 footer {
-    background: #222;
-    padding: 20px 0;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 30px 0;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
     width: 100%;
+    color: #f0f0f0;
     position: relative;
     bottom: 0;
+    margin-top: auto; /* Pushes footer to bottom when content is short */
 }
-.wrapper {
-    flex: 1;
+
+footer p {
+    margin-bottom: 0;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
 }
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: #ffb400;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #ff7e5f;
+    transform: scale(1.2);
+}
+
+/* Fade In Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
