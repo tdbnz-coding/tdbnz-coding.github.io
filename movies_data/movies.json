@@ -16,8 +16,8 @@
       "release_date": "2023-09-08",
       "title": "The Vigilante",
       "video": false,
-      "vote_average": 5.9,
-      "vote_count": 8
+      "vote_average": 5.4,
+      "vote_count": 10
     },
     {
       "adult": false,
@@ -34,8 +34,8 @@
       "release_date": "2025-02-07",
       "title": "Z Zone",
       "video": false,
-      "vote_average": 8.0,
-      "vote_count": 2
+      "vote_average": 7.0,
+      "vote_count": 3
     },
     {
       "adult": false,
@@ -55,7 +55,7 @@
       "title": "Captain America: Brave New World",
       "video": false,
       "vote_average": 6.135,
-      "vote_count": 1074
+      "vote_count": 1077
     },
     {
       "adult": false,
@@ -73,8 +73,8 @@
       "release_date": "2025-03-17",
       "title": "Batman Ninja vs. Yakuza League",
       "video": false,
-      "vote_average": 6.6,
-      "vote_count": 43
+      "vote_average": 6.7,
+      "vote_count": 46
     },
     {
       "adult": false,
@@ -93,7 +93,7 @@
       "title": "Snow White",
       "video": false,
       "vote_average": 4.4,
-      "vote_count": 159
+      "vote_count": 167
     },
     {
       "adult": false,
@@ -112,8 +112,8 @@
       "release_date": "2025-03-07",
       "title": "The Electric State",
       "video": false,
-      "vote_average": 6.653,
-      "vote_count": 587
+      "vote_average": 6.7,
+      "vote_count": 599
     },
     {
       "adult": false,
@@ -128,12 +128,12 @@
       "original_title": "O'Dessa",
       "overview": "A farm girl is on an epic quest to recover a cherished family heirloom. Her journey leads her to a strange and dangerous city where she meets her one true love – but in order to save his soul, she must put the power of destiny and song to the ultimate test.",
       "popularity": 206.26,
-      "poster_path": "/jI6KVCPJhOMSuXp9Fb0NZlfHeLV.jpg",
+      "poster_path": "/l7EcAvzYaYfKv4JXKroJYfaTzSH.jpg",
       "release_date": "2025-03-08",
       "title": "O'Dessa",
       "video": false,
-      "vote_average": 6.4,
-      "vote_count": 26
+      "vote_average": 6.5,
+      "vote_count": 28
     },
     {
       "adult": false,
@@ -172,8 +172,8 @@
       "release_date": "2024-11-21",
       "title": "Moana 2",
       "video": false,
-      "vote_average": 7.135,
-      "vote_count": 2002
+      "vote_average": 7.1,
+      "vote_count": 2008
     },
     {
       "adult": false,
@@ -187,12 +187,12 @@
       "original_title": "Tyler Perry's Duplicity",
       "overview": "High-powered attorney Marley faces her most personal case yet when she is tasked with uncovering the truth behind the murder of her best friend Fela’s husband. With the help of her boyfriend – a former cop turned private investigator – Marley’s search for what really happened leads her down a treacherous maze of deception and betrayal.",
       "popularity": 188.3,
-      "poster_path": "/pYrmTaOnMgvS59OKSxkCSrhISoL.jpg",
+      "poster_path": "/xNINmmVZuRn2MWo34Mj42OjBntN.jpg",
       "release_date": "2025-03-19",
       "title": "Tyler Perry's Duplicity",
       "video": false,
-      "vote_average": 6.5,
-      "vote_count": 20
+      "vote_average": 6.7,
+      "vote_count": 26
     },
     {
       "adult": false,
@@ -269,8 +269,8 @@
       "release_date": "2025-01-22",
       "title": "Flight Risk",
       "video": false,
-      "vote_average": 6.132,
-      "vote_count": 505
+      "vote_average": 6.139,
+      "vote_count": 506
     },
     {
       "adult": false,
@@ -290,7 +290,7 @@
       "title": "Revelations",
       "video": false,
       "vote_average": 7.5,
-      "vote_count": 10
+      "vote_count": 12
     },
     {
       "adult": false,
@@ -308,8 +308,8 @@
       "release_date": "2024-07-21",
       "title": "Dark Match",
       "video": false,
-      "vote_average": 5.2,
-      "vote_count": 9
+      "vote_average": 4.8,
+      "vote_count": 10
     },
     {
       "adult": false,
@@ -350,7 +350,7 @@
       "title": "Sonic the Hedgehog 3",
       "video": false,
       "vote_average": 7.8,
-      "vote_count": 2253
+      "vote_count": 2255
     },
     {
       "adult": false,
@@ -390,7 +390,7 @@
       "title": "The Gorge",
       "video": false,
       "vote_average": 7.7,
-      "vote_count": 2077
+      "vote_count": 2082
     },
     {
       "adult": false,
@@ -410,8 +410,8 @@
       "release_date": "2025-02-26",
       "title": "Demon City",
       "video": false,
-      "vote_average": 6.9,
-      "vote_count": 155
+      "vote_average": 6.827,
+      "vote_count": 156
     },
     {
       "adult": false,
@@ -468,7 +468,7 @@
       "title": "Last Breath",
       "video": false,
       "vote_average": 6.2,
-      "vote_count": 53
+      "vote_count": 56
     },
     {
       "adult": false,
@@ -486,8 +486,8 @@
       "release_date": "2024-09-13",
       "title": "I, the Executioner",
       "video": false,
-      "vote_average": 7.1,
-      "vote_count": 44
+      "vote_average": 7.0,
+      "vote_count": 45
     },
     {
       "adult": false,
@@ -508,8 +508,8 @@
       "release_date": "2025-03-08",
       "title": "Plankton: The Movie",
       "video": false,
-      "vote_average": 7.1,
-      "vote_count": 48
+      "vote_average": 7.078,
+      "vote_count": 51
     },
     {
       "adult": false,
@@ -546,8 +546,8 @@
       "release_date": "2025-02-28",
       "title": "Mickey 17",
       "video": false,
-      "vote_average": 6.964,
-      "vote_count": 842
+      "vote_average": 6.968,
+      "vote_count": 849
     },
     {
       "adult": false,
@@ -587,8 +587,8 @@
       "release_date": "2024-12-11",
       "title": "Kraven the Hunter",
       "video": false,
-      "vote_average": 6.667,
-      "vote_count": 1436
+      "vote_average": 6.668,
+      "vote_count": 1437
     },
     {
       "adult": false,
@@ -607,8 +607,8 @@
       "release_date": "2024-10-22",
       "title": "Venom: The Last Dance",
       "video": false,
-      "vote_average": 6.8,
-      "vote_count": 3051
+      "vote_average": 6.791,
+      "vote_count": 3055
     },
     {
       "adult": false,
@@ -626,7 +626,7 @@
       "title": "The Twister: Caught in the Storm",
       "video": false,
       "vote_average": 5.5,
-      "vote_count": 30
+      "vote_count": 31
     },
     {
       "adult": false,
@@ -645,8 +645,8 @@
       "release_date": "2024-10-17",
       "title": "Memoir of a Snail",
       "video": false,
-      "vote_average": 7.907,
-      "vote_count": 295
+      "vote_average": 7.914,
+      "vote_count": 296
     },
     {
       "adult": false,
@@ -665,7 +665,7 @@
       "release_date": "2024-08-29",
       "title": "Flow",
       "video": false,
-      "vote_average": 8.277,
+      "vote_average": 8.3,
       "vote_count": 1608
     },
     {
@@ -686,7 +686,7 @@
       "release_date": "2025-02-27",
       "title": "Squad 36",
       "video": false,
-      "vote_average": 6.197,
+      "vote_average": 6.2,
       "vote_count": 94
     },
     {
@@ -706,7 +706,7 @@
       "release_date": "2025-02-06",
       "title": "Love Hurts",
       "video": false,
-      "vote_average": 6.025,
+      "vote_average": 6.0,
       "vote_count": 123
     },
     {
@@ -724,7 +724,7 @@
       "release_date": "2025-03-13",
       "title": "Control Freak",
       "video": false,
-      "vote_average": 5.852,
+      "vote_average": 5.9,
       "vote_count": 27
     },
     {
@@ -750,7 +750,7 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/2TtpJq1PbeQ36E5FnHVX4O6hVvu.jpg",
+      "backdrop_path": "/gsQJOfeW45KLiQeEIsom94QPQwb.jpg",
       "genre_ids": [
         28,
         53
@@ -764,8 +764,8 @@
       "release_date": "2025-02-19",
       "title": "Cleaner",
       "video": false,
-      "vote_average": 5.1,
-      "vote_count": 18
+      "vote_average": 5.4,
+      "vote_count": 20
     },
     {
       "adult": false,
@@ -802,15 +802,15 @@
       "title": "The Parenting",
       "video": false,
       "vote_average": 5.8,
-      "vote_count": 53
+      "vote_count": 54
     },
     {
       "adult": false,
       "backdrop_path": "/sc1abgWNXc29wSBaerrjGBih06l.jpg",
       "genre_ids": [
-        27,
         878,
-        53
+        53,
+        35
       ],
       "id": 1084199,
       "original_language": "en",
@@ -821,8 +821,8 @@
       "release_date": "2025-01-22",
       "title": "Companion",
       "video": false,
-      "vote_average": 7.097,
-      "vote_count": 822
+      "vote_average": 7.1,
+      "vote_count": 828
     },
     {
       "adult": false,
@@ -857,7 +857,7 @@
       "original_title": "熊猫计划",
       "overview": "International action star Jackie Chan is invited to the adoption ceremony of a rare baby panda, but after an international crime syndicate attempts to kidnap the bear, Jackie has to save the bear using his stunt work skills.",
       "popularity": 65.55,
-      "poster_path": "/Aa3tQnYM6xwbhzl3P5EYobpItTw.jpg",
+      "poster_path": "/juiMX25vVnEIjyPT8C7O9XWbEEl.jpg",
       "release_date": "2024-10-01",
       "title": "Panda Plan",
       "video": false,
@@ -881,8 +881,8 @@
       "release_date": "2024-11-13",
       "title": "Gladiator II",
       "video": false,
-      "vote_average": 6.771,
-      "vote_count": 3056
+      "vote_average": 6.769,
+      "vote_count": 3058
     },
     {
       "adult": false,
@@ -899,8 +899,8 @@
       "release_date": "2024-10-31",
       "title": "María, ¡Me muero!",
       "video": false,
-      "vote_average": 6.5,
-      "vote_count": 8
+      "vote_average": 6.444,
+      "vote_count": 9
     },
     {
       "adult": false,
@@ -919,12 +919,12 @@
       "release_date": "2024-09-12",
       "title": "The Wild Robot",
       "video": false,
-      "vote_average": 8.34,
-      "vote_count": 4568
+      "vote_average": 8.339,
+      "vote_count": 4572
     },
     {
       "adult": false,
-      "backdrop_path": "/87GU2ifjNYtgYtcRH1NNH1P4ODo.jpg",
+      "backdrop_path": "/kEYWal656zP5Q2Tohm91aw6orlT.jpg",
       "genre_ids": [
         18,
         35,
@@ -939,8 +939,8 @@
       "release_date": "2024-10-14",
       "title": "Anora",
       "video": false,
-      "vote_average": 7.1,
-      "vote_count": 1815
+      "vote_average": 7.053,
+      "vote_count": 1817
     },
     {
       "adult": false,
@@ -1057,8 +1057,8 @@
       "release_date": "2024-09-07",
       "title": "The Substance",
       "video": false,
-      "vote_average": 7.134,
-      "vote_count": 4240
+      "vote_average": 7.133,
+      "vote_count": 4245
     },
     {
       "adult": false,
@@ -1137,8 +1137,8 @@
       "release_date": "2024-06-20",
       "title": "Despicable Me 4",
       "video": false,
-      "vote_average": 7.058,
-      "vote_count": 2634
+      "vote_average": 7.057,
+      "vote_count": 2635
     },
     {
       "adult": false,
@@ -1194,8 +1194,8 @@
       "release_date": "2025-01-16",
       "title": "Mesa de regalos",
       "video": false,
-      "vote_average": 8.5,
-      "vote_count": 34
+      "vote_average": 8.4,
+      "vote_count": 36
     },
     {
       "adult": false,
@@ -1214,8 +1214,8 @@
       "release_date": "2024-07-24",
       "title": "Deadpool & Wolverine",
       "video": false,
-      "vote_average": 7.6,
-      "vote_count": 6895
+      "vote_average": 7.614,
+      "vote_count": 6900
     },
     {
       "adult": false,
@@ -1291,8 +1291,8 @@
       "release_date": "2023-06-08",
       "title": "My Fault",
       "video": false,
-      "vote_average": 7.822,
-      "vote_count": 3609
+      "vote_average": 7.821,
+      "vote_count": 3610
     },
     {
       "adult": false,
@@ -1332,8 +1332,8 @@
       "release_date": "2025-03-12",
       "title": "Novocaine",
       "video": false,
-      "vote_average": 7.6,
-      "vote_count": 45
+      "vote_average": 7.5,
+      "vote_count": 48
     },
     {
       "adult": false,
@@ -1350,8 +1350,8 @@
       "release_date": "2024-11-08",
       "title": "Verano en diciembre",
       "video": false,
-      "vote_average": 6.3,
-      "vote_count": 3
+      "vote_average": 6.5,
+      "vote_count": 4
     },
     {
       "adult": false,
@@ -1368,8 +1368,8 @@
       "release_date": "1999-10-15",
       "title": "Fight Club",
       "video": false,
-      "vote_average": 8.438,
-      "vote_count": 30011
+      "vote_average": 8.4,
+      "vote_count": 30012
     },
     {
       "adult": false,
@@ -1388,8 +1388,8 @@
       "release_date": "2024-11-20",
       "title": "Wicked",
       "video": false,
-      "vote_average": 6.913,
-      "vote_count": 1946
+      "vote_average": 6.917,
+      "vote_count": 1950
     },
     {
       "adult": false,
@@ -1407,8 +1407,8 @@
       "release_date": "2024-11-08",
       "title": "Bird",
       "video": false,
-      "vote_average": 7.261,
-      "vote_count": 92
+      "vote_average": 7.258,
+      "vote_count": 93
     },
     {
       "adult": false,
@@ -1522,7 +1522,7 @@
       "release_date": "2024-11-29",
       "title": "Ask Me What You Want",
       "video": false,
-      "vote_average": 6.041,
+      "vote_average": 6.0,
       "vote_count": 98
     },
     {
@@ -1544,8 +1544,8 @@
       "release_date": "2001-05-18",
       "title": "Shrek",
       "video": false,
-      "vote_average": 7.748,
-      "vote_count": 17512
+      "vote_average": 7.749,
+      "vote_count": 17515
     },
     {
       "adult": false,
@@ -1994,7 +1994,7 @@
       "title": "Nosferatu",
       "video": false,
       "vote_average": 6.704,
-      "vote_count": 2377
+      "vote_count": 2379
     },
     {
       "adult": false,
@@ -2012,7 +2012,7 @@
       "release_date": "2001-11-16",
       "title": "Harry Potter and the Philosopher's Stone",
       "video": false,
-      "vote_average": 7.902,
+      "vote_average": 7.9,
       "vote_count": 28034
     },
     {
@@ -2071,7 +2071,7 @@
       "release_date": "2005-12-07",
       "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
       "video": false,
-      "vote_average": 7.132,
+      "vote_average": 7.1,
       "vote_count": 10837
     },
     {
@@ -2207,8 +2207,8 @@
       "release_date": "2024-08-13",
       "title": "Alien: Romulus",
       "video": false,
-      "vote_average": 7.2,
-      "vote_count": 3452
+      "vote_average": 7.217,
+      "vote_count": 3453
     },
     {
       "adult": false,
@@ -2226,8 +2226,8 @@
       "release_date": "2025-01-21",
       "title": "Sniper: The Last Stand",
       "video": false,
-      "vote_average": 6.7,
-      "vote_count": 115
+      "vote_average": 6.711,
+      "vote_count": 116
     },
     {
       "adult": false,
@@ -2247,8 +2247,8 @@
       "release_date": "2024-10-31",
       "title": "Absolution",
       "video": false,
-      "vote_average": 5.921,
-      "vote_count": 363
+      "vote_average": 5.922,
+      "vote_count": 364
     },
     {
       "adult": false,
@@ -2286,7 +2286,7 @@
       "title": "Conclave",
       "video": false,
       "vote_average": 7.2,
-      "vote_count": 1671
+      "vote_count": 1672
     },
     {
       "adult": false,
@@ -2307,8 +2307,8 @@
       "release_date": "2024-06-05",
       "title": "Bad Boys: Ride or Die",
       "video": false,
-      "vote_average": 7.382,
-      "vote_count": 2800
+      "vote_average": 7.381,
+      "vote_count": 2801
     },
     {
       "adult": false,
@@ -2326,7 +2326,7 @@
       "title": "The Brutalist",
       "video": false,
       "vote_average": 7.1,
-      "vote_count": 856
+      "vote_count": 857
     },
     {
       "adult": false,
@@ -2346,8 +2346,8 @@
       "release_date": "2017-12-09",
       "title": "Jumanji: Welcome to the Jungle",
       "video": false,
-      "vote_average": 6.8,
-      "vote_count": 13784
+      "vote_average": 6.82,
+      "vote_count": 13785
     },
     {
       "adult": false,
@@ -2754,7 +2754,7 @@
       "title": "Dune: Part Two",
       "video": false,
       "vote_average": 8.148,
-      "vote_count": 6440
+      "vote_count": 6441
     },
     {
       "adult": false,
@@ -2811,8 +2811,8 @@
       "release_date": "2024-09-11",
       "title": "Transformers One",
       "video": false,
-      "vote_average": 8.093,
-      "vote_count": 1155
+      "vote_average": 8.094,
+      "vote_count": 1156
     },
     {
       "adult": false,
@@ -2851,8 +2851,8 @@
       "release_date": "2025-01-29",
       "title": "Ne Zha 2",
       "video": false,
-      "vote_average": 7.757,
-      "vote_count": 134
+      "vote_average": 7.728,
+      "vote_count": 136
     },
     {
       "adult": false,
@@ -2871,7 +2871,7 @@
       "title": "Wolf Man",
       "video": false,
       "vote_average": 6.4,
-      "vote_count": 520
+      "vote_count": 521
     },
     {
       "adult": false,
@@ -2891,7 +2891,7 @@
       "title": "The Avengers",
       "video": false,
       "vote_average": 7.7,
-      "vote_count": 31399
+      "vote_count": 31402
     },
     {
       "adult": false,
@@ -2912,7 +2912,7 @@
       "title": "Coco",
       "video": false,
       "vote_average": 8.204,
-      "vote_count": 19825
+      "vote_count": 19826
     },
     {
       "adult": false,
@@ -3032,7 +3032,7 @@
       "release_date": "2023-05-17",
       "title": "Fast X",
       "video": false,
-      "vote_average": 7.05,
+      "vote_average": 7.0,
       "vote_count": 5821
     },
     {
@@ -3052,8 +3052,8 @@
       "release_date": "2003-12-17",
       "title": "The Lord of the Rings: The Return of the King",
       "video": false,
-      "vote_average": 8.481,
-      "vote_count": 24830
+      "vote_average": 8.5,
+      "vote_count": 24831
     },
     {
       "adult": false,
@@ -3072,8 +3072,8 @@
       "release_date": "2023-09-27",
       "title": "Dogman",
       "video": false,
-      "vote_average": 7.907,
-      "vote_count": 1158
+      "vote_average": 7.906,
+      "vote_count": 1159
     },
     {
       "adult": false,
@@ -3091,7 +3091,7 @@
       "release_date": "2020-02-07",
       "title": "365 Days",
       "video": false,
-      "vote_average": 7.027,
+      "vote_average": 7.0,
       "vote_count": 9120
     },
     {
@@ -3168,7 +3168,7 @@
       "title": "The Lord of the Rings: The Fellowship of the Ring",
       "video": false,
       "vote_average": 8.418,
-      "vote_count": 25748
+      "vote_count": 25752
     },
     {
       "adult": false,
@@ -3187,7 +3187,7 @@
       "release_date": "2022-12-14",
       "title": "Avatar: The Way of Water",
       "video": false,
-      "vote_average": 7.607,
+      "vote_average": 7.6,
       "vote_count": 12361
     },
     {
@@ -3208,8 +3208,8 @@
       "release_date": "2008-07-16",
       "title": "The Dark Knight",
       "video": false,
-      "vote_average": 8.5,
-      "vote_count": 33578
+      "vote_average": 8.519,
+      "vote_count": 33579
     },
     {
       "adult": false,
@@ -3227,7 +3227,7 @@
       "release_date": "1993-06-11",
       "title": "Jurassic Park",
       "video": false,
-      "vote_average": 7.951,
+      "vote_average": 8.0,
       "vote_count": 16604
     },
     {
@@ -3264,8 +3264,8 @@
       "release_date": "2023-07-19",
       "title": "Oppenheimer",
       "video": false,
-      "vote_average": 8.1,
-      "vote_count": 9968
+      "vote_average": 8.07,
+      "vote_count": 9969
     },
     {
       "adult": false,
@@ -3283,8 +3283,8 @@
       "release_date": "2024-08-28",
       "title": "Night Call",
       "video": false,
-      "vote_average": 6.763,
-      "vote_count": 80
+      "vote_average": 6.753,
+      "vote_count": 81
     },
     {
       "adult": false,
@@ -3303,7 +3303,7 @@
       "title": "Pulp Fiction",
       "video": false,
       "vote_average": 8.489,
-      "vote_count": 28454
+      "vote_count": 28455
     },
     {
       "adult": false,
@@ -3345,7 +3345,7 @@
       "release_date": "2024-03-02",
       "title": "Kung Fu Panda 4",
       "video": false,
-      "vote_average": 7.071,
+      "vote_average": 7.1,
       "vote_count": 3012
     },
     {
@@ -3423,8 +3423,8 @@
       "release_date": "2024-09-27",
       "title": "Aftermath",
       "video": false,
-      "vote_average": 6.243,
-      "vote_count": 115
+      "vote_average": 6.25,
+      "vote_count": 116
     },
     {
       "adult": false,
@@ -3462,7 +3462,7 @@
       "title": "Titanic",
       "video": false,
       "vote_average": 7.9,
-      "vote_count": 25797
+      "vote_count": 25798
     },
     {
       "adult": false,
@@ -3480,7 +3480,7 @@
       "title": "Babygirl",
       "video": false,
       "vote_average": 5.8,
-      "vote_count": 571
+      "vote_count": 572
     },
     {
       "adult": false,
@@ -3499,7 +3499,7 @@
       "title": "Carry-On",
       "video": false,
       "vote_average": 6.905,
-      "vote_count": 2042
+      "vote_count": 2043
     },
     {
       "adult": false,
@@ -3517,8 +3517,8 @@
       "release_date": "2024-03-08",
       "title": "Road House",
       "video": false,
-      "vote_average": 6.946,
-      "vote_count": 2446
+      "vote_average": 6.9,
+      "vote_count": 2447
     },
     {
       "adult": false,
@@ -4331,7 +4331,7 @@
       "release_date": "2017-09-28",
       "title": "The Foreigner",
       "video": false,
-      "vote_average": 6.969,
+      "vote_average": 7.0,
       "vote_count": 2692
     },
     {
@@ -4351,8 +4351,8 @@
       "release_date": "2002-12-18",
       "title": "The Lord of the Rings: The Two Towers",
       "video": false,
-      "vote_average": 8.401,
-      "vote_count": 22363
+      "vote_average": 8.4,
+      "vote_count": 22365
     },
     {
       "adult": false,
@@ -4431,7 +4431,7 @@
       "title": "Spider-Man",
       "video": false,
       "vote_average": 7.304,
-      "vote_count": 19431
+      "vote_count": 19432
     },
     {
       "adult": false,
@@ -4471,7 +4471,7 @@
       "title": "The Lion King",
       "video": false,
       "vote_average": 8.255,
-      "vote_count": 18619
+      "vote_count": 18620
     },
     {
       "adult": false,
@@ -4528,7 +4528,7 @@
       "release_date": "2015-01-21",
       "title": "Mortdecai",
       "video": false,
-      "vote_average": 5.508,
+      "vote_average": 5.5,
       "vote_count": 2663
     },
     {
@@ -4567,8 +4567,8 @@
       "release_date": "2024-06-19",
       "title": "Survive",
       "video": false,
-      "vote_average": 5.917,
-      "vote_count": 168
+      "vote_average": 5.882,
+      "vote_count": 170
     },
     {
       "adult": false,
@@ -4586,8 +4586,8 @@
       "release_date": "2024-12-06",
       "title": "Better Man",
       "video": false,
-      "vote_average": 7.772,
-      "vote_count": 337
+      "vote_average": 7.779,
+      "vote_count": 339
     },
     {
       "adult": false,
@@ -4669,7 +4669,7 @@
       "title": "Furiosa: A Mad Max Saga",
       "video": false,
       "vote_average": 7.487,
-      "vote_count": 3994
+      "vote_count": 3995
     },
     {
       "adult": false,
@@ -4708,7 +4708,7 @@
       "title": "The Matrix",
       "video": false,
       "vote_average": 8.2,
-      "vote_count": 26166
+      "vote_count": 26167
     },
     {
       "adult": false,
@@ -4789,7 +4789,7 @@
       "title": "Cars",
       "video": false,
       "vote_average": 6.992,
-      "vote_count": 14215
+      "vote_count": 14217
     },
     {
       "adult": false,
@@ -4829,7 +4829,7 @@
       "release_date": "2020-02-12",
       "title": "Sonic the Hedgehog",
       "video": false,
-      "vote_average": 7.308,
+      "vote_average": 7.3,
       "vote_count": 9836
     },
     {
@@ -4906,8 +4906,8 @@
       "release_date": "2011-04-20",
       "title": "Fast Five",
       "video": false,
-      "vote_average": 7.241,
-      "vote_count": 8322
+      "vote_average": 7.2,
+      "vote_count": 8323
     },
     {
       "adult": false,
@@ -4983,8 +4983,8 @@
       "release_date": "2024-09-20",
       "title": "Bagman",
       "video": false,
-      "vote_average": 6.3,
-      "vote_count": 277
+      "vote_average": 6.291,
+      "vote_count": 278
     },
     {
       "adult": false,
@@ -5002,8 +5002,8 @@
       "release_date": "2024-09-11",
       "title": "Speak No Evil",
       "video": false,
-      "vote_average": 7.262,
-      "vote_count": 1344
+      "vote_average": 7.261,
+      "vote_count": 1345
     },
     {
       "adult": false,
@@ -5083,7 +5083,7 @@
       "title": "Tangled",
       "video": false,
       "vote_average": 7.606,
-      "vote_count": 11669
+      "vote_count": 11670
     },
     {
       "adult": false,
@@ -5102,7 +5102,7 @@
       "title": "Blade Runner 2049",
       "video": false,
       "vote_average": 7.574,
-      "vote_count": 13966
+      "vote_count": 13967
     },
     {
       "adult": false,
@@ -5121,7 +5121,7 @@
       "release_date": "2015-02-11",
       "title": "Fifty Shades of Grey",
       "video": false,
-      "vote_average": 5.879,
+      "vote_average": 5.9,
       "vote_count": 11909
     },
     {
@@ -5220,7 +5220,7 @@
       "title": "Harry Potter and the Chamber of Secrets",
       "video": false,
       "vote_average": 7.709,
-      "vote_count": 22391
+      "vote_count": 22392
     },
     {
       "adult": false,
@@ -5278,7 +5278,7 @@
       "release_date": "2016-03-12",
       "title": "Brimstone",
       "video": false,
-      "vote_average": 7.152,
+      "vote_average": 7.2,
       "vote_count": 1153
     },
     {
@@ -5299,7 +5299,7 @@
       "title": "Pirates of the Caribbean: Dead Man's Chest",
       "video": false,
       "vote_average": 7.364,
-      "vote_count": 16233
+      "vote_count": 16234
     },
     {
       "adult": false,
@@ -5357,7 +5357,7 @@
       "title": "Prisoners",
       "video": false,
       "vote_average": 8.099,
-      "vote_count": 12041
+      "vote_count": 12043
     },
     {
       "adult": false,
@@ -5436,7 +5436,7 @@
       "release_date": "1990-09-12",
       "title": "GoodFellas",
       "video": false,
-      "vote_average": 8.5,
+      "vote_average": 8.457,
       "vote_count": 13197
     },
     {
@@ -5457,7 +5457,7 @@
       "title": "The Twilight Saga: Breaking Dawn - Part 1",
       "video": false,
       "vote_average": 6.194,
-      "vote_count": 8863
+      "vote_count": 8864
     },
     {
       "adult": false,
@@ -5556,7 +5556,7 @@
       "release_date": "2022-12-07",
       "title": "Puss in Boots: The Last Wish",
       "video": false,
-      "vote_average": 8.2,
+      "vote_average": 8.218,
       "vote_count": 8059
     },
     {
@@ -5595,7 +5595,7 @@
       "title": "Twilight",
       "video": false,
       "vote_average": 6.3,
-      "vote_count": 13710
+      "vote_count": 13711
     },
     {
       "adult": false,
@@ -5654,8 +5654,8 @@
       "release_date": "2006-12-20",
       "title": "Night at the Museum",
       "video": false,
-      "vote_average": 6.586,
-      "vote_count": 10347
+      "vote_average": 6.6,
+      "vote_count": 10348
     },
     {
       "adult": false,
@@ -5752,8 +5752,8 @@
       "release_date": "2010-06-24",
       "title": "Grown Ups",
       "video": false,
-      "vote_average": 6.4,
-      "vote_count": 6230
+      "vote_average": 6.39,
+      "vote_count": 6231
     },
     {
       "adult": false,
@@ -5791,7 +5791,7 @@
       "title": "Gladiator",
       "video": false,
       "vote_average": 8.218,
-      "vote_count": 19480
+      "vote_count": 19482
     },
     {
       "adult": false,
@@ -5847,8 +5847,8 @@
       "release_date": "2025-02-11",
       "title": "Honeymoon Crasher",
       "video": false,
-      "vote_average": 5.576,
-      "vote_count": 92
+      "vote_average": 5.484,
+      "vote_count": 95
     },
     {
       "adult": false,
@@ -6323,7 +6323,7 @@
       "title": "The Green Mile",
       "video": false,
       "vote_average": 8.505,
-      "vote_count": 17917
+      "vote_count": 17918
     },
     {
       "adult": false,
@@ -6342,8 +6342,8 @@
       "release_date": "2024-08-21",
       "title": "The Crow",
       "video": false,
-      "vote_average": 5.8,
-      "vote_count": 983
+      "vote_average": 5.829,
+      "vote_count": 985
     },
     {
       "adult": false,
@@ -6363,7 +6363,7 @@
       "title": "The Equalizer 3",
       "video": false,
       "vote_average": 7.319,
-      "vote_count": 3191
+      "vote_count": 3192
     },
     {
       "adult": false,
@@ -6383,8 +6383,8 @@
       "release_date": "2019-07-12",
       "title": "The Lion King",
       "video": false,
-      "vote_average": 7.11,
-      "vote_count": 10267
+      "vote_average": 7.111,
+      "vote_count": 10268
     },
     {
       "adult": false,
@@ -6557,8 +6557,8 @@
       "release_date": "2004-03-19",
       "title": "Eternal Sunshine of the Spotless Mind",
       "video": false,
-      "vote_average": 8.1,
-      "vote_count": 15291
+      "vote_average": 8.092,
+      "vote_count": 15296
     },
     {
       "adult": false,
@@ -6633,7 +6633,7 @@
       "release_date": "2015-07-15",
       "title": "Love",
       "video": false,
-      "vote_average": 6.45,
+      "vote_average": 6.5,
       "vote_count": 2511
     },
     {
@@ -6709,7 +6709,7 @@
       "release_date": "2013-08-01",
       "title": "Snowpiercer",
       "video": false,
-      "vote_average": 6.901,
+      "vote_average": 6.9,
       "vote_count": 9707
     },
     {
@@ -6826,7 +6826,7 @@
       "release_date": "2007-07-08",
       "title": "Harry Potter and the Order of the Phoenix",
       "video": false,
-      "vote_average": 7.675,
+      "vote_average": 7.7,
       "vote_count": 19770
     },
     {
@@ -6846,7 +6846,7 @@
       "release_date": "2014-12-10",
       "title": "The Hobbit: The Battle of the Five Armies",
       "video": false,
-      "vote_average": 7.324,
+      "vote_average": 7.3,
       "vote_count": 14506
     },
     {
@@ -6963,7 +6963,7 @@
       "title": "Shutter Island",
       "video": false,
       "vote_average": 8.2,
-      "vote_count": 24336
+      "vote_count": 24337
     },
     {
       "adult": false,
@@ -7004,7 +7004,7 @@
       "title": "The Twilight Saga: Breaking Dawn - Part 2",
       "video": false,
       "vote_average": 6.461,
-      "vote_count": 8985
+      "vote_count": 8986
     },
     {
       "adult": false,
@@ -7080,7 +7080,7 @@
       "release_date": "2025-01-16",
       "title": "One of Them Days",
       "video": false,
-      "vote_average": 6.849,
+      "vote_average": 6.8,
       "vote_count": 93
     },
     {
@@ -7121,8 +7121,8 @@
       "release_date": "2018-07-19",
       "title": "The Equalizer 2",
       "video": false,
-      "vote_average": 6.767,
-      "vote_count": 5491
+      "vote_average": 6.768,
+      "vote_count": 5493
     },
     {
       "adult": false,
@@ -7160,7 +7160,7 @@
       "release_date": "2011-06-28",
       "title": "Transformers: Dark of the Moon",
       "video": false,
-      "vote_average": 6.209,
+      "vote_average": 6.2,
       "vote_count": 8432
     },
     {
@@ -7221,8 +7221,8 @@
       "release_date": "2013-11-20",
       "title": "Frozen",
       "video": false,
-      "vote_average": 7.2,
-      "vote_count": 16752
+      "vote_average": 7.246,
+      "vote_count": 16753
     },
     {
       "adult": false,
@@ -7242,8 +7242,8 @@
       "release_date": "2024-01-08",
       "title": "The Beekeeper",
       "video": false,
-      "vote_average": 7.3,
-      "vote_count": 3424
+      "vote_average": 7.332,
+      "vote_count": 3425
     },
     {
       "adult": false,
@@ -7283,7 +7283,7 @@
       "title": "Transformers: Revenge of the Fallen",
       "video": false,
       "vote_average": 6.195,
-      "vote_count": 8630
+      "vote_count": 8631
     },
     {
       "adult": false,
@@ -7303,7 +7303,7 @@
       "title": "Iron Man",
       "video": false,
       "vote_average": 7.6,
-      "vote_count": 26766
+      "vote_count": 26769
     },
     {
       "adult": false,
@@ -7345,7 +7345,7 @@
       "title": "Ratatouille",
       "video": false,
       "vote_average": 7.825,
-      "vote_count": 17358
+      "vote_count": 17359
     },
     {
       "adult": false,
@@ -7402,8 +7402,8 @@
       "release_date": "2024-10-01",
       "title": "Joker: Folie à Deux",
       "video": false,
-      "vote_average": 5.476,
-      "vote_count": 2216
+      "vote_average": 5.474,
+      "vote_count": 2219
     },
     {
       "adult": false,
@@ -7444,7 +7444,7 @@
       "title": "Avengers: Age of Ultron",
       "video": false,
       "vote_average": 7.271,
-      "vote_count": 23302
+      "vote_count": 23303
     },
     {
       "adult": false,
@@ -7462,7 +7462,7 @@
       "release_date": "2009-07-15",
       "title": "Harry Potter and the Half-Blood Prince",
       "video": false,
-      "vote_average": 7.684,
+      "vote_average": 7.7,
       "vote_count": 19759
     },
     {
@@ -8288,7 +8288,7 @@
       "release_date": "2024-04-10",
       "title": "Civil War",
       "video": false,
-      "vote_average": 6.9,
+      "vote_average": 6.871,
       "vote_count": 3415
     },
     {
@@ -8326,7 +8326,7 @@
       "release_date": "2014-03-14",
       "title": "Divergent",
       "video": false,
-      "vote_average": 6.915,
+      "vote_average": 6.9,
       "vote_count": 12924
     },
     {
@@ -8367,7 +8367,7 @@
       "release_date": "2005-05-25",
       "title": "Madagascar",
       "video": false,
-      "vote_average": 6.908,
+      "vote_average": 6.9,
       "vote_count": 11029
     },
     {
@@ -8387,7 +8387,7 @@
       "release_date": "2024-07-10",
       "title": "Longlegs",
       "video": false,
-      "vote_average": 6.566,
+      "vote_average": 6.6,
       "vote_count": 1916
     },
     {
@@ -8426,7 +8426,7 @@
       "title": "The Nun",
       "video": false,
       "vote_average": 5.892,
-      "vote_count": 6753
+      "vote_count": 6754
     },
     {
       "adult": false,
@@ -8461,8 +8461,8 @@
       "release_date": "2024-03-08",
       "title": "The Ballad of Davy Crockett",
       "video": false,
-      "vote_average": 5.222,
-      "vote_count": 18
+      "vote_average": 5.289,
+      "vote_count": 19
     },
     {
       "adult": false,
@@ -8520,8 +8520,8 @@
       "release_date": "2004-04-16",
       "title": "Kill Bill: Vol. 2",
       "video": false,
-      "vote_average": 7.875,
-      "vote_count": 14121
+      "vote_average": 7.9,
+      "vote_count": 14122
     },
     {
       "adult": false,
@@ -8601,7 +8601,7 @@
       "title": "Se7en",
       "video": false,
       "vote_average": 8.4,
-      "vote_count": 21509
+      "vote_count": 21510
     },
     {
       "adult": false,
@@ -9078,7 +9078,7 @@
       "title": "The Incredibles",
       "video": false,
       "vote_average": 7.7,
-      "vote_count": 17887
+      "vote_count": 17888
     },
     {
       "adult": false,
@@ -9139,8 +9139,8 @@
       "release_date": "2006-06-03",
       "title": "The Fast and the Furious: Tokyo Drift",
       "video": false,
-      "vote_average": 6.513,
-      "vote_count": 7044
+      "vote_average": 6.5,
+      "vote_count": 7045
     },
     {
       "adult": false,
@@ -9220,7 +9220,7 @@
       "release_date": "2017-05-23",
       "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
       "video": false,
-      "vote_average": 6.7,
+      "vote_average": 6.652,
       "vote_count": 12149
     },
     {
@@ -9276,8 +9276,8 @@
       "release_date": "2024-11-01",
       "title": "A Real Pain",
       "video": false,
-      "vote_average": 6.791,
-      "vote_count": 747
+      "vote_average": 6.794,
+      "vote_count": 749
     },
     {
       "adult": false,
@@ -9336,7 +9336,7 @@
       "title": "Ice Age",
       "video": false,
       "vote_average": 7.4,
-      "vote_count": 13485
+      "vote_count": 13486
     },
     {
       "adult": false,
@@ -9495,7 +9495,7 @@
       "release_date": "2021-10-13",
       "title": "Encanto",
       "video": false,
-      "vote_average": 7.595,
+      "vote_average": 7.6,
       "vote_count": 9646
     },
     {
@@ -9617,7 +9617,7 @@
       "release_date": "2025-01-29",
       "title": "You're Cordially Invited",
       "video": false,
-      "vote_average": 5.907,
+      "vote_average": 5.9,
       "vote_count": 313
     },
     {
@@ -9637,7 +9637,7 @@
       "release_date": "2004-09-09",
       "title": "Howl's Moving Castle",
       "video": false,
-      "vote_average": 8.397,
+      "vote_average": 8.4,
       "vote_count": 10163
     },
     {
@@ -9676,8 +9676,8 @@
       "release_date": "2024-08-22",
       "title": "Strange Darling",
       "video": false,
-      "vote_average": 6.918,
-      "vote_count": 461
+      "vote_average": 6.92,
+      "vote_count": 462
     },
     {
       "adult": false,
@@ -9716,7 +9716,7 @@
       "release_date": "2012-07-17",
       "title": "The Dark Knight Rises",
       "video": false,
-      "vote_average": 7.784,
+      "vote_average": 7.8,
       "vote_count": 23054
     },
     {
@@ -9990,7 +9990,7 @@
       "title": "WALL·E",
       "video": false,
       "vote_average": 8.096,
-      "vote_count": 19068
+      "vote_count": 19069
     },
     {
       "adult": false,
@@ -10083,8 +10083,8 @@
       "release_date": "2024-03-19",
       "title": "Late Night with the Devil",
       "video": false,
-      "vote_average": 7.162,
-      "vote_count": 1448
+      "vote_average": 7.161,
+      "vote_count": 1449
     },
     {
       "adult": false,
@@ -10322,7 +10322,7 @@
       "title": "The Silence of the Lambs",
       "video": false,
       "vote_average": 8.345,
-      "vote_count": 16651
+      "vote_count": 16652
     },
     {
       "adult": false,
@@ -10381,7 +10381,7 @@
       "title": "12 Angry Men",
       "video": false,
       "vote_average": 8.548,
-      "vote_count": 8979
+      "vote_count": 8980
     },
     {
       "adult": false,
@@ -10459,7 +10459,7 @@
       "title": "Green Book",
       "video": false,
       "vote_average": 8.235,
-      "vote_count": 11885
+      "vote_count": 11886
     },
     {
       "adult": false,
@@ -10537,8 +10537,8 @@
       "release_date": "1997-12-05",
       "title": "Good Will Hunting",
       "video": false,
-      "vote_average": 8.2,
-      "vote_count": 12662
+      "vote_average": 8.157,
+      "vote_count": 12663
     },
     {
       "adult": false,
@@ -10557,8 +10557,8 @@
       "release_date": "2009-05-06",
       "title": "Star Trek",
       "video": false,
-      "vote_average": 7.427,
-      "vote_count": 9973
+      "vote_average": 7.4,
+      "vote_count": 9974
     },
     {
       "adult": false,
@@ -10577,7 +10577,7 @@
       "title": "Alien",
       "video": false,
       "vote_average": 8.162,
-      "vote_count": 15129
+      "vote_count": 15130
     },
     {
       "adult": false,
@@ -10598,7 +10598,7 @@
       "title": "Charlie and the Chocolate Factory",
       "video": false,
       "vote_average": 7.0,
-      "vote_count": 15376
+      "vote_count": 15377
     },
     {
       "adult": false,
@@ -10615,8 +10615,8 @@
       "release_date": "2024-11-13",
       "title": "On aurait dû aller en Grèce",
       "video": false,
-      "vote_average": 5.091,
-      "vote_count": 11
+      "vote_average": 5.0,
+      "vote_count": 12
     },
     {
       "adult": false,
@@ -10635,8 +10635,8 @@
       "release_date": "2023-11-03",
       "title": "Godzilla Minus One",
       "video": false,
-      "vote_average": 7.575,
-      "vote_count": 2565
+      "vote_average": 7.576,
+      "vote_count": 2566
     },
     {
       "adult": false,
@@ -10836,7 +10836,7 @@
       "release_date": "2016-10-19",
       "title": "Jack Reacher: Never Go Back",
       "video": false,
-      "vote_average": 5.992,
+      "vote_average": 6.0,
       "vote_count": 4968
     },
     {
@@ -11109,8 +11109,8 @@
       "release_date": "2022-12-22",
       "title": "Babylon",
       "video": false,
-      "vote_average": 7.4,
-      "vote_count": 3276
+      "vote_average": 7.372,
+      "vote_count": 3277
     },
     {
       "adult": false,
@@ -11269,7 +11269,7 @@
       "release_date": "1996-12-20",
       "title": "Scream",
       "video": false,
-      "vote_average": 7.409,
+      "vote_average": 7.4,
       "vote_count": 7205
     },
     {
@@ -11409,8 +11409,8 @@
       "release_date": "2025-02-27",
       "title": "In the Lost Lands",
       "video": false,
-      "vote_average": 5.7,
-      "vote_count": 21
+      "vote_average": 5.5,
+      "vote_count": 22
     },
     {
       "adult": false,
@@ -11450,7 +11450,7 @@
       "title": "The Proposal",
       "video": false,
       "vote_average": 7.152,
-      "vote_count": 6998
+      "vote_count": 6999
     },
     {
       "adult": false,
@@ -11470,7 +11470,7 @@
       "release_date": "2009-05-28",
       "title": "Up",
       "video": false,
-      "vote_average": 7.957,
+      "vote_average": 8.0,
       "vote_count": 20510
     },
     {
@@ -11627,7 +11627,7 @@
       "release_date": "2019-12-04",
       "title": "Jumanji: The Next Level",
       "video": false,
-      "vote_average": 6.896,
+      "vote_average": 6.9,
       "vote_count": 8812
     },
     {
@@ -11647,7 +11647,7 @@
       "release_date": "2021-07-07",
       "title": "Black Widow",
       "video": false,
-      "vote_average": 7.2,
+      "vote_average": 7.212,
       "vote_count": 10401
     },
     {
@@ -11668,7 +11668,7 @@
       "title": "The Hobbit: The Desolation of Smaug",
       "video": false,
       "vote_average": 7.57,
-      "vote_count": 13369
+      "vote_count": 13370
     },
     {
       "adult": false,
@@ -11726,7 +11726,7 @@
       "release_date": "2013-04-18",
       "title": "Iron Man 3",
       "video": false,
-      "vote_average": 6.9,
+      "vote_average": 6.928,
       "vote_count": 22425
     },
     {
@@ -11748,8 +11748,8 @@
       "release_date": "2024-11-22",
       "title": "Spellbound",
       "video": false,
-      "vote_average": 6.7,
-      "vote_count": 239
+      "vote_average": 6.698,
+      "vote_count": 240
     },
     {
       "adult": false,
@@ -11789,8 +11789,8 @@
       "release_date": "2015-06-25",
       "title": "Ted 2",
       "video": false,
-      "vote_average": 6.305,
-      "vote_count": 7570
+      "vote_average": 6.304,
+      "vote_count": 7572
     },
     {
       "adult": false,
@@ -11890,7 +11890,7 @@
       "release_date": "2011-08-09",
       "title": "The Help",
       "video": false,
-      "vote_average": 8.206,
+      "vote_average": 8.2,
       "vote_count": 8461
     },
     {
@@ -11931,7 +11931,7 @@
       "release_date": "2024-06-25",
       "title": "Arena Wars",
       "video": false,
-      "vote_average": 4.99,
+      "vote_average": 5.0,
       "vote_count": 48
     },
     {
@@ -11952,7 +11952,7 @@
       "title": "Mission: Impossible",
       "video": false,
       "vote_average": 6.99,
-      "vote_count": 9067
+      "vote_count": 9068
     },
     {
       "adult": false,
@@ -11971,7 +11971,7 @@
       "release_date": "1997-05-02",
       "title": "The Fifth Element",
       "video": false,
-      "vote_average": 7.553,
+      "vote_average": 7.6,
       "vote_count": 10934
     },
     {
@@ -12010,7 +12010,7 @@
       "release_date": "2019-07-24",
       "title": "Once Upon a Time... in Hollywood",
       "video": false,
-      "vote_average": 7.431,
+      "vote_average": 7.4,
       "vote_count": 13746
     },
     {
@@ -12055,8 +12055,8 @@
       "release_date": "2021-03-03",
       "title": "Raya and the Last Dragon",
       "video": false,
-      "vote_average": 7.841,
-      "vote_count": 6879
+      "vote_average": 7.84,
+      "vote_count": 6880
     },
     {
       "adult": false,
@@ -12096,8 +12096,8 @@
       "release_date": "2012-09-20",
       "title": "Hotel Transylvania",
       "video": false,
-      "vote_average": 7.0,
-      "vote_count": 8719
+      "vote_average": 6.956,
+      "vote_count": 8721
     },
     {
       "adult": false,
@@ -13494,7 +13494,7 @@
       "release_date": "2023-12-07",
       "title": "Poor Things",
       "video": false,
-      "vote_average": 7.7,
+      "vote_average": 7.697,
       "vote_count": 4585
     },
     {
@@ -13515,7 +13515,7 @@
       "title": "Bullet Train",
       "video": false,
       "vote_average": 7.442,
-      "vote_count": 6517
+      "vote_count": 6518
     },
     {
       "adult": false,
@@ -13556,7 +13556,7 @@
       "release_date": "2012-12-25",
       "title": "Django Unchained",
       "video": false,
-      "vote_average": 8.182,
+      "vote_average": 8.2,
       "vote_count": 26577
     },
     {
@@ -13695,7 +13695,7 @@
       "title": "Everything Everywhere All at Once",
       "video": false,
       "vote_average": 7.759,
-      "vote_count": 6894
+      "vote_count": 6897
     },
     {
       "adult": false,
@@ -15016,8 +15016,8 @@
       "release_date": "2024-04-04",
       "title": "How to Make Millions Before Grandma Dies",
       "video": false,
-      "vote_average": 8.0,
-      "vote_count": 159
+      "vote_average": 8.047,
+      "vote_count": 160
     },
     {
       "adult": false,
@@ -15036,7 +15036,7 @@
       "release_date": "2022-07-06",
       "title": "Thor: Love and Thunder",
       "video": false,
-      "vote_average": 6.42,
+      "vote_average": 6.4,
       "vote_count": 7806
     },
     {
@@ -15095,7 +15095,7 @@
       "title": "Edge of Tomorrow",
       "video": false,
       "vote_average": 7.628,
-      "vote_count": 14087
+      "vote_count": 14088
     },
     {
       "adult": false,
@@ -15171,8 +15171,8 @@
       "release_date": "1990-11-16",
       "title": "Home Alone",
       "video": false,
-      "vote_average": 7.4,
-      "vote_count": 11544
+      "vote_average": 7.44,
+      "vote_count": 11545
     },
     {
       "adult": false,
@@ -15904,8 +15904,8 @@
       "release_date": "2023-09-27",
       "title": "The Creator",
       "video": false,
-      "vote_average": 7.06,
-      "vote_count": 3268
+      "vote_average": 7.061,
+      "vote_count": 3269
     },
     {
       "adult": false,
@@ -15924,8 +15924,8 @@
       "release_date": "2019-03-14",
       "title": "Us",
       "video": false,
-      "vote_average": 6.963,
-      "vote_count": 7464
+      "vote_average": 6.964,
+      "vote_count": 7465
     },
     {
       "adult": false,
@@ -16025,7 +16025,7 @@
       "title": "Mission: Impossible - Rogue Nation",
       "video": false,
       "vote_average": 7.206,
-      "vote_count": 8966
+      "vote_count": 8968
     },
     {
       "adult": false,
@@ -16046,7 +16046,7 @@
       "title": "Ice Age: Dawn of the Dinosaurs",
       "video": false,
       "vote_average": 6.8,
-      "vote_count": 8416
+      "vote_count": 8417
     },
     {
       "adult": false,
@@ -16218,7 +16218,7 @@
       "title": "Chappie",
       "video": false,
       "vote_average": 6.786,
-      "vote_count": 8013
+      "vote_count": 8014
     },
     {
       "adult": false,
@@ -16391,8 +16391,8 @@
       "release_date": "2015-12-15",
       "title": "Star Wars: The Force Awakens",
       "video": false,
-      "vote_average": 7.262,
-      "vote_count": 19620
+      "vote_average": 7.263,
+      "vote_count": 19621
     },
     {
       "adult": false,
@@ -16614,7 +16614,7 @@
       "title": "Fall",
       "video": false,
       "vote_average": 7.144,
-      "vote_count": 4059
+      "vote_count": 4060
     },
     {
       "adult": false,
@@ -16834,7 +16834,7 @@
       "release_date": "2012-10-24",
       "title": "Skyfall",
       "video": false,
-      "vote_average": 7.2,
+      "vote_average": 7.247,
       "vote_count": 15363
     },
     {
@@ -16954,8 +16954,8 @@
       "release_date": "2023-07-14",
       "title": "The Boy and the Heron",
       "video": false,
-      "vote_average": 7.4,
-      "vote_count": 2076
+      "vote_average": 7.445,
+      "vote_count": 2079
     },
     {
       "adult": false,
@@ -16973,7 +16973,7 @@
       "release_date": "2023-12-14",
       "title": "The Family Plan",
       "video": false,
-      "vote_average": 7.255,
+      "vote_average": 7.3,
       "vote_count": 1470
     },
     {
@@ -17091,8 +17091,8 @@
       "release_date": "2011-04-13",
       "title": "Scream 4",
       "video": false,
-      "vote_average": 6.5,
-      "vote_count": 3814
+      "vote_average": 6.458,
+      "vote_count": 3815
     },
     {
       "adult": false,
@@ -17153,7 +17153,7 @@
       "title": "Heat",
       "video": false,
       "vote_average": 7.919,
-      "vote_count": 7499
+      "vote_count": 7500
     },
     {
       "adult": false,
@@ -17193,7 +17193,7 @@
       "title": "Killers of the Flower Moon",
       "video": false,
       "vote_average": 7.436,
-      "vote_count": 3517
+      "vote_count": 3518
     },
     {
       "adult": false,
@@ -17386,8 +17386,8 @@
       "release_date": "2024-10-24",
       "title": "Don't Move",
       "video": false,
-      "vote_average": 6.351,
-      "vote_count": 764
+      "vote_average": 6.354,
+      "vote_count": 765
     },
     {
       "adult": false,
@@ -17486,8 +17486,8 @@
       "release_date": "2021-07-05",
       "title": "Boiling Point",
       "video": false,
-      "vote_average": 7.226,
-      "vote_count": 573
+      "vote_average": 7.222,
+      "vote_count": 574
     },
     {
       "adult": false,
@@ -17587,7 +17587,7 @@
       "title": "Passengers",
       "video": false,
       "vote_average": 6.951,
-      "vote_count": 13444
+      "vote_count": 13445
     },
     {
       "adult": false,
@@ -17647,8 +17647,8 @@
       "release_date": "2007-08-03",
       "title": "The Bourne Ultimatum",
       "video": false,
-      "vote_average": 7.425,
-      "vote_count": 7805
+      "vote_average": 7.4,
+      "vote_count": 7806
     },
     {
       "adult": false,
@@ -17668,7 +17668,7 @@
       "title": "The Bourne Supremacy",
       "video": false,
       "vote_average": 7.321,
-      "vote_count": 7625
+      "vote_count": 7626
     },
     {
       "adult": false,
@@ -17707,8 +17707,8 @@
       "release_date": "2004-10-01",
       "title": "Saw",
       "video": false,
-      "vote_average": 7.417,
-      "vote_count": 9382
+      "vote_average": 7.4,
+      "vote_count": 9383
     },
     {
       "adult": false,
@@ -17748,8 +17748,8 @@
       "release_date": "2018-08-09",
       "title": "The Meg",
       "video": false,
-      "vote_average": 6.2,
-      "vote_count": 7752
+      "vote_average": 6.249,
+      "vote_count": 7753
     },
     {
       "adult": false,
@@ -17884,7 +17884,7 @@
       "title": "Fantastic Beasts and Where to Find Them",
       "video": false,
       "vote_average": 7.317,
-      "vote_count": 18965
+      "vote_count": 18966
     },
     {
       "adult": false,
@@ -17942,7 +17942,7 @@
       "release_date": "2013-06-19",
       "title": "Monsters University",
       "video": false,
-      "vote_average": 7.038,
+      "vote_average": 7.0,
       "vote_count": 10756
     },
     {
@@ -17963,7 +17963,7 @@
       "title": "The Departed",
       "video": false,
       "vote_average": 8.159,
-      "vote_count": 15179
+      "vote_count": 15180
     },
     {
       "adult": false,
@@ -18003,7 +18003,7 @@
       "release_date": "2022-06-29",
       "title": "Minions: The Rise of Gru",
       "video": false,
-      "vote_average": 7.302,
+      "vote_average": 7.3,
       "vote_count": 3689
     },
     {
@@ -18101,7 +18101,7 @@
       "release_date": "2008-08-09",
       "title": "Tropic Thunder",
       "video": false,
-      "vote_average": 6.684,
+      "vote_average": 6.7,
       "vote_count": 6341
     },
     {
@@ -18123,7 +18123,7 @@
       "release_date": "2005-05-03",
       "title": "Kingdom of Heaven",
       "video": false,
-      "vote_average": 6.978,
+      "vote_average": 7.0,
       "vote_count": 4408
     },
     {
@@ -18556,8 +18556,8 @@
       "release_date": "2024-10-03",
       "title": "The Silent Hour",
       "video": false,
-      "vote_average": 6.545,
-      "vote_count": 176
+      "vote_average": 6.542,
+      "vote_count": 177
     },
     {
       "adult": false,
@@ -18595,7 +18595,7 @@
       "release_date": "2022-09-09",
       "title": "Sisu",
       "video": false,
-      "vote_average": 7.419,
+      "vote_average": 7.4,
       "vote_count": 2274
     },
     {
@@ -18617,8 +18617,8 @@
       "release_date": "2022-03-17",
       "title": "The Bad Guys",
       "video": false,
-      "vote_average": 7.546,
-      "vote_count": 2123
+      "vote_average": 7.543,
+      "vote_count": 2125
     },
     {
       "adult": false,
@@ -18679,7 +18679,7 @@
       "release_date": "2012-12-20",
       "title": "Jack Reacher",
       "video": false,
-      "vote_average": 6.639,
+      "vote_average": 6.6,
       "vote_count": 7128
     },
     {
@@ -18850,7 +18850,7 @@
       "release_date": "2021-09-29",
       "title": "No Time to Die",
       "video": false,
-      "vote_average": 7.366,
+      "vote_average": 7.4,
       "vote_count": 6441
     },
     {
@@ -19053,7 +19053,7 @@
       "title": "Spy",
       "video": false,
       "vote_average": 6.828,
-      "vote_count": 6075
+      "vote_count": 6076
     },
     {
       "adult": false,
@@ -19127,7 +19127,7 @@
       "release_date": "1996-01-12",
       "title": "Don't Be a Menace to South Central While Drinking Your Juice in the Hood",
       "video": false,
-      "vote_average": 7.033,
+      "vote_average": 7.0,
       "vote_count": 1356
     },
     {
@@ -19229,7 +19229,7 @@
       "title": "Tenet",
       "video": false,
       "vote_average": 7.181,
-      "vote_count": 10130
+      "vote_count": 10131
     },
     {
       "adult": false,
@@ -19249,7 +19249,7 @@
       "title": "About Time",
       "video": false,
       "vote_average": 7.915,
-      "vote_count": 8655
+      "vote_count": 8656
     },
     {
       "adult": false,
@@ -19307,8 +19307,8 @@
       "release_date": "2024-08-29",
       "title": "Hellboy: The Crooked Man",
       "video": false,
-      "vote_average": 5.238,
-      "vote_count": 378
+      "vote_average": 5.232,
+      "vote_count": 379
     },
     {
       "adult": false,
@@ -19346,8 +19346,8 @@
       "release_date": "2016-11-10",
       "title": "Arrival",
       "video": false,
-      "vote_average": 7.6,
-      "vote_count": 18083
+      "vote_average": 7.61,
+      "vote_count": 18085
     },
     {
       "adult": false,
@@ -19427,7 +19427,7 @@
       "title": "RED",
       "video": false,
       "vote_average": 6.696,
-      "vote_count": 6771
+      "vote_count": 6772
     },
     {
       "adult": false,
@@ -19531,7 +19531,7 @@
       "title": "Mulholland Drive",
       "video": false,
       "vote_average": 7.806,
-      "vote_count": 6426
+      "vote_count": 6427
     },
     {
       "adult": false,
@@ -19725,8 +19725,8 @@
       "release_date": "2005-06-13",
       "title": "War of the Worlds",
       "video": false,
-      "vote_average": 6.5,
-      "vote_count": 8515
+      "vote_average": 6.514,
+      "vote_count": 8516
     },
     {
       "adult": false,
@@ -20964,7 +20964,7 @@
       "release_date": "2009-03-04",
       "title": "Watchmen",
       "video": false,
-      "vote_average": 7.337,
+      "vote_average": 7.3,
       "vote_count": 9360
     },
     {
@@ -21003,7 +21003,7 @@
       "title": "Closer",
       "video": false,
       "vote_average": 6.829,
-      "vote_count": 3492
+      "vote_count": 3493
     },
     {
       "adult": false,
@@ -21124,7 +21124,7 @@
       "release_date": "2022-01-31",
       "title": "Hotel Transylvania: Transformania",
       "video": false,
-      "vote_average": 7.073,
+      "vote_average": 7.1,
       "vote_count": 2826
     },
     {
@@ -21185,8 +21185,8 @@
       "release_date": "2016-10-13",
       "title": "The Accountant",
       "video": false,
-      "vote_average": 7.095,
-      "vote_count": 6341
+      "vote_average": 7.1,
+      "vote_count": 6342
     },
     {
       "adult": false,
@@ -21225,7 +21225,7 @@
       "title": "Django",
       "video": false,
       "vote_average": 7.2,
-      "vote_count": 922
+      "vote_count": 923
     },
     {
       "adult": false,
@@ -21343,7 +21343,7 @@
       "title": "The Autopsy of Jane Doe",
       "video": false,
       "vote_average": 6.809,
-      "vote_count": 4340
+      "vote_count": 4341
     },
     {
       "adult": false,
@@ -21402,7 +21402,7 @@
       "release_date": "2013-11-15",
       "title": "The Hunger Games: Catching Fire",
       "video": false,
-      "vote_average": 7.427,
+      "vote_average": 7.4,
       "vote_count": 17546
     },
     {
@@ -21482,7 +21482,7 @@
       "title": "Blade Runner",
       "video": false,
       "vote_average": 7.9,
-      "vote_count": 14006
+      "vote_count": 14007
     },
     {
       "adult": false,
@@ -21559,8 +21559,8 @@
       "release_date": "2024-12-06",
       "title": "Nightbitch",
       "video": false,
-      "vote_average": 5.808,
-      "vote_count": 232
+      "vote_average": 5.8,
+      "vote_count": 233
     },
     {
       "adult": false,
@@ -21601,7 +21601,7 @@
       "release_date": "2023-11-08",
       "title": "The Marvels",
       "video": false,
-      "vote_average": 6.022,
+      "vote_average": 6.0,
       "vote_count": 2872
     },
     {
@@ -21662,7 +21662,7 @@
       "release_date": "2022-02-10",
       "title": "Uncharted",
       "video": false,
-      "vote_average": 6.915,
+      "vote_average": 6.9,
       "vote_count": 6175
     },
     {
@@ -21781,7 +21781,7 @@
       "release_date": "1959-02-17",
       "title": "Sleeping Beauty",
       "video": false,
-      "vote_average": 6.943,
+      "vote_average": 6.9,
       "vote_count": 5210
     },
     {
@@ -21820,7 +21820,7 @@
       "title": "Twelve Monkeys",
       "video": false,
       "vote_average": 7.6,
-      "vote_count": 8496
+      "vote_count": 8497
     },
     {
       "adult": false,
@@ -22078,7 +22078,7 @@
       "title": "Upgrade",
       "video": false,
       "vote_average": 7.493,
-      "vote_count": 4501
+      "vote_count": 4502
     },
     {
       "adult": false,
@@ -22098,7 +22098,7 @@
       "title": "Rogue One: A Star Wars Story",
       "video": false,
       "vote_average": 7.492,
-      "vote_count": 15453
+      "vote_count": 15454
     },
     {
       "adult": false,
@@ -22513,7 +22513,7 @@
       "title": "The Holiday",
       "video": false,
       "vote_average": 7.093,
-      "vote_count": 5237
+      "vote_count": 5238
     },
     {
       "adult": false,
@@ -22674,7 +22674,7 @@
       "title": "The Smurfs",
       "video": false,
       "vote_average": 5.762,
-      "vote_count": 3792
+      "vote_count": 3793
     },
     {
       "adult": false,
@@ -22733,7 +22733,7 @@
       "release_date": "2001-01-19",
       "title": "Donnie Darko",
       "video": false,
-      "vote_average": 7.771,
+      "vote_average": 7.8,
       "vote_count": 12643
     },
     {
@@ -22856,7 +22856,7 @@
       "title": "Captain Marvel",
       "video": false,
       "vote_average": 6.803,
-      "vote_count": 15939
+      "vote_count": 15940
     },
     {
       "adult": false,
@@ -22894,7 +22894,7 @@
       "title": "American Sniper",
       "video": false,
       "vote_average": 7.422,
-      "vote_count": 12999
+      "vote_count": 13000
     },
     {
       "adult": false,
@@ -23015,7 +23015,7 @@
       "release_date": "2010-12-02",
       "title": "The Chronicles of Narnia: The Voyage of the Dawn Treader",
       "video": false,
-      "vote_average": 6.439,
+      "vote_average": 6.4,
       "vote_count": 5634
     },
     {
@@ -23034,7 +23034,7 @@
       "release_date": "2003-05-30",
       "title": "Wrong Turn",
       "video": false,
-      "vote_average": 6.365,
+      "vote_average": 6.4,
       "vote_count": 2755
     },
     {
@@ -23073,12 +23073,12 @@
       "release_date": "1984-05-23",
       "title": "Once Upon a Time in America",
       "video": false,
-      "vote_average": 8.414,
-      "vote_count": 5535
+      "vote_average": 8.415,
+      "vote_count": 5536
     },
     {
       "adult": false,
-      "backdrop_path": "/bXn9ffUvZkhvfu8UGHbmvZp8jD1.jpg",
+      "backdrop_path": "/n8BzC4nKEo6gzJYQgIH1qBwGXq4.jpg",
       "genre_ids": [
         18,
         35
@@ -23088,7 +23088,7 @@
       "original_title": "My Dead Friend Zoe",
       "overview": "Inspired by a true story, a U.S. Army Afghanistan veteran—thanks to the presence of her dead best friend from the Army—is at odds with her estranged Vietnam Veteran grandfather and her VA counselor.",
       "popularity": 8.4,
-      "poster_path": "/nd5Heotj6nlxM38Gjt7beq7BJS1.jpg",
+      "poster_path": "/bRoDBpwGU5UW03hQMExN2l92Q93.jpg",
       "release_date": "2025-02-28",
       "title": "My Dead Friend Zoe",
       "video": false,
@@ -23112,7 +23112,7 @@
       "title": "Juror #2",
       "video": false,
       "vote_average": 6.83,
-      "vote_count": 1567
+      "vote_count": 1568
     },
     {
       "adult": false,
@@ -23285,7 +23285,7 @@
       "title": "Priscilla",
       "video": false,
       "vote_average": 6.811,
-      "vote_count": 861
+      "vote_count": 862
     },
     {
       "adult": false,
@@ -23385,7 +23385,7 @@
       "title": "Oblivion",
       "video": false,
       "vote_average": 6.651,
-      "vote_count": 10826
+      "vote_count": 10828
     },
     {
       "adult": false,
@@ -23425,7 +23425,7 @@
       "title": "Jumanji",
       "video": false,
       "vote_average": 7.234,
-      "vote_count": 10689
+      "vote_count": 10690
     },
     {
       "adult": false,
@@ -23442,7 +23442,7 @@
       "release_date": "1975-11-19",
       "title": "One Flew Over the Cuckoo's Nest",
       "video": false,
-      "vote_average": 8.413,
+      "vote_average": 8.4,
       "vote_count": 10659
     },
     {
@@ -23482,7 +23482,7 @@
       "release_date": "1979-05-19",
       "title": "Apocalypse Now",
       "video": false,
-      "vote_average": 8.273,
+      "vote_average": 8.3,
       "vote_count": 8416
     },
     {
@@ -23639,7 +23639,7 @@
       "release_date": "2003-07-18",
       "title": "Bad Boys II",
       "video": false,
-      "vote_average": 6.645,
+      "vote_average": 6.6,
       "vote_count": 5565
     },
     {
@@ -24100,7 +24100,7 @@
       "release_date": "2019-12-25",
       "title": "1917",
       "video": false,
-      "vote_average": 8.0,
+      "vote_average": 7.988,
       "vote_count": 12650
     },
     {
@@ -24200,7 +24200,7 @@
       "title": "Drive",
       "video": false,
       "vote_average": 7.58,
-      "vote_count": 12796
+      "vote_count": 12797
     },
     {
       "adult": false,
@@ -25273,7 +25273,7 @@
       "title": "Mission: Impossible - Ghost Protocol",
       "video": false,
       "vote_average": 7.093,
-      "vote_count": 10020
+      "vote_count": 10021
     },
     {
       "adult": false,
@@ -25330,7 +25330,7 @@
       "release_date": "2001-12-07",
       "title": "Ocean's Eleven",
       "video": false,
-      "vote_average": 7.444,
+      "vote_average": 7.4,
       "vote_count": 11774
     },
     {
@@ -25350,8 +25350,8 @@
       "release_date": "2024-03-20",
       "title": "Immaculate",
       "video": false,
-      "vote_average": 6.2,
-      "vote_count": 1372
+      "vote_average": 6.233,
+      "vote_count": 1373
     },
     {
       "adult": false,
@@ -25391,7 +25391,7 @@
       "release_date": "2019-05-15",
       "title": "The Dead Don't Die",
       "video": false,
-      "vote_average": 5.437,
+      "vote_average": 5.4,
       "vote_count": 2613
     },
     {
@@ -25410,7 +25410,7 @@
       "title": "The Greatest Showman",
       "video": false,
       "vote_average": 7.879,
-      "vote_count": 9565
+      "vote_count": 9567
     },
     {
       "adult": false,
@@ -25585,7 +25585,7 @@
       "release_date": "2000-03-17",
       "title": "Final Destination",
       "video": false,
-      "vote_average": 6.602,
+      "vote_average": 6.6,
       "vote_count": 5758
     },
     {
@@ -25642,8 +25642,8 @@
       "release_date": "2000-10-11",
       "title": "Memento",
       "video": false,
-      "vote_average": 8.2,
-      "vote_count": 15150
+      "vote_average": 8.176,
+      "vote_count": 15152
     },
     {
       "adult": false,
@@ -26081,8 +26081,8 @@
       "release_date": "1999-11-04",
       "title": "The Bone Collector",
       "video": false,
-      "vote_average": 6.8,
-      "vote_count": 3589
+      "vote_average": 6.795,
+      "vote_count": 3590
     },
     {
       "adult": false,
@@ -26198,7 +26198,7 @@
       "release_date": "2022-01-28",
       "title": "The Ice Age Adventures of Buck Wild",
       "video": false,
-      "vote_average": 6.616,
+      "vote_average": 6.6,
       "vote_count": 1714
     },
     {
@@ -26236,7 +26236,7 @@
       "release_date": "2012-09-27",
       "title": "Taken 2",
       "video": false,
-      "vote_average": 6.361,
+      "vote_average": 6.4,
       "vote_count": 6735
     },
     {
@@ -26257,7 +26257,7 @@
       "release_date": "2011-08-03",
       "title": "Rise of the Planet of the Apes",
       "video": false,
-      "vote_average": 7.331,
+      "vote_average": 7.3,
       "vote_count": 12076
     },
     {
@@ -26295,8 +26295,8 @@
       "release_date": "2008-07-01",
       "title": "Hancock",
       "video": false,
-      "vote_average": 6.345,
-      "vote_count": 9703
+      "vote_average": 6.346,
+      "vote_count": 9704
     },
     {
       "adult": false,
@@ -26410,8 +26410,8 @@
       "release_date": "2024-10-07",
       "title": "The Room Next Door",
       "video": false,
-      "vote_average": 6.8,
-      "vote_count": 439
+      "vote_average": 6.777,
+      "vote_count": 440
     },
     {
       "adult": false,
@@ -26470,7 +26470,7 @@
       "release_date": "2023-11-02",
       "title": "The American",
       "video": false,
-      "vote_average": 6.75,
+      "vote_average": 6.8,
       "vote_count": 70
     },
     {
@@ -26530,8 +26530,8 @@
       "release_date": "2019-01-10",
       "title": "A Dog's Way Home",
       "video": false,
-      "vote_average": 7.366,
-      "vote_count": 1119
+      "vote_average": 7.368,
+      "vote_count": 1120
     },
     {
       "adult": false,
@@ -26751,7 +26751,7 @@
       "title": "Guy Ritchie's The Covenant",
       "video": false,
       "vote_average": 7.758,
-      "vote_count": 2681
+      "vote_count": 2682
     },
     {
       "adult": false,
@@ -26848,7 +26848,7 @@
       "release_date": "2017-05-10",
       "title": "King Arthur: Legend of the Sword",
       "video": false,
-      "vote_average": 6.549,
+      "vote_average": 6.5,
       "vote_count": 5764
     },
     {
@@ -26927,7 +26927,7 @@
       "title": "Alice, Sweet Alice",
       "video": false,
       "vote_average": 6.4,
-      "vote_count": 280
+      "vote_count": 281
     },
     {
       "adult": false,
@@ -27121,7 +27121,7 @@
       "release_date": "2019-10-02",
       "title": "Gemini Man",
       "video": false,
-      "vote_average": 6.282,
+      "vote_average": 6.3,
       "vote_count": 5188
     },
     {
@@ -27338,8 +27338,8 @@
       "release_date": "2024-10-16",
       "title": "Beating Hearts",
       "video": false,
-      "vote_average": 7.29,
-      "vote_count": 651
+      "vote_average": 7.294,
+      "vote_count": 652
     },
     {
       "adult": false,
@@ -27840,7 +27840,7 @@
       "title": "Law Abiding Citizen",
       "video": false,
       "vote_average": 7.383,
-      "vote_count": 5242
+      "vote_count": 5243
     },
     {
       "adult": false,
@@ -27896,7 +27896,7 @@
       "release_date": "2001-06-02",
       "title": "Atlantis: The Lost Empire",
       "video": false,
-      "vote_average": 7.009,
+      "vote_average": 7.0,
       "vote_count": 4818
     },
     {
@@ -28013,7 +28013,7 @@
       "title": "A Clockwork Orange",
       "video": false,
       "vote_average": 8.187,
-      "vote_count": 13072
+      "vote_count": 13073
     },
     {
       "adult": false,
@@ -28073,7 +28073,7 @@
       "release_date": "2024-03-01",
       "title": "Megamind vs. the Doom Syndicate",
       "video": false,
-      "vote_average": 5.159,
+      "vote_average": 5.2,
       "vote_count": 289
     },
     {
@@ -28206,8 +28206,8 @@
       "release_date": "2017-07-20",
       "title": "Valerian and the City of a Thousand Planets",
       "video": false,
-      "vote_average": 6.625,
-      "vote_count": 7565
+      "vote_average": 6.626,
+      "vote_count": 7566
     },
     {
       "adult": false,
@@ -28225,7 +28225,7 @@
       "release_date": "2013-08-07",
       "title": "We're the Millers",
       "video": false,
-      "vote_average": 6.829,
+      "vote_average": 6.8,
       "vote_count": 8984
     },
     {
@@ -28246,7 +28246,7 @@
       "title": "All Quiet on the Western Front",
       "video": false,
       "vote_average": 7.7,
-      "vote_count": 4087
+      "vote_count": 4088
     },
     {
       "adult": false,
@@ -28325,8 +28325,8 @@
       "release_date": "2003-08-01",
       "title": "American Wedding",
       "video": false,
-      "vote_average": 6.216,
-      "vote_count": 4129
+      "vote_average": 6.215,
+      "vote_count": 4130
     },
     {
       "adult": false,
@@ -28524,7 +28524,7 @@
       "title": "American Made",
       "video": false,
       "vote_average": 6.885,
-      "vote_count": 4587
+      "vote_count": 4588
     },
     {
       "adult": false,
@@ -28645,7 +28645,7 @@
       "title": "The Karate Kid",
       "video": false,
       "vote_average": 7.195,
-      "vote_count": 4278
+      "vote_count": 4279
     },
     {
       "adult": false,
@@ -28683,7 +28683,7 @@
       "title": "The Lost City",
       "video": false,
       "vote_average": 6.49,
-      "vote_count": 3664
+      "vote_count": 3666
     },
     {
       "adult": false,
@@ -28701,7 +28701,7 @@
       "release_date": "2022-10-12",
       "title": "Halloween Ends",
       "video": false,
-      "vote_average": 6.075,
+      "vote_average": 6.1,
       "vote_count": 1817
     },
     {
@@ -28742,8 +28742,8 @@
       "release_date": "2015-08-07",
       "title": "Boruto: Naruto the Movie",
       "video": false,
-      "vote_average": 7.455,
-      "vote_count": 1590
+      "vote_average": 7.456,
+      "vote_count": 1591
     },
     {
       "adult": false,
@@ -28900,7 +28900,7 @@
       "title": "Monster House",
       "video": false,
       "vote_average": 6.687,
-      "vote_count": 4032
+      "vote_count": 4033
     },
     {
       "adult": false,
@@ -28919,8 +28919,8 @@
       "release_date": "2003-06-19",
       "title": "Hulk",
       "video": false,
-      "vote_average": 5.6,
-      "vote_count": 5884
+      "vote_average": 5.561,
+      "vote_count": 5889
     },
     {
       "adult": false,
@@ -28941,7 +28941,7 @@
       "title": "The Matrix Revolutions",
       "video": false,
       "vote_average": 6.731,
-      "vote_count": 10076
+      "vote_count": 10077
     },
     {
       "adult": false,
@@ -28958,8 +28958,8 @@
       "release_date": "2024-10-10",
       "title": "The Boy With Pink Pants",
       "video": false,
-      "vote_average": 6.984,
-      "vote_count": 94
+      "vote_average": 7.005,
+      "vote_count": 96
     },
     {
       "adult": false,
@@ -29154,7 +29154,7 @@
       "release_date": "2017-08-03",
       "title": "Annabelle: Creation",
       "video": false,
-      "vote_average": 6.593,
+      "vote_average": 6.6,
       "vote_count": 5656
     },
     {
@@ -29485,7 +29485,7 @@
       "title": "The Lego Batman Movie",
       "video": false,
       "vote_average": 7.224,
-      "vote_count": 5075
+      "vote_count": 5077
     },
     {
       "adult": false,
@@ -29834,8 +29834,8 @@
       "release_date": "2012-11-20",
       "title": "Life of Pi",
       "video": false,
-      "vote_average": 7.403,
-      "vote_count": 13195
+      "vote_average": 7.404,
+      "vote_count": 13196
     },
     {
       "adult": false,
@@ -29855,7 +29855,7 @@
       "title": "In Time",
       "video": false,
       "vote_average": 6.969,
-      "vote_count": 11519
+      "vote_count": 11520
     },
     {
       "adult": false,
@@ -30172,8 +30172,8 @@
       "release_date": "2012-08-17",
       "title": "Secret of the Wings",
       "video": false,
-      "vote_average": 7.2,
-      "vote_count": 1290
+      "vote_average": 7.213,
+      "vote_count": 1291
     },
     {
       "adult": false,
@@ -30210,7 +30210,7 @@
       "release_date": "2009-06-03",
       "title": "Home",
       "video": false,
-      "vote_average": 7.791,
+      "vote_average": 7.8,
       "vote_count": 511
     },
     {
@@ -30310,7 +30310,7 @@
       "release_date": "1992-03-05",
       "title": "The Lawnmower Man",
       "video": false,
-      "vote_average": 5.598,
+      "vote_average": 5.6,
       "vote_count": 758
     },
     {
@@ -31095,7 +31095,7 @@
       "release_date": "1978-07-07",
       "title": "Grease",
       "video": false,
-      "vote_average": 7.381,
+      "vote_average": 7.4,
       "vote_count": 7309
     },
     {
@@ -31599,7 +31599,7 @@
       "release_date": "2022-09-09",
       "title": "House of Darkness",
       "video": false,
-      "vote_average": 5.106,
+      "vote_average": 5.1,
       "vote_count": 118
     },
     {
@@ -31676,8 +31676,8 @@
       "release_date": "2014-12-12",
       "title": "Tinker Bell and the Legend of the NeverBeast",
       "video": false,
-      "vote_average": 7.3,
-      "vote_count": 1119
+      "vote_average": 7.346,
+      "vote_count": 1120
     },
     {
       "adult": false,
@@ -31738,7 +31738,7 @@
       "release_date": "2004-11-19",
       "title": "National Treasure",
       "video": false,
-      "vote_average": 6.639,
+      "vote_average": 6.6,
       "vote_count": 6417
     },
     {
@@ -31777,8 +31777,8 @@
       "release_date": "1990-07-03",
       "title": "Die Hard 2",
       "video": false,
-      "vote_average": 6.956,
-      "vote_count": 5934
+      "vote_average": 6.957,
+      "vote_count": 5935
     },
     {
       "adult": false,
@@ -32332,7 +32332,7 @@
       "release_date": "2005-09-16",
       "title": "Lord of War",
       "video": false,
-      "vote_average": 7.326,
+      "vote_average": 7.3,
       "vote_count": 4887
     },
     {
@@ -32471,7 +32471,7 @@
       "title": "Glass Onion: A Knives Out Mystery",
       "video": false,
       "vote_average": 7.052,
-      "vote_count": 5786
+      "vote_count": 5787
     },
     {
       "adult": false,
@@ -32821,8 +32821,8 @@
       "release_date": "2024-10-30",
       "title": "Here",
       "video": false,
-      "vote_average": 6.665,
-      "vote_count": 388
+      "vote_average": 6.663,
+      "vote_count": 389
     },
     {
       "adult": false,
@@ -32900,8 +32900,8 @@
       "release_date": "2016-10-07",
       "title": "A Monster Calls",
       "video": false,
-      "vote_average": 7.3,
-      "vote_count": 3382
+      "vote_average": 7.289,
+      "vote_count": 3383
     },
     {
       "adult": false,
@@ -33733,7 +33733,7 @@
       "release_date": "2003-02-21",
       "title": "Old School",
       "video": false,
-      "vote_average": 6.59,
+      "vote_average": 6.6,
       "vote_count": 1896
     },
     {
@@ -33751,7 +33751,7 @@
       "release_date": "1996-02-16",
       "title": "Happy Gilmore",
       "video": false,
-      "vote_average": 6.64,
+      "vote_average": 6.6,
       "vote_count": 2708
     },
     {
@@ -33849,7 +33849,7 @@
       "release_date": "2024-09-18",
       "title": "The Seed of the Sacred Fig",
       "video": false,
-      "vote_average": 7.634,
+      "vote_average": 7.6,
       "vote_count": 242
     },
     {
@@ -35947,7 +35947,7 @@
       "release_date": "2019-10-30",
       "title": "Doctor Sleep",
       "video": false,
-      "vote_average": 7.144,
+      "vote_average": 7.1,
       "vote_count": 4512
     },
     {
@@ -36012,7 +36012,7 @@
       "title": "Ice Age: Collision Course",
       "video": false,
       "vote_average": 6.1,
-      "vote_count": 4604
+      "vote_count": 4605
     },
     {
       "adult": false,
@@ -36149,7 +36149,7 @@
       "release_date": "1955-02-13",
       "title": "The Big Combo",
       "video": false,
-      "vote_average": 7.033,
+      "vote_average": 7.0,
       "vote_count": 153
     },
     {
@@ -36331,7 +36331,7 @@
       "title": "Alien³",
       "video": false,
       "vote_average": 6.37,
-      "vote_count": 5838
+      "vote_count": 5839
     },
     {
       "adult": false,
@@ -36369,7 +36369,7 @@
       "release_date": "2006-05-17",
       "title": "Over the Hedge",
       "video": false,
-      "vote_average": 6.563,
+      "vote_average": 6.6,
       "vote_count": 4525
     },
     {
@@ -36524,7 +36524,7 @@
       "title": "Indiana Jones and the Temple of Doom",
       "video": false,
       "vote_average": 7.294,
-      "vote_count": 9438
+      "vote_count": 9439
     },
     {
       "adult": false,
@@ -37128,7 +37128,7 @@
       "title": "The Witch",
       "video": false,
       "vote_average": 6.982,
-      "vote_count": 7128
+      "vote_count": 7129
     },
     {
       "adult": false,
@@ -38708,7 +38708,7 @@
       "release_date": "2013-10-03",
       "title": "Gravity",
       "video": false,
-      "vote_average": 7.164,
+      "vote_average": 7.2,
       "vote_count": 15499
     },
     {
@@ -38765,7 +38765,7 @@
       "release_date": "2010-12-14",
       "title": "TRON: Legacy",
       "video": false,
-      "vote_average": 6.492,
+      "vote_average": 6.5,
       "vote_count": 7246
     },
     {
@@ -38939,7 +38939,7 @@
       "release_date": "2024-07-03",
       "title": "Elyas",
       "video": false,
-      "vote_average": 6.208,
+      "vote_average": 6.2,
       "vote_count": 108
     },
     {
@@ -39205,7 +39205,7 @@
       "title": "The Perks of Being a Wallflower",
       "video": false,
       "vote_average": 7.796,
-      "vote_count": 10598
+      "vote_count": 10599
     },
     {
       "adult": false,
@@ -39541,7 +39541,7 @@
       "release_date": "2004-11-21",
       "title": "Alexander",
       "video": false,
-      "vote_average": 5.939,
+      "vote_average": 5.9,
       "vote_count": 3303
     },
     {
@@ -39597,8 +39597,8 @@
       "release_date": "2024-06-17",
       "title": "The Calendar Killer",
       "video": false,
-      "vote_average": 6.247,
-      "vote_count": 190
+      "vote_average": 6.251,
+      "vote_count": 191
     },
     {
       "adult": false,
@@ -39833,7 +39833,7 @@
       "title": "Power Rangers",
       "video": false,
       "vote_average": 6.257,
-      "vote_count": 4439
+      "vote_count": 4440
     },
     {
       "adult": false,
@@ -40046,8 +40046,8 @@
       "release_date": "2012-10-11",
       "title": "Argo",
       "video": false,
-      "vote_average": 7.279,
-      "vote_count": 8390
+      "vote_average": 7.3,
+      "vote_count": 8391
     },
     {
       "adult": false,
@@ -40160,8 +40160,8 @@
       "release_date": "2009-08-26",
       "title": "The Final Destination",
       "video": false,
-      "vote_average": 5.588,
-      "vote_count": 3337
+      "vote_average": 5.589,
+      "vote_count": 3338
     },
     {
       "adult": false,
@@ -40358,7 +40358,7 @@
       "release_date": "1922-02-16",
       "title": "Nosferatu",
       "video": false,
-      "vote_average": 7.7,
+      "vote_average": 7.67,
       "vote_count": 2213
     },
     {
@@ -40377,7 +40377,7 @@
       "release_date": "2002-10-18",
       "title": "The Ring",
       "video": false,
-      "vote_average": 6.673,
+      "vote_average": 6.7,
       "vote_count": 6259
     },
     {
@@ -41118,7 +41118,7 @@
       "title": "Transporter 3",
       "video": false,
       "vote_average": 6.144,
-      "vote_count": 3420
+      "vote_count": 3421
     },
     {
       "adult": false,
@@ -41235,8 +41235,8 @@
       "release_date": "2008-06-05",
       "title": "You Don't Mess with the Zohan",
       "video": false,
-      "vote_average": 5.712,
-      "vote_count": 3825
+      "vote_average": 5.713,
+      "vote_count": 3826
     },
     {
       "adult": false,
@@ -42488,7 +42488,7 @@
       "release_date": "2014-10-01",
       "title": "Dracula Untold",
       "video": false,
-      "vote_average": 6.43,
+      "vote_average": 6.4,
       "vote_count": 6162
     },
     {
@@ -42894,7 +42894,7 @@
       "release_date": "2023-11-10",
       "title": "Perfect Days",
       "video": false,
-      "vote_average": 7.7,
+      "vote_average": 7.749,
       "vote_count": 1417
     },
     {
@@ -43144,7 +43144,7 @@
       "release_date": "2022-09-18",
       "title": "Triangle of Sadness",
       "video": false,
-      "vote_average": 7.1,
+      "vote_average": 7.063,
       "vote_count": 2335
     },
     {
@@ -43201,7 +43201,7 @@
       "release_date": "2020-04-02",
       "title": "The New Mutants",
       "video": false,
-      "vote_average": 6.098,
+      "vote_average": 6.1,
       "vote_count": 3471
     },
     {
@@ -43357,7 +43357,7 @@
       "release_date": "2006-05-24",
       "title": "X-Men: The Last Stand",
       "video": false,
-      "vote_average": 6.4,
+      "vote_average": 6.407,
       "vote_count": 9794
     },
     {
@@ -43763,7 +43763,7 @@
       "release_date": "2024-11-27",
       "title": "Marching Band",
       "video": false,
-      "vote_average": 7.498,
+      "vote_average": 7.5,
       "vote_count": 223
     },
     {
@@ -43845,8 +43845,8 @@
       "release_date": "2022-03-17",
       "title": "Deep Water",
       "video": false,
-      "vote_average": 5.82,
-      "vote_count": 1438
+      "vote_average": 5.819,
+      "vote_count": 1439
     },
     {
       "adult": false,
@@ -44018,7 +44018,7 @@
       "title": "Moonfall",
       "video": false,
       "vote_average": 6.295,
-      "vote_count": 3214
+      "vote_count": 3215
     },
     {
       "adult": false,
@@ -44132,8 +44132,8 @@
       "release_date": "2015-08-01",
       "title": "Attack on Titan",
       "video": false,
-      "vote_average": 6.1,
-      "vote_count": 759
+      "vote_average": 6.103,
+      "vote_count": 760
     },
     {
       "adult": false,
@@ -44562,7 +44562,7 @@
       "title": "Fear and Loathing in Las Vegas",
       "video": false,
       "vote_average": 7.209,
-      "vote_count": 4673
+      "vote_count": 4674
     },
     {
       "adult": false,
@@ -44910,7 +44910,7 @@
       "title": "A Star Is Born",
       "video": false,
       "vote_average": 7.498,
-      "vote_count": 11764
+      "vote_count": 11765
     },
     {
       "adult": false,
@@ -45353,7 +45353,7 @@
       "title": "Hachi: A Dog's Tale",
       "video": false,
       "vote_average": 8.009,
-      "vote_count": 6788
+      "vote_count": 6789
     },
     {
       "adult": false,
@@ -45468,7 +45468,7 @@
       "title": "Gran Torino",
       "video": false,
       "vote_average": 7.987,
-      "vote_count": 10851
+      "vote_count": 10852
     },
     {
       "adult": false,
@@ -45527,7 +45527,7 @@
       "title": "The Iron Giant",
       "video": false,
       "vote_average": 7.949,
-      "vote_count": 5706
+      "vote_count": 5707
     },
     {
       "adult": false,
@@ -45546,8 +45546,8 @@
       "release_date": "2003-06-18",
       "title": "High Tension",
       "video": false,
-      "vote_average": 6.8,
-      "vote_count": 1335
+      "vote_average": 6.766,
+      "vote_count": 1336
     },
     {
       "adult": false,
@@ -45718,7 +45718,7 @@
       "original_title": "Tales Beyond the Galaxy",
       "overview": "Space Vessel Iris and its crew encounter a troubling discovery as they embark to what they believe to be an uninhabited planet. After a devastating tragedy, an astronaut struggles to complete his interstellar mission to rescue a lost crew. A brilliant young woman on a four year mission to an alien planet finds herself remembering her childhood and facing her inner demons. An astronaut on the Goldilocks Missions, searches the stars for a new home, when a circuit failure in his ship threatens to jeopardize the mission. Two elite astronauts wake up in the abyss of space attempting to return to their stranded ship.",
       "popularity": 5.85,
-      "poster_path": "/rUPNDQKWhv7GXRcRjy57dnLTSeh.jpg",
+      "poster_path": "/gRK7clR2wtHNQndCymOLLjCRAGa.jpg",
       "release_date": "2024-12-01",
       "title": "Tales Beyond the Galaxy",
       "video": false,
@@ -45896,7 +45896,7 @@
       "title": "Society of the Snow",
       "video": false,
       "vote_average": 8.004,
-      "vote_count": 3101
+      "vote_count": 3102
     },
     {
       "adult": false,
@@ -45975,8 +45975,8 @@
       "release_date": "2022-02-10",
       "title": "Blacklight",
       "video": false,
-      "vote_average": 6.151,
-      "vote_count": 1145
+      "vote_average": 6.2,
+      "vote_count": 1146
     },
     {
       "adult": false,
@@ -47168,8 +47168,8 @@
       "release_date": "2019-03-21",
       "title": "Balkan Line",
       "video": false,
-      "vote_average": 7.5,
-      "vote_count": 532
+      "vote_average": 7.485,
+      "vote_count": 534
     },
     {
       "adult": false,
@@ -47285,7 +47285,7 @@
       "release_date": "2016-01-22",
       "title": "The Boy",
       "video": false,
-      "vote_average": 5.96,
+      "vote_average": 6.0,
       "vote_count": 3778
     },
     {
@@ -47325,7 +47325,7 @@
       "title": "Shazam!",
       "video": false,
       "vote_average": 6.996,
-      "vote_count": 9655
+      "vote_count": 9656
     },
     {
       "adult": false,
@@ -47514,8 +47514,8 @@
       "release_date": "1988-07-09",
       "title": "Dragon Ball: Mystical Adventure",
       "video": false,
-      "vote_average": 6.7,
-      "vote_count": 276
+      "vote_average": 6.717,
+      "vote_count": 277
     },
     {
       "adult": false,
@@ -48403,7 +48403,7 @@
       "title": "Zombieland: Double Tap",
       "video": false,
       "vote_average": 6.919,
-      "vote_count": 5816
+      "vote_count": 5817
     },
     {
       "adult": false,
@@ -50051,8 +50051,8 @@
       "release_date": "2004-11-10",
       "title": "The Polar Express",
       "video": false,
-      "vote_average": 6.721,
-      "vote_count": 6451
+      "vote_average": 6.7,
+      "vote_count": 6453
     },
     {
       "adult": false,
@@ -50071,7 +50071,7 @@
       "release_date": "1997-09-12",
       "title": "The Game",
       "video": false,
-      "vote_average": 7.565,
+      "vote_average": 7.6,
       "vote_count": 6730
     },
     {
@@ -50128,7 +50128,7 @@
       "release_date": "1964-09-12",
       "title": "A Fistful of Dollars",
       "video": false,
-      "vote_average": 7.833,
+      "vote_average": 7.8,
       "vote_count": 4341
     },
     {
@@ -50260,8 +50260,8 @@
       "release_date": "2024-07-22",
       "title": "The Beast Within",
       "video": false,
-      "vote_average": 5.961,
-      "vote_count": 168
+      "vote_average": 5.941,
+      "vote_count": 169
     },
     {
       "adult": false,
@@ -50275,7 +50275,7 @@
       "original_title": "MMA - Meu Melhor Amigo",
       "overview": "When Max, a former MMA world champion about to retire, discovers he has an 8-year-old autistic son, his life is turned upside down. Now, as he trains for one last opportunity to regain his world champion title, Max must deal with his new family and his father, from whom he has long been estranged.",
       "popularity": 5.65,
-      "poster_path": "/9rjBOZvPK5E8l4IiO0QP5UZrTg0.jpg",
+      "poster_path": "/959Vbki8itfHoNbZnURFBi5pULa.jpg",
       "release_date": "2025-01-16",
       "title": "MMA - A Fathers Fight",
       "video": false,
@@ -50770,7 +50770,7 @@
       "release_date": "2013-03-06",
       "title": "It Boy",
       "video": false,
-      "vote_average": 6.444,
+      "vote_average": 6.443,
       "vote_count": 1474
     },
     {
@@ -50947,7 +50947,7 @@
       "release_date": "2011-07-21",
       "title": "Friends with Benefits",
       "video": false,
-      "vote_average": 6.655,
+      "vote_average": 6.7,
       "vote_count": 8005
     },
     {
@@ -51085,8 +51085,8 @@
       "release_date": "2009-10-23",
       "title": "Fantastic Mr. Fox",
       "video": false,
-      "vote_average": 7.8,
-      "vote_count": 5543
+      "vote_average": 7.804,
+      "vote_count": 5544
     },
     {
       "adult": false,
@@ -51146,7 +51146,7 @@
       "title": "National Treasure: Book of Secrets",
       "video": false,
       "vote_average": 6.361,
-      "vote_count": 5215
+      "vote_count": 5216
     },
     {
       "adult": false,
@@ -51184,7 +51184,7 @@
       "release_date": "2003-09-01",
       "title": "The Dreamers",
       "video": false,
-      "vote_average": 7.199,
+      "vote_average": 7.2,
       "vote_count": 2905
     },
     {
@@ -51303,7 +51303,7 @@
       ],
       "id": 1358752,
       "original_language": "es",
-      "original_title": "Skinford 2: The Curse",
+      "original_title": "Skinford 2: Klątwa",
       "overview": "SKINNY and ZOPHIA work together to decipher the true cause of her immortal curse, all while the entire town hunts them down.",
       "popularity": 5.6,
       "poster_path": "/auWtuSMLyiViVefPsj9JZA84n9I.jpg",
@@ -51463,7 +51463,7 @@
       "title": "Father Stu",
       "video": false,
       "vote_average": 7.145,
-      "vote_count": 637
+      "vote_count": 638
     },
     {
       "adult": false,
@@ -51617,7 +51617,7 @@
       "release_date": "2019-10-18",
       "title": "The Lighthouse",
       "video": false,
-      "vote_average": 7.5,
+      "vote_average": 7.502,
       "vote_count": 5027
     },
     {
@@ -51849,7 +51849,7 @@
       "release_date": "2015-09-21",
       "title": "Hotel Transylvania 2",
       "video": false,
-      "vote_average": 6.8,
+      "vote_average": 6.764,
       "vote_count": 5823
     },
     {
@@ -54626,7 +54626,7 @@
       "title": "Midnight in Paris",
       "video": false,
       "vote_average": 7.527,
-      "vote_count": 7357
+      "vote_count": 7358
     },
     {
       "adult": false,
@@ -54665,7 +54665,7 @@
       "title": "I Saw the Devil",
       "video": false,
       "vote_average": 7.8,
-      "vote_count": 2678
+      "vote_count": 2679
     },
     {
       "adult": false,
@@ -54700,7 +54700,7 @@
       "release_date": "1957-04-02",
       "title": "The Tall T",
       "video": false,
-      "vote_average": 6.971,
+      "vote_average": 7.0,
       "vote_count": 136
     },
     {
@@ -54898,8 +54898,8 @@
       "release_date": "1986-08-02",
       "title": "Castle in the Sky",
       "video": false,
-      "vote_average": 8.0,
-      "vote_count": 4293
+      "vote_average": 7.972,
+      "vote_count": 4294
     },
     {
       "adult": false,
@@ -54999,8 +54999,8 @@
       "release_date": "2001-02-28",
       "title": "Enemy at the Gates",
       "video": false,
-      "vote_average": 7.412,
-      "vote_count": 3704
+      "vote_average": 7.4,
+      "vote_count": 3705
     },
     {
       "adult": false,
@@ -55156,8 +55156,8 @@
       "release_date": "2024-05-02",
       "title": "Chief of Station",
       "video": false,
-      "vote_average": 6.213,
-      "vote_count": 178
+      "vote_average": 6.212,
+      "vote_count": 179
     },
     {
       "adult": false,
@@ -56241,8 +56241,8 @@
       "release_date": "2023-10-26",
       "title": "There's Still Tomorrow",
       "video": false,
-      "vote_average": 8.1,
-      "vote_count": 1337
+      "vote_average": 8.142,
+      "vote_count": 1338
     },
     {
       "adult": false,
@@ -56981,7 +56981,7 @@
       "title": "Contagion",
       "video": false,
       "vote_average": 6.642,
-      "vote_count": 6160
+      "vote_count": 6161
     },
     {
       "adult": false,
@@ -57099,7 +57099,7 @@
       "release_date": "1988-11-17",
       "title": "Cinema Paradiso",
       "video": false,
-      "vote_average": 8.437,
+      "vote_average": 8.4,
       "vote_count": 4482
     },
     {
@@ -57543,7 +57543,7 @@
       "release_date": "2014-05-22",
       "title": "The Babadook",
       "video": false,
-      "vote_average": 6.5,
+      "vote_average": 6.518,
       "vote_count": 6051
     },
     {
@@ -58560,8 +58560,8 @@
       "release_date": "2019-09-17",
       "title": "Ad Astra",
       "video": false,
-      "vote_average": 6.1,
-      "vote_count": 6724
+      "vote_average": 6.108,
+      "vote_count": 6725
     },
     {
       "adult": false,
@@ -58890,8 +58890,8 @@
       "release_date": "2011-02-14",
       "title": "Paul",
       "video": false,
-      "vote_average": 6.728,
-      "vote_count": 5850
+      "vote_average": 6.729,
+      "vote_count": 5851
     },
     {
       "adult": false,
@@ -60294,8 +60294,8 @@
       "release_date": "2023-10-27",
       "title": "The Holdovers",
       "video": false,
-      "vote_average": 7.68,
-      "vote_count": 1914
+      "vote_average": 7.681,
+      "vote_count": 1915
     },
     {
       "adult": false,
@@ -60367,7 +60367,7 @@
       "release_date": "2024-01-10",
       "title": "Mean Girls",
       "video": false,
-      "vote_average": 5.9,
+      "vote_average": 5.924,
       "vote_count": 594
     },
     {
@@ -60387,7 +60387,7 @@
       "release_date": "2022-06-22",
       "title": "Elvis",
       "video": false,
-      "vote_average": 7.5,
+      "vote_average": 7.503,
       "vote_count": 3517
     },
     {
@@ -60714,7 +60714,7 @@
       "release_date": "2012-08-02",
       "title": "Total Recall",
       "video": false,
-      "vote_average": 6.019,
+      "vote_average": 6.0,
       "vote_count": 5539
     },
     {
@@ -61213,7 +61213,7 @@
       "release_date": "2005-05-06",
       "title": "Crash",
       "video": false,
-      "vote_average": 7.216,
+      "vote_average": 7.2,
       "vote_count": 3560
     },
     {
@@ -61250,7 +61250,7 @@
       "release_date": "2006-12-20",
       "title": "Rocky Balboa",
       "video": false,
-      "vote_average": 6.866,
+      "vote_average": 6.9,
       "vote_count": 3530
     },
     {
@@ -61290,7 +61290,7 @@
       "title": "Silent Hill",
       "video": false,
       "vote_average": 6.577,
-      "vote_count": 4375
+      "vote_count": 4376
     },
     {
       "adult": false,
@@ -61327,7 +61327,7 @@
       "title": "Rio Bravo",
       "video": false,
       "vote_average": 7.813,
-      "vote_count": 1167
+      "vote_count": 1168
     },
     {
       "adult": false,
@@ -62532,7 +62532,7 @@
       "release_date": "2000-09-15",
       "title": "Almost Famous",
       "video": false,
-      "vote_average": 7.498,
+      "vote_average": 7.5,
       "vote_count": 2819
     },
     {
@@ -62553,7 +62553,7 @@
       "title": "Army of Darkness",
       "video": false,
       "vote_average": 7.252,
-      "vote_count": 3231
+      "vote_count": 3232
     },
     {
       "adult": false,
@@ -62591,7 +62591,7 @@
       "title": "Baby Invasion",
       "video": false,
       "vote_average": 6.8,
-      "vote_count": 4
+      "vote_count": 5
     },
     {
       "adult": false,
@@ -62783,8 +62783,8 @@
       "release_date": "2022-04-07",
       "title": "The Northman",
       "video": false,
-      "vote_average": 7.049,
-      "vote_count": 4467
+      "vote_average": 7.048,
+      "vote_count": 4468
     },
     {
       "adult": false,
@@ -64294,8 +64294,8 @@
       "release_date": "2021-10-13",
       "title": "The Wolf and the Lion",
       "video": false,
-      "vote_average": 7.5,
-      "vote_count": 454
+      "vote_average": 7.54,
+      "vote_count": 455
     },
     {
       "adult": false,
@@ -64700,7 +64700,7 @@
       "release_date": "2011-08-17",
       "title": "The Skin I Live In",
       "video": false,
-      "vote_average": 7.503,
+      "vote_average": 7.5,
       "vote_count": 4285
     },
     {
@@ -65249,7 +65249,7 @@
       "title": "Thelma & Louise",
       "video": false,
       "vote_average": 7.6,
-      "vote_count": 3520
+      "vote_count": 3521
     },
     {
       "adult": false,
@@ -66478,7 +66478,7 @@
       "release_date": "2004-05-19",
       "title": "Starship Troopers 2: Hero of the Federation",
       "video": false,
-      "vote_average": 4.454,
+      "vote_average": 4.5,
       "vote_count": 628
     },
     {
@@ -66553,8 +66553,8 @@
       "release_date": "2003-08-15",
       "title": "Freddy vs. Jason",
       "video": false,
-      "vote_average": 6.1,
-      "vote_count": 2643
+      "vote_average": 6.061,
+      "vote_count": 2644
     },
     {
       "adult": false,
@@ -66617,7 +66617,7 @@
       "release_date": "2001-12-14",
       "title": "Vanilla Sky",
       "video": false,
-      "vote_average": 6.814,
+      "vote_average": 6.8,
       "vote_count": 4226
     },
     {
@@ -66637,7 +66637,7 @@
       "release_date": "1964-09-20",
       "title": "Goldfinger",
       "video": false,
-      "vote_average": 7.349,
+      "vote_average": 7.3,
       "vote_count": 3631
     },
     {
@@ -66753,8 +66753,8 @@
       "release_date": "2023-10-20",
       "title": "Cursed",
       "video": false,
-      "vote_average": 6.3,
-      "vote_count": 35
+      "vote_average": 6.306,
+      "vote_count": 36
     },
     {
       "adult": false,
@@ -66773,8 +66773,8 @@
       "release_date": "2024-01-19",
       "title": "It's What's Inside",
       "video": false,
-      "vote_average": 6.372,
-      "vote_count": 549
+      "vote_average": 6.378,
+      "vote_count": 550
     },
     {
       "adult": false,
@@ -67823,7 +67823,7 @@
       "title": "Jumper",
       "video": false,
       "vote_average": 6.151,
-      "vote_count": 5841
+      "vote_count": 5842
     },
     {
       "adult": false,
@@ -67984,7 +67984,7 @@
       "title": "Insomnia",
       "video": false,
       "vote_average": 6.943,
-      "vote_count": 4825
+      "vote_count": 4826
     },
     {
       "adult": false,
@@ -68004,7 +68004,7 @@
       "title": "Amadeus",
       "video": false,
       "vote_average": 8.0,
-      "vote_count": 4322
+      "vote_count": 4326
     },
     {
       "adult": false,
@@ -68392,7 +68392,7 @@
       "title": "The Contractor",
       "video": false,
       "vote_average": 6.354,
-      "vote_count": 928
+      "vote_count": 929
     },
     {
       "adult": false,
@@ -69211,7 +69211,7 @@
       "release_date": "2009-05-20",
       "title": "Night at the Museum: Battle of the Smithsonian",
       "video": false,
-      "vote_average": 6.141,
+      "vote_average": 6.1,
       "vote_count": 6930
     },
     {
@@ -69356,7 +69356,7 @@
       "release_date": "1994-12-21",
       "title": "Little Women",
       "video": false,
-      "vote_average": 7.288,
+      "vote_average": 7.3,
       "vote_count": 1249
     },
     {
@@ -69513,8 +69513,8 @@
       "release_date": "1995-05-31",
       "title": "La Haine",
       "video": false,
-      "vote_average": 8.089,
-      "vote_count": 4151
+      "vote_average": 8.1,
+      "vote_count": 4152
     },
     {
       "adult": false,
@@ -71230,8 +71230,8 @@
       "release_date": "1978-11-15",
       "title": "The Lord of the Rings",
       "video": false,
-      "vote_average": 6.572,
-      "vote_count": 940
+      "vote_average": 6.575,
+      "vote_count": 941
     },
     {
       "adult": false,
@@ -72004,7 +72004,7 @@
       "release_date": "2015-11-05",
       "title": "The Peanuts Movie",
       "video": false,
-      "vote_average": 6.9,
+      "vote_average": 6.93,
       "vote_count": 1672
     },
     {
@@ -72218,8 +72218,8 @@
       "release_date": "2012-10-10",
       "title": "Silent Hill: Revelation 3D",
       "video": false,
-      "vote_average": 5.521,
-      "vote_count": 1653
+      "vote_average": 5.522,
+      "vote_count": 1654
     },
     {
       "adult": false,
@@ -73118,8 +73118,8 @@
       "release_date": "2022-04-20",
       "title": "The Unbearable Weight of Massive Talent",
       "video": false,
-      "vote_average": 6.788,
-      "vote_count": 2106
+      "vote_average": 6.789,
+      "vote_count": 2107
     },
     {
       "adult": false,
@@ -73551,7 +73551,7 @@
       "release_date": "2016-01-20",
       "title": "Dirty Grandpa",
       "video": false,
-      "vote_average": 5.925,
+      "vote_average": 5.9,
       "vote_count": 4406
     },
     {
@@ -73974,7 +73974,7 @@
       "title": "Sex and the City 2",
       "video": false,
       "vote_average": 6.082,
-      "vote_count": 1645
+      "vote_count": 1646
     },
     {
       "adult": false,
@@ -74012,8 +74012,8 @@
       "release_date": "1999-11-17",
       "title": "The World Is Not Enough",
       "video": false,
-      "vote_average": 6.3,
-      "vote_count": 2978
+      "vote_average": 6.273,
+      "vote_count": 2979
     },
     {
       "adult": false,
@@ -74258,7 +74258,7 @@
       "release_date": "1974-04-05",
       "title": "Foxy Brown",
       "video": false,
-      "vote_average": 6.268,
+      "vote_average": 6.3,
       "vote_count": 227
     },
     {
@@ -74496,8 +74496,8 @@
       "release_date": "1994-07-14",
       "title": "Chungking Express",
       "video": false,
-      "vote_average": 8.0,
-      "vote_count": 1889
+      "vote_average": 7.968,
+      "vote_count": 1890
     },
     {
       "adult": false,
@@ -75597,7 +75597,7 @@
       "title": "Neighbors",
       "video": false,
       "vote_average": 6.187,
-      "vote_count": 6975
+      "vote_count": 6976
     },
     {
       "adult": false,
@@ -76498,8 +76498,8 @@
       "release_date": "2025-01-09",
       "title": "Ad Vitam",
       "video": false,
-      "vote_average": 6.3,
-      "vote_count": 326
+      "vote_average": 6.309,
+      "vote_count": 327
     },
     {
       "adult": false,
@@ -77999,7 +77999,7 @@
       "overview": "'Can't Look Away: The Case Against Social Media' is a gripping documentary that exposes the dark side of social media and its devastating impact on young users. Directors Matthew O'Neill and Perri Peltz take viewers inside the high-stakes legal battle to hold tech companies accountable for the harm caused by their negligence and dangerous algorithms. Based on investigative reporting by Bloomberg News' Olivia Carville, the film follows the Social Media Victims Law Center fighting for justice for families whose children suffered tragic consequences linked to social media use. As families seek justice, 'Can't Look Away: The Case Against Social Media' underscores the urgent need for industry reform and serves as both a wake-up call about the dangers of social media-and a call to action to protect future generations.",
       "popularity": 4.55,
       "poster_path": "/cMuDpReS2EtGW7RZRDzNI76SgIO.jpg",
-      "release_date": "",
+      "release_date": "2025-04-04",
       "title": "Can't Look Away: The Case Against Social Media",
       "video": false,
       "vote_average": 0.0,
@@ -80306,7 +80306,7 @@
       "title": "Forgotten",
       "video": false,
       "vote_average": 7.934,
-      "vote_count": 1147
+      "vote_count": 1148
     },
     {
       "adult": false,
@@ -80346,8 +80346,8 @@
       "release_date": "2022-05-20",
       "title": "Chip 'n Dale: Rescue Rangers",
       "video": false,
-      "vote_average": 6.997,
-      "vote_count": 1244
+      "vote_average": 6.996,
+      "vote_count": 1245
     },
     {
       "adult": false,
@@ -80367,7 +80367,7 @@
       "title": "Scary Stories to Tell in the Dark",
       "video": false,
       "vote_average": 6.499,
-      "vote_count": 2679
+      "vote_count": 2680
     },
     {
       "adult": false,
@@ -81887,7 +81887,7 @@
       "release_date": "2023-10-25",
       "title": "White Bird",
       "video": false,
-      "vote_average": 7.925,
+      "vote_average": 7.9,
       "vote_count": 160
     },
     {
@@ -82982,7 +82982,7 @@
       "release_date": "1998-06-01",
       "title": "Frivolous Lola",
       "video": false,
-      "vote_average": 5.18,
+      "vote_average": 5.2,
       "vote_count": 236
     },
     {
@@ -83430,7 +83430,7 @@
       "release_date": "2004-09-16",
       "title": "Downfall",
       "video": false,
-      "vote_average": 7.858,
+      "vote_average": 7.9,
       "vote_count": 3935
     },
     {
@@ -83450,7 +83450,7 @@
       "release_date": "1984-03-11",
       "title": "Nausicaä of the Valley of the Wind",
       "video": false,
-      "vote_average": 7.9,
+      "vote_average": 7.949,
       "vote_count": 3673
     },
     {
@@ -83606,8 +83606,8 @@
       "release_date": "2023-10-13",
       "title": "Freddy's Fridays",
       "video": false,
-      "vote_average": 6.0,
-      "vote_count": 23
+      "vote_average": 5.938,
+      "vote_count": 24
     },
     {
       "adult": false,
@@ -83626,8 +83626,8 @@
       "release_date": "2025-03-08",
       "title": "Forbidden City",
       "video": false,
-      "vote_average": 7.206,
-      "vote_count": 51
+      "vote_average": 7.192,
+      "vote_count": 52
     },
     {
       "adult": false,
@@ -83871,8 +83871,8 @@
       "release_date": "2022-03-03",
       "title": "Fresh",
       "video": false,
-      "vote_average": 7.0,
-      "vote_count": 1647
+      "vote_average": 6.985,
+      "vote_count": 1648
     },
     {
       "adult": false,
@@ -84500,7 +84500,7 @@
       "release_date": "2016-08-18",
       "title": "Kubo and the Two Strings",
       "video": false,
-      "vote_average": 7.632,
+      "vote_average": 7.6,
       "vote_count": 3604
     },
     {
@@ -84824,7 +84824,7 @@
       "release_date": "1982-02-24",
       "title": "Incubus",
       "video": false,
-      "vote_average": 5.699,
+      "vote_average": 5.7,
       "vote_count": 103
     },
     {
@@ -84864,8 +84864,8 @@
       "release_date": "2012-01-26",
       "title": "The Grey",
       "video": false,
-      "vote_average": 6.565,
-      "vote_count": 3868
+      "vote_average": 6.566,
+      "vote_count": 3869
     },
     {
       "adult": false,
@@ -85267,7 +85267,7 @@
       "release_date": "1998-04-08",
       "title": "Taxi",
       "video": false,
-      "vote_average": 6.704,
+      "vote_average": 6.7,
       "vote_count": 2508
     },
     {
@@ -87781,7 +87781,7 @@
       "title": "Kill Command",
       "video": false,
       "vote_average": 5.6,
-      "vote_count": 586
+      "vote_count": 587
     },
     {
       "adult": false,
@@ -87968,7 +87968,7 @@
       "title": "The Interview",
       "video": false,
       "vote_average": 6.184,
-      "vote_count": 5867
+      "vote_count": 5868
     },
     {
       "adult": false,
@@ -88026,7 +88026,7 @@
       "title": "American Hustle",
       "video": false,
       "vote_average": 6.852,
-      "vote_count": 7343
+      "vote_count": 7344
     },
     {
       "adult": false,
@@ -88576,7 +88576,7 @@
       "title": "Hitch",
       "video": false,
       "vote_average": 6.564,
-      "vote_count": 5860
+      "vote_count": 5861
     },
     {
       "adult": false,
@@ -89839,7 +89839,7 @@
       "release_date": "2015-08-13",
       "title": "The Man from U.N.C.L.E.",
       "video": false,
-      "vote_average": 7.085,
+      "vote_average": 7.1,
       "vote_count": 6425
     },
     {
@@ -90334,8 +90334,8 @@
       "release_date": "2008-09-25",
       "title": "Eagle Eye",
       "video": false,
-      "vote_average": 6.5,
-      "vote_count": 2893
+      "vote_average": 6.476,
+      "vote_count": 2894
     },
     {
       "adult": false,
@@ -90583,8 +90583,8 @@
       "release_date": "2005-07-21",
       "title": "The Island",
       "video": false,
-      "vote_average": 6.675,
-      "vote_count": 5450
+      "vote_average": 6.7,
+      "vote_count": 5451
     },
     {
       "adult": false,
@@ -91406,7 +91406,7 @@
       "title": "The Lego Movie 2: The Second Part",
       "video": false,
       "vote_average": 6.665,
-      "vote_count": 2242
+      "vote_count": 2243
     },
     {
       "adult": false,
@@ -93000,7 +93000,7 @@
       "release_date": "2014-03-14",
       "title": "Enemy",
       "video": false,
-      "vote_average": 6.863,
+      "vote_average": 6.9,
       "vote_count": 5955
     },
     {
@@ -93040,7 +93040,7 @@
       "release_date": "2014-04-16",
       "title": "Transcendence",
       "video": false,
-      "vote_average": 6.042,
+      "vote_average": 6.0,
       "vote_count": 5449
     },
     {
@@ -93082,7 +93082,7 @@
       "title": "Riddick",
       "video": false,
       "vote_average": 6.32,
-      "vote_count": 4120
+      "vote_count": 4121
     },
     {
       "adult": false,
@@ -93301,7 +93301,7 @@
       "release_date": "1983-07-29",
       "title": "National Lampoon's Vacation",
       "video": false,
-      "vote_average": 7.104,
+      "vote_average": 7.1,
       "vote_count": 1579
     },
     {
@@ -94977,8 +94977,8 @@
       "release_date": "1986-08-01",
       "title": "Friday the 13th Part VI: Jason Lives",
       "video": false,
-      "vote_average": 6.2,
-      "vote_count": 1210
+      "vote_average": 6.225,
+      "vote_count": 1211
     },
     {
       "adult": false,
@@ -95271,7 +95271,7 @@
       "release_date": "2024-06-14",
       "title": "Black Dog",
       "video": false,
-      "vote_average": 7.311,
+      "vote_average": 7.3,
       "vote_count": 74
     },
     {
@@ -95533,7 +95533,7 @@
       "title": "Dream Scenario",
       "video": false,
       "vote_average": 6.649,
-      "vote_count": 992
+      "vote_count": 993
     },
     {
       "adult": false,
@@ -96303,7 +96303,7 @@
       "title": "Noah",
       "video": false,
       "vote_average": 5.672,
-      "vote_count": 6267
+      "vote_count": 6268
     },
     {
       "adult": false,
@@ -96596,7 +96596,7 @@
       "release_date": "1987-02-27",
       "title": "A Nightmare on Elm Street 3: Dream Warriors",
       "video": false,
-      "vote_average": 6.667,
+      "vote_average": 6.7,
       "vote_count": 1826
     },
     {
@@ -96636,7 +96636,7 @@
       "release_date": "1998-07-29",
       "title": "The Negotiator",
       "video": false,
-      "vote_average": 7.098,
+      "vote_average": 7.1,
       "vote_count": 2132
     },
     {
@@ -96675,7 +96675,7 @@
       "title": "The Wave",
       "video": false,
       "vote_average": 7.485,
-      "vote_count": 3376
+      "vote_count": 3377
     },
     {
       "adult": false,
@@ -96752,8 +96752,8 @@
       "release_date": "1993-04-27",
       "title": "Hard Target",
       "video": false,
-      "vote_average": 6.4,
-      "vote_count": 1231
+      "vote_average": 6.44,
+      "vote_count": 1232
     },
     {
       "adult": false,
