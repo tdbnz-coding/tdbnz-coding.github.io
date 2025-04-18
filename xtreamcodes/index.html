@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xtream Web Player</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #000; color: #fff; padding: 20px; }
+    input, button, select { padding: 10px; margin: 5px; }
+    input[type="password"] { background: #111; color: #fff; }
+    video { width: 100%; margin-top: 20px; }
+    .hidden { display: none; }
+    .channel-item { margin: 10px 0; }
+    img.logo { height: 30px; margin-right: 10px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <h2>Xtream Web Player</h2>
+  <div id="login">
+    <input id="server" placeholder="Server IP (e.g. 123.123.123.123)" />
+    <input id="port" placeholder="Port (e.g. 8080)" />
+    <input id="user" placeholder="Username" />
+    <input id="pass" type="password" placeholder="Password" />
+    <button onclick="saveLogin()">Login</button>
+  </div>
+
+  <div id="player-ui" class="hidden">
+    <h3>Live TV</h3>
+    <select id="live-categories" onchange="loadChannels(this.value, 'live')">
+      <option value="">Select Live Category</option>
+    </select>
+    <div id="live-channels"></div>
+
+    <h3>VOD</h3>
+    <select id="vod-categories" onchange="loadChannels(this.value, 'vod')">
+      <option value="">Select VOD Category</option>
+    </select>
+    <div id="vod-channels"></div>
+
+    <video id="video" controls autoplay></video>
+    <div id="epg"></div>
+  </div>
+
+  <script>
+    let baseUrl = '', username = '', password = '';
+
+    function saveLogin() {
+      const server = document.getElementById('server').value;
+      const port = document.getElementById('port').value;
+      username = document.getElementById('user').value;
+      password = document.getElementById('pass').value;
+      baseUrl = `http://${server}:${port}`;
+      document.cookie = `baseUrl=${baseUrl}; path=/`;
+      document.cookie = `username=${username}; path=/`;
+      document.cookie = `password=${password}; path=/`;
+      login();
+    }
+
+    function loadCookies() {
+      const cookies = document.cookie.split(';').reduce((acc, cookie) => {
+        const [key, value] = cookie.trim().split('=');
+        acc[key] = decodeURIComponent(value);
+        return acc;
+      }, {});
+      if (cookies.baseUrl && cookies.username && cookies.password) {
+        baseUrl = cookies.baseUrl;
+        username = cookies.username;
+        password = cookies.password;
+        login();
+      }
+    }
+
+    function login() {
+      fetch(`${baseUrl}/player_api.php?username=${username}&password=${password}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.user_info && data.user_info.auth == 1) {
+            document.getElementById('login').classList.add('hidden');
+            document.getElementById('player-ui').classList.remove('hidden');
+            loadCategories('live');
+            loadCategories('vod');
+          } else {
+            alert('Login failed');
+          }
+        });
+    }
+
+    function loadCategories(type) {
+      fetch(`${baseUrl}/player_api.php?username=${username}&password=${password}&action=get_${type}_categories`)
+        .then(res => res.json())
+        .then(categories => {
+          const select = document.getElementById(`${type}-categories`);
+          categories.forEach(cat => {
+            const opt = document.createElement('option');
+            opt.value = cat.category_id;
+            opt.textContent = cat.category_name;
+            select.appendChild(opt);
+          });
+        });
+    }
+
+    function loadChannels(catId, type) {
+      fetch(`${baseUrl}/player_api.php?username=${username}&password=${password}&action=get_${type}_streams&category_id=${catId}`)
+        .then(res => res.json())
+        .then(channels => {
+          const container = document.getElementById(`${type}-channels`);
+          container.innerHTML = '';
+          channels.forEach(ch => {
+            const div = document.createElement('div');
+            div.className = 'channel-item';
+            const logo = ch.stream_icon ? `<img class='logo' src='${ch.stream_icon}' />` : '';
+            div.innerHTML = `${logo}<button onclick="playChannel('${type}', ${ch.stream_id})">${ch.name}</button>`;
+            container.appendChild(div);
+          });
+        });
+    }
+
+    function playChannel(type, id) {
+      const url = `${baseUrl}/${type === 'vod' ? 'movie' : 'live'}/${username}/${password}/${id}.${type === 'vod' ? 'mp4' : 'm3u8'}`;
+      document.getElementById('video').src = url;
+      if (type === 'live') loadEPG(id);
+    }
+
+    function loadEPG(streamId) {
+      fetch(`${baseUrl}/player_api.php?username=${username}&password=${password}&action=get_short_epg&stream_id=${streamId}&limit=2`)
+        .then(res => res.json())
+        .then(epg => {
+          const epgDiv = document.getElementById('epg');
+          epgDiv.innerHTML = '<h4>EPG:</h4>';
+          epg.forEach(prog => {
+            const time = new Date(prog.start * 1000).toLocaleTimeString();
+            epgDiv.innerHTML += `<div><b>${time}</b> - ${prog.title}: ${prog.description}</div>`;
+          });
+        });
+    }
+
+    window.onload = loadCookies;
+  </script>
+</body>
+</html>

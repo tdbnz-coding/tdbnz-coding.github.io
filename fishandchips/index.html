@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fish & Chip Shop Reviews</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .navbar {
+      background-color: #006494;
+    }
+    .navbar-brand, .nav-link, .navbar-text {
+      color: #fff !important;
+    }
+    .review-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+    #map {
+      height: 300px;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    footer {
+      background-color: #006494;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Fish & Chip Reviews</a>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h1 class="display-4">Discover the Best Fish & Chips</h1>
+      <p class="lead">Search, review, and explore local fish and chip shops.</p>
+    </div>
+
+    <div class="mb-4">
+      <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Search for a shop..." />
+    </div>
+
+    <div id="shopInfo" class="mb-5"></div>
+
+    <div class="card mb-5">
+      <div class="card-body">
+        <h2 class="card-title mb-4">Submit a Review</h2>
+        <form id="reviewForm">
+          <div class="mb-3">
+            <label for="shopName" class="form-label">Shop Name</label>
+            <input type="text" class="form-control" id="shopName" required />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Shop Address</label>
+            <input type="text" class="form-control" id="address" required />
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Review Title</label>
+            <input type="text" class="form-control" id="title" required />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Your Review</label>
+            <textarea class="form-control" id="description" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="cost" class="form-label">Approximate Cost (NZD)</label>
+            <input type="number" class="form-control" id="cost" />
+          </div>
+          <div class="mb-3">
+            <label for="photo" class="form-label">Photo URL</label>
+            <input type="url" class="form-control" id="photo" />
+          </div>
+          <button type="submit" class="btn btn-success">Submit Review</button>
+        </form>
+      </div>
+    </div>
+
+    <h2 class="mb-4">Latest Reviews</h2>
+    <div id="reviewsContainer" class="row g-4"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Fish & Chip Reviews. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('reviewForm');
+    const reviewsContainer = document.getElementById('reviewsContainer');
+    const searchInput = document.getElementById('searchInput');
+    const shopInfo = document.getElementById('shopInfo');
+    let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const review = {
+        shopName: document.getElementById('shopName').value,
+        address: document.getElementById('address').value,
+        title: document.getElementById('title').value,
+        description: document.getElementById('description').value,
+        cost: document.getElementById('cost').value,
+        photo: document.getElementById('photo').value
+      };
+      reviews.unshift(review);
+      localStorage.setItem('reviews', JSON.stringify(reviews));
+      form.reset();
+      renderReviews();
+    });
+
+    searchInput.addEventListener('input', function () {
+      const query = searchInput.value.toLowerCase();
+      const matchedShops = reviews.filter(r => r.shopName.toLowerCase().includes(query));
+      shopInfo.innerHTML = matchedShops.length ? `<p class='text-muted'>Found ${matchedShops.length} review(s) for "${query}"</p>` : '';
+      renderReviews(matchedShops);
+    });
+
+    function renderReviews(list = reviews) {
+      reviewsContainer.innerHTML = list.map((r, i) => `
+        <div class="col-md-6 col-lg-4">
+          <div class="card review-card h-100">
+            ${r.photo ? `<img src="${r.photo}" class="card-img-top" alt="Photo of ${r.shopName}">` : ''}
+            <div class="card-body">
+              <h5 class="card-title">${r.shopName}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${r.title}</h6>
+              <p class="card-text">${r.description}</p>
+              <p class="card-text"><strong>Address:</strong> ${r.address}</p>
+              <div id="map-${i}" class="map"></div>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Approx. Cost: $${r.cost}</small>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      list.forEach((r, i) => {
+        const mapDiv = document.createElement('div');
+        mapDiv.setAttribute('id', `map-${i}`);
+        mapDiv.setAttribute('style', 'height: 200px; margin-top: 10px;');
+        const card = document.querySelector(`#map-${i}`).parentElement;
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ address: r.address }, (results, status) => {
+          if (status === 'OK') {
+            const map = new google.maps.Map(document.getElementById(`map-${i}`), {
+              zoom: 14,
+              center: results[0].geometry.location
+            });
+            new google.maps.Marker({
+              map,
+              position: results[0].geometry.location
+            });
+          }
+        });
+      });
+    }
+
+    renderReviews();
+  </script>
+</body>
+</html>
