@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Domino's 40% Off Code</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white text-center p-5">
+
+  <div class="container">
+    <h1 class="display-4 mb-4">🍕 Domino's 40% Off Code</h1>
+
+    <div class="alert alert-info text-dark fs-5">
+      Get 40% off any <strong>Traditional or Gourmet pizza</strong>, any size — including XL.<br>
+      <strong>XL Traditional = $11.40</strong> · <strong>Large = $9.00</strong><br>
+      <span class="text-success">👉 Best deal? Always go XL.</span>
+    </div>
+
+    <p class="lead" id="date"></p>
+
+    <div id="codeBox" class="my-4">
+      <h2 class="text-info" id="code"></h2>
+      <a href="#" id="link" class="btn btn-success btn-lg mt-3" target="_blank">Order Now</a>
+    </div>
+
+    <p class="text-muted mt-5">Traditional & Gourmet Pizzas • Any Size • New Zealand</p>
+    <p class="text-secondary mt-4">
+      Created by <a href="https://www.cheapies.nz/user/1636" target="_blank" class="link-info text-decoration-none">Thomas</a>
+    </p>
+  </div>
+
+  <script>
+    const encodedData = "eyIzMS8wMy8yMDI1IjoiMDI1NDkiLCIwMS8wNC8yMDI1IjoiMzY4MDkiLCIwMi8wNC8yMDI1IjoiNzc2MjciLCIwMy8wNC8yMDI1IjoiODkzNTgiLCIwNC8wNC8yMDI1IjoiNjM1NTQiLCIwNS8wNC8yMDI1IjoiMjA2OTgiLCIwNi8wNC8yMDI1IjoiMjc0ODAiLCIwNy8wNC8yMDI1IjoiMDE5NTgiLCIwOC8wNC8yMDI1IjoiMDk4OTQiLCIwOS8wNC8yMDI1IjoiNTY5NzUiLCIxMC8wNC8yMDI1IjoiOTAyODUiLCIxMS8wNC8yMDI1IjoiMjMwNjkiLCIxMi8wNC8yMDI1IjoiMTk3MDAiLCIxMy8wNC8yMDI1IjoiMjE3NjYiLCIxNC8wNC8yMDI1IjoiODU1MzQiLCIxNS8wNC8yMDI1IjoiMTQyNzUiLCIxNi8wNC8yMDI1IjoiNTMzNTAiLCIxNy8wNC8yMDI1IjoiODk1MjEiLCIxOC8wNC8yMDI1IjoiMTgzNjQiLCIxOS8wNC8yMDI1IjoiNDM4NjkiLCIyMC8wNC8yMDI1IjoiNjAyNDkiLCIyMS8wNC8yMDI1IjoiOTk2MTciLCIyMi8wNC8yMDI1IjoiNTg0NzIiLCIyMy8wNC8yMDI1IjoiNTMyMDgiLCIyNC8wNC8yMDI1IjoiNDUyMTciLCIyNS8wNC8yMDI1IjoiODI5NDIiLCIyNi8wNC8yMDI1IjoiNDE1NDYiLCIyNy8wNC8yMDI1IjoiNjgzMjMiLCIyOC8wNC8yMDI1IjoiNzYyMDQiLCIyOS8wNC8yMDI1IjoiNjM0NDkiLCIzMC8wNC8yMDI1IjoiODgzMzMiLCIwMS8wNS8yMDI1IjoiOTEzODEiLCIwMi8wNS8yMDI1IjoiMjcyNDIiLCIwMy8wNS8yMDI1IjoiOTUwMzUiLCIwNC8wNS8yMDI1IjoiODU4MTgiLCIwNS8wNS8yMDI1IjoiMzQ5NDYiLCIwNi8wNS8yMDI1IjoiNzE1NDkiLCIwNy8wNS8yMDI1IjoiODgxNDEiLCIwOC8wNS8yMDI1IjoiMjM0NjAiLCIwOS8wNS8yMDI1IjoiOTc0MTEiLCIxMC8wNS8yMDI1IjoiNjg0NDgiLCIxMS8wNS8yMDI1IjoiMzE2NzMiLCIxMi8wNS8yMDI1IjoiMzg0MTciLCIxMy8wNS8yMDI1IjoiMzYxODAiLCIxNC8wNS8yMDI1IjoiNjk0MTUiLCIxNS8wNS8yMDI1IjoiODY3MTUiLCIxNi8wNS8yMDI1IjoiNzk3MzgiLCIxNy8wNS8yMDI1IjoiMDE2MjQiLCIxOC8wNS8yMDI1IjoiMjU2MjciLCIxOS8wNS8yMDI1IjoiNTk4NTQiLCIyMC8wNS8yMDI1IjoiMDUxMzAiLCIyMS8wNS8yMDI1IjoiMDE1MzYiLCIyMi8wNS8yMDI1IjoiMjY2OTEiLCIyMy8wNS8yMDI1IjoiNjg2NzQiLCIyNC8wNS8yMDI1IjoiOTEwOTMiLCIyNS8wNS8yMDI1IjoiMjEzNjQiLCIyNi8wNS8yMDI1IjoiODUxNTYiLCIyNy8wNS8yMDI1IjoiNDg0MzYiLCIyOC8wNS8yMDI1IjoiOTQzNTkiLCIyOS8wNS8yMDI1IjoiNDU5ODEiLCIzMC8wNS8yMDI1IjoiMzU5NjEiLCIzMS8wNS8yMDI1IjoiODgwOTIiLCIwMS8wNi8yMDI1IjoiNTM2MDEiLCIwMi8wNi8yMDI1IjoiODk4OTIiLCIwMy8wNi8yMDI1IjoiMTI3NzciLCIwNC8wNi8yMDI1IjoiNDM5NTMiLCIwNS8wNi8yMDI1IjoiNTA5MDkiLCIwNi8wNi8yMDI1IjoiOTc5NzQiLCIwNy8wNi8yMDI1IjoiMjExMjAiLCIwOC8wNi8yMDI1IjoiMjIyMjYiLCIwOS8wNi8yMDI1IjoiNDcwNjgiLCIxMC8wNi8yMDI1IjoiMjgyMDkiLCIxMS8wNi8yMDI1IjoiMDU0NjEiLCIxMi8wNi8yMDI1IjoiNDQ0ODciLCIxMy8wNi8yMDI1IjoiMjY4MjkiLCIxNC8wNi8yMDI1IjoiNzAyMzUiLCIxNS8wNi8yMDI1IjoiNDA4ODIiLCIxNi8wNi8yMDI1IjoiMDQ2NzUiLCIxNy8wNi8yMDI1IjoiMTI2MDMiLCIxOC8wNi8yMDI1IjoiMTU4NjYiLCIxOS8wNi8yMDI1IjoiMjk5NDIiLCIyMC8wNi8yMDI1IjoiMTQwMDIiLCIyMS8wNi8yMDI1IjoiNTk1NzUiLCIyMi8wNi8yMDI1IjoiNzU3MjkiLCIyMy8wNi8yMDI1IjoiNTg5ODQiLCIyNC8wNi8yMDI1IjoiODUyNzMiLCIyNS8wNi8yMDI1IjoiOTI0MzIiLCIyNi8wNi8yMDI1IjoiNzg0NzYiLCIyNy8wNi8yMDI1IjoiMTQ4MjQiLCIyOC8wNi8yMDI1IjoiODY1NDEiLCIyOS8wNi8yMDI1IjoiNjY1NzciLCIzMC8wNi8yMDI1IjoiMjYxMDUifQ==";
+
+    const decoded = atob(encodedData);
+    const codes = JSON.parse(decoded);
+
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    const formattedDate = `${day}/${month}/${year}`;
+
+    const code = codes[formattedDate];
+    const codeBox = document.getElementById("codeBox");
+    const codeElement = document.getElementById("code");
+    const dateElement = document.getElementById("date");
+    const link = document.getElementById("link");
+
+    dateElement.innerText = `Today: ${formattedDate}`;
+
+    if (code) {
+      codeElement.innerText = `Your code: ${code}`;
+      link.href = `https://order.dominos.co.nz/?vc=${code}`;
+    } else {
+      codeBox.innerHTML = `<p class="text-warning">No code found for today.</p>`;
+    }
+  </script>
+
+</body>
+</html>
