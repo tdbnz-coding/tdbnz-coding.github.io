@@ -2,8 +2,7 @@ name: KFC Promo Scraper
 
 on:
   schedule:
-    # Run every day at midnight New Zealand time (UTC+12 or UTC+13 daylight)
-    - cron: '11 11 * * *'  # 11:11 UTC = 00:11 NZST/NZDT (safe for GitHub delay)
+    - cron: '11 11 * * *'  # Daily at 00:11 NZST/NZDT
   workflow_dispatch:
 
 jobs:
@@ -19,16 +18,16 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: Install dependencies from kfc folder
+        run: pip install -r kfc/requirements.txt
 
-      - name: Run promo scraper
-        run: python promo_scraper.py
+      - name: Run promo scraper from kfc folder
+        run: python kfc/promo_scraper.py
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add index.html
+          git add kfc/index.html
           git commit -m "🔄 Auto-update KFC promo codes"
           git push
