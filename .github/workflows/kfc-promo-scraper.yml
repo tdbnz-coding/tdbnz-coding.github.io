@@ -19,7 +19,7 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies from kfc folder
-        run: pip install -r kfc/requirements.txt
+        run: pip install -r foodgenerator/kfc/requirements.txt
 
       - name: Run promo scraper from kfc folder
         run: python kfc/promo_scraper.py
