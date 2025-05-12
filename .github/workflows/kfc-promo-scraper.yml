@@ -22,7 +22,7 @@ jobs:
         run: pip install -r foodgenerator/kfc/requirements.txt
 
       - name: Run promo scraper from kfc folder
-        run: python kfc/promo_scraper.py
+        run: python foodgenerator/kfc/promo_scraper.py
 
       - name: Commit and push changes
         run: |
