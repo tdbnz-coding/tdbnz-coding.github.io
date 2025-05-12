@@ -1,43 +1,33 @@
-import os
-import requests
-from bs4 import BeautifulSoup
+name: KFC Promo Scraper
 
-# Set base directory where this script is located
-BASE_DIR = os.path.dirname(__file__)
+on:
+  schedule:
+    - cron: '11 11 * * *'  # Midnight NZ time (11:11 UTC)
+  workflow_dispatch:
 
-TEMPLATE_FILE = os.path.join(BASE_DIR, "index.template.html")
-OUTPUT_FILE = os.path.join(BASE_DIR, "index.html")
+jobs:
+  update-promos:
+    runs-on: ubuntu-latest
 
-def fetch_promos():
-    url = "https://www.kfc.co.nz/coupons"
-    headers = {'User-Agent': 'Mozilla/5.0'}
-    r = requests.get(url, headers=headers)
-    soup = BeautifulSoup(r.text, "html.parser")
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    promos = []
-    for div in soup.find_all('div', class_='coupon-item'):
-        title = div.find('h3')
-        desc = div.find('p')
-        if title and desc:
-            promos.append(f"""
-            <div class="col-md-4">
-              <div class="card border-success">
-                <div class="card-body">
-                  <h5 class="card-title">{title.text.strip()}</h5>
-                  <p class="card-text">{desc.text.strip()}</p>
-                </div>
-              </div>
-            </div>""")
-    return "\n".join(promos)
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-def update_html():
-    with open(TEMPLATE_FILE, "r") as f:
-        template = f.read()
+      - name: Install dependencies from foodgenerator/kfc
+        run: pip install -r foodgenerator/kfc/requirements.txt
 
-    promos_html = fetch_promos()
-    output = template.replace("{{PROMO_LIST}}", promos_html)
+      - name: Run scraper
+        run: python foodgenerator/kfc/promo_scraper.py
 
-    with open(OUTPUT_FILE, "w") as f:
-        f.write(output)
-
-update_html()
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add foodgenerator/kfc/index.html
+          git commit -m "🔄 Auto-update KFC promo codes"
+          git push
