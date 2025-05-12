@@ -1,8 +1,12 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 
-TEMPLATE_FILE = "index.template.html"
-OUTPUT_FILE = "index.html"
+# Set base directory where this script is located
+BASE_DIR = os.path.dirname(__file__)
+
+TEMPLATE_FILE = os.path.join(BASE_DIR, "index.template.html")
+OUTPUT_FILE = os.path.join(BASE_DIR, "index.html")
 
 def fetch_promos():
     url = "https://www.kfc.co.nz/coupons"
