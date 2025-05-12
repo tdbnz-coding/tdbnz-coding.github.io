@@ -1,34 +1,35 @@
 import os
 import requests
-from bs4 import BeautifulSoup
+import json
 
-# Set base directory where this script is located
 BASE_DIR = os.path.dirname(__file__)
-
 TEMPLATE_FILE = os.path.join(BASE_DIR, "index.template.html")
 OUTPUT_FILE = os.path.join(BASE_DIR, "index.html")
 
 def fetch_promos():
-    url = "https://www.kfc.co.nz/coupons"
-    headers = {'User-Agent': 'Mozilla/5.0'}
+    url = "https://api.kfc.co.nz/menu/kfc-nz-generic?v=LNNqPL"
+    headers = {"User-Agent": "Mozilla/5.0"}
     r = requests.get(url, headers=headers)
-    soup = BeautifulSoup(r.text, "html.parser")
+    data = r.json()
 
-    promos = []
-    for div in soup.find_all('div', class_='coupon-item'):
-        title = div.find('h3')
-        desc = div.find('p')
-        if title and desc:
-            promos.append(f"""
+    # Search JSON for promo/coupon section
+    results = []
+
+    for item in data.get("items", []):
+        if "promotion" in item.get("tags", []):
+            title = item.get("name", "No title")
+            desc = item.get("description", "No description")
+            results.append(f"""
             <div class="col-md-4">
               <div class="card border-success">
                 <div class="card-body">
-                  <h5 class="card-title">{title.text.strip()}</h5>
-                  <p class="card-text">{desc.text.strip()}</p>
+                  <h5 class="card-title">{title}</h5>
+                  <p class="card-text">{desc}</p>
                 </div>
               </div>
             </div>""")
-    return "\n".join(promos)
+
+    return "\n".join(results)
 
 def update_html():
     with open(TEMPLATE_FILE, "r") as f:
