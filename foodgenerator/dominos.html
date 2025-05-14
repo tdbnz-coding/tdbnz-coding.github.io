@@ -97,7 +97,7 @@
 
   if (code) {
     codeElement.innerText = code;
-    link.href = `https://order.dominos.co.nz/?vc=${code}?utm_source=shopback&transaction_id=1027bec3569188ed1227e3923babad`;
+    link.href = `https://order.dominos.co.nz/?vc=${code}&utm_source=shopback&transaction_id=1027bec3569188ed1227e3923babad`;
 
     codeElement.addEventListener('click', () => {
       navigator.clipboard.writeText(code).then(() => {
