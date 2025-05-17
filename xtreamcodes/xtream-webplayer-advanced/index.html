@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xtream Web Player</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #111; color: #fff; padding: 20px; }
+    input, button, select { padding: 10px; margin: 5px; width: 100%; max-width: 500px; }
+    video { width: 100%; margin-top: 20px; background: black; }
+    .hidden { display: none; }
+    .channel-item { margin: 5px 0; }
+    img.logo { height: 25px; vertical-align: middle; margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Xtream Web Player</h2>
+
+  <input id="server" placeholder="Server URL (e.g. http://1.2.3.4:8080)" />
+  <input id="user" placeholder="Username" />
+  <input id="pass" type="password" placeholder="Password" />
+  <button onclick="loadCategories()">Login & Load Categories</button>
+
+  <select id="categorySelect" class="hidden" onchange="loadChannelsFromCategory(this.value)">
+    <option value="">Select Category</option>
+  </select>
+
+  <div id="channelList"></div>
+  <video id="video" controls autoplay></video>
+  <div id="epg"></div>
+
+  <script>
+    let server = '', username = '', password = '';
+    let allChannels = [];
+
+    function loadCategories() {
+      server = document.getElementById('server').value.trim();
+      username = document.getElementById('user').value.trim();
+      password = document.getElementById('pass').value.trim();
+
+      if (!server || !username || !password) {
+        alert("Please enter all fields.");
+        return;
+      }
+
+      const m3uUrl = `${server}/get.php?username=${username}&password=${password}&type=m3u&output=m3u8`;
+
+      fetch('https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(m3uUrl))
+        .then(res => res.text())
+        .then(text => {
+          const lines = text.split('\\n');
+          allChannels = [];
+          const categorySet = new Set();
+
+          for (let i = 0; i < lines.length; i++) {
+            if (lines[i].startsWith('#EXTINF')) {
+              const name = lines[i].split(',')[1] || 'Untitled';
+              const logo = (lines[i].match(/tvg-logo="(.*?)"/) || [])[1] || '';
+              const group = (lines[i].match(/group-title="(.*?)"/) || [])[1] || 'Uncategorized';
+              const stream = lines[i + 1];
+              if (stream && stream.startsWith('http')) {
+                allChannels.push({ name, logo, group, stream });
+                categorySet.add(group);
+              }
+            }
+          }
+
+          const categorySelect = document.getElementById('categorySelect');
+          categorySelect.innerHTML = '<option value="">Select Category</option>';
+          Array.from(categorySet).sort().forEach(cat => {
+            const opt = document.createElement('option');
+            opt.value = cat;
+            opt.textContent = cat;
+            categorySelect.appendChild(opt);
+          });
+
+          categorySelect.classList.remove('hidden');
+        })
+        .catch(err => {
+          alert("Failed to load playlist. Check your credentials or CORS error.");
+          console.error(err);
+        });
+    }
+
+    function loadChannelsFromCategory(category) {
+      const filtered = allChannels.filter(ch => ch.group === category);
+      const list = document.getElementById('channelList');
+      list.innerHTML = '';
+
+      filtered.forEach(ch => {
+        const div = document.createElement('div');
+        div.className = 'channel-item';
+        const logo = ch.logo ? `<img class="logo" src="${ch.logo}">` : '';
+        div.innerHTML = `${logo}<button onclick="playChannel('${ch.stream}')">${ch.name}</button>`;
+        list.appendChild(div);
+      });
+    }
+
+    function playChannel(url) {
+      document.getElementById('video').src = url;
+      document.getElementById('epg').innerHTML = '<small>EPG unavailable in M3U</small>';
+    }
+  </script>
+</body>
+</html>
