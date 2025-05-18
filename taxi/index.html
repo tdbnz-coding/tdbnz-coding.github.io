@@ -12,9 +12,7 @@
       max-width: 600px;
       margin: auto;
     }
-    h2 {
-      text-align: center;
-    }
+    h2 { text-align: center; }
     input, button {
       padding: 10px;
       width: 100%;
@@ -72,7 +70,7 @@
         return;
       }
 
-      const res = await fetch(`https://api.openrouteservice.org/geocode/autocomplete?api_key=${apiKey}&text=${encodeURIComponent(query)}`);
+      const res = await fetch(`https://api.openrouteservice.org/geocode/autocomplete?api_key=${apiKey}&text=${encodeURIComponent(query)}&boundary.country=NZ`);
       const data = await res.json();
 
       const suggestionsDiv = document.getElementById(`${field}-suggestions`);
@@ -101,7 +99,7 @@
       const serviceFee = 2.30;
 
       if (!startCoords || !endCoords) {
-        document.getElementById('output').innerHTML = '❌ Please select both addresses from the suggestions.';
+        document.getElementById('output').innerHTML = '❌ Please select both addresses from the dropdown suggestions.';
         return;
       }
 
@@ -124,8 +122,9 @@
         const distanceKm = data.distances[0][1] / 1000;
         const durationMin = data.durations[0][1] / 60;
 
+        const estimatedWaitMin = durationMin * 0.2; // 20% of trip time assumed as waiting
         const distanceCost = distanceKm * ratePerKm;
-        const waitCost = durationMin * waitPerMin;
+        const waitCost = estimatedWaitMin * waitPerMin;
         const extras = (bike ? 5.50 : 0) + (airport ? 5.50 : 0);
         const total = flagfall + distanceCost + waitCost + extras + serviceFee;
 
@@ -133,6 +132,7 @@
           <strong>Estimated Fare: $${total.toFixed(2)}</strong><br>
           Distance: ${distanceKm.toFixed(2)} km<br>
           Trip duration: ${durationMin.toFixed(0)} min<br>
+          <em>Estimated waiting time (20% of trip): ${estimatedWaitMin.toFixed(1)} min</em><br>
           Waiting charge: $${waitCost.toFixed(2)}<br>
           Extras: $${extras.toFixed(2)}<br>
           <small>Includes flagfall $${flagfall}, service fee $${serviceFee}</small>
