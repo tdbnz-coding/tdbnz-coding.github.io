@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: sans-serif;
-      background: #f5f5f5;
+      background: #f0f0f0;
       padding: 20px;
       max-width: 600px;
       margin: auto;
@@ -21,9 +21,20 @@
       margin: 5px 0;
       font-size: 16px;
     }
-    label {
-      display: block;
-      margin: 5px 0;
+    .autocomplete-suggestions {
+      background: #fff;
+      border: 1px solid #ccc;
+      max-height: 150px;
+      overflow-y: auto;
+      position: relative;
+      z-index: 10;
+    }
+    .autocomplete-suggestions div {
+      padding: 8px;
+      cursor: pointer;
+    }
+    .autocomplete-suggestions div:hover {
+      background: #eee;
     }
     .result {
       margin-top: 20px;
@@ -37,12 +48,14 @@
 <body>
   <h2>Taxi Fare Estimator (NZ)</h2>
 
-  <input id="start" placeholder="Enter start address">
-  <input id="end" placeholder="Enter end address">
-  
+  <input id="start" placeholder="Enter start address" oninput="searchAddress(this.value, 'start')">
+  <div id="start-suggestions" class="autocomplete-suggestions"></div>
+
+  <input id="end" placeholder="Enter end address" oninput="searchAddress(this.value, 'end')">
+  <div id="end-suggestions" class="autocomplete-suggestions"></div>
+
   <label><input type="checkbox" id="bike"> Include Bike ($5.50)</label>
   <label><input type="checkbox" id="airport"> Include Airport Barrier ($5.50)</label>
-  <input id="wait" type="number" placeholder="Waiting time in minutes">
 
   <button onclick="getEstimate()">Estimate Fare</button>
 
@@ -50,37 +63,35 @@
 
   <script>
     const apiKey = '5b3ce3597851110001cf624811dd78dbd4994e6397bee9c030419272';
+    let startCoords = null;
+    let endCoords = null;
 
-    async function getCoords(address) {
-      const res = await fetch(`https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(address)}`);
+    async function searchAddress(query, field) {
+      if (query.length < 3) {
+        document.getElementById(`${field}-suggestions`).innerHTML = '';
+        return;
+      }
+
+      const res = await fetch(`https://api.openrouteservice.org/geocode/autocomplete?api_key=${apiKey}&text=${encodeURIComponent(query)}`);
       const data = await res.json();
-      if (data.features.length === 0) throw new Error("Invalid address");
-      return data.features[0].geometry.coordinates;
-    }
 
-    async function getDistance(startCoords, endCoords) {
-      const res = await fetch('https://api.openrouteservice.org/v2/matrix/driving-car', {
-        method: 'POST',
-        headers: {
-          'Authorization': apiKey,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          locations: [startCoords, endCoords],
-          metrics: ['distance', 'duration']
-        })
+      const suggestionsDiv = document.getElementById(`${field}-suggestions`);
+      suggestionsDiv.innerHTML = '';
+
+      data.features.forEach(feature => {
+        const div = document.createElement('div');
+        div.textContent = feature.properties.label;
+        div.onclick = () => {
+          document.getElementById(field).value = feature.properties.label;
+          suggestionsDiv.innerHTML = '';
+          if (field === 'start') startCoords = feature.geometry.coordinates;
+          if (field === 'end') endCoords = feature.geometry.coordinates;
+        };
+        suggestionsDiv.appendChild(div);
       });
-      const data = await res.json();
-      return {
-        distanceKm: data.distances[0][1] / 1000,
-        durationMin: data.durations[0][1] / 60
-      };
     }
 
     async function getEstimate() {
-      const start = document.getElementById('start').value.trim();
-      const end = document.getElementById('end').value.trim();
-      const wait = parseFloat(document.getElementById('wait').value) || 0;
       const bike = document.getElementById('bike').checked;
       const airport = document.getElementById('airport').checked;
 
@@ -89,21 +100,40 @@
       const waitPerMin = 1.40;
       const serviceFee = 2.30;
 
+      if (!startCoords || !endCoords) {
+        document.getElementById('output').innerHTML = '❌ Please select both addresses from the suggestions.';
+        return;
+      }
+
       try {
         document.getElementById('output').innerHTML = 'Calculating fare...';
-        const startCoords = await getCoords(start);
-        const endCoords = await getCoords(end);
-        const { distanceKm, durationMin } = await getDistance(startCoords, endCoords);
+
+        const res = await fetch('https://api.openrouteservice.org/v2/matrix/driving-car', {
+          method: 'POST',
+          headers: {
+            'Authorization': apiKey,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            locations: [startCoords, endCoords],
+            metrics: ['distance', 'duration']
+          })
+        });
+
+        const data = await res.json();
+        const distanceKm = data.distances[0][1] / 1000;
+        const durationMin = data.durations[0][1] / 60;
 
         const distanceCost = distanceKm * ratePerKm;
-        const waitCost = wait * waitPerMin;
+        const waitCost = durationMin * waitPerMin;
         const extras = (bike ? 5.50 : 0) + (airport ? 5.50 : 0);
         const total = flagfall + distanceCost + waitCost + extras + serviceFee;
 
         document.getElementById('output').innerHTML = `
           <strong>Estimated Fare: $${total.toFixed(2)}</strong><br>
           Distance: ${distanceKm.toFixed(2)} km<br>
-          Waiting time: ${wait} min<br>
+          Trip duration: ${durationMin.toFixed(0)} min<br>
+          Waiting charge: $${waitCost.toFixed(2)}<br>
           Extras: $${extras.toFixed(2)}<br>
           <small>Includes flagfall $${flagfall}, service fee $${serviceFee}</small>
         `;
