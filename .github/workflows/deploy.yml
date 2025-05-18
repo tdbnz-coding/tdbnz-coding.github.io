@@ -8,9 +8,6 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: taxi
 
     steps:
       - name: 📥 Checkout Code
@@ -23,14 +20,16 @@ jobs:
 
       - name: 📦 Install Dependencies
         run: npm install
+        working-directory: taxi
 
       - name: 🛠️ Build Taxi Fare Calculator
         run: |
           echo "VITE_ORS_API_KEY=${{ secrets.ORS_API_KEY }}" > .env
           npm run build
+        working-directory: taxi
 
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist  # ✅ FIXED!
+          publish_dir: taxi/dist
