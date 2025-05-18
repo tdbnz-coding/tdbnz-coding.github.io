@@ -1,33 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taxi Fare Estimator</title>
-    <link rel="manifest" href="/taxi/manifest.webmanifest" />
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/taxi/service-worker.js')
-          .then(() => console.log('SW registered'))
-          .catch(err => console.error('SW registration failed:', err));
+<head>
+  <meta charset="UTF-8">
+  <title>Taxi Fare Estimator (NZ)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      width: 100%;
+      margin: 5px 0;
+      font-size: 16px;
+    }
+    .autocomplete-suggestions {
+      background: #fff;
+      border: 1px solid #ccc;
+      max-height: 150px;
+      overflow-y: auto;
+      position: relative;
+      z-index: 10;
+    }
+    .autocomplete-suggestions div {
+      padding: 8px;
+      cursor: pointer;
+    }
+    .autocomplete-suggestions div:hover {
+      background: #eee;
+    }
+    .result {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h2>Taxi Fare Estimator (NZ)</h2>
+
+  <input id="start" placeholder="Enter start address" oninput="searchAddress(this.value, 'start')">
+  <div id="start-suggestions" class="autocomplete-suggestions"></div>
+
+  <input id="end" placeholder="Enter end address" oninput="searchAddress(this.value, 'end')">
+  <div id="end-suggestions" class="autocomplete-suggestions"></div>
+
+  <label><input type="checkbox" id="bike"> Include Bike ($5.50)</label>
+  <label><input type="checkbox" id="airport"> Include Airport Barrier ($5.50)</label>
+  <label><input type="checkbox" id="tm"> Total Mobility Card (75% discount up to $52.50)</label>
+
+  <button onclick="getEstimate()">Estimate Fare</button>
+
+  <div id="output" class="result"></div>
+
+  <script>
+    const apiKey = '5b3ce3597851110001cf624811dd78dbd4994e6397bee9c030419272';
+    let startCoords = null;
+    let endCoords = null;
+
+    async function searchAddress(query, field) {
+      if (query.length < 3) {
+        document.getElementById(`${field}-suggestions`).innerHTML = '';
+        return;
       }
-    </script>
-    <script type="module" crossorigin src="/taxi/assets/index-app-nomap.js"></script>
-    <style>
-      body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
-      input[type=text], button { width: 100%; padding: 10px; margin-top: 10px; }
-      label { display: block; margin: 8px 0; }
-      pre { background: #f9f9f9; padding: 10px; border: 1px solid #ccc; margin-top: 10px; }
-    </style>
-  </head>
-  <body>
-    <h2>Taxi Fare Estimator (NZ)</h2>
-    <input id="start" type="text" placeholder="Start address (NZ only)" />
-    <input id="end" type="text" placeholder="End address (NZ only)" />
-    <label><input type="checkbox" id="bike" /> Include Bike ($5.50)</label>
-    <label><input type="checkbox" id="airport" /> Airport Barrier ($5.50)</label>
-    <label><input type="checkbox" id="tm" /> Total Mobility (75% off up to $52.50)</label>
-    <button id="estimate">Estimate Fare</button>
-    <pre id="output">(Results will appear here)</pre>
-  </body>
+
+      const res = await fetch(`https://api.openrouteservice.org/geocode/autocomplete?api_key=${apiKey}&text=${encodeURIComponent(query)}&boundary.country=NZ`);
+      const data = await res.json();
+
+      const suggestionsDiv = document.getElementById(`${field}-suggestions`);
+      suggestionsDiv.innerHTML = '';
+
+      data.features.forEach(feature => {
+        const div = document.createElement('div');
+        div.textContent = feature.properties.label;
+        div.onclick = () => {
+          document.getElementById(field).value = feature.properties.label;
+          suggestionsDiv.innerHTML = '';
+          if (field === 'start') startCoords = feature.geometry.coordinates;
+          if (field === 'end') endCoords = feature.geometry.coordinates;
+        };
+        suggestionsDiv.appendChild(div);
+      });
+    }
+
+    async function getEstimate() {
+      const bike = document.getElementById('bike').checked;
+      const airport = document.getElementById('airport').checked;
+      const hasTM = document.getElementById('tm').checked;
+
+      const flagfall = 3.40;
+      const ratePerKm = 3.40;
+      const waitPerMin = 1.40;
+      const serviceFee = 2.30;
+
+      if (!startCoords || !endCoords) {
+        document.getElementById('output').innerHTML = '❌ Please select both addresses from the dropdown suggestions.';
+        return;
+      }
+
+      try {
+        document.getElementById('output').innerHTML = 'Calculating fare...';
+
+        const res = await fetch('https://api.openrouteservice.org/v2/matrix/driving-car', {
+          method: 'POST',
+          headers: {
+            'Authorization': apiKey,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            locations: [startCoords, endCoords],
+            metrics: ['distance', 'duration']
+          })
+        });
+
+        const data = await res.json();
+        const distanceKm = data.distances[0][1] / 1000;
+        const durationMin = data.durations[0][1] / 60;
+
+        const estimatedWaitMin = durationMin * 0.2;
+        const distanceCost = distanceKm * ratePerKm;
+        const waitCost = estimatedWaitMin * waitPerMin;
+        const extras = (bike ? 5.50 : 0) + (airport ? 5.50 : 0);
+        const rawTotal = flagfall + distanceCost + waitCost + extras + serviceFee;
+
+        let discountedFare = rawTotal;
+        let tmNote = '';
+
+        if (hasTM) {
+          const subsidyCap = 52.50;
+          const discount = Math.min(rawTotal, subsidyCap) * 0.75;
+          discountedFare = rawTotal - discount;
+          tmNote = `<br>🟢 <strong>Total Mobility Discount Applied:</strong><br>
+            75% off first $${subsidyCap.toFixed(2)} = -$${discount.toFixed(2)}<br>
+            You pay: <strong>$${discountedFare.toFixed(2)}</strong>`;
+        }
+
+        document.getElementById('output').innerHTML = `
+          <strong>Total Fare: $${rawTotal.toFixed(2)}</strong><br>
+          Distance: ${distanceKm.toFixed(2)} km<br>
+          Trip duration: ${durationMin.toFixed(0)} min<br>
+          Estimated waiting time (20% of trip): ${estimatedWaitMin.toFixed(1)} min<br>
+          Waiting charge: $${waitCost.toFixed(2)}<br>
+          Extras: $${extras.toFixed(2)}<br>
+          <small>Includes flagfall $${flagfall.toFixed(2)}, service fee $${serviceFee.toFixed(2)}</small>
+          ${tmNote}
+        `;
+      } catch (err) {
+        document.getElementById('output').innerHTML = '❌ Error: ' + err.message;
+      }
+    }
+  </script>
+</body>
 </html>
