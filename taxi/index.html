@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Taxi Fare Estimator (NZ)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      width: 100%;
+      margin: 5px 0;
+      font-size: 16px;
+    }
+    label {
+      display: block;
+      margin: 5px 0;
+    }
+    .result {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h2>Taxi Fare Estimator (NZ)</h2>
+
+  <input id="start" placeholder="Enter start address">
+  <input id="end" placeholder="Enter end address">
+  
+  <label><input type="checkbox" id="bike"> Include Bike ($5.50)</label>
+  <label><input type="checkbox" id="airport"> Include Airport Barrier ($5.50)</label>
+  <input id="wait" type="number" placeholder="Waiting time in minutes">
+
+  <button onclick="getEstimate()">Estimate Fare</button>
+
+  <div id="output" class="result"></div>
+
+  <script>
+    const apiKey = '5b3ce3597851110001cf624811dd78dbd4994e6397bee9c030419272';
+
+    async function getCoords(address) {
+      const res = await fetch(`https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(address)}`);
+      const data = await res.json();
+      if (data.features.length === 0) throw new Error("Invalid address");
+      return data.features[0].geometry.coordinates;
+    }
+
+    async function getDistance(startCoords, endCoords) {
+      const res = await fetch('https://api.openrouteservice.org/v2/matrix/driving-car', {
+        method: 'POST',
+        headers: {
+          'Authorization': apiKey,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          locations: [startCoords, endCoords],
+          metrics: ['distance', 'duration']
+        })
+      });
+      const data = await res.json();
+      return {
+        distanceKm: data.distances[0][1] / 1000,
+        durationMin: data.durations[0][1] / 60
+      };
+    }
+
+    async function getEstimate() {
+      const start = document.getElementById('start').value.trim();
+      const end = document.getElementById('end').value.trim();
+      const wait = parseFloat(document.getElementById('wait').value) || 0;
+      const bike = document.getElementById('bike').checked;
+      const airport = document.getElementById('airport').checked;
+
+      const flagfall = 3.40;
+      const ratePerKm = 3.40;
+      const waitPerMin = 1.40;
+      const serviceFee = 2.30;
+
+      try {
+        document.getElementById('output').innerHTML = 'Calculating fare...';
+        const startCoords = await getCoords(start);
+        const endCoords = await getCoords(end);
+        const { distanceKm, durationMin } = await getDistance(startCoords, endCoords);
+
+        const distanceCost = distanceKm * ratePerKm;
+        const waitCost = wait * waitPerMin;
+        const extras = (bike ? 5.50 : 0) + (airport ? 5.50 : 0);
+        const total = flagfall + distanceCost + waitCost + extras + serviceFee;
+
+        document.getElementById('output').innerHTML = `
+          <strong>Estimated Fare: $${total.toFixed(2)}</strong><br>
+          Distance: ${distanceKm.toFixed(2)} km<br>
+          Waiting time: ${wait} min<br>
+          Extras: $${extras.toFixed(2)}<br>
+          <small>Includes flagfall $${flagfall}, service fee $${serviceFee}</small>
+        `;
+      } catch (err) {
+        document.getElementById('output').innerHTML = '❌ Error: ' + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
