@@ -1,3 +1,4 @@
+<!-- KEEP ALL HEADERS AS-IS -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +44,10 @@
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -69,14 +74,14 @@
 
     async function searchAddress(query, field) {
       if (query.length < 3) {
-        document.getElementById(`${field}-suggestions`).innerHTML = '';
+        document.getElementById(\`\${field}-suggestions\`).innerHTML = '';
         return;
       }
 
-      const res = await fetch(`https://api.openrouteservice.org/geocode/autocomplete?api_key=${apiKey}&text=${encodeURIComponent(query)}&boundary.country=NZ`);
+      const res = await fetch(\`https://api.openrouteservice.org/geocode/autocomplete?api_key=\${apiKey}&text=\${encodeURIComponent(query)}&boundary.country=NZ\`);
       const data = await res.json();
 
-      const suggestionsDiv = document.getElementById(`${field}-suggestions`);
+      const suggestionsDiv = document.getElementById(\`\${field}-suggestions\`);
       suggestionsDiv.innerHTML = '';
 
       data.features.forEach(feature => {
@@ -125,7 +130,6 @@
         const data = await res.json();
         const distanceKm = data.distances[0][1] / 1000;
         const durationMin = data.durations[0][1] / 60;
-
         const estimatedWaitMin = durationMin * 0.2;
         const distanceCost = distanceKm * ratePerKm;
         const waitCost = estimatedWaitMin * waitPerMin;
