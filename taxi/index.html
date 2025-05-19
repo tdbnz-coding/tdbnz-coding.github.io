@@ -97,7 +97,40 @@
     }
   }
 
+  async function searchAddress(query, field) {
+    if (query.length < 3) {
+      document.getElementById(`${field}-suggestions`).innerHTML = '';
+      return;
+    }
+
+    const res = await fetch(`https://api.openrouteservice.org/geocode/autocomplete?api_key=${apiKey}&text=${encodeURIComponent(query)}&boundary.country=NZ`);
+    const data = await res.json();
+
+    const suggestionsDiv = document.getElementById(`${field}-suggestions`);
+    suggestionsDiv.innerHTML = '';
+
+    data.features.forEach(feature => {
+      const div = document.createElement('div');
+      div.textContent = feature.properties.label;
+      div.onclick = () => {
+        document.getElementById(field).value = feature.properties.label;
+        suggestionsDiv.innerHTML = '';
+        if (field === 'start') startCoords = feature.geometry.coordinates;
+        if (field === 'end') {
+          endCoords = feature.geometry.coordinates;
+          const isAirport = feature.properties.label.toLowerCase().includes('airport');
+          document.getElementById('airport').checked = isAirport;
+        }
+        updateMap();
+        getEstimate();
+      };
+      suggestionsDiv.appendChild(div);
+    });
+  }
+
   function updateMap() {
+    if (!startCoords || !endCoords) return;
+
     if (!map) {
       map = L.map('map').setView([startCoords[1], startCoords[0]], 10);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
