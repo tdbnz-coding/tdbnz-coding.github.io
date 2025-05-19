@@ -105,7 +105,6 @@
         if (field === 'start') startCoords = feature.geometry.coordinates;
         if (field === 'end') {
           endCoords = feature.geometry.coordinates;
-          // Auto-enable airport if label contains airport keywords
           const isAirport = feature.properties.label.toLowerCase().includes('airport');
           document.getElementById('airport').checked = isAirport;
         }
@@ -156,16 +155,17 @@
       const extras = (bike ? 5.50 : 0) + (airportIncluded ? 5.50 : 0);
       const rawTotal = flagfall + distanceCost + waitCost + extras + serviceFee;
 
-      let discountedFare = rawTotal;
+      let finalFare = rawTotal;
       let tmNote = '';
 
       if (hasTM) {
         const subsidyCap = 52.50;
         const discount = Math.min(rawTotal, subsidyCap) * 0.75;
-        discountedFare = rawTotal - discount;
-        tmNote = `<br>🟢 <strong>Total Mobility Discount Applied:</strong><br>
-          75% off first $${subsidyCap.toFixed(2)} = -$${discount.toFixed(2)}<br>
-          You pay: <strong>$${discountedFare.toFixed(2)}</strong>`;
+        finalFare = rawTotal - discount;
+        tmNote = `<br><strong>🟢 Total Mobility Discount Applied</strong><br>
+        Original Fare: $${rawTotal.toFixed(2)}<br>
+        Discount: -$${discount.toFixed(2)}<br>
+        Final Fare: <strong>$${finalFare.toFixed(2)}</strong>`;
       }
 
       let arrivalInfo = '';
@@ -183,7 +183,7 @@
       }
 
       document.getElementById('output').innerHTML = `
-        <strong>Total Fare: $${rawTotal.toFixed(2)}</strong><br>
+        <strong>Total Fare: $${finalFare.toFixed(2)}</strong><br>
         Distance: ${distanceKm.toFixed(2)} km<br>
         Trip duration: ${durationMin.toFixed(0)} min<br>
         Estimated waiting time: ${estimatedWaitMin.toFixed(1)} min<br>
