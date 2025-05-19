@@ -10,14 +10,19 @@
       background: #f8f9fa;
       padding: 2rem;
     }
+    .position-relative {
+      position: relative;
+    }
     .autocomplete-suggestions {
       background: #fff;
       border: 1px solid #ccc;
       max-height: 150px;
       overflow-y: auto;
       position: absolute;
-      z-index: 10;
+      z-index: 1000;
       width: 100%;
+      top: 100%;
+      left: 0;
     }
     .autocomplete-suggestions div {
       padding: 8px;
@@ -28,7 +33,7 @@
     }
   </style>
 </head>
-<body>
+<body onload="autoDetectLocation()">
 <div class="container">
   <h2 class="text-center mb-4">Taxi Fare Estimator (NZ)</h2>
 
@@ -43,16 +48,14 @@
   </div>
 
   <div class="mb-3">
-    <label><input type="checkbox" id="bike" onchange="getEstimate()"> Include Bike ($5.50)</label>
-    <br>
-    <label><input type="checkbox" id="airport" onchange="getEstimate()"> Include Airport Barrier ($5.50)</label>
-    <br>
+    <label><input type="checkbox" id="bike" onchange="getEstimate()"> Include Bike ($5.50)</label><br>
+    <label><input type="checkbox" id="airport" disabled> Include Airport Barrier ($5.50) <span class="text-muted">(Auto-applied if destination requires)</span></label><br>
     <label><input type="checkbox" id="tm" onchange="getEstimate()"> Total Mobility Card (75% discount up to $52.50)</label>
   </div>
 
   <div class="mb-3">
     <label for="arrival">Arrive by (optional):</label>
-    <input type="time" id="arrival" class="form-control" onchange="getEstimate()" placeholder="HH:MM AM/PM">
+    <input type="time" id="arrival" class="form-control" onchange="getEstimate()">
   </div>
 
   <button onclick="getEstimate()" class="btn btn-primary w-100">Estimate Fare</button>
@@ -64,6 +67,22 @@
   const apiKey = '5b3ce3597851110001cf624811dd78dbd4994e6397bee9c030419272';
   let startCoords = null;
   let endCoords = null;
+
+  function autoDetectLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async position => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        startCoords = [lon, lat];
+
+        const res = await fetch(`https://api.openrouteservice.org/geocode/reverse?api_key=${apiKey}&point.lat=${lat}&point.lon=${lon}`);
+        const data = await res.json();
+        const label = data.features[0]?.properties?.label || 'Detected Location';
+        document.getElementById('start').value = label;
+        getEstimate();
+      });
+    }
+  }
 
   async function searchAddress(query, field) {
     if (query.length < 3) {
@@ -84,7 +103,12 @@
         document.getElementById(field).value = feature.properties.label;
         suggestionsDiv.innerHTML = '';
         if (field === 'start') startCoords = feature.geometry.coordinates;
-        if (field === 'end') endCoords = feature.geometry.coordinates;
+        if (field === 'end') {
+          endCoords = feature.geometry.coordinates;
+          // Auto-enable airport if label contains airport keywords
+          const isAirport = feature.properties.label.toLowerCase().includes('airport');
+          document.getElementById('airport').checked = isAirport;
+        }
         getEstimate();
       };
       suggestionsDiv.appendChild(div);
@@ -128,7 +152,8 @@
       const estimatedWaitMin = durationMin * 0.2;
       const distanceCost = distanceKm * ratePerKm;
       const waitCost = estimatedWaitMin * waitPerMin;
-      const extras = (bike ? 5.50 : 0) + (airport ? 5.50 : 0);
+      const airportIncluded = document.getElementById('airport').checked;
+      const extras = (bike ? 5.50 : 0) + (airportIncluded ? 5.50 : 0);
       const rawTotal = flagfall + distanceCost + waitCost + extras + serviceFee;
 
       let discountedFare = rawTotal;
