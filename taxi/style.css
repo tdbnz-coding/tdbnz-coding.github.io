@@ -1,0 +1,62 @@
+
+body {
+  background: #f8f9fa;
+  padding: 2rem;
+}
+.autocomplete-suggestions {
+  background: #fff;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  top: 100%;
+  left: 0;
+}
+.autocomplete-suggestions div {
+  padding: 8px;
+  cursor: pointer;
+}
+.autocomplete-suggestions div:hover {
+  background: #e9ecef;
+}
+#map {
+  height: 300px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.fare-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  font-size: 16px;
+  color: #333;
+}
+.fare-card strong {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.fare-card .label {
+  color: #666;
+  font-weight: 500;
+}
+.fare-card .discount {
+  margin-top: 1rem;
+  background: #e8f9ec;
+  border-left: 4px solid #28a745;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.fare-card .discount strong {
+  color: #28a745;
+  font-size: 16px;
+}
+.fallback-btn {
+  display: none;
+  margin-top: 5px;
+}

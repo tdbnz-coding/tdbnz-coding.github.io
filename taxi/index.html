@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,83 +7,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <style>
-    body {
-      background: #f8f9fa;
-      padding: 2rem;
-    }
-    .autocomplete-suggestions {
-      background: #fff;
-      border: 1px solid #ccc;
-      max-height: 150px;
-      overflow-y: auto;
-      position: absolute;
-      z-index: 1000;
-      width: 100%;
-      top: 100%;
-      left: 0;
-    }
-    .autocomplete-suggestions div {
-      padding: 8px;
-      cursor: pointer;
-    }
-    .autocomplete-suggestions div:hover {
-      background: #e9ecef;
-    }
-    #map {
-      height: 300px;
-      width: 100%;
-      margin-top: 20px;
-      border-radius: 10px;
-    }
-    .fare-card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      padding: 1.5rem;
-      font-size: 16px;
-      color: #333;
-    }
-    .fare-card strong {
-      font-size: 18px;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .fare-card .label {
-      color: #666;
-      font-weight: 500;
-    }
-    .fare-card .discount {
-      margin-top: 1rem;
-      background: #e8f9ec;
-      border-left: 4px solid #28a745;
-      padding: 0.75rem;
-      border-radius: 6px;
-      font-size: 15px;
-    }
-    .fare-card .discount strong {
-      color: #28a745;
-      font-size: 16px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body onload="autoDetectLocation()">
 <div class="container">
   <h2 class="text-center mb-4">Taxi Fare Estimator (NZ)</h2>
 
   <div class="mb-3 position-relative">
-    <input id="start" class="form-control" placeholder="Enter start address" oninput="searchAddress(this.value, 'start')">
+    <input id="start" class="form-control" placeholder="Enter start address" oninput="debouncedSearch('start')">
     <div id="start-suggestions" class="autocomplete-suggestions"></div>
+    <button id="start-fallback" class="btn btn-sm btn-outline-secondary fallback-btn" onclick="manualSearch('start')">Search Address</button>
   </div>
 
   <div class="mb-3 position-relative">
-    <input id="end" class="form-control" placeholder="Enter end address" oninput="searchAddress(this.value, 'end')">
+    <input id="end" class="form-control" placeholder="Enter end address" oninput="debouncedSearch('end')">
     <div id="end-suggestions" class="autocomplete-suggestions"></div>
+    <button id="end-fallback" class="btn btn-sm btn-outline-secondary fallback-btn" onclick="manualSearch('end')">Search Address</button>
   </div>
 
   <div class="mb-3">
     <label><input type="checkbox" id="bike" onchange="getEstimate()"> Include Bike ($5.50)</label><br>
-    <label><input type="checkbox" id="airport" disabled> Include Airport Barrier ($5.50) <span class="text-muted">(Auto-applied if destination requires)</span></label><br>
+    <label><input type="checkbox" id="airport" disabled> Include Airport Barrier ($5.50)</label><br>
     <label><input type="checkbox" id="tm" onchange="getEstimate()"> Total Mobility Card (75% discount up to $52.50)</label>
   </div>
 
@@ -119,119 +64,6 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-const apiKey = '5b3ce3597851110001cf624811dd78dbd4994e6397bee9c030419272';
-let startCoords = null;
-let endCoords = null;
-let map = null;
-let startMarker = null;
-let endMarker = null;
-let routeLine = null;
-
-function autoDetectLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(async position => {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-      startCoords = [lon, lat];
-      const res = await fetch(`https://api.openrouteservice.org/geocode/reverse?api_key=${apiKey}&point.lat=${lat}&point.lon=${lon}`);
-      const data = await res.json();
-      const label = data.features[0]?.properties?.label || 'Detected Location';
-      document.getElementById('start').value = label;
-      getEstimate();
-    });
-  }
-}
-
-async function searchAddress(query, field) {
-  if (query.length < 3) {
-    document.getElementById(`${field}-suggestions`).innerHTML = '';
-    return;
-  }
-  const res = await fetch(`https://api.openrouteservice.org/geocode/autocomplete?api_key=${apiKey}&text=${encodeURIComponent(query)}&boundary.country=NZ`);
-  const data = await res.json();
-  const suggestionsDiv = document.getElementById(`${field}-suggestions`);
-  suggestionsDiv.innerHTML = '';
-  data.features.forEach(feature => {
-    const div = document.createElement('div');
-    div.textContent = feature.properties.label;
-    div.onclick = () => {
-      document.getElementById(field).value = feature.properties.label;
-      suggestionsDiv.innerHTML = '';
-      if (field === 'start') startCoords = feature.geometry.coordinates;
-      if (field === 'end') {
-        endCoords = feature.geometry.coordinates;
-        const isAirport = feature.properties.label.toLowerCase().includes('airport');
-        document.getElementById('airport').checked = isAirport;
-      }
-      updateMap();
-      getEstimate();
-    };
-    suggestionsDiv.appendChild(div);
-  });
-}
-
-function updateMap() {
-  if (!startCoords || !endCoords) return;
-  if (!map) {
-    map = L.map('map').setView([startCoords[1], startCoords[0]], 10);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);
-  }
-  if (startMarker) map.removeLayer(startMarker);
-  if (endMarker) map.removeLayer(endMarker);
-  if (routeLine) map.removeLayer(routeLine);
-  startMarker = L.marker([startCoords[1], startCoords[0]], { draggable: true }).addTo(map).bindPopup('Start').openPopup();
-  endMarker = L.marker([endCoords[1], endCoords[0]], { draggable: true }).addTo(map).bindPopup('Destination');
-  routeLine = L.polyline([[startCoords[1], startCoords[0]], [endCoords[1], endCoords[0]]], { color: 'blue' }).addTo(map);
-  map.fitBounds(routeLine.getBounds());
-  startMarker.on('dragend', e => { startCoords = [e.target.getLatLng().lng, e.target.getLatLng().lat]; getEstimate(); });
-  endMarker.on('dragend', e => { endCoords = [e.target.getLatLng().lng, e.target.getLatLng().lat]; getEstimate(); });
-}
-
-async function getEstimate() {
-  const bike = document.getElementById('bike').checked;
-  const airport = document.getElementById('airport').checked;
-  const hasTM = document.getElementById('tm').checked;
-  const arrivalTime = document.getElementById('arrival').value;
-  const flagfall = 3.40, ratePerKm = 3.40, waitPerMin = 1.40, serviceFee = 2.30;
-  if (!startCoords || !endCoords) {
-    document.getElementById('output').innerHTML = '❌ Please select both addresses from the dropdown suggestions.';
-    return;
-  }
-  const res = await fetch('https://api.openrouteservice.org/v2/matrix/driving-car', {
-    method: 'POST',
-    headers: { 'Authorization': apiKey, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ locations: [startCoords, endCoords], metrics: ['distance', 'duration'] })
-  });
-  const data = await res.json();
-  const distanceKm = data.distances[0][1] / 1000;
-  const durationMin = data.durations[0][1] / 60;
-  const estimatedWaitMin = durationMin * 0.2;
-  const distanceCost = distanceKm * ratePerKm;
-  const waitCost = estimatedWaitMin * waitPerMin;
-  const extras = (bike ? 5.50 : 0) + (airport ? 5.50 : 0);
-  const rawTotal = flagfall + distanceCost + waitCost + extras + serviceFee;
-  const fareLow = rawTotal * 0.95;
-  const fareHigh = rawTotal * 1.10;
-  let finalFare = rawTotal;
-  let tmNote = '';
-  if (hasTM) {
-    const subsidyCap = 52.50;
-    const discount = Math.min(rawTotal, subsidyCap) * 0.75;
-    finalFare = rawTotal - discount;
-    tmNote = `<div class='discount'><strong>🟢 Total Mobility Discount Applied</strong><br>Original Fare: $${rawTotal.toFixed(2)}<br>Discount: -$${(rawTotal - finalFare).toFixed(2)}<br>Final Fare: <strong>$${finalFare.toFixed(2)}</strong></div>`;
-  }
-  let arrivalInfo = '';
-  if (arrivalTime) {
-    const now = new Date();
-    const [hours, minutes] = arrivalTime.split(':').map(Number);
-    const arrivalDate = new Date(now);
-    arrivalDate.setHours(hours, minutes, 0, 0);
-    const pickupTime = new Date(arrivalDate.getTime() - durationMin * 60000);
-    arrivalInfo = `<br><strong>📍 Real-time Info:</strong><br>Arrive by: ${arrivalDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}<br>Book taxi for: ${pickupTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-  }
-  document.getElementById('output').innerHTML = `<div class='fare-card'><strong>Estimated Fare Range: $${fareLow.toFixed(2)} – $${fareHigh.toFixed(2)}</strong><div><span class='label'>Distance:</span> ${distanceKm.toFixed(2)} km</div><div><span class='label'>Trip duration:</span> ${durationMin.toFixed(0)} min</div><div><span class='label'>Estimated waiting time:</span> ${estimatedWaitMin.toFixed(1)} min</div><div><span class='label'>Waiting charge:</span> $${waitCost.toFixed(2)}</div><div><span class='label'>Extras:</span> $${extras.toFixed(2)}</div><div><small>Includes flagfall $${flagfall.toFixed(2)} & service fee $${serviceFee.toFixed(2)}</small></div>${tmNote}${arrivalInfo}</div>`;
-}
-</script>
+<script src="script.js"></script>
 </body>
 </html>
