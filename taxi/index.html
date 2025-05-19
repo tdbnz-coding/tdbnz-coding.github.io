@@ -31,7 +31,15 @@
     .autocomplete-suggestions div:hover {
       background: #e9ecef;
     }
+    #map {
+      height: 300px;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body onload="autoDetectLocation()">
 <div class="container">
@@ -61,12 +69,15 @@
   <button onclick="getEstimate()" class="btn btn-primary w-100">Estimate Fare</button>
 
   <div id="output" class="mt-4 p-4 bg-white rounded shadow"></div>
+  <div id="map"></div>
 </div>
 
 <script>
   const apiKey = '5b3ce3597851110001cf624811dd78dbd4994e6397bee9c030419272';
   let startCoords = null;
   let endCoords = null;
+  let map = null;
+  let markers = [];
 
   function autoDetectLocation() {
     if (navigator.geolocation) {
@@ -114,6 +125,23 @@
     });
   }
 
+  function updateMap() {
+    if (!map) {
+      map = L.map('map').setView([startCoords[1], startCoords[0]], 10);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+      }).addTo(map);
+    } else {
+      map.setView([startCoords[1], startCoords[0]], 10);
+      markers.forEach(marker => map.removeLayer(marker));
+      markers = [];
+    }
+
+    const startMarker = L.marker([startCoords[1], startCoords[0]]).addTo(map).bindPopup('Start').openPopup();
+    const endMarker = L.marker([endCoords[1], endCoords[0]]).addTo(map).bindPopup('Destination');
+    markers.push(startMarker, endMarker);
+  }
+
   async function getEstimate() {
     const bike = document.getElementById('bike').checked;
     const airport = document.getElementById('airport').checked;
@@ -129,6 +157,8 @@
       document.getElementById('output').innerHTML = '❌ Please select both addresses from the dropdown suggestions.';
       return;
     }
+
+    updateMap();
 
     try {
       document.getElementById('output').innerHTML = 'Calculating fare...';
