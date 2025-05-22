@@ -107,6 +107,20 @@ function roundToNearest5Min(date) {
   return date;
 }
 
+function estimateWaitTime(distanceKm, hour, isUrban = true) {
+  let waitBase = 0;
+  if (distanceKm < 3) waitBase = 1;
+  else if (distanceKm < 7) waitBase = 3;
+  else if (distanceKm < 15) waitBase = 5;
+  else waitBase = 7;
+
+  const isPeak = (hour >= 7 && hour <= 9) || (hour >= 15 && hour <= 18);
+  const peakBoost = isPeak ? 1.5 : 1.0;
+  const zoneBoost = isUrban ? 1.0 : 1.2;
+
+  return Math.round(waitBase * peakBoost * zoneBoost);
+}
+
 async function getEstimate() {
   if (!startCoords || !endCoords) {
     document.getElementById('output').innerHTML = 'Please enter both start and end addresses.';
@@ -132,14 +146,21 @@ async function getEstimate() {
     const durationMin = Math.round(summary.duration / 60);
     const durationSec = summary.duration;
 
+    const now = new Date();
+    const hour = now.getHours();
+    const estimatedWaitMin = estimateWaitTime(distanceKm, hour);
+
     const baseFare = 3.40;
     const perKmRate = 3.40;
     const waitRate = 1.40;
+    const waitCost = estimatedWaitMin * waitRate;
     const bikeFee = document.getElementById('bike').checked ? 5.50 : 0;
     const airportFee = document.getElementById('airport').checked ? 5.50 : 0;
+    const cardUsed = document.getElementById('cardFee')?.checked || false;
+    const cardFee = cardUsed ? 2.30 : 0;
     const tmCap = 52.50;
 
-    let rawFare = baseFare + distanceKm * perKmRate + durationMin * waitRate + bikeFee + airportFee;
+    let rawFare = baseFare + distanceKm * perKmRate + waitCost + bikeFee + airportFee + cardFee;
 
     const isTM = document.getElementById('tm').checked;
     let tmFare = rawFare;
@@ -157,15 +178,16 @@ async function getEstimate() {
       `;
     }
 
-    // Arrival time logic
     const arrivalInput = document.getElementById('arrival').value;
     let leaveNote = '';
     if (arrivalInput) {
       const [h, m] = arrivalInput.split(':');
       const arriveBy = new Date();
       arriveBy.setHours(parseInt(h), parseInt(m), 0);
-      const leaveBy = roundToNearest5Min(new Date(arriveBy.getTime() - durationMin * 60000));
-      leaveNote = `<strong>Leave by:</strong> ${leaveBy.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}<br>`;
+      const totalTravelTimeMin = durationMin + estimatedWaitMin;
+      const leaveBy = roundToNearest5Min(new Date(arriveBy.getTime() - totalTravelTimeMin * 60000));
+      leaveNote = `<strong>To arrive by ${arriveBy.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })},<br>
+                   book your taxi for: ${leaveBy.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</strong><br>`;
     }
 
     document.getElementById('output').innerHTML = `
@@ -176,15 +198,15 @@ async function getEstimate() {
         <br>
         <span class="label">Base Fare:</span> $${baseFare.toFixed(2)}<br>
         <span class="label">Distance Fare:</span> $${(distanceKm * perKmRate).toFixed(2)}<br>
-        <span class="label">Waiting Time (${durationMin} min):</span> $${(durationMin * waitRate).toFixed(2)}<br>
+        <span class="label">Estimated Waiting Time (${estimatedWaitMin} min):</span> $${waitCost.toFixed(2)}<br>
         <span class="label">Bike Fee:</span> $${bikeFee.toFixed(2)}<br>
-        <span class="label">Airport Fee:</span> $${airportFee.toFixed(2)}<br><br>
+        <span class="label">Airport Fee:</span> $${airportFee.toFixed(2)}<br>
+        <span class="label">Card Payment Fee:</span> $${cardFee.toFixed(2)}<br><br>
         <strong>Total Fare:</strong> $${rawFare.toFixed(2)}<br>
         ${discountNote}
       </div>
     `;
 
-    // Map visualization
     if (!map) {
       map = L.map('map').setView([startCoords[1], startCoords[0]], 13);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -200,7 +222,6 @@ async function getEstimate() {
     routeLine = L.polyline(latlngs, { color: 'blue', weight: 5 }).addTo(map);
     map.fitBounds(routeLine.getBounds(), { padding: [30, 30] });
 
-    const now = new Date();
     const eta = new Date(now.getTime() + durationSec * 1000);
     const etaStr = eta.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
