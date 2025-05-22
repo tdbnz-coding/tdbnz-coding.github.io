@@ -2,11 +2,11 @@ const apiKey = '5b3ce3597851110001cf624811dd78dbd4994e6397bee9c030419272';
 
 let startCoords = null;
 let endCoords = null;
-let debounceTimers = {};
 let map = null;
 let routeLine = null;
 let startMarker = null;
 let endMarker = null;
+let debounceTimers = {};
 
 function autoDetectLocation() {
   if (navigator.geolocation) {
@@ -99,6 +99,14 @@ function applyManualSearch(feature, field) {
   getEstimate();
 }
 
+function roundToNearest5Min(date) {
+  const minutes = date.getMinutes();
+  const rounded = Math.round(minutes / 5) * 5;
+  date.setMinutes(rounded);
+  date.setSeconds(0);
+  return date;
+}
+
 async function getEstimate() {
   if (!startCoords || !endCoords) {
     document.getElementById('output').innerHTML = 'Please enter both start and end addresses.';
@@ -121,56 +129,62 @@ async function getEstimate() {
     const summary = data.features[0].properties.summary;
     const coords = data.features[0].geometry.coordinates;
     const distanceKm = summary.distance / 1000;
+    const durationMin = Math.round(summary.duration / 60);
     const durationSec = summary.duration;
-    const durationMin = Math.round(durationSec / 60);
-    const formattedTime = durationMin < 60
-      ? `${durationMin} min`
-      : `${Math.floor(durationMin / 60)} hr ${durationMin % 60} min`;
 
-    // Fare calculation
-    const baseFare = 3.00;
-    const perKmRate = 3.20;
-    const distanceFare = distanceKm * perKmRate;
+    const baseFare = 3.40;
+    const perKmRate = 3.40;
+    const waitRate = 1.40;
     const bikeFee = document.getElementById('bike').checked ? 5.50 : 0;
     const airportFee = document.getElementById('airport').checked ? 5.50 : 0;
+    const tmCap = 52.50;
 
-    let rawFare = baseFare + distanceFare + bikeFee + airportFee;
-    const lowEstimate = rawFare * 0.95;
-    const highEstimate = rawFare * 1.10;
+    let rawFare = baseFare + distanceKm * perKmRate + durationMin * waitRate + bikeFee + airportFee;
 
-    let finalFare = rawFare;
+    const isTM = document.getElementById('tm').checked;
+    let tmFare = rawFare;
     let discountNote = '';
 
-    if (document.getElementById('tm').checked) {
-      const discountCap = 52.50;
-      const discounted = rawFare * 0.25;
-      const userPays = Math.max(rawFare - discountCap * 0.75, discounted);
+    if (isTM) {
+      const discounted = Math.min(rawFare, tmCap) * 0.25;
+      const overCap = Math.max(rawFare - tmCap, 0);
+      tmFare = discounted + overCap;
       discountNote = `
         <div class="discount">
-          <strong>Total Mobility Discount Applied</strong><br>
-          Fare before discount: $${rawFare.toFixed(2)}<br>
-          Discounted fare: <strong>$${userPays.toFixed(2)}</strong>
+          <strong>Total Mobility Fare:</strong> $${tmFare.toFixed(2)}<br>
+          (75% discount on first $52.50, then full price)
         </div>
       `;
-      finalFare = userPays;
+    }
+
+    // Arrival time logic
+    const arrivalInput = document.getElementById('arrival').value;
+    let leaveNote = '';
+    if (arrivalInput) {
+      const [h, m] = arrivalInput.split(':');
+      const arriveBy = new Date();
+      arriveBy.setHours(parseInt(h), parseInt(m), 0);
+      const leaveBy = roundToNearest5Min(new Date(arriveBy.getTime() - durationMin * 60000));
+      leaveNote = `<strong>Leave by:</strong> ${leaveBy.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}<br>`;
     }
 
     document.getElementById('output').innerHTML = `
       <div class="fare-card">
-        <strong>Estimated Fare Range:</strong> $${lowEstimate.toFixed(2)} – $${highEstimate.toFixed(2)}<br>
-        <strong>Estimated Travel Time:</strong> ${formattedTime}<br><br>
-
+        <strong>Distance:</strong> ${distanceKm.toFixed(2)} km<br>
+        <strong>Estimated Travel Time:</strong> ${durationMin} min<br>
+        ${leaveNote}
+        <br>
         <span class="label">Base Fare:</span> $${baseFare.toFixed(2)}<br>
-        <span class="label">Distance (${distanceKm.toFixed(2)} km @ $${perKmRate.toFixed(2)}):</span> $${distanceFare.toFixed(2)}<br>
+        <span class="label">Distance Fare:</span> $${(distanceKm * perKmRate).toFixed(2)}<br>
+        <span class="label">Waiting Time (${durationMin} min):</span> $${(durationMin * waitRate).toFixed(2)}<br>
         <span class="label">Bike Fee:</span> $${bikeFee.toFixed(2)}<br>
         <span class="label">Airport Fee:</span> $${airportFee.toFixed(2)}<br><br>
-
-        <strong>Total Before Discount:</strong> $${rawFare.toFixed(2)}<br>
+        <strong>Total Fare:</strong> $${rawFare.toFixed(2)}<br>
         ${discountNote}
       </div>
     `;
 
-    // Setup map
+    // Map visualization
     if (!map) {
       map = L.map('map').setView([startCoords[1], startCoords[0]], 13);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -178,7 +192,6 @@ async function getEstimate() {
       }).addTo(map);
     }
 
-    // Clear old route
     if (routeLine) map.removeLayer(routeLine);
     if (startMarker) map.removeLayer(startMarker);
     if (endMarker) map.removeLayer(endMarker);
@@ -187,15 +200,12 @@ async function getEstimate() {
     routeLine = L.polyline(latlngs, { color: 'blue', weight: 5 }).addTo(map);
     map.fitBounds(routeLine.getBounds(), { padding: [30, 30] });
 
-    // Add markers with ETA
     const now = new Date();
-    const arrivalTime = new Date(now.getTime() + durationSec * 1000);
-    const arrivalStr = arrivalTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const eta = new Date(now.getTime() + durationSec * 1000);
+    const etaStr = eta.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     startMarker = L.marker(latlngs[0]).addTo(map).bindPopup("Start").openPopup();
-    endMarker = L.marker(latlngs[latlngs.length - 1]).addTo(map).bindPopup(
-      `End<br>Travel Time: ${formattedTime}<br>ETA: ${arrivalStr}`
-    ).openPopup();
+    endMarker = L.marker(latlngs[latlngs.length - 1]).addTo(map).bindPopup(`End<br>ETA: ${etaStr}`).openPopup();
 
   } catch (err) {
     console.error(err);
