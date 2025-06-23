@@ -16,8 +16,8 @@
       "release_date": "2025-05-14",
       "title": "Final Destination Bloodlines",
       "video": false,
-      "vote_average": 7.23,
-      "vote_count": 1171
+      "vote_average": 7.246,
+      "vote_count": 1187
     },
     {
       "adult": false,
@@ -37,8 +37,8 @@
       "release_date": "2025-05-17",
       "title": "Lilo & Stitch",
       "video": false,
-      "vote_average": 7.112,
-      "vote_count": 696
+      "vote_average": 7.1,
+      "vote_count": 697
     },
     {
       "adult": false,
@@ -117,8 +117,8 @@
       "release_date": "2025-06-06",
       "title": "How to Train Your Dragon",
       "video": false,
-      "vote_average": 8.004,
-      "vote_count": 376
+      "vote_average": 8.0,
+      "vote_count": 378
     },
     {
       "adult": false,
@@ -157,7 +157,7 @@
       "title": "The Amateur",
       "video": false,
       "vote_average": 6.957,
-      "vote_count": 596
+      "vote_count": 598
     },
     {
       "adult": false,
@@ -176,8 +176,27 @@
       "release_date": "2025-06-05",
       "title": "STRAW",
       "video": false,
-      "vote_average": 8.018,
-      "vote_count": 593
+      "vote_average": 8.014,
+      "vote_count": 596
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fPWJn5pqBr8n4h0YxW3QuasdvoI.jpg",
+      "genre_ids": [
+        28,
+        53
+      ],
+      "id": 1127110,
+      "original_language": "en",
+      "original_title": "Diablo",
+      "overview": "Ex-con Kris Chaney seizes the daughter of a Colombian gangster to fulfill a noble promise to the young girl's mother. When her father enlists both the criminal underworld and a psychotic killer to exact his revenge, Kris relies on everything he's ever learned to stay alive and keep his word.",
+      "popularity": 286.5784,
+      "poster_path": "/uFQduVyYIinJy3eLjozgfl6Xtcn.jpg",
+      "release_date": "2025-06-13",
+      "title": "Diablo",
+      "video": false,
+      "vote_average": 7.0,
+      "vote_count": 39
     },
     {
       "adult": false,
@@ -199,22 +218,25 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/fPWJn5pqBr8n4h0YxW3QuasdvoI.jpg",
+      "backdrop_path": "/rJjhOuRFldNF0OWSuSk4PiCLmeA.jpg",
       "genre_ids": [
+        16,
+        14,
         28,
-        53
+        35,
+        10402
       ],
-      "id": 1127110,
+      "id": 803796,
       "original_language": "en",
-      "original_title": "Diablo",
-      "overview": "Ex-con Kris Chaney seizes the daughter of a Colombian gangster to fulfill a noble promise to the young girl's mother. When her father enlists both the criminal underworld and a psychotic killer to exact his revenge, Kris relies on everything he's ever learned to stay alive and keep his word.",
-      "popularity": 286.5784,
-      "poster_path": "/uFQduVyYIinJy3eLjozgfl6Xtcn.jpg",
-      "release_date": "2025-06-13",
-      "title": "Diablo",
+      "original_title": "KPop Demon Hunters",
+      "overview": "When K-pop superstars Rumi, Mira and Zoey aren't selling out stadiums, they're using their secret powers to protect their fans from supernatural threats.",
+      "popularity": 228.3751,
+      "poster_path": "/jfS5KEfiwsS35ieZvdUdJKkwLlZ.jpg",
+      "release_date": "2025-06-20",
+      "title": "KPop Demon Hunters",
       "video": false,
-      "vote_average": 6.973,
-      "vote_count": 37
+      "vote_average": 8.741,
+      "vote_count": 87
     },
     {
       "adult": false,
@@ -229,12 +251,12 @@
       "original_title": "28 Years Later",
       "overview": "Twenty-eight years since the rage virus escaped a biological weapons laboratory, now, still in a ruthlessly enforced quarantine, some have found ways to exist amidst the infected. One such group lives on a small island connected to the mainland by a single, heavily-defended causeway. When one member departs on a mission into the dark heart of the mainland, he discovers secrets, wonders, and horrors that have mutated not only the infected but other survivors as well.",
       "popularity": 266.427,
-      "poster_path": "/361hRZoG91Nw6qXaIKuGoogQjix.jpg",
+      "poster_path": "/n5FygjEppOvac6yEaowi26nTyw3.jpg",
       "release_date": "2025-06-18",
       "title": "28 Years Later",
       "video": false,
-      "vote_average": 7.2,
-      "vote_count": 192
+      "vote_average": 7.202,
+      "vote_count": 198
     },
     {
       "adult": false,
@@ -253,8 +275,8 @@
       "release_date": "2025-06-05",
       "title": "Predator: Killer of Killers",
       "video": false,
-      "vote_average": 8.007,
-      "vote_count": 577
+      "vote_average": 8.003,
+      "vote_count": 580
     },
     {
       "adult": false,
@@ -273,8 +295,8 @@
       "release_date": "2025-04-23",
       "title": "The Accountant²",
       "video": false,
-      "vote_average": 7.198,
-      "vote_count": 907
+      "vote_average": 7.204,
+      "vote_count": 913
     },
     {
       "adult": false,
@@ -293,8 +315,8 @@
       "release_date": "2025-06-12",
       "title": "Deep Cover",
       "video": false,
-      "vote_average": 6.824,
-      "vote_count": 188
+      "vote_average": 6.813,
+      "vote_count": 193
     },
     {
       "adult": false,
@@ -313,30 +335,8 @@
       "release_date": "2025-04-16",
       "title": "Sinners",
       "video": false,
-      "vote_average": 7.551,
-      "vote_count": 1603
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/rJjhOuRFldNF0OWSuSk4PiCLmeA.jpg",
-      "genre_ids": [
-        14,
-        28,
-        35,
-        16,
-        10402
-      ],
-      "id": 803796,
-      "original_language": "en",
-      "original_title": "KPop Demon Hunters",
-      "overview": "When K-pop superstars Rumi, Mira and Zoey aren't selling out stadiums, they're using their secret powers to protect their fans from supernatural threats.",
-      "popularity": 228.3751,
-      "poster_path": "/jfS5KEfiwsS35ieZvdUdJKkwLlZ.jpg",
-      "release_date": "2025-06-20",
-      "title": "KPop Demon Hunters",
-      "video": false,
-      "vote_average": 8.647,
-      "vote_count": 78
+      "vote_average": 7.556,
+      "vote_count": 1608
     },
     {
       "adult": false,
@@ -356,8 +356,8 @@
       "release_date": "2025-03-31",
       "title": "A Minecraft Movie",
       "video": false,
-      "vote_average": 6.501,
-      "vote_count": 1870
+      "vote_average": 6.502,
+      "vote_count": 1872
     },
     {
       "adult": false,
@@ -434,7 +434,7 @@
       "release_date": "2024-10-10",
       "title": "Mudbrick",
       "video": false,
-      "vote_average": 5.286,
+      "vote_average": 5.3,
       "vote_count": 7
     },
     {
@@ -496,8 +496,8 @@
       "release_date": "2025-06-05",
       "title": "K.O.",
       "video": false,
-      "vote_average": 6.655,
-      "vote_count": 145
+      "vote_average": 6.639,
+      "vote_count": 147
     },
     {
       "adult": false,
@@ -516,8 +516,8 @@
       "release_date": "2025-05-17",
       "title": "Mission: Impossible - The Final Reckoning",
       "video": false,
-      "vote_average": 7.2,
-      "vote_count": 840
+      "vote_average": 7.155,
+      "vote_count": 843
     },
     {
       "adult": false,
@@ -575,28 +575,8 @@
       "release_date": "2002-10-31",
       "title": "28 Days Later",
       "video": false,
-      "vote_average": 7.235,
-      "vote_count": 7315
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/fTrQsdMS2MUw00RnzH0r3JWHhts.jpg",
-      "genre_ids": [
-        28,
-        80,
-        53
-      ],
-      "id": 1197306,
-      "original_language": "en",
-      "original_title": "A Working Man",
-      "overview": "Levon Cade left behind a decorated military career in the black ops to live a simple life working construction. But when his boss's daughter, who is like family to him, is taken by human traffickers, his search to bring her home uncovers a world of corruption far greater than he ever could have imagined.",
-      "popularity": 115.4,
-      "poster_path": "/6FRFIogh3zFnVWn7Z6zcYnIbRcX.jpg",
-      "release_date": "2025-03-26",
-      "title": "A Working Man",
-      "video": false,
-      "vote_average": 6.697,
-      "vote_count": 1285
+      "vote_average": 7.236,
+      "vote_count": 7317
     },
     {
       "adult": false,
@@ -617,7 +597,27 @@
       "title": "The Ugly Stepsister",
       "video": false,
       "vote_average": 7.1,
-      "vote_count": 194
+      "vote_count": 195
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fTrQsdMS2MUw00RnzH0r3JWHhts.jpg",
+      "genre_ids": [
+        28,
+        80,
+        53
+      ],
+      "id": 1197306,
+      "original_language": "en",
+      "original_title": "A Working Man",
+      "overview": "Levon Cade left behind a decorated military career in the black ops to live a simple life working construction. But when his boss's daughter, who is like family to him, is taken by human traffickers, his search to bring her home uncovers a world of corruption far greater than he ever could have imagined.",
+      "popularity": 115.4,
+      "poster_path": "/6FRFIogh3zFnVWn7Z6zcYnIbRcX.jpg",
+      "release_date": "2025-03-26",
+      "title": "A Working Man",
+      "video": false,
+      "vote_average": 6.699,
+      "vote_count": 1286
     },
     {
       "adult": false,
@@ -655,8 +655,8 @@
       "release_date": "2025-03-12",
       "title": "Snow White",
       "video": false,
-      "vote_average": 4.299,
-      "vote_count": 1168
+      "vote_average": 4.297,
+      "vote_count": 1171
     },
     {
       "adult": false,
@@ -698,6 +698,28 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/mBDoBHUZHHy9WG7dRFndjB8adhc.jpg",
+      "genre_ids": [
+        10751,
+        35,
+        12,
+        16,
+        878
+      ],
+      "id": 1022787,
+      "original_language": "en",
+      "original_title": "Elio",
+      "overview": "Elio, a space fanatic with an active imagination, finds himself on a cosmic misadventure where he must form new bonds with eccentric alien lifeforms, navigate a crisis of intergalactic proportions and somehow discover who he is truly meant to be.",
+      "popularity": 93.2687,
+      "poster_path": "/w2ARwtc1zoh0pyfwmyhpZHwuXgK.jpg",
+      "release_date": "2025-06-18",
+      "title": "Elio",
+      "video": false,
+      "vote_average": 6.763,
+      "vote_count": 57
+    },
+    {
+      "adult": false,
       "backdrop_path": "/59vDC1BuEQvti24OMr0ZvtAK6R1.jpg",
       "genre_ids": [
         14,
@@ -735,7 +757,7 @@
       "release_date": "2024-11-21",
       "title": "Moana 2",
       "video": false,
-      "vote_average": 7.076,
+      "vote_average": 7.1,
       "vote_count": 2490
     },
     {
@@ -760,28 +782,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/mBDoBHUZHHy9WG7dRFndjB8adhc.jpg",
-      "genre_ids": [
-        10751,
-        35,
-        12,
-        16,
-        878
-      ],
-      "id": 1022787,
-      "original_language": "en",
-      "original_title": "Elio",
-      "overview": "Elio, a space fanatic with an active imagination, finds himself on a cosmic misadventure where he must form new bonds with eccentric alien lifeforms, navigate a crisis of intergalactic proportions and somehow discover who he is truly meant to be.",
-      "popularity": 93.2687,
-      "poster_path": "/w2ARwtc1zoh0pyfwmyhpZHwuXgK.jpg",
-      "release_date": "2025-06-18",
-      "title": "Elio",
-      "video": false,
-      "vote_average": 6.8,
-      "vote_count": 54
-    },
-    {
-      "adult": false,
       "backdrop_path": "/cJvUJEEQ86LSjl4gFLkYpdCJC96.jpg",
       "genre_ids": [
         10752,
@@ -796,8 +796,8 @@
       "release_date": "2025-04-09",
       "title": "Warfare",
       "video": false,
-      "vote_average": 7.189,
-      "vote_count": 615
+      "vote_average": 7.19,
+      "vote_count": 616
     },
     {
       "adult": false,
@@ -1592,6 +1592,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/dXoBFj9Yl9HDRcDVQubkuVCh26N.jpg",
+      "genre_ids": [
+        28,
+        35
+      ],
+      "id": 1160956,
+      "original_language": "zh",
+      "original_title": "熊猫计划",
+      "overview": "International action star Jackie Chan is invited to the adoption ceremony of a rare baby panda, but after an international crime syndicate attempts to kidnap the bear, Jackie has to save the bear using his stunt work skills.",
+      "popularity": 47.6302,
+      "poster_path": "/8iMPQl13q89jQhaA5nXb6UiT0t0.jpg",
+      "release_date": "2024-10-01",
+      "title": "Panda Plan",
+      "video": false,
+      "vote_average": 6.894,
+      "vote_count": 208
+    },
+    {
+      "adult": false,
       "backdrop_path": "/hKmRJ4pWBjhVOhgLAFzXddpc69p.jpg",
       "genre_ids": [
         12,
@@ -1629,26 +1648,6 @@
       "video": false,
       "vote_average": 6.772,
       "vote_count": 482
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/dD14o9KJDbmuJ80z4vKdVnQ0zks.jpg",
-      "genre_ids": [
-        878,
-        10749,
-        35
-      ],
-      "id": 1426680,
-      "original_language": "es",
-      "original_title": "Nuestros tiempos",
-      "overview": "Husband and wife Nora and Héctor's scientific breakthrough lets them time travel from 1966 to 2025. As Héctor struggles, Nora thrives—but at what cost?",
-      "popularity": 44.8915,
-      "poster_path": "/t0AEaR2N7ZqMJuROWTYShOOkm3o.jpg",
-      "release_date": "2025-06-09",
-      "title": "Our Times",
-      "video": false,
-      "vote_average": 6.802,
-      "vote_count": 53
     },
     {
       "adult": false,
@@ -1706,6 +1705,26 @@
       "video": false,
       "vote_average": 8.31,
       "vote_count": 5086
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dD14o9KJDbmuJ80z4vKdVnQ0zks.jpg",
+      "genre_ids": [
+        878,
+        10749,
+        35
+      ],
+      "id": 1426680,
+      "original_language": "es",
+      "original_title": "Nuestros tiempos",
+      "overview": "Husband and wife Nora and Héctor's scientific breakthrough lets them time travel from 1966 to 2025. As Héctor struggles, Nora thrives—but at what cost?",
+      "popularity": 44.8915,
+      "poster_path": "/t0AEaR2N7ZqMJuROWTYShOOkm3o.jpg",
+      "release_date": "2025-06-09",
+      "title": "Our Times",
+      "video": false,
+      "vote_average": 6.8,
+      "vote_count": 53
     },
     {
       "adult": false,
@@ -1801,8 +1820,8 @@
       "release_date": "2024-09-07",
       "title": "The Substance",
       "video": false,
-      "vote_average": 7.1,
-      "vote_count": 4758
+      "vote_average": 7.144,
+      "vote_count": 4760
     },
     {
       "adult": false,
@@ -1957,28 +1976,8 @@
       "release_date": "2025-05-23",
       "title": "Fear Street: Prom Queen",
       "video": false,
-      "vote_average": 5.391,
+      "vote_average": 5.4,
       "vote_count": 328
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/pZfpUMEJzw9BZHtXuZzzOrRxtMa.jpg",
-      "genre_ids": [
-        16,
-        12,
-        14
-      ],
-      "id": 823219,
-      "original_language": "lv",
-      "original_title": "Straume",
-      "overview": "A solitary cat, displaced by a great flood, finds refuge on a boat with various species and must navigate the challenges of adapting to a transformed world together.",
-      "popularity": 39.2937,
-      "poster_path": "/imKSymKBK7o73sajciEmndJoVkR.jpg",
-      "release_date": "2024-08-29",
-      "title": "Flow",
-      "video": false,
-      "vote_average": 8.18,
-      "vote_count": 2056
     },
     {
       "adult": false,
@@ -2095,7 +2094,7 @@
       "release_date": "2025-01-22",
       "title": "Companion",
       "video": false,
-      "vote_average": 7.067,
+      "vote_average": 7.1,
       "vote_count": 1398
     },
     {
@@ -2116,7 +2115,7 @@
       "title": "Fountain of Youth",
       "video": false,
       "vote_average": 6.411,
-      "vote_count": 508
+      "vote_count": 509
     },
     {
       "adult": false,
@@ -2135,8 +2134,8 @@
       "release_date": "2025-03-12",
       "title": "Novocaine",
       "video": false,
-      "vote_average": 6.9,
-      "vote_count": 900
+      "vote_average": 6.917,
+      "vote_count": 902
     },
     {
       "adult": false,
@@ -2155,8 +2154,8 @@
       "release_date": "2025-03-27",
       "title": "Death of a Unicorn",
       "video": false,
-      "vote_average": 6.411,
-      "vote_count": 304
+      "vote_average": 6.407,
+      "vote_count": 305
     },
     {
       "adult": false,
@@ -2193,7 +2192,7 @@
       "title": "Harry Potter and the Philosopher's Stone",
       "video": false,
       "vote_average": 7.901,
-      "vote_count": 28291
+      "vote_count": 28292
     },
     {
       "adult": false,
@@ -2213,7 +2212,7 @@
       "title": "The Accountant",
       "video": false,
       "vote_average": 7.123,
-      "vote_count": 6766
+      "vote_count": 6768
     },
     {
       "adult": false,
@@ -2232,7 +2231,7 @@
       "title": "Flight Risk",
       "video": false,
       "vote_average": 6.092,
-      "vote_count": 801
+      "vote_count": 802
     },
     {
       "adult": false,
@@ -2306,8 +2305,8 @@
       "release_date": "2000-03-17",
       "title": "Final Destination",
       "video": false,
-      "vote_average": 6.6,
-      "vote_count": 6114
+      "vote_average": 6.623,
+      "vote_count": 6115
     },
     {
       "adult": false,
@@ -3161,7 +3160,7 @@
       "title": "The Super Mario Bros. Movie",
       "video": false,
       "vote_average": 7.619,
-      "vote_count": 9757
+      "vote_count": 9758
     },
     {
       "adult": false,
@@ -3203,7 +3202,7 @@
       "title": "Mickey 17",
       "video": false,
       "vote_average": 6.891,
-      "vote_count": 2253
+      "vote_count": 2255
     },
     {
       "adult": false,
@@ -4809,8 +4808,8 @@
       "release_date": "2013-11-20",
       "title": "Frozen",
       "video": false,
-      "vote_average": 7.248,
-      "vote_count": 16905
+      "vote_average": 7.247,
+      "vote_count": 16906
     },
     {
       "adult": false,
@@ -4887,8 +4886,8 @@
       "release_date": "2025-05-30",
       "title": "Lost in Starlight",
       "video": false,
-      "vote_average": 7.237,
-      "vote_count": 57
+      "vote_average": 7.246,
+      "vote_count": 59
     },
     {
       "adult": false,
@@ -5065,8 +5064,8 @@
       "release_date": "2023-06-13",
       "title": "The Flash",
       "video": false,
-      "vote_average": 6.65,
-      "vote_count": 4579
+      "vote_average": 6.649,
+      "vote_count": 4580
     },
     {
       "adult": false,
@@ -5524,6 +5523,27 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/fVpFOcQyHJM2di9upgSIwWD5wac.jpg",
+      "genre_ids": [
+        27,
+        53,
+        28,
+        12
+      ],
+      "id": 396535,
+      "original_language": "ko",
+      "original_title": "부산행",
+      "overview": "When a zombie virus pushes Korea into a state of emergency, those trapped on an express train to Busan must fight for their own survival.",
+      "popularity": 20.3809,
+      "poster_path": "/vNVFt6dtcqnI7hqa6LFBUibuFiw.jpg",
+      "release_date": "2016-07-20",
+      "title": "Train to Busan",
+      "video": false,
+      "vote_average": 7.749,
+      "vote_count": 7808
+    },
+    {
+      "adult": false,
       "backdrop_path": "/cWczNud8Y8i8ab0Z4bxos4myWYO.jpg",
       "genre_ids": [
         16,
@@ -5619,7 +5639,7 @@
       "release_date": "2003-12-17",
       "title": "The Lord of the Rings: The Return of the King",
       "video": false,
-      "vote_average": 8.486,
+      "vote_average": 8.5,
       "vote_count": 25162
     },
     {
@@ -5642,7 +5662,7 @@
       "title": "Elemental",
       "video": false,
       "vote_average": 7.612,
-      "vote_count": 4832
+      "vote_count": 4833
     },
     {
       "adult": false,
@@ -5660,8 +5680,8 @@
       "release_date": "2024-10-25",
       "title": "Conclave",
       "video": false,
-      "vote_average": 7.196,
-      "vote_count": 2632
+      "vote_average": 7.197,
+      "vote_count": 2634
     },
     {
       "adult": false,
@@ -5680,8 +5700,8 @@
       "release_date": "2025-03-07",
       "title": "Another Simple Favor",
       "video": false,
-      "vote_average": 5.832,
-      "vote_count": 355
+      "vote_average": 5.83,
+      "vote_count": 356
     },
     {
       "adult": false,
@@ -5700,7 +5720,7 @@
       "release_date": "2025-03-12",
       "title": "Black Bag",
       "video": false,
-      "vote_average": 6.343,
+      "vote_average": 6.3,
       "vote_count": 633
     },
     {
@@ -5940,7 +5960,7 @@
       "title": "Nosferatu",
       "video": false,
       "vote_average": 6.718,
-      "vote_count": 2736
+      "vote_count": 2738
     },
     {
       "adult": false,
@@ -5959,7 +5979,7 @@
       "release_date": "1994-09-10",
       "title": "Pulp Fiction",
       "video": false,
-      "vote_average": 8.488,
+      "vote_average": 8.5,
       "vote_count": 28774
     },
     {
@@ -6131,7 +6151,7 @@
       "title": "Hacksaw Ridge",
       "video": false,
       "vote_average": 8.193,
-      "vote_count": 14145
+      "vote_count": 14146
     },
     {
       "adult": false,
@@ -6252,8 +6272,8 @@
       "release_date": "2025-05-01",
       "title": "Latin Blood – The Ballad of Ney Matogrosso",
       "video": false,
-      "vote_average": 8.391,
-      "vote_count": 55
+      "vote_average": 8.348,
+      "vote_count": 56
     },
     {
       "adult": false,
@@ -6331,7 +6351,7 @@
       "release_date": "2015-06-17",
       "title": "Inside Out",
       "video": false,
-      "vote_average": 7.911,
+      "vote_average": 7.9,
       "vote_count": 22561
     },
     {
@@ -6534,7 +6554,7 @@
       "release_date": "2014-10-24",
       "title": "Big Hero 6",
       "video": false,
-      "vote_average": 7.729,
+      "vote_average": 7.7,
       "vote_count": 15936
     },
     {
@@ -6554,7 +6574,7 @@
       "title": "Whiplash",
       "video": false,
       "vote_average": 8.377,
-      "vote_count": 15705
+      "vote_count": 15707
     },
     {
       "adult": false,
@@ -6575,7 +6595,7 @@
       "title": "Encanto",
       "video": false,
       "vote_average": 7.591,
-      "vote_count": 9751
+      "vote_count": 9752
     },
     {
       "adult": false,
@@ -6593,8 +6613,8 @@
       "release_date": "2024-10-31",
       "title": "Heretic",
       "video": false,
-      "vote_average": 7.011,
-      "vote_count": 1816
+      "vote_average": 7.009,
+      "vote_count": 1819
     },
     {
       "adult": false,
@@ -6615,25 +6635,6 @@
       "video": false,
       "vote_average": 7.441,
       "vote_count": 11034
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/yIvQblXpyQ2qLfqQQpk1BY5MiTa.jpg",
-      "genre_ids": [
-        18,
-        80
-      ],
-      "id": 1139695,
-      "original_language": "zh",
-      "original_title": "酱园弄·悬案",
-      "overview": "Set in a bustling alleyway during the Japanese occupation of Shanghai in the 1940s, the film centres on a wife, Zhan Zhou, who was being charged with the bloody dismemberment of her husband – a killing that seems impossible for her to have committed alone. The murder thrusts Zhan into the spotlight and the court of public opinion, forcing her towards a fate intertwined with that of her own country.",
-      "popularity": 20.3461,
-      "poster_path": "/2C1yy7lPYAYvbtW8bDckGGdPhmt.jpg",
-      "release_date": "2025-06-14",
-      "title": "She's Got No Name",
-      "video": false,
-      "vote_average": 10.0,
-      "vote_count": 1
     },
     {
       "adult": false,
@@ -6714,6 +6715,47 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/uugcOIfnh8Gz0nxUbduWCoxjWct.jpg",
+      "genre_ids": [
+        878,
+        80,
+        9648,
+        53
+      ],
+      "id": 396806,
+      "original_language": "en",
+      "original_title": "Anon",
+      "overview": "Set in a near-future world where there is no privacy, ignorance or anonymity, our private memories are recorded and crime almost ceases to exist. In trying to solve a series of unsolved murders, Sal Frieland stumbles onto a young woman who appears to have subverted the system and disappeared. She has no identity, no history and no record. Sal realizes it may not be the end of crime but the beginning. Known only as 'The Girl', Sal must find her before he becomes the next victim.",
+      "popularity": 12.907,
+      "poster_path": "/xhBTO9n3fxy3HJt7WlR9h9vvVmk.jpg",
+      "release_date": "2018-05-03",
+      "title": "Anon",
+      "video": false,
+      "vote_average": 6.0,
+      "vote_count": 1618
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xAqv33zd06xRnYjYJRg7gW61bMc.jpg",
+      "genre_ids": [
+        18,
+        10749,
+        53
+      ],
+      "id": 50433,
+      "original_language": "it",
+      "original_title": "L'alcova",
+      "overview": "In 1936 Italy, Elio returns home from Africa with a present for his wife in the form of Zerbal, the daughter of a tribal king. Unbeknown to him, his neglected wife Alessandra has formed a relationship with Elio’s otherwise frigid secretary Velma who is less than pleased at Elio’s return.",
+      "popularity": 15.7591,
+      "poster_path": "/ipFdgjiF3wsDB8NdoLxloFEeHYl.jpg",
+      "release_date": "1985-01-21",
+      "title": "The Alcove",
+      "video": false,
+      "vote_average": 5.2,
+      "vote_count": 32
+    },
+    {
+      "adult": false,
       "backdrop_path": "/s4NJh9hLa9ZbgiXfJpjsZ5i47ug.jpg",
       "genre_ids": [
         16,
@@ -6756,7 +6798,7 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/qocKcY8QVgWiG4HKD7CP5yApXDr.jpg",
+      "backdrop_path": "/bajke0ThKJ2V2iHE9DDYOJGdS7a.jpg",
       "genre_ids": [
         12,
         35
@@ -6766,12 +6808,12 @@
       "original_title": "The Phoenician Scheme",
       "overview": "Wealthy businessman Zsa-zsa Korda appoints his only daughter, a nun, as sole heir to his estate. As Korda embarks on a new enterprise, they soon become the target of scheming tycoons, foreign terrorists, and determined assassins.",
       "popularity": 16.3044,
-      "poster_path": "/aHjpixSOn166tZLWRdIvHWDPu6y.jpg",
+      "poster_path": "/jtEqpy0K1iVuCebRwWqT6BZ6jLN.jpg",
       "release_date": "2025-05-23",
       "title": "The Phoenician Scheme",
       "video": false,
-      "vote_average": 6.952,
-      "vote_count": 228
+      "vote_average": 6.9,
+      "vote_count": 230
     },
     {
       "adult": false,
@@ -6790,8 +6832,8 @@
       "release_date": "2022-08-02",
       "title": "Prey",
       "video": false,
-      "vote_average": 7.689,
-      "vote_count": 7065
+      "vote_average": 7.69,
+      "vote_count": 7066
     },
     {
       "adult": false,
@@ -6833,7 +6875,7 @@
       "title": "Copycat",
       "video": false,
       "vote_average": 6.483,
-      "vote_count": 1050
+      "vote_count": 1051
     },
     {
       "adult": false,
@@ -6873,7 +6915,7 @@
       "title": "Howl's Moving Castle",
       "video": false,
       "vote_average": 8.397,
-      "vote_count": 10351
+      "vote_count": 10352
     },
     {
       "adult": false,
@@ -6914,7 +6956,7 @@
       "title": "The Family Plan",
       "video": false,
       "vote_average": 7.273,
-      "vote_count": 1538
+      "vote_count": 1539
     },
     {
       "adult": false,
@@ -6953,7 +6995,7 @@
       "release_date": "1983-12-09",
       "title": "Scarface",
       "video": false,
-      "vote_average": 8.2,
+      "vote_average": 8.163,
       "vote_count": 12264
     },
     {
@@ -7048,8 +7090,8 @@
       "release_date": "2021-10-08",
       "title": "Pleasure",
       "video": false,
-      "vote_average": 6.3,
-      "vote_count": 664
+      "vote_average": 6.283,
+      "vote_count": 665
     },
     {
       "adult": false,
@@ -7071,46 +7113,6 @@
       "video": false,
       "vote_average": 7.363,
       "vote_count": 13655
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/eT1L3IVcHUL58wLn48E5dxlea3Z.jpg",
-      "genre_ids": [
-        27,
-        53,
-        18
-      ],
-      "id": 1140535,
-      "original_language": "en",
-      "original_title": "Presence",
-      "overview": "A couple and their children move into a seemingly normal suburban home. When strange events occur, they begin to believe there is something else in the house with them. The presence is about to disrupt their lives in unimaginable ways.",
-      "popularity": 18.2172,
-      "poster_path": "/hZ8dTeBzigV5SVgwG1ikSROAFiS.jpg",
-      "release_date": "2024-11-04",
-      "title": "Presence",
-      "video": false,
-      "vote_average": 5.978,
-      "vote_count": 383
-    },
-    {
-      "adult": false,
-      "backdrop_path": null,
-      "genre_ids": [
-        16,
-        35,
-        28
-      ],
-      "id": 324568,
-      "original_language": "ja",
-      "original_title": "おいら女蛮",
-      "overview": "Does being the only guy in an all girl school sound like paradise? It might be, if the girls knew you were a guy, but to stay in school teenage pervert Banji can't let can't let anyone find out his chromosomes don't match. Banji's status conscious parents want him to go to a good school, but not enough to spend the money on a good co-ed school. Now, in addition to studying math and science, Banji has to learn how to put on a bra and makeup. His life has become a living hell. Not only is he at the bottom of the social pecking order, he must also got to conceal his inner-masculinity from the pretty classmate girl who's stolen his heart while avoiding the female bullies who threaten to expose his less-than-feminine charms in the locker room.",
-      "popularity": 16.0689,
-      "poster_path": "/rWEykM1thLhYee6mK25fGLXyO14.jpg",
-      "release_date": "1992-08-21",
-      "title": "Delinquent in Drag",
-      "video": false,
-      "vote_average": 5.1,
-      "vote_count": 15
     },
     {
       "adult": false,
@@ -8208,7 +8210,7 @@
       "release_date": "2006-06-29",
       "title": "The Devil Wears Prada",
       "video": false,
-      "vote_average": 7.393,
+      "vote_average": 7.4,
       "vote_count": 12354
     },
     {
@@ -8247,7 +8249,7 @@
       "release_date": "2010-02-14",
       "title": "Shutter Island",
       "video": false,
-      "vote_average": 8.201,
+      "vote_average": 8.2,
       "vote_count": 24599
     },
     {
@@ -8288,26 +8290,6 @@
       "video": false,
       "vote_average": 7.078,
       "vote_count": 3926
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/huzHIuaWRMDIAB8jIXYAwE7CJzS.jpg",
-      "genre_ids": [
-        35,
-        80,
-        12
-      ],
-      "id": 337404,
-      "original_language": "en",
-      "original_title": "Cruella",
-      "overview": "In 1970s London amidst the punk rock revolution, a young grifter named Estella is determined to make a name for herself with her designs. She befriends a pair of young thieves who appreciate her appetite for mischief, and together they are able to build a life for themselves on the London streets. One day, Estella’s flair for fashion catches the eye of the Baroness von Hellman, a fashion legend who is devastatingly chic and terrifyingly haute. But their relationship sets in motion a course of events and revelations that will cause Estella to embrace her wicked side and become the raucous, fashionable and revenge-bent Cruella.",
-      "popularity": 16.4552,
-      "poster_path": "/hjS9mH8KvRiGHgjk6VUZH7OT0Ng.jpg",
-      "release_date": "2021-05-26",
-      "title": "Cruella",
-      "video": false,
-      "vote_average": 7.993,
-      "vote_count": 9616
     },
     {
       "adult": false,
@@ -8508,7 +8490,7 @@
       "title": "Avengers: Age of Ultron",
       "video": false,
       "vote_average": 7.271,
-      "vote_count": 23495
+      "vote_count": 23497
     },
     {
       "adult": false,
@@ -8528,7 +8510,7 @@
       "title": "The Lord of the Rings: The Two Towers",
       "video": false,
       "vote_average": 8.406,
-      "vote_count": 22652
+      "vote_count": 22653
     },
     {
       "adult": false,
@@ -8583,8 +8565,8 @@
       "release_date": "2025-05-08",
       "title": "Ocean with David Attenborough",
       "video": false,
-      "vote_average": 8.4,
-      "vote_count": 24
+      "vote_average": 8.288,
+      "vote_count": 26
     },
     {
       "adult": false,
@@ -8681,8 +8663,8 @@
       "release_date": "2024-09-19",
       "title": "Vermiglio",
       "video": false,
-      "vote_average": 7.1,
-      "vote_count": 224
+      "vote_average": 7.06,
+      "vote_count": 225
     },
     {
       "adult": false,
@@ -8740,6 +8722,25 @@
       "video": false,
       "vote_average": 7.4,
       "vote_count": 22619
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jzozRFRp6MjziMdQsPuOZiD9RwW.jpg",
+      "genre_ids": [
+        18,
+        10749
+      ],
+      "id": 1476292,
+      "original_language": "tl",
+      "original_title": "Kalakal",
+      "overview": "A seductive female garbage collector who embraces the life of an escort lady. Desperate to live a comfortable life, she leaves the dumpsite and enters the club. But can she also dump both her brother and her lover who remind her of her past?",
+      "popularity": 15.0325,
+      "poster_path": "/KwhyuZn24FOs4Dl52g9KLpS48a.jpg",
+      "release_date": "2025-06-10",
+      "title": "Kalakal",
+      "video": false,
+      "vote_average": 6.0,
+      "vote_count": 1
     },
     {
       "adult": false,
@@ -8877,7 +8878,7 @@
       "release_date": "2008-06-04",
       "title": "Kung Fu Panda",
       "video": false,
-      "vote_average": 7.3,
+      "vote_average": 7.301,
       "vote_count": 11962
     },
     {
@@ -8922,6 +8923,24 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/vxwsDKWhMuJOxqO6d3corhRVxis.jpg",
+      "genre_ids": [
+        99
+      ],
+      "id": 1477453,
+      "original_language": "en",
+      "original_title": "Trainwreck: The Astroworld Tragedy",
+      "overview": "Featuring exclusive interviews with survivors, paramedics and festival staff, this documentary examines the 2021 Astroworld tragedy and its aftermath.",
+      "popularity": 14.9107,
+      "poster_path": "/d3Znx32rUXgDm8x7OT2LCFg1qWR.jpg",
+      "release_date": "2025-06-09",
+      "title": "Trainwreck: The Astroworld Tragedy",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 34
+    },
+    {
+      "adult": false,
       "backdrop_path": "/aAM3cQmYGjjLQ24m0F0RWfjKQ57.jpg",
       "genre_ids": [
         27,
@@ -8957,7 +8976,7 @@
       "release_date": "2025-03-14",
       "title": "Wolfgang",
       "video": false,
-      "vote_average": 6.976,
+      "vote_average": 7.0,
       "vote_count": 21
     },
     {
@@ -9019,7 +9038,7 @@
       "title": "Plane",
       "video": false,
       "vote_average": 6.925,
-      "vote_count": 2394
+      "vote_count": 2395
     },
     {
       "adult": false,
@@ -9058,25 +9077,6 @@
       "video": false,
       "vote_average": 6.464,
       "vote_count": 16377
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/7dzngS8pLkGJpyeskCFcjPO9qLF.jpg",
-      "genre_ids": [
-        28,
-        53
-      ],
-      "id": 245891,
-      "original_language": "en",
-      "original_title": "John Wick",
-      "overview": "Ex-hitman John Wick comes out of retirement to track down the gangsters that took everything from him.",
-      "popularity": 15.1934,
-      "poster_path": "/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg",
-      "release_date": "2014-10-22",
-      "title": "John Wick",
-      "video": false,
-      "vote_average": 7.447,
-      "vote_count": 19783
     },
     {
       "adult": false,
@@ -9154,7 +9154,7 @@
       "title": "Charlie and the Chocolate Factory",
       "video": false,
       "vote_average": 7.043,
-      "vote_count": 15494
+      "vote_count": 15496
     },
     {
       "adult": false,
@@ -9344,7 +9344,26 @@
       "title": "Django Unchained",
       "video": false,
       "vote_average": 8.183,
-      "vote_count": 26828
+      "vote_count": 26830
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/baAFsaYx5dZvb4g8NyE7iDh8p6q.jpg",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "id": 1285965,
+      "original_language": "en",
+      "original_title": "Dangerous Animals",
+      "overview": "A savvy and free-spirited surfer is abducted by a shark-obsessed serial killer. Held captive on his boat, she must figure out how to escape before he carries out a ritualistic feeding to the sharks below.",
+      "popularity": 14.5597,
+      "poster_path": "/9tk3Si960hg4E49eMt81dS7Qe9Z.jpg",
+      "release_date": "2025-06-05",
+      "title": "Dangerous Animals",
+      "video": false,
+      "vote_average": 6.8,
+      "vote_count": 15
     },
     {
       "adult": false,
@@ -9365,6 +9384,27 @@
       "video": false,
       "vote_average": 6.778,
       "vote_count": 36
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9s9o9RT9Yj6nDuRJjnJm78WFoFl.jpg",
+      "genre_ids": [
+        28,
+        27,
+        53,
+        878
+      ],
+      "id": 1051896,
+      "original_language": "en",
+      "original_title": "Arcadian",
+      "overview": "In the near future, on a decimated Earth, Paul and his twin sons face terror at night when ferocious creatures awaken. When Paul is nearly killed, the boys come up with a plan for survival, using everything their father taught them to keep him alive.",
+      "popularity": 14.541,
+      "poster_path": "/h4T8Xeydkw53h9uIbulYsss25UF.jpg",
+      "release_date": "2024-04-12",
+      "title": "Arcadian",
+      "video": false,
+      "vote_average": 6.1,
+      "vote_count": 691
     },
     {
       "adult": false,
@@ -9424,46 +9464,6 @@
       "video": false,
       "vote_average": 8.301,
       "vote_count": 15271
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/6G2fLCVm9fiLyHvBrccq6GSe2ih.jpg",
-      "genre_ids": [
-        28,
-        12,
-        878
-      ],
-      "id": 284053,
-      "original_language": "en",
-      "original_title": "Thor: Ragnarok",
-      "overview": "Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian civilization, at the hands of a powerful new threat, the ruthless Hela.",
-      "popularity": 12.9678,
-      "poster_path": "/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg",
-      "release_date": "2017-10-02",
-      "title": "Thor: Ragnarok",
-      "video": false,
-      "vote_average": 7.6,
-      "vote_count": 21191
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/yz8QL8WFD8yj0LA5zIlNOgcHvZK.jpg",
-      "genre_ids": [
-        12,
-        35,
-        878
-      ],
-      "id": 105,
-      "original_language": "en",
-      "original_title": "Back to the Future",
-      "overview": "Eighties teenager Marty McFly is accidentally sent back in time to 1955, inadvertently disrupting his parents' first meeting and attracting his mother's romantic interest. Marty must repair the damage to history by rekindling his parents' romance and - with the help of his eccentric inventor friend Doc Brown - return to 1985.",
-      "popularity": 15.1399,
-      "poster_path": "/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg",
-      "release_date": "1985-07-03",
-      "title": "Back to the Future",
-      "video": false,
-      "vote_average": 8.321,
-      "vote_count": 20618
     },
     {
       "adult": false,
@@ -10259,26 +10259,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/8IYpYg6MdNBGiMnNAZptSxt1jGm.jpg",
-      "genre_ids": [
-        12,
-        28,
-        18
-      ],
-      "id": 1084736,
-      "original_language": "fr",
-      "original_title": "Le Comte de Monte-Cristo",
-      "overview": "Edmond Dantes becomes the target of a sinister plot and is arrested on his wedding day for a crime he did not commit. After 14 years in the island prison of Château d’If, he manages a daring escape. Now rich beyond his dreams, he assumes the identity of the Count of Monte-Cristo and exacts his revenge on the three men who betrayed him.",
-      "popularity": 14.513,
-      "poster_path": "/sAT1P3FGhtJ68anUyJScnMu8t1l.jpg",
-      "release_date": "2024-06-28",
-      "title": "The Count of Monte Cristo",
-      "video": false,
-      "vote_average": 7.992,
-      "vote_count": 1661
-    },
-    {
-      "adult": false,
       "backdrop_path": "/oLsts7ct0NVkdYpx5rZg10MG6zh.jpg",
       "genre_ids": [
         18
@@ -10314,7 +10294,7 @@
       "release_date": "2000-12-15",
       "title": "The Emperor's New Groove",
       "video": false,
-      "vote_average": 7.558,
+      "vote_average": 7.559,
       "vote_count": 6931
     },
     {
@@ -10335,6 +10315,28 @@
       "video": false,
       "vote_average": 8.054,
       "vote_count": 9989
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cHkhb5A4gQRK6zs6Pv7zorHs8Nk.jpg",
+      "genre_ids": [
+        28,
+        12,
+        80,
+        18,
+        53
+      ],
+      "id": 168259,
+      "original_language": "en",
+      "original_title": "Furious 7",
+      "overview": "Deckard Shaw seeks revenge against Dominic Toretto and his family for his comatose brother.",
+      "popularity": 13.8801,
+      "poster_path": "/wurKlC3VKUgcfsn0K51MJYEleS2.jpg",
+      "release_date": "2015-04-01",
+      "title": "Furious 7",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 10841
     },
     {
       "adult": false,
@@ -10389,8 +10391,8 @@
       "release_date": "2023-12-07",
       "title": "Poor Things",
       "video": false,
-      "vote_average": 7.685,
-      "vote_count": 4782
+      "vote_average": 7.684,
+      "vote_count": 4784
     },
     {
       "adult": false,
@@ -10528,8 +10530,8 @@
       "release_date": "2024-09-19",
       "title": "I'm Still Here",
       "video": false,
-      "vote_average": 7.964,
-      "vote_count": 703
+      "vote_average": 7.961,
+      "vote_count": 704
     },
     {
       "adult": false,
@@ -11054,6 +11056,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/77Fqz6PFCSnWySDOmEL6ZPcaYIl.jpg",
+      "genre_ids": [
+        10749,
+        35
+      ],
+      "id": 1014590,
+      "original_language": "en",
+      "original_title": "Upgraded",
+      "overview": "Ana is an ambitious intern dreaming of a career in the art world while trying to impress her demanding boss Claire. When she's upgraded to first class on a work trip, she meets handsome Will, and Ana pretends to be her boss– a white lie that sets off a glamorous chain of events, romance and opportunity, until her fib threatens to surface.",
+      "popularity": 12.1234,
+      "poster_path": "/uhOXS17gRpTwA85WsZLlYFK3rz0.jpg",
+      "release_date": "2024-02-07",
+      "title": "Upgraded",
+      "video": false,
+      "vote_average": 7.207,
+      "vote_count": 902
+    },
+    {
+      "adult": false,
       "backdrop_path": "/1GJvBE7UWU1WOVi0XREl4JQc7f8.jpg",
       "genre_ids": [
         28,
@@ -11174,27 +11195,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/9s9o9RT9Yj6nDuRJjnJm78WFoFl.jpg",
-      "genre_ids": [
-        28,
-        27,
-        53,
-        878
-      ],
-      "id": 1051896,
-      "original_language": "en",
-      "original_title": "Arcadian",
-      "overview": "In the near future, on a decimated Earth, Paul and his twin sons face terror at night when ferocious creatures awaken. When Paul is nearly killed, the boys come up with a plan for survival, using everything their father taught them to keep him alive.",
-      "popularity": 14.541,
-      "poster_path": "/h4T8Xeydkw53h9uIbulYsss25UF.jpg",
-      "release_date": "2024-04-12",
-      "title": "Arcadian",
-      "video": false,
-      "vote_average": 6.107,
-      "vote_count": 691
-    },
-    {
-      "adult": false,
       "backdrop_path": "/6UbuK8pO1CwGYulMT5jhBaIt7sf.jpg",
       "genre_ids": [
         14,
@@ -11212,8 +11212,8 @@
       "release_date": "2011-11-15",
       "title": "Book of Dragons",
       "video": false,
-      "vote_average": 6.7,
-      "vote_count": 183
+      "vote_average": 6.739,
+      "vote_count": 184
     },
     {
       "adult": false,
@@ -11274,28 +11274,6 @@
       "video": false,
       "vote_average": 6.429,
       "vote_count": 3618
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/cHkhb5A4gQRK6zs6Pv7zorHs8Nk.jpg",
-      "genre_ids": [
-        28,
-        12,
-        80,
-        18,
-        53
-      ],
-      "id": 168259,
-      "original_language": "en",
-      "original_title": "Furious 7",
-      "overview": "Deckard Shaw seeks revenge against Dominic Toretto and his family for his comatose brother.",
-      "popularity": 13.8801,
-      "poster_path": "/wurKlC3VKUgcfsn0K51MJYEleS2.jpg",
-      "release_date": "2015-04-01",
-      "title": "Furious 7",
-      "video": false,
-      "vote_average": 7.223,
-      "vote_count": 10841
     },
     {
       "adult": false,
@@ -11630,7 +11608,7 @@
       "title": "Trap",
       "video": false,
       "vote_average": 6.3,
-      "vote_count": 2253
+      "vote_count": 2254
     },
     {
       "adult": false,
@@ -11792,7 +11770,7 @@
       "release_date": "2010-05-20",
       "title": "Shrek Forever After",
       "video": false,
-      "vote_average": 6.383,
+      "vote_average": 6.384,
       "vote_count": 7567
     },
     {
@@ -11852,6 +11830,25 @@
       "video": false,
       "vote_average": 5.7,
       "vote_count": 267
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/pwGmXVKUgKN13psUjlhC9zBcq1o.jpg",
+      "genre_ids": [
+        28,
+        14
+      ],
+      "id": 634492,
+      "original_language": "en",
+      "original_title": "Madame Web",
+      "overview": "Forced to confront revelations about her past, paramedic Cassandra Webb forges a relationship with three young women destined for powerful futures...if they can all survive a deadly present.",
+      "popularity": 11.2228,
+      "poster_path": "/rULWuutDcN5NvtiZi4FRPzRYWSh.jpg",
+      "release_date": "2024-02-14",
+      "title": "Madame Web",
+      "video": false,
+      "vote_average": 5.344,
+      "vote_count": 2241
     },
     {
       "adult": false,
@@ -12249,26 +12246,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/7C921eWK06n12c1miRXnYoEu5Yv.jpg",
-      "genre_ids": [
-        12,
-        28,
-        14
-      ],
-      "id": 166426,
-      "original_language": "en",
-      "original_title": "Pirates of the Caribbean: Dead Men Tell No Tales",
-      "overview": "Thrust into an all-new adventure, a down-on-his-luck Capt. Jack Sparrow feels the winds of ill-fortune blowing even more strongly when deadly ghost sailors led by his old nemesis, the evil Capt. Salazar, escape from the Devil's Triangle. Jack's only hope of survival lies in seeking out the legendary Trident of Poseidon, but to find it, he must forge an uneasy alliance with a brilliant and beautiful astronomer and a headstrong young man in the British navy.",
-      "popularity": 11.3821,
-      "poster_path": "/qwoGfcg6YUS55nUweKGujHE54Wy.jpg",
-      "release_date": "2017-05-23",
-      "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
-      "video": false,
-      "vote_average": 6.652,
-      "vote_count": 12267
-    },
-    {
-      "adult": false,
       "backdrop_path": "/2t8uXcm5CuChOoX5gEKl918yv6I.jpg",
       "genre_ids": [
         28,
@@ -12446,7 +12423,7 @@
       "title": "Aladdin",
       "video": false,
       "vote_average": 7.096,
-      "vote_count": 10249
+      "vote_count": 10250
     },
     {
       "adult": false,
@@ -12556,8 +12533,8 @@
       "release_date": "2025-02-27",
       "title": "¡Qué Huevos, Sofía!",
       "video": false,
-      "vote_average": 8.586,
-      "vote_count": 29
+      "vote_average": 8.567,
+      "vote_count": 30
     },
     {
       "adult": false,
@@ -12578,24 +12555,6 @@
       "video": false,
       "vote_average": 7.57,
       "vote_count": 13508
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/bWEw8VUefcYPYakFl39Hmy5hjDI.jpg",
-      "genre_ids": [
-        35
-      ],
-      "id": 1486575,
-      "original_language": "en",
-      "original_title": "Justin Willman: Magic Lover",
-      "overview": "Follows an entertaining show that combines between performing magic tricks and delivering comedic commentary on different themes.",
-      "popularity": 9.632,
-      "poster_path": "/jOSpflvAHPglJFH5HRXgu054Wm3.jpg",
-      "release_date": "2025-06-17",
-      "title": "Justin Willman: Magic Lover",
-      "video": false,
-      "vote_average": 8.0,
-      "vote_count": 2
     },
     {
       "adult": false,
@@ -12867,8 +12826,8 @@
       "release_date": "2006-04-25",
       "title": "Mission: Impossible III",
       "video": false,
-      "vote_average": 6.748,
-      "vote_count": 7136
+      "vote_average": 6.749,
+      "vote_count": 7137
     },
     {
       "adult": false,
@@ -12926,7 +12885,7 @@
       "release_date": "2024-07-11",
       "title": "Descendants: The Rise of Red",
       "video": false,
-      "vote_average": 6.852,
+      "vote_average": 6.9,
       "vote_count": 413
     },
     {
@@ -13033,6 +12992,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/jMBpJFRtrtIXymer93XLavPwI3P.jpg",
+      "genre_ids": [
+        28,
+        53,
+        878
+      ],
+      "id": 679,
+      "original_language": "en",
+      "original_title": "Aliens",
+      "overview": "Ripley, the sole survivor of the Nostromo's deadly encounter with the monstrous Alien, returns to Earth after drifting through space in hypersleep for 57 years. Although her story is initially met with skepticism, she agrees to accompany a team of Colonial Marines back to LV-426.",
+      "popularity": 12.1124,
+      "poster_path": "/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg",
+      "release_date": "1986-07-18",
+      "title": "Aliens",
+      "video": false,
+      "vote_average": 8.0,
+      "vote_count": 10160
+    },
+    {
+      "adult": false,
       "backdrop_path": "/qSNz1G1Ts8fFw6v4Vae4aMAjcY7.jpg",
       "genre_ids": [
         14,
@@ -13050,7 +13029,7 @@
       "release_date": "2007-05-17",
       "title": "Shrek the Third",
       "video": false,
-      "vote_average": 6.297,
+      "vote_average": 6.3,
       "vote_count": 9296
     },
     {
@@ -13092,7 +13071,7 @@
       "title": "Get Out",
       "video": false,
       "vote_average": 7.619,
-      "vote_count": 17925
+      "vote_count": 17926
     },
     {
       "adult": false,
@@ -13168,6 +13147,24 @@
       "video": false,
       "vote_average": 6.2,
       "vote_count": 20
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dfNg7LagiVdnuT2tVDcaH66tgWK.jpg",
+      "genre_ids": [
+        27
+      ],
+      "id": 1151031,
+      "original_language": "en",
+      "original_title": "Bring Her Back",
+      "overview": "Following the death of their father, a brother and sister are introduced to their new sibling by their foster mother, only to learn that she has a terrifying secret.",
+      "popularity": 12.0477,
+      "poster_path": "/1zcH6vJs0TnCVXK7TGdTkEzR5J8.jpg",
+      "release_date": "2025-05-28",
+      "title": "Bring Her Back",
+      "video": false,
+      "vote_average": 7.0,
+      "vote_count": 44
     },
     {
       "adult": false,
@@ -13303,7 +13300,7 @@
       "title": "Hereditary",
       "video": false,
       "vote_average": 7.291,
-      "vote_count": 7989
+      "vote_count": 7990
     },
     {
       "adult": false,
@@ -13797,28 +13794,30 @@
       "release_date": "1997-06-13",
       "title": "Hercules",
       "video": false,
-      "vote_average": 7.499,
+      "vote_average": 7.5,
       "vote_count": 7608
     },
     {
       "adult": false,
-      "backdrop_path": "/jMBpJFRtrtIXymer93XLavPwI3P.jpg",
+      "backdrop_path": "/q62bpQ67qaXY0u6b2wFEnQYIbPd.jpg",
       "genre_ids": [
-        28,
-        53,
-        878
+        10751,
+        12,
+        16,
+        35,
+        14
       ],
-      "id": 679,
+      "id": 301528,
       "original_language": "en",
-      "original_title": "Aliens",
-      "overview": "Ripley, the sole survivor of the Nostromo's deadly encounter with the monstrous Alien, returns to Earth after drifting through space in hypersleep for 57 years. Although her story is initially met with skepticism, she agrees to accompany a team of Colonial Marines back to LV-426.",
-      "popularity": 12.1124,
-      "poster_path": "/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg",
-      "release_date": "1986-07-18",
-      "title": "Aliens",
+      "original_title": "Toy Story 4",
+      "overview": "Woody has always been confident about his place in the world and that his priority is taking care of his kid, whether that's Andy or Bonnie. But when Bonnie adds a reluctant new toy called \"Forky\" to her room, a road trip adventure alongside old and new friends will show Woody how big the world can be for a toy.",
+      "popularity": 11.9922,
+      "poster_path": "/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg",
+      "release_date": "2019-06-19",
+      "title": "Toy Story 4",
       "video": false,
-      "vote_average": 7.954,
-      "vote_count": 10158
+      "vote_average": 7.5,
+      "vote_count": 10031
     },
     {
       "adult": false,
@@ -14620,26 +14619,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/iWzu3dVJGNfQUkLfK9xpTWoi5mh.jpg",
-      "genre_ids": [
-        10749,
-        18,
-        35
-      ],
-      "id": 1139566,
-      "original_language": "es",
-      "original_title": "A través de mi ventana 3: A través de tu mirada",
-      "overview": "After the events of the summer, Ares and Raquel they don't see a way forward in their relationship and decide to go separate ways. But when they meet again in the winter in Barcelona, the love and desire they feel for each other is undeniable. Will they be able to find a way to get back together?",
-      "popularity": 12.1084,
-      "poster_path": "/gwpTgtwVAwmvivBN8rAQABpx9Am.jpg",
-      "release_date": "2024-02-23",
-      "title": "Through My Window 3: Looking at You",
-      "video": false,
-      "vote_average": 6.93,
-      "vote_count": 623
-    },
-    {
-      "adult": false,
       "backdrop_path": "/cDxq3sXtGX4RkQqQmVXmu0qwPI6.jpg",
       "genre_ids": [
         27
@@ -14655,6 +14634,25 @@
       "video": false,
       "vote_average": 4.9,
       "vote_count": 13
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/p3WiF8qYS7Qp17YRYgrFh7gf9P9.jpg",
+      "genre_ids": [
+        28,
+        80
+      ],
+      "id": 24,
+      "original_language": "en",
+      "original_title": "Kill Bill: Vol. 1",
+      "overview": "An assassin is shot by her ruthless employer, Bill, and other members of their assassination circle – but she lives to plot her vengeance.",
+      "popularity": 11.4232,
+      "poster_path": "/v7TaX8kXMXs5yFFGR41guUDNcnB.jpg",
+      "release_date": "2003-10-10",
+      "title": "Kill Bill: Vol. 1",
+      "video": false,
+      "vote_average": 7.971,
+      "vote_count": 17913
     },
     {
       "adult": false,
@@ -14734,8 +14732,8 @@
       "release_date": "2023-09-27",
       "title": "Saw X",
       "video": false,
-      "vote_average": 7.206,
-      "vote_count": 2116
+      "vote_average": 7.205,
+      "vote_count": 2118
     },
     {
       "adult": false,
@@ -14754,8 +14752,8 @@
       "release_date": "2006-10-04",
       "title": "The Departed",
       "video": false,
-      "vote_average": 8.159,
-      "vote_count": 15364
+      "vote_average": 8.2,
+      "vote_count": 15365
     },
     {
       "adult": false,
@@ -14833,7 +14831,7 @@
       "title": "Psycho",
       "video": false,
       "vote_average": 8.422,
-      "vote_count": 10399
+      "vote_count": 10400
     },
     {
       "adult": false,
@@ -14991,25 +14989,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/p3WiF8qYS7Qp17YRYgrFh7gf9P9.jpg",
-      "genre_ids": [
-        28,
-        80
-      ],
-      "id": 24,
-      "original_language": "en",
-      "original_title": "Kill Bill: Vol. 1",
-      "overview": "An assassin is shot by her ruthless employer, Bill, and other members of their assassination circle – but she lives to plot her vengeance.",
-      "popularity": 11.4232,
-      "poster_path": "/v7TaX8kXMXs5yFFGR41guUDNcnB.jpg",
-      "release_date": "2003-10-10",
-      "title": "Kill Bill: Vol. 1",
-      "video": false,
-      "vote_average": 7.971,
-      "vote_count": 17912
-    },
-    {
-      "adult": false,
       "backdrop_path": "/hU1Q9YVzdYhokr8a9gLywnSUMlN.jpg",
       "genre_ids": [
         16,
@@ -15048,24 +15027,6 @@
       "video": false,
       "vote_average": 6.948,
       "vote_count": 3605
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/nx3Wv4MWtg1FUN4AXw4GYD2GhHV.jpg",
-      "genre_ids": [
-        99
-      ],
-      "id": 1484255,
-      "original_language": "en",
-      "original_title": "Trainwreck: Mayor of Mayhem",
-      "overview": "Rob Ford scandalized Canadian politics as the brash yet beloved mayor of Toronto — until an infamous video of him smoking crack sparked his downfall.",
-      "popularity": 9.8151,
-      "poster_path": "/wcy6MyKenxvWhxQCkVKdmHCJc9W.jpg",
-      "release_date": "2025-06-16",
-      "title": "Trainwreck: Mayor of Mayhem",
-      "video": false,
-      "vote_average": 5.8,
-      "vote_count": 9
     },
     {
       "adult": false,
@@ -15165,7 +15126,7 @@
       "title": "The Pursuit of Happyness",
       "video": false,
       "vote_average": 7.89,
-      "vote_count": 10090
+      "vote_count": 10091
     },
     {
       "adult": false,
@@ -15385,7 +15346,7 @@
       "title": "Constantine",
       "video": false,
       "vote_average": 7.107,
-      "vote_count": 7495
+      "vote_count": 7496
     },
     {
       "adult": false,
@@ -15405,6 +15366,47 @@
       "video": false,
       "vote_average": 6.342,
       "vote_count": 2698
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6nLdSON3ErniBZTXWG7WRqs5jGz.jpg",
+      "genre_ids": [
+        14,
+        18,
+        53,
+        9648,
+        10749
+      ],
+      "id": 251,
+      "original_language": "en",
+      "original_title": "Ghost",
+      "overview": "After a young man is murdered, his spirit stays behind to warn his lover of impending danger, with the help of a reluctant psychic.",
+      "popularity": 10.5541,
+      "poster_path": "/w9RaPHov8oM5cnzeE27isnFMsvS.jpg",
+      "release_date": "1990-07-13",
+      "title": "Ghost",
+      "video": false,
+      "vote_average": 7.226,
+      "vote_count": 5715
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kcCy5tKTe6WepVQ6SQaSewpmoCj.jpg",
+      "genre_ids": [
+        18,
+        10402
+      ],
+      "id": 661539,
+      "original_language": "en",
+      "original_title": "A Complete Unknown",
+      "overview": "New York, early 1960s. Against the backdrop of a vibrant music scene and tumultuous cultural upheaval, an enigmatic 19-year-old from Minnesota arrives in the West Village with his guitar and revolutionary talent, destined to change the course of American music.",
+      "popularity": 12.9487,
+      "poster_path": "/llWl3GtNoXosbvYboelmoT459NM.jpg",
+      "release_date": "2024-12-18",
+      "title": "A Complete Unknown",
+      "video": false,
+      "vote_average": 7.125,
+      "vote_count": 1066
     },
     {
       "adult": false,
@@ -16252,7 +16254,7 @@
       "release_date": "2009-11-18",
       "title": "The Twilight Saga: New Moon",
       "video": false,
-      "vote_average": 6.0,
+      "vote_average": 5.99,
       "vote_count": 9383
     },
     {
@@ -16317,7 +16319,7 @@
       "title": "The Croods",
       "video": false,
       "vote_average": 6.925,
-      "vote_count": 7219
+      "vote_count": 7220
     },
     {
       "adult": false,
@@ -17101,8 +17103,8 @@
       "release_date": "2022-10-19",
       "title": "Black Adam",
       "video": false,
-      "vote_average": 6.859,
-      "vote_count": 6588
+      "vote_average": 6.86,
+      "vote_count": 6589
     },
     {
       "adult": false,
@@ -17143,8 +17145,8 @@
       "release_date": "2018-01-10",
       "title": "Maze Runner: The Death Cure",
       "video": false,
-      "vote_average": 7.098,
-      "vote_count": 8000
+      "vote_average": 7.099,
+      "vote_count": 8002
     },
     {
       "adult": false,
@@ -17381,25 +17383,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/A7KwHKB5faRRRRveVQC5TPI35kV.jpg",
-      "genre_ids": [
-        18,
-        10749
-      ],
-      "id": 1232449,
-      "original_language": "nl",
-      "original_title": "Young Hearts",
-      "overview": "14-year-old Elias increasingly feels like an outsider in his village. When he meets his new neighbour of the same age, Alexander, Elias is confronted with his burgeoning sexuality.",
-      "popularity": 10.483,
-      "poster_path": "/iGCtYxfuvXfy0BD5m6p7vKuPOxS.jpg",
-      "release_date": "2024-10-26",
-      "title": "Young Hearts",
-      "video": false,
-      "vote_average": 8.5,
-      "vote_count": 75
-    },
-    {
-      "adult": false,
       "backdrop_path": "/vZh2ZoBMyAiH8vYGqadyMBX50Gc.jpg",
       "genre_ids": [
         14,
@@ -17595,26 +17578,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/oMiKHO3H5RixfLsiU5Vumhlp5sj.jpg",
-      "genre_ids": [
-        80,
-        10749,
-        53
-      ],
-      "id": 948549,
-      "original_language": "en",
-      "original_title": "Love Lies Bleeding",
-      "overview": "Reclusive gym manager Lou falls hard for Jackie, an ambitious bodybuilder headed through town to Las Vegas in pursuit of her dream. But their love ignites violence, pulling them deep into the web of Lou’s criminal family.",
-      "popularity": 9.4076,
-      "poster_path": "/p7jyFWiLyHPttqYBFAlLJwtYTYH.jpg",
-      "release_date": "2024-03-07",
-      "title": "Love Lies Bleeding",
-      "video": false,
-      "vote_average": 6.576,
-      "vote_count": 806
-    },
-    {
-      "adult": false,
       "backdrop_path": "/1tqFPSCXcpQhozWiVFasq5AudQz.jpg",
       "genre_ids": [
         35,
@@ -17748,6 +17711,27 @@
       "video": false,
       "vote_average": 7.011,
       "vote_count": 8178
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2lBOQK06tltt8SQaswgb8d657Mv.jpg",
+      "genre_ids": [
+        10752,
+        36,
+        53,
+        18
+      ],
+      "id": 530915,
+      "original_language": "en",
+      "original_title": "1917",
+      "overview": "At the height of the First World War, two young British soldiers must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers.",
+      "popularity": 10.2061,
+      "poster_path": "/iZf0KyrE25z1sage4SYFLCCrMi9.jpg",
+      "release_date": "2019-12-25",
+      "title": "1917",
+      "video": false,
+      "vote_average": 7.988,
+      "vote_count": 12822
     },
     {
       "adult": false,
@@ -18187,6 +18171,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/r2IOBOeg5wLfLtyOnT5Pur6Tl4q.jpg",
+      "genre_ids": [
+        12,
+        28,
+        878
+      ],
+      "id": 1892,
+      "original_language": "en",
+      "original_title": "Return of the Jedi",
+      "overview": "Luke Skywalker leads a mission to rescue his friend Han Solo from the clutches of Jabba the Hutt, while the Emperor seeks to destroy the Rebellion once and for all with a second dreaded Death Star.",
+      "popularity": 9.6184,
+      "poster_path": "/jQYlydvHm3kUix1f8prMucrplhm.jpg",
+      "release_date": "1983-05-25",
+      "title": "Return of the Jedi",
+      "video": false,
+      "vote_average": 7.903,
+      "vote_count": 16132
+    },
+    {
+      "adult": false,
       "backdrop_path": "/tehewlwOPFDDf4syutyopaY23AY.jpg",
       "genre_ids": [
         27
@@ -18320,8 +18324,8 @@
       "release_date": "1998-07-01",
       "title": "Armageddon",
       "video": false,
-      "vote_average": 6.837,
-      "vote_count": 8165
+      "vote_average": 6.838,
+      "vote_count": 8166
     },
     {
       "adult": false,
@@ -18342,7 +18346,7 @@
       "release_date": "2016-01-23",
       "title": "Kung Fu Panda 3",
       "video": false,
-      "vote_average": 6.915,
+      "vote_average": 6.916,
       "vote_count": 6237
     },
     {
@@ -18477,7 +18481,7 @@
       "release_date": "1997-09-27",
       "title": "Lolita",
       "video": false,
-      "vote_average": 7.143,
+      "vote_average": 7.1,
       "vote_count": 1856
     },
     {
@@ -20134,6 +20138,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/h5pAEVma835u8xoE60kmLVopLct.jpg",
+      "genre_ids": [
+        16,
+        10751,
+        14
+      ],
+      "id": 16859,
+      "original_language": "ja",
+      "original_title": "魔女の宅急便",
+      "overview": "A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.",
+      "popularity": 9.1265,
+      "poster_path": "/Aufa4YdZIv4AXpR9rznwVA5SEfd.jpg",
+      "release_date": "1989-07-29",
+      "title": "Kiki's Delivery Service",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 4245
+    },
+    {
+      "adult": false,
       "backdrop_path": "/cdYj6HFpKp5NTmLiHHbNEGSmDT4.jpg",
       "genre_ids": [
         35,
@@ -20506,27 +20530,6 @@
       "video": false,
       "vote_average": 8.066,
       "vote_count": 11883
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/lTmXKs3zSxmOV9YqHOjEwcwrF4a.jpg",
-      "genre_ids": [
-        12,
-        10751,
-        9648,
-        878
-      ],
-      "id": 158852,
-      "original_language": "en",
-      "original_title": "Tomorrowland",
-      "overview": "Bound by a shared destiny, a bright, optimistic teen bursting with scientific curiosity and a former boy-genius inventor jaded by disillusionment embark on a danger-filled mission to unearth the secrets of an enigmatic place somewhere in time and space that exists in their collective memory as \"Tomorrowland.\"",
-      "popularity": 9.2722,
-      "poster_path": "/kziYpr5Nfw60P0My8aj1sgCEqed.jpg",
-      "release_date": "2015-05-19",
-      "title": "Tomorrowland",
-      "video": false,
-      "vote_average": 6.282,
-      "vote_count": 7097
     },
     {
       "adult": false,
@@ -21718,6 +21721,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/nT0tpSovSldMoKQywsf46R9dXbe.jpg",
+      "genre_ids": [
+        53,
+        18
+      ],
+      "id": 1145725,
+      "original_language": "en",
+      "original_title": "Tyler Perry's Duplicity",
+      "overview": "High-powered attorney Marley faces her most personal case yet when she is tasked with uncovering the truth behind the murder of her best friend Fela’s husband. With the help of her boyfriend – a former cop turned private investigator – Marley’s search for what really happened leads her down a treacherous maze of deception and betrayal.",
+      "popularity": 8.8177,
+      "poster_path": "/pYrmTaOnMgvS59OKSxkCSrhISoL.jpg",
+      "release_date": "2025-03-19",
+      "title": "Tyler Perry's Duplicity",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 118
+    },
+    {
+      "adult": false,
       "backdrop_path": "/6GhU4BJnqLSaAuz0yQBq3RfdzsF.jpg",
       "genre_ids": [
         27,
@@ -21833,25 +21855,6 @@
       "video": false,
       "vote_average": 6.618,
       "vote_count": 6294
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/kutrMwSVEcGFn5F0fUJYYRPzuxn.jpg",
-      "genre_ids": [
-        28,
-        35
-      ],
-      "id": 1048241,
-      "original_language": "en",
-      "original_title": "My Spy The Eternal City",
-      "overview": "JJ, a veteran CIA agent, reunites with his protégé Sophie, in order to prevent a catastrophic nuclear plot targeting the Vatican.",
-      "popularity": 8.7871,
-      "poster_path": "/Bf3vCfM94bSJ1saZlyi0UW0e0U.jpg",
-      "release_date": "2024-07-18",
-      "title": "My Spy The Eternal City",
-      "video": false,
-      "vote_average": 6.629,
-      "vote_count": 389
     },
     {
       "adult": false,
@@ -22098,8 +22101,8 @@
       "release_date": "2025-06-11",
       "title": "American Thunder: NASCAR to Le Mans",
       "video": false,
-      "vote_average": 0.0,
-      "vote_count": 0
+      "vote_average": 9.0,
+      "vote_count": 1
     },
     {
       "adult": false,
@@ -22497,6 +22500,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/uLtVbjvS1O7gXL8lUOwsFOH4man.jpg",
+      "genre_ids": [
+        28,
+        878,
+        12
+      ],
+      "id": 118340,
+      "original_language": "en",
+      "original_title": "Guardians of the Galaxy",
+      "overview": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
+      "popularity": 8.9448,
+      "poster_path": "/jPrJPZKJVhvyJ4DmUTrDgmFN0yG.jpg",
+      "release_date": "2014-07-30",
+      "title": "Guardians of the Galaxy",
+      "video": false,
+      "vote_average": 7.905,
+      "vote_count": 28606
+    },
+    {
+      "adult": false,
       "backdrop_path": "/rBL73dGfdEqTr7Xj0HytF9s9SbM.jpg",
       "genre_ids": [
         35,
@@ -22650,7 +22673,7 @@
       "title": "Creed",
       "video": false,
       "vote_average": 7.406,
-      "vote_count": 7606
+      "vote_count": 7607
     },
     {
       "adult": false,
@@ -23111,27 +23134,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/2lBOQK06tltt8SQaswgb8d657Mv.jpg",
-      "genre_ids": [
-        10752,
-        36,
-        53,
-        18
-      ],
-      "id": 530915,
-      "original_language": "en",
-      "original_title": "1917",
-      "overview": "At the height of the First World War, two young British soldiers must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers.",
-      "popularity": 10.2061,
-      "poster_path": "/iZf0KyrE25z1sage4SYFLCCrMi9.jpg",
-      "release_date": "2019-12-25",
-      "title": "1917",
-      "video": false,
-      "vote_average": 7.989,
-      "vote_count": 12821
-    },
-    {
-      "adult": false,
       "backdrop_path": "/g5haoqEqt5VwVwQKEkoXY9zqSxb.jpg",
       "genre_ids": [
         35,
@@ -23294,26 +23296,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/6TjllWT3cGrPFyqDXurVZ3L8bBi.jpg",
-      "genre_ids": [
-        9648,
-        53,
-        18
-      ],
-      "id": 745,
-      "original_language": "en",
-      "original_title": "The Sixth Sense",
-      "overview": "Following an unexpected tragedy, child psychologist Malcolm Crowe meets a nine year old boy named Cole Sear, who is hiding a dark secret.",
-      "popularity": 9.2415,
-      "poster_path": "/vOyfUXNFSnaTk7Vk5AjpsKTUWsu.jpg",
-      "release_date": "1999-08-06",
-      "title": "The Sixth Sense",
-      "video": false,
-      "vote_average": 7.95,
-      "vote_count": 12086
-    },
-    {
-      "adult": false,
       "backdrop_path": "/nRPe93Yw5yK29JFKGf0eqCCeM2a.jpg",
       "genre_ids": [
         12,
@@ -23351,6 +23333,26 @@
       "video": false,
       "vote_average": 6.965,
       "vote_count": 5056
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/Eeuq1qmv8UEsd4sX6BSrGNYR19.jpg",
+      "genre_ids": [
+        53,
+        28,
+        80
+      ],
+      "id": 1001274,
+      "original_language": "fr",
+      "original_title": "La Nuit se traîne",
+      "overview": "Mady, a student, works as a locksmith by night. He helps Claire get into her apartment and soon realizes that she lied to him about her identity and robbed something that belonged to a dangerous man, Yannick. Mady gets embroiled in a manhunt and will have one night to prove his innocence.",
+      "popularity": 8.9044,
+      "poster_path": "/5NYSdTdM1A4WKDmxwoph7PSFunv.jpg",
+      "release_date": "2024-08-28",
+      "title": "Night Call",
+      "video": false,
+      "vote_average": 6.8,
+      "vote_count": 99
     },
     {
       "adult": false,
@@ -23587,8 +23589,8 @@
       "release_date": "2005-08-12",
       "title": "Rosario Tijeras",
       "video": false,
-      "vote_average": 6.689,
-      "vote_count": 95
+      "vote_average": 6.682,
+      "vote_count": 96
     },
     {
       "adult": false,
@@ -23851,6 +23853,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/kutrMwSVEcGFn5F0fUJYYRPzuxn.jpg",
+      "genre_ids": [
+        28,
+        35
+      ],
+      "id": 1048241,
+      "original_language": "en",
+      "original_title": "My Spy The Eternal City",
+      "overview": "JJ, a veteran CIA agent, reunites with his protégé Sophie, in order to prevent a catastrophic nuclear plot targeting the Vatican.",
+      "popularity": 8.7871,
+      "poster_path": "/Bf3vCfM94bSJ1saZlyi0UW0e0U.jpg",
+      "release_date": "2024-07-18",
+      "title": "My Spy The Eternal City",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 389
+    },
+    {
+      "adult": false,
       "backdrop_path": "/xXhta1NIKn09IXy0mfp68cabdWS.jpg",
       "genre_ids": [
         35,
@@ -23924,7 +23945,7 @@
       "release_date": "2004-09-20",
       "title": "Shark Tale",
       "video": false,
-      "vote_average": 6.024,
+      "vote_average": 6.025,
       "vote_count": 6446
     },
     {
@@ -24002,8 +24023,8 @@
       "release_date": "2025-02-27",
       "title": "Last Breath",
       "video": false,
-      "vote_average": 6.964,
-      "vote_count": 331
+      "vote_average": 6.952,
+      "vote_count": 332
     },
     {
       "adult": false,
@@ -24023,7 +24044,7 @@
       "title": "Bird Box",
       "video": false,
       "vote_average": 6.832,
-      "vote_count": 10140
+      "vote_count": 10141
     },
     {
       "adult": false,
@@ -24064,25 +24085,6 @@
       "video": false,
       "vote_average": 6.9,
       "vote_count": 4521
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/iQlJyRecJeGGzQGT2rEcyAgz89F.jpg",
-      "genre_ids": [
-        10749,
-        18
-      ],
-      "id": 762975,
-      "original_language": "en",
-      "original_title": "Purple Hearts",
-      "overview": "An aspiring musician agrees to a marriage of convenience with a soon-to-deploy Marine, but a tragedy soon turns their fake relationship all too real.",
-      "popularity": 8.1603,
-      "poster_path": "/4JyNWkryifWbWXJyxcWh3pVya6N.jpg",
-      "release_date": "2022-07-29",
-      "title": "Purple Hearts",
-      "video": false,
-      "vote_average": 8.1,
-      "vote_count": 2683
     },
     {
       "adult": false,
@@ -26905,8 +26907,8 @@
       "release_date": "2020-02-29",
       "title": "Onward",
       "video": false,
-      "vote_average": 7.664,
-      "vote_count": 6295
+      "vote_average": 7.665,
+      "vote_count": 6296
     },
     {
       "adult": false,
@@ -27009,6 +27011,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/xPPBElHCcNQ7H3aXdLptykKxyZ1.jpg",
+      "genre_ids": [
+        18,
+        36
+      ],
+      "id": 1232827,
+      "original_language": "da",
+      "original_title": "Pigen med nålen",
+      "overview": "Struggling to survive in post-WWI Copenhagen, a newly unemployed and pregnant young woman is taken in by a charismatic elder to help run an underground adoption agency. The two form an unexpected bond, until a sudden discovery changes everything.",
+      "popularity": 8.1316,
+      "poster_path": "/2xkyx8v9G3ePxe1IcFugFQkXHzQ.jpg",
+      "release_date": "2024-09-06",
+      "title": "The Girl with the Needle",
+      "video": false,
+      "vote_average": 7.6,
+      "vote_count": 235
+    },
+    {
+      "adult": false,
       "backdrop_path": "/evFChfYeD2LqobEJf8iQsrYcGTw.jpg",
       "genre_ids": [
         28,
@@ -27066,7 +27087,7 @@
       "title": "Alice in Wonderland",
       "video": false,
       "vote_average": 7.186,
-      "vote_count": 5996
+      "vote_count": 5997
     },
     {
       "adult": false,
@@ -27247,27 +27268,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/5lWIYxYEqWi8j3ZloxXntw3ImBo.jpg",
-      "genre_ids": [
-        10751,
-        35,
-        16,
-        14
-      ],
-      "id": 360920,
-      "original_language": "en",
-      "original_title": "The Grinch",
-      "overview": "The Grinch hatches a scheme to ruin Christmas when the residents of Whoville plan their annual holiday celebration.",
-      "popularity": 7.9847,
-      "poster_path": "/1Bc9VNd9CIHIyJtPKFqSQzrXWru.jpg",
-      "release_date": "2018-11-08",
-      "title": "The Grinch",
-      "video": false,
-      "vote_average": 6.862,
-      "vote_count": 4191
-    },
-    {
-      "adult": false,
       "backdrop_path": "/zVDJ4cRgSpHlILSm7kGiklHQ6O7.jpg",
       "genre_ids": [
         16,
@@ -27303,8 +27303,8 @@
       "release_date": "2009-06-08",
       "title": "Hachi: A Dog's Tale",
       "video": false,
-      "vote_average": 8.012,
-      "vote_count": 6844
+      "vote_average": 8.011,
+      "vote_count": 6845
     },
     {
       "adult": false,
@@ -27345,7 +27345,7 @@
       "title": "Red Notice",
       "video": false,
       "vote_average": 6.764,
-      "vote_count": 6015
+      "vote_count": 6016
     },
     {
       "adult": false,
@@ -27667,6 +27667,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/2tcTm5oRlRN5fKFvY4Gbrwp8h38.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "id": 363088,
+      "original_language": "en",
+      "original_title": "Ant-Man and the Wasp",
+      "overview": "Just when his time under house arrest is about to end, Scott Lang once again puts his freedom at risk to help Hope van Dyne and Dr. Hank Pym dive into the quantum realm and try to accomplish, against time and any chance of success, a very dangerous rescue mission.",
+      "popularity": 8.0877,
+      "poster_path": "/cFQEO687n1K6umXbInzocxcnAQz.jpg",
+      "release_date": "2018-07-04",
+      "title": "Ant-Man and the Wasp",
+      "video": false,
+      "vote_average": 6.917,
+      "vote_count": 13611
+    },
+    {
+      "adult": false,
       "backdrop_path": "/fzv87rT0jlAkh5Uf9PpIlUj6Nj8.jpg",
       "genre_ids": [
         28,
@@ -27802,7 +27822,7 @@
       "release_date": "1962-10-07",
       "title": "Dr. No",
       "video": false,
-      "vote_average": 7.0,
+      "vote_average": 6.997,
       "vote_count": 3745
     },
     {
@@ -28036,25 +28056,6 @@
       "video": false,
       "vote_average": 5.488,
       "vote_count": 85
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/dfkE2LppPbJ1qUzi3tdND5iuMFp.jpg",
-      "genre_ids": [
-        35,
-        80
-      ],
-      "id": 10607,
-      "original_language": "en",
-      "original_title": "Don't Be a Menace to South Central While Drinking Your Juice in the Hood",
-      "overview": "When Ashtray moves to South Central L.A. to live with his father (who appears to be the same age he is) and grandmother (who likes to talk tough and smoke reefer), he falls in with his gang-banging cousin Loc Dog, who along with the requisite pistols and Uzi carries a thermo-nuclear warhead for self-defense. Will Ashtray be able to keep living the straight life?",
-      "popularity": 8.1193,
-      "poster_path": "/HZQBF7JDd2e9p4rPSbSHuWHaCC.jpg",
-      "release_date": "1996-01-12",
-      "title": "Don't Be a Menace to South Central While Drinking Your Juice in the Hood",
-      "video": false,
-      "vote_average": 7.024,
-      "vote_count": 1381
     },
     {
       "adult": false,
@@ -29244,6 +29245,47 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg",
+      "genre_ids": [
+        10752,
+        28,
+        36,
+        18,
+        53
+      ],
+      "id": 300671,
+      "original_language": "en",
+      "original_title": "13 Hours: The Secret Soldiers of Benghazi",
+      "overview": "An American Ambassador is killed during an attack at a U.S. compound in Libya as a security team struggles to make sense out of the chaos.",
+      "popularity": 7.4976,
+      "poster_path": "/AskDcQ6Sa6jImyt2KDQbgRuPebH.jpg",
+      "release_date": "2016-01-14",
+      "title": "13 Hours: The Secret Soldiers of Benghazi",
+      "video": false,
+      "vote_average": 7.271,
+      "vote_count": 3708
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/k2SY15W9QXH9qL8f4a4BbytV1BE.jpg",
+      "genre_ids": [
+        28,
+        27
+      ],
+      "id": 614696,
+      "original_language": "ko",
+      "original_title": "#살아있다",
+      "overview": "As a grisly virus rampages a city, a lone man stays locked inside his apartment, digitally cut off from seeking help and desperate to find a way out.",
+      "popularity": 7.8871,
+      "poster_path": "/lZPvLUMYEPLTE2df1VW5FHTYC8N.jpg",
+      "release_date": "2020-06-24",
+      "title": "#Alive",
+      "video": false,
+      "vote_average": 7.226,
+      "vote_count": 1895
+    },
+    {
+      "adult": false,
       "backdrop_path": "/4S5RF00iinHGdn3uBrXFVu5gE1q.jpg",
       "genre_ids": [
         18,
@@ -29336,8 +29378,8 @@
       "release_date": "2003-02-21",
       "title": "Old School",
       "video": false,
-      "vote_average": 6.6,
-      "vote_count": 1930
+      "vote_average": 6.602,
+      "vote_count": 1931
     },
     {
       "adult": false,
@@ -29597,7 +29639,7 @@
       "release_date": "1986-08-02",
       "title": "Castle in the Sky",
       "video": false,
-      "vote_average": 7.972,
+      "vote_average": 7.973,
       "vote_count": 4364
     },
     {
@@ -29676,7 +29718,7 @@
       "release_date": "2003-12-25",
       "title": "Big Fish",
       "video": false,
-      "vote_average": 7.759,
+      "vote_average": 7.8,
       "vote_count": 7377
     },
     {
@@ -29924,11 +29966,11 @@
       "original_title": "The Kissing Booth",
       "overview": "When teenager Elle's first kiss leads to a forbidden romance with the hottest boy in high school, she risks her relationship with her best friend.",
       "popularity": 7.7076,
-      "poster_path": "/7Dktk2ST6aL8h9Oe5rpk903VLhx.jpg",
+      "poster_path": "/eFpm76o5KPNt1qJ8wogtiq9XZu1.jpg",
       "release_date": "2018-05-11",
       "title": "The Kissing Booth",
       "video": false,
-      "vote_average": 7.188,
+      "vote_average": 7.2,
       "vote_count": 7284
     },
     {
@@ -30254,7 +30296,7 @@
       "release_date": "2019-10-09",
       "title": "Zombieland: Double Tap",
       "video": false,
-      "vote_average": 6.918,
+      "vote_average": 6.9,
       "vote_count": 5900
     },
     {
@@ -30296,8 +30338,8 @@
       "release_date": "2021-01-26",
       "title": "Wrong Turn",
       "video": false,
-      "vote_average": 5.965,
-      "vote_count": 1199
+      "vote_average": 5.969,
+      "vote_count": 1200
     },
     {
       "adult": false,
@@ -30379,25 +30421,6 @@
       "video": false,
       "vote_average": 6.3,
       "vote_count": 27
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/xPPBElHCcNQ7H3aXdLptykKxyZ1.jpg",
-      "genre_ids": [
-        18,
-        36
-      ],
-      "id": 1232827,
-      "original_language": "da",
-      "original_title": "Pigen med nålen",
-      "overview": "Struggling to survive in post-WWI Copenhagen, a newly unemployed and pregnant young woman is taken in by a charismatic elder to help run an underground adoption agency. The two form an unexpected bond, until a sudden discovery changes everything.",
-      "popularity": 8.1316,
-      "poster_path": "/2xkyx8v9G3ePxe1IcFugFQkXHzQ.jpg",
-      "release_date": "2024-09-06",
-      "title": "The Girl with the Needle",
-      "video": false,
-      "vote_average": 7.6,
-      "vote_count": 235
     },
     {
       "adult": false,
@@ -30496,8 +30519,8 @@
       "release_date": "2025-05-01",
       "title": "A Gilded Game",
       "video": false,
-      "vote_average": 6.6,
-      "vote_count": 5
+      "vote_average": 5.667,
+      "vote_count": 6
     },
     {
       "adult": false,
@@ -30635,7 +30658,7 @@
       "release_date": "2024-10-25",
       "title": "MadS",
       "video": false,
-      "vote_average": 6.752,
+      "vote_average": 6.8,
       "vote_count": 139
     },
     {
@@ -30733,7 +30756,7 @@
       "release_date": "1999-09-15",
       "title": "American Beauty",
       "video": false,
-      "vote_average": 8.0,
+      "vote_average": 8.006,
       "vote_count": 12396
     },
     {
@@ -30772,7 +30795,7 @@
       "release_date": "2008-07-01",
       "title": "Hancock",
       "video": false,
-      "vote_average": 6.3,
+      "vote_average": 6.347,
       "vote_count": 9792
     },
     {
@@ -31030,7 +31053,7 @@
       "title": "The Shrouds",
       "video": false,
       "vote_average": 6.0,
-      "vote_count": 86
+      "vote_count": 87
     },
     {
       "adult": false,
@@ -31480,7 +31503,7 @@
       "release_date": "2008-06-05",
       "title": "You Don't Mess with the Zohan",
       "video": false,
-      "vote_average": 5.725,
+      "vote_average": 5.7,
       "vote_count": 3861
     },
     {
@@ -31582,27 +31605,6 @@
       "video": false,
       "vote_average": 7.253,
       "vote_count": 283
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/xkXsV1WOiKfAJ6dzXiavdwsZ3E2.jpg",
-      "genre_ids": [
-        28,
-        53,
-        27,
-        80
-      ],
-      "id": 799379,
-      "original_language": "ko",
-      "original_title": "늑대사냥",
-      "overview": "While under heavily armed guard, the dangerous convicts aboard a cargo ship unite in a coordinated escape attempt that soon escalates into a bloody, all-out riot. But as the fugitives continue their brutal campaign of terror, they soon discover that not even the most vicious among them is safe from the horror they unknowingly unleashed from the darkness below deck.",
-      "popularity": 7.6481,
-      "poster_path": "/dniWicB6fa7NvpGbguxWlNPMc5f.jpg",
-      "release_date": "2022-09-21",
-      "title": "Project Wolf Hunting",
-      "video": false,
-      "vote_average": 6.387,
-      "vote_count": 389
     },
     {
       "adult": false,
@@ -32005,6 +32007,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/6ELCZlTA5lGUops70hKdB83WJxH.jpg",
+      "genre_ids": [
+        28,
+        14,
+        12
+      ],
+      "id": 460465,
+      "original_language": "en",
+      "original_title": "Mortal Kombat",
+      "overview": "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+      "popularity": 6.9752,
+      "poster_path": "/ybrX94xQm8lXYpZAPRmwD9iIbWP.jpg",
+      "release_date": "2021-04-07",
+      "title": "Mortal Kombat",
+      "video": false,
+      "vote_average": 7.018,
+      "vote_count": 5992
+    },
+    {
+      "adult": false,
       "backdrop_path": "/22l5YKpMHBeh0o4uHQ079Y19PPg.jpg",
       "genre_ids": [
         10749,
@@ -32103,7 +32125,7 @@
       "title": "Sinbad: Legend of the Seven Seas",
       "video": false,
       "vote_average": 6.983,
-      "vote_count": 2086
+      "vote_count": 2087
     },
     {
       "adult": false,
@@ -32389,8 +32411,8 @@
       "release_date": "1988-12-12",
       "title": "Rain Man",
       "video": false,
-      "vote_average": 7.754,
-      "vote_count": 6594
+      "vote_average": 7.8,
+      "vote_count": 6595
     },
     {
       "adult": false,
@@ -32508,8 +32530,8 @@
       "release_date": "2009-03-19",
       "title": "Knowing",
       "video": false,
-      "vote_average": 6.22,
-      "vote_count": 5460
+      "vote_average": 6.221,
+      "vote_count": 5461
     },
     {
       "adult": false,
@@ -32547,8 +32569,8 @@
       "release_date": "2008-07-03",
       "title": "Mamma Mia!",
       "video": false,
-      "vote_average": 6.978,
-      "vote_count": 6701
+      "vote_average": 6.977,
+      "vote_count": 6702
     },
     {
       "adult": false,
@@ -32647,7 +32669,7 @@
       "release_date": "2024-10-04",
       "title": "Monster Summer",
       "video": false,
-      "vote_average": 6.482,
+      "vote_average": 6.5,
       "vote_count": 85
     },
     {
@@ -32769,22 +32791,6 @@
       "video": false,
       "vote_average": 5.767,
       "vote_count": 360
-    },
-    {
-      "adult": false,
-      "backdrop_path": null,
-      "genre_ids": [],
-      "id": 643652,
-      "original_language": "en",
-      "original_title": "Fashion Show",
-      "overview": "Lauren Greenfield's video \"Fashion Show\" mixes filmed footage with still photography from over 50 runway shows in New York, Milan and Paris. Cut to the pulsating beat of Fol Chen's latest musical single, \"The Longer You Wait\", the multimedia piece is an experiential journey through the life of the definitive fashion show.",
-      "popularity": 5.871,
-      "poster_path": null,
-      "release_date": "2010-01-16",
-      "title": "Fashion Show",
-      "video": false,
-      "vote_average": 0.0,
-      "vote_count": 0
     },
     {
       "adult": false,
@@ -33971,24 +33977,23 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/xLMJCCSatxENpHO9rLW9yD8A12C.jpg",
+      "backdrop_path": "/opNdWurarqYxrzqpVRPyZrbWb3K.jpg",
       "genre_ids": [
-        16,
-        878,
-        28,
-        18
+        27,
+        53,
+        9648
       ],
-      "id": 18491,
-      "original_language": "ja",
-      "original_title": "新世紀エヴァンゲリオン劇場版 Air／まごころを、君に",
-      "overview": "SEELE orders an all-out attack on NERV, aiming to destroy the Evas before Gendo can advance his own plans for the Human Instrumentality Project. Shinji is pushed to the limits of his sanity as he is forced to decide the fate of humanity.",
-      "popularity": 6.6609,
-      "poster_path": "/j6G24dqI4WgUtChhWjfnI4lnmiK.jpg",
-      "release_date": "1997-07-19",
-      "title": "Neon Genesis Evangelion: The End of Evangelion",
+      "id": 1029880,
+      "original_language": "da",
+      "original_title": "Nattevagten - Dæmoner går i arv",
+      "overview": "Martin's daughter, Emma, takes up a night watch job to find out what happened to her parents almost thirty years ago. A meeting with Wörmer in his cell pulls the serial killer out of his coma and sets in motion a chain of fateful events.",
+      "popularity": 7.8714,
+      "poster_path": "/7Bj9qbmTiBdOmVlHeQqoEjsDxul.jpg",
+      "release_date": "2023-12-14",
+      "title": "Nightwatch: Demons Are Forever",
       "video": false,
-      "vote_average": 8.281,
-      "vote_count": 1693
+      "vote_average": 6.296,
+      "vote_count": 71
     },
     {
       "adult": false,
@@ -34029,7 +34034,7 @@
       "title": "Pokémon Detective Pikachu",
       "video": false,
       "vote_average": 6.92,
-      "vote_count": 7020
+      "vote_count": 7021
     },
     {
       "adult": false,
@@ -34370,45 +34375,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/iwPSEocuxRpr6zbYrfpdu9Vs9cH.jpg",
-      "genre_ids": [
-        18
-      ],
-      "id": 14174,
-      "original_language": "en",
-      "original_title": "Lie with Me",
-      "overview": "Happily unattached, the sexually voracious Leila satisfies her desires with a host of rapidly changing bed partners, unconcerned about the emotional consequences. But that all changes when she meets an artist looking for a deeper commitment.",
-      "popularity": 4.5303,
-      "poster_path": "/qG2KYlTxTZbKcXJHMe1OG7aI4un.jpg",
-      "release_date": "2006-02-14",
-      "title": "Lie with Me",
-      "video": false,
-      "vote_average": 5.202,
-      "vote_count": 285
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/vwcfvPzYO3Gz975yRXp6DYSSbzo.jpg",
-      "genre_ids": [
-        16,
-        10751,
-        12,
-        14
-      ],
-      "id": 10693,
-      "original_language": "en",
-      "original_title": "Peter Pan",
-      "overview": "Leaving the safety of their nursery behind, Wendy, Michael and John follow Peter Pan to a magical world where childhood lasts forever. But while in Neverland, the kids must face Captain Hook and foil his attempts to get rid of Peter for good.",
-      "popularity": 7.0888,
-      "poster_path": "/fJJOs1iyrhKfZceANxoPxPwNGF1.jpg",
-      "release_date": "1953-02-05",
-      "title": "Peter Pan",
-      "video": false,
-      "vote_average": 7.203,
-      "vote_count": 5496
-    },
-    {
-      "adult": false,
       "backdrop_path": "/zPDpHMdbbE4O0TxVkMcgD6j2ImR.jpg",
       "genre_ids": [
         28,
@@ -34445,8 +34411,8 @@
       "release_date": "1999-08-06",
       "title": "The Iron Giant",
       "video": false,
-      "vote_average": 7.948,
-      "vote_count": 5785
+      "vote_average": 7.949,
+      "vote_count": 5786
     },
     {
       "adult": false,
@@ -34566,7 +34532,7 @@
       "release_date": "1995-07-15",
       "title": "Whisper of the Heart",
       "video": false,
-      "vote_average": 7.9,
+      "vote_average": 7.949,
       "vote_count": 2100
     },
     {
@@ -34759,6 +34725,45 @@
       "video": false,
       "vote_average": 4.548,
       "vote_count": 146
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/l7dOI84fj3WSUEWTsGAzYR8A1Ct.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 1388874,
+      "original_language": "tl",
+      "original_title": "Boss Ma'am",
+      "overview": "V.A.D. and Charm try to outplay each other in a game of deceit. When a terror female boss was blackmailed by her assistant, she has no choice but to obey and play with her.",
+      "popularity": 7.3744,
+      "poster_path": "/3po9qDTFZoejlOjaVodVcp8TYsm.jpg",
+      "release_date": "2024-11-26",
+      "title": "Boss Ma'am",
+      "video": false,
+      "vote_average": 7.667,
+      "vote_count": 3
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jFK8BOPL6ZeWyjMVWX8ajsTTinp.jpg",
+      "genre_ids": [
+        16,
+        18,
+        14,
+        10749
+      ],
+      "id": 568160,
+      "original_language": "ja",
+      "original_title": "天気の子",
+      "overview": "The summer of his high school freshman year, Hodaka runs away from his remote island home to Tokyo, and quickly finds himself pushed to his financial and personal limits. The weather is unusually gloomy and rainy every day, as if taking its cue from his life. After many days of solitude, he finally finds work as a freelance writer for a mysterious occult magazine. Then, one day, Hodaka meets Hina on a busy street corner. This bright and strong-willed girl possesses a strange and wonderful ability: the power to stop the rain and clear the sky.",
+      "popularity": 7.6736,
+      "poster_path": "/qgrk7r1fV4IjuoeiGS5HOhXNdLJ.jpg",
+      "release_date": "2019-06-19",
+      "title": "Weathering with You",
+      "video": false,
+      "vote_average": 7.995,
+      "vote_count": 2424
     },
     {
       "adult": false,
@@ -35155,45 +35160,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/eItpQ7dJfSp8aFrX1MdjaUv0HrE.jpg",
-      "genre_ids": [
-        28,
-        12,
-        53
-      ],
-      "id": 1167271,
-      "original_language": "en",
-      "original_title": "Weekend in Taipei",
-      "overview": "A former DEA agent and a former undercover operative revisit their romance during a fateful weekend in Taipei, unaware of the dangerous consequences of their past.",
-      "popularity": 6.5528,
-      "poster_path": "/qSc0AUvs8mRy00R9y8QYEHWIAQ9.jpg",
-      "release_date": "2024-09-19",
-      "title": "Weekend in Taipei",
-      "video": false,
-      "vote_average": 6.2,
-      "vote_count": 196
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/tId87yE7JnQsQsqOpnGXjz9PoEe.jpg",
-      "genre_ids": [
-        18,
-        35
-      ],
-      "id": 329505,
-      "original_language": "it",
-      "original_title": "Il peccato di Lola",
-      "overview": "Young man has his dreams come true when the sexy new maid seduces him. But she also has a secret that leads to trouble.",
-      "popularity": 7.0793,
-      "poster_path": "/aSiY96aHJLGWtftHLWvxlImKHGN.jpg",
-      "release_date": "1984-05-04",
-      "title": "Lola's Secret",
-      "video": false,
-      "vote_average": 7.085,
-      "vote_count": 65
-    },
-    {
-      "adult": false,
       "backdrop_path": "/m2JxIyZknnf1VnlcmemG1slIjFz.jpg",
       "genre_ids": [
         16,
@@ -35330,6 +35296,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/znr3SYHph3FtTLpcFTeuMAAJ5mP.jpg",
+      "genre_ids": [
+        37,
+        18,
+        35
+      ],
+      "id": 648878,
+      "original_language": "en",
+      "original_title": "Eddington",
+      "overview": "In May of 2020, a standoff between a small-town sheriff and mayor sparks a powder keg as neighbor is pitted against neighbor in Eddington, New Mexico.",
+      "popularity": 6.8028,
+      "poster_path": "/4GIqZUgPZ146BhibsPHMHef2nXX.jpg",
+      "release_date": "2025-07-16",
+      "title": "Eddington",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
       "backdrop_path": "/bdmyvEdrmnj7J3RWaKXEOwYggRv.jpg",
       "genre_ids": [
         18,
@@ -35461,8 +35447,8 @@
       "release_date": "2006-06-16",
       "title": "Nacho Libre",
       "video": false,
-      "vote_average": 6.497,
-      "vote_count": 1712
+      "vote_average": 6.499,
+      "vote_count": 1713
     },
     {
       "adult": false,
@@ -35623,7 +35609,7 @@
       "release_date": "2009-12-23",
       "title": "Sherlock Holmes",
       "video": false,
-      "vote_average": 7.2,
+      "vote_average": 7.215,
       "vote_count": 14210
     },
     {
@@ -35879,7 +35865,7 @@
       "title": "The Hills Have Eyes",
       "video": false,
       "vote_average": 6.443,
-      "vote_count": 3115
+      "vote_count": 3116
     },
     {
       "adult": false,
@@ -35898,7 +35884,7 @@
       "release_date": "2021-06-30",
       "title": "The Forever Purge",
       "video": false,
-      "vote_average": 6.914,
+      "vote_average": 6.9,
       "vote_count": 2554
     },
     {
@@ -35959,8 +35945,8 @@
       "release_date": "2009-10-14",
       "title": "Fantastic Mr. Fox",
       "video": false,
-      "vote_average": 7.8,
-      "vote_count": 5656
+      "vote_average": 7.809,
+      "vote_count": 5657
     },
     {
       "adult": false,
@@ -36214,8 +36200,8 @@
       "release_date": "2011-04-13",
       "title": "Scream 4",
       "video": false,
-      "vote_average": 6.5,
-      "vote_count": 3874
+      "vote_average": 6.465,
+      "vote_count": 3875
     },
     {
       "adult": false,
@@ -36276,7 +36262,7 @@
       "title": "Over the Hedge",
       "video": false,
       "vote_average": 6.575,
-      "vote_count": 4577
+      "vote_count": 4578
     },
     {
       "adult": false,
@@ -36316,7 +36302,7 @@
       "release_date": "2019-10-10",
       "title": "The Addams Family",
       "video": false,
-      "vote_average": 6.609,
+      "vote_average": 6.6,
       "vote_count": 2379
     },
     {
@@ -36337,6 +36323,26 @@
       "video": false,
       "vote_average": 6.631,
       "vote_count": 6488
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4eMqcuVITc6iY25rRApqRFGr5VP.jpg",
+      "genre_ids": [
+        10752,
+        18,
+        36
+      ],
+      "id": 896151,
+      "original_language": "en",
+      "original_title": "Blitz",
+      "overview": "In World War II London, nine-year-old George is evacuated to the countryside by his mother, Rita, to escape the bombings. Defiant and determined to return to his family, George embarks on an epic, perilous journey back home as Rita searches for him.",
+      "popularity": 6.4966,
+      "poster_path": "/e9tyjbF2rugENtBolTtEhHOXgzD.jpg",
+      "release_date": "2024-11-01",
+      "title": "Blitz",
+      "video": false,
+      "vote_average": 5.946,
+      "vote_count": 205
     },
     {
       "adult": false,
@@ -37304,8 +37310,8 @@
       "release_date": "2025-01-16",
       "title": "One of Them Days",
       "video": false,
-      "vote_average": 6.717,
-      "vote_count": 173
+      "vote_average": 6.72,
+      "vote_count": 175
     },
     {
       "adult": false,
@@ -39898,25 +39904,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/6u5WHyEzphjs8wAT3JGw9Dhv180.jpg",
-      "genre_ids": [
-        28,
-        53
-      ],
-      "id": 117263,
-      "original_language": "en",
-      "original_title": "Olympus Has Fallen",
-      "overview": "When the White House (Secret Service Code: \"Olympus\") is captured by a terrorist mastermind and the President is kidnapped, disgraced former Presidential guard Mike Banning finds himself trapped within the building. As the national security team scrambles to respond, they are forced to rely on Banning's inside knowledge to help retake the White House, save the President and avert an even bigger disaster.",
-      "popularity": 6.4992,
-      "poster_path": "/gKnx04MxnKcf5uOdhHhAAkqcCg.jpg",
-      "release_date": "2013-03-20",
-      "title": "Olympus Has Fallen",
-      "video": false,
-      "vote_average": 6.405,
-      "vote_count": 6731
-    },
-    {
-      "adult": false,
       "backdrop_path": "/kzXUQnrUnHUGHuwWbgf9KpoU3qr.jpg",
       "genre_ids": [
         18,
@@ -40220,7 +40207,7 @@
       "title": "Ghost in the Shell",
       "video": false,
       "vote_average": 6.094,
-      "vote_count": 8183
+      "vote_count": 8184
     },
     {
       "adult": false,
@@ -40438,7 +40425,7 @@
       "release_date": "2013-01-17",
       "title": "Hansel & Gretel: Witch Hunters",
       "video": false,
-      "vote_average": 6.1,
+      "vote_average": 6.088,
       "vote_count": 6835
     },
     {
@@ -40495,7 +40482,7 @@
       "release_date": "2004-11-12",
       "title": "Seed of Chucky",
       "video": false,
-      "vote_average": 5.471,
+      "vote_average": 5.5,
       "vote_count": 1663
     },
     {
@@ -40653,6 +40640,24 @@
       "video": false,
       "vote_average": 5.647,
       "vote_count": 17
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vqEX1uF3Spl12rOACQ3gJ6j4MSR.jpg",
+      "genre_ids": [
+        27
+      ],
+      "id": 864370,
+      "original_language": "zh",
+      "original_title": "咒",
+      "overview": "Inspired by the true story of a family who believed they were possessed by spirits. This film follows a woman who must protect her child from a curse.",
+      "popularity": 6.4459,
+      "poster_path": "/cWz28oGV3cSajWdziVQbqrYCmnX.jpg",
+      "release_date": "2022-03-18",
+      "title": "Incantation",
+      "video": false,
+      "vote_average": 6.807,
+      "vote_count": 722
     },
     {
       "adult": false,
@@ -41041,24 +41046,6 @@
       "video": false,
       "vote_average": 6.022,
       "vote_count": 1980
-    },
-    {
-      "adult": false,
-      "backdrop_path": null,
-      "genre_ids": [
-        18
-      ],
-      "id": 858181,
-      "original_language": "en",
-      "original_title": "Standing Woman",
-      "overview": "In a near-future time, the British government has come up with an environmentally friendly program that abolishes prisons. Criminals and undocumented immigrants are chemically transformed into trees and put on public display. A propaganda filmmaker is forced to question his work as he prepares to see his journalist wife be “planted” for crimes against the state. A grim and imaginative cautionary tale by British filmmaker Tony Hipwell, based on the short story by Yasutaka Tsutsui (PAPRIKA, THE GIRL WHO LEAPT THROUGH TIME).",
-      "popularity": 5.8398,
-      "poster_path": "/wvJ9DEZjzKRiAQ4Lw2rmTLqlQeR.jpg",
-      "release_date": "2021-03-01",
-      "title": "Standing Woman",
-      "video": false,
-      "vote_average": 4.0,
-      "vote_count": 3
     },
     {
       "adult": false,
@@ -42057,8 +42044,8 @@
       "release_date": "2015-08-20",
       "title": "Hitman: Agent 47",
       "video": false,
-      "vote_average": 5.879,
-      "vote_count": 3119
+      "vote_average": 5.88,
+      "vote_count": 3120
     },
     {
       "adult": false,
@@ -42215,6 +42202,27 @@
       "video": false,
       "vote_average": 6.469,
       "vote_count": 1602
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/gXPtXbvI0nfLihu1dXgehAxsvm1.jpg",
+      "genre_ids": [
+        18,
+        53,
+        80,
+        12
+      ],
+      "id": 1541,
+      "original_language": "en",
+      "original_title": "Thelma & Louise",
+      "overview": "Taking a break from their dreary lives, close friends Thelma and Louise embark on a short weekend trip that ends in unforeseen incriminating circumstances. As fugitives, both women rediscover the strength of their bond and their newfound resilience.",
+      "popularity": 6.977,
+      "poster_path": "/y66rxathLobXk7xaUgPr4etBkRN.jpg",
+      "release_date": "1991-05-24",
+      "title": "Thelma & Louise",
+      "video": false,
+      "vote_average": 7.597,
+      "vote_count": 3601
     },
     {
       "adult": false,
@@ -44969,27 +44977,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/zFyuN8vF2XNSzxIdACES0IyNrhK.jpg",
-      "genre_ids": [
-        16,
-        12,
-        10751,
-        14
-      ],
-      "id": 116711,
-      "original_language": "en",
-      "original_title": "Epic",
-      "overview": "A teenager finds herself transported to a deep forest setting where a battle between the forces of good and the forces of evil is taking place. She bands together with a rag-tag group characters in order to save their world—and ours.",
-      "popularity": 5.9096,
-      "poster_path": "/81cSsWzjTfR3cJSqnTiHwy1eyPK.jpg",
-      "release_date": "2013-05-15",
-      "title": "Epic",
-      "video": false,
-      "vote_average": 6.535,
-      "vote_count": 2811
-    },
-    {
-      "adult": false,
       "backdrop_path": "/5xegGPhCSVMKbyh6zeT6Th0BWLB.jpg",
       "genre_ids": [
         28,
@@ -45626,7 +45613,7 @@
       "title": "District 9",
       "video": false,
       "vote_average": 7.451,
-      "vote_count": 9768
+      "vote_count": 9769
     },
     {
       "adult": false,
@@ -45764,6 +45751,25 @@
       "video": false,
       "vote_average": 7.36,
       "vote_count": 4392
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/orIxqUMEcU3DT7qCs16Si8KWjBO.jpg",
+      "genre_ids": [
+        18,
+        10749
+      ],
+      "id": 1391,
+      "original_language": "es",
+      "original_title": "Y tu mamá también",
+      "overview": "In Mexico, two teenage boys and an attractive older woman embark on a road trip and learn a thing or two about life, friendship, sex, and each other.",
+      "popularity": 5.1395,
+      "poster_path": "/eTAQWIqHyFtnvNyYpFO5IoaVi1L.jpg",
+      "release_date": "2001-06-08",
+      "title": "Y Tu Mamá También",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 1594
     },
     {
       "adult": false,
@@ -46153,24 +46159,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/bV7eAcBrYb57PwjpQ2ODT6VyFPd.jpg",
-      "genre_ids": [
-        99
-      ],
-      "id": 318256,
-      "original_language": "en",
-      "original_title": "Hot Girls Wanted",
-      "overview": "A first-ever look at the realities of the professional “amateur” porn world and the steady stream of 18-to-19-year old girls entering into it.",
-      "popularity": 5.0916,
-      "poster_path": "/75ot83QOkc02vujyzmIbumQCU6Y.jpg",
-      "release_date": "2015-01-24",
-      "title": "Hot Girls Wanted",
-      "video": false,
-      "vote_average": 6.067,
-      "vote_count": 674
-    },
-    {
-      "adult": false,
       "backdrop_path": "/3RWsSQlqzRjsuqSRmoyggy74UA7.jpg",
       "genre_ids": [
         28,
@@ -46399,8 +46387,8 @@
       "release_date": "1922-02-16",
       "title": "Nosferatu",
       "video": false,
-      "vote_average": 7.671,
-      "vote_count": 2269
+      "vote_average": 7.672,
+      "vote_count": 2270
     },
     {
       "adult": false,
@@ -46538,6 +46526,26 @@
       "video": false,
       "vote_average": 6.639,
       "vote_count": 36
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/zu4m80pS1EBqDd000xD6exSyHp4.jpg",
+      "genre_ids": [
+        27,
+        878,
+        53
+      ],
+      "id": 1062215,
+      "original_language": "en",
+      "original_title": "Afraid",
+      "overview": "Curtis Pike and his family are selected to test a new home device: a digital assistant called AIA. AIA observes the family's behaviors and begins to anticipate their needs. And she can – and will – make sure nothing – and no one – gets in her family's way.",
+      "popularity": 6.3474,
+      "poster_path": "/gUREuXCnJLVHsvKXDH9fgIcfM6e.jpg",
+      "release_date": "2024-08-28",
+      "title": "Afraid",
+      "video": false,
+      "vote_average": 5.944,
+      "vote_count": 402
     },
     {
       "adult": false,
@@ -47726,26 +47734,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/wL8KA3zIJQPbbU5hJlyIdmmLZit.jpg",
-      "genre_ids": [
-        28,
-        35,
-        9648
-      ],
-      "id": 514999,
-      "original_language": "en",
-      "original_title": "Murder Mystery",
-      "overview": "On a long-awaited trip to Europe, a New York City cop and his hairdresser wife scramble to solve a baffling murder aboard a billionaire's yacht.",
-      "popularity": 5.6954,
-      "poster_path": "/bSMSO9xupd4R4vwTPqigHn2quLN.jpg",
-      "release_date": "2019-05-25",
-      "title": "Murder Mystery",
-      "video": false,
-      "vote_average": 6.271,
-      "vote_count": 4545
-    },
-    {
-      "adult": false,
       "backdrop_path": "/wbj1A6dkQ46ddLPv26eYVDd6zlY.jpg",
       "genre_ids": [
         35,
@@ -47936,7 +47924,7 @@
       "release_date": "2006-07-29",
       "title": "Tales from Earthsea",
       "video": false,
-      "vote_average": 6.524,
+      "vote_average": 6.525,
       "vote_count": 1368
     },
     {
@@ -48523,6 +48511,24 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/3NKYeCjhsEi3GhLaQ82uP8JrYz0.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 8274,
+      "original_language": "en",
+      "original_title": "American Pie Presents: Band Camp",
+      "overview": "Everyone has 'moved on', except for Sherman and Jim Levenstein's still understanding father. Little Matt Stiffler wants to join his older brother Steve's business and, after everything Matt has heard from Jim's band-geek wife, he plans to go back to band camp and make a video of his own.",
+      "popularity": 5.1727,
+      "poster_path": "/6BgKeWEGROpWwEWvpw7vwfTCr9C.jpg",
+      "release_date": "2005-10-31",
+      "title": "American Pie Presents: Band Camp",
+      "video": false,
+      "vote_average": 5.468,
+      "vote_count": 2122
+    },
+    {
+      "adult": false,
       "backdrop_path": "/7StcR1Wrxtr95HJ5Iyb6mYrDK5i.jpg",
       "genre_ids": [
         35
@@ -48886,26 +48892,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/gPW90IPq6Go8hlT0n7Es3cFl7ly.jpg",
-      "genre_ids": [
-        18,
-        10770,
-        80
-      ],
-      "id": 550776,
-      "original_language": "en",
-      "original_title": "Believe Me: The Abduction of Lisa McVey",
-      "overview": "On the night she plans on taking her own life, 17-year-old 'Lisa McVey' is kidnapped and finds herself fighting to stay alive and manages to be a victim of rape. She manages to talk her attacker into releasing her, but when she returns home, no one believes her story except for one detective, who suspects she was abducted by a serial killer. Based on horrifying true events.",
-      "popularity": 5.5874,
-      "poster_path": "/qbJEzCzEKDHPZDiRvSSBiYEKaAH.jpg",
-      "release_date": "2018-09-30",
-      "title": "Believe Me: The Abduction of Lisa McVey",
-      "video": false,
-      "vote_average": 8.1,
-      "vote_count": 642
-    },
-    {
-      "adult": false,
       "backdrop_path": "/w8VDpCcKezdBbXJEWMHwttI35mU.jpg",
       "genre_ids": [
         27,
@@ -48921,7 +48907,7 @@
       "title": "30 Days of Night",
       "video": false,
       "vote_average": 6.427,
-      "vote_count": 2870
+      "vote_count": 2871
     },
     {
       "adult": false,
@@ -49273,6 +49259,26 @@
       "video": false,
       "vote_average": 7.902,
       "vote_count": 1181
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/3yFGxAMXvfsVWIEmzRbntELcdkw.jpg",
+      "genre_ids": [
+        10749,
+        9648,
+        53
+      ],
+      "id": 2124,
+      "original_language": "en",
+      "original_title": "Color of Night",
+      "overview": "A color-blind psychiatrist is stalked by an unknown killer after taking over his murdered friend's therapy group and becomes embroiled in an intense affair with a mysterious woman who may be connected to the crime.",
+      "popularity": 5.1125,
+      "poster_path": "/w1OBPkf3BxeC7543YzFwiKIwBFJ.jpg",
+      "release_date": "1994-08-19",
+      "title": "Color of Night",
+      "video": false,
+      "vote_average": 5.8,
+      "vote_count": 584
     },
     {
       "adult": false,
@@ -49664,24 +49670,6 @@
       "video": false,
       "vote_average": 6.684,
       "vote_count": 602
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/i58g3SAE4dyIpqeI7aDf62wcXtW.jpg",
-      "genre_ids": [
-        18
-      ],
-      "id": 176627,
-      "original_language": "en",
-      "original_title": "Mary Stevens, M.D.",
-      "overview": "A woman doctor decides to have a baby without benefit of marriage.",
-      "popularity": 6.364,
-      "poster_path": "/ysEqJqMJVPmTi6v0hqCqanKm2c2.jpg",
-      "release_date": "1933-07-22",
-      "title": "Mary Stevens, M.D.",
-      "video": false,
-      "vote_average": 6.0,
-      "vote_count": 11
     },
     {
       "adult": false,
@@ -50307,8 +50295,8 @@
       "release_date": "2015-09-10",
       "title": "The Visit",
       "video": false,
-      "vote_average": 6.3,
-      "vote_count": 4888
+      "vote_average": 6.319,
+      "vote_count": 4889
     },
     {
       "adult": false,
@@ -50449,26 +50437,7 @@
       "title": "Rear Window",
       "video": false,
       "vote_average": 8.353,
-      "vote_count": 6729
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/zZvtZZXRnZ4Tdcs0QEWaZZcIWy8.jpg",
-      "genre_ids": [
-        53,
-        9648
-      ],
-      "id": 567,
-      "original_language": "en",
-      "original_title": "Rear Window",
-      "overview": "A wheelchair-bound photographer spies on his neighbors from his apartment window and becomes convinced one of them has committed murder.",
-      "popularity": 5.2413,
-      "poster_path": "/ILVF0eJxHMddjxeQhswFtpMtqx.jpg",
-      "release_date": "1954-08-01",
-      "title": "Rear Window",
-      "video": false,
-      "vote_average": 8.353,
-      "vote_count": 6729
+      "vote_count": 6730
     },
     {
       "adult": false,
@@ -50987,8 +50956,8 @@
       "release_date": "2014-09-18",
       "title": "A Walk Among the Tombstones",
       "video": false,
-      "vote_average": 6.33,
-      "vote_count": 2857
+      "vote_average": 6.331,
+      "vote_count": 2858
     },
     {
       "adult": false,
@@ -51145,8 +51114,8 @@
       "release_date": "2024-12-25",
       "title": "The Rogue's Trial",
       "video": false,
-      "vote_average": 6.814,
-      "vote_count": 102
+      "vote_average": 6.811,
+      "vote_count": 103
     },
     {
       "adult": false,
@@ -51189,6 +51158,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/aX1P75MWK5BzjqPh8fR8HQoX27s.jpg",
+      "genre_ids": [
+        18,
+        35
+      ],
+      "id": 1029955,
+      "original_language": "en",
+      "original_title": "Kinds of Kindness",
+      "overview": "A triptych fable following a man without choice who tries to take control of his own life; a policeman who is alarmed that his wife who was missing-at-sea has returned and seems a different person; and a woman determined to find a specific someone with a special ability, who is destined to become a prodigious spiritual leader.",
+      "popularity": 5.3396,
+      "poster_path": "/50lPmjIpDs8gKfgK7fPIeKzpllh.jpg",
+      "release_date": "2024-05-30",
+      "title": "Kinds of Kindness",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 1023
+    },
+    {
+      "adult": false,
       "backdrop_path": "/adhmvUZbbxcck5jzhTrxCLvaXty.jpg",
       "genre_ids": [
         28,
@@ -51225,6 +51213,28 @@
       "video": false,
       "vote_average": 7.8,
       "vote_count": 79
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kwTfPnP9f8ZyXmSniDcwonJWixY.jpg",
+      "genre_ids": [
+        12,
+        14,
+        28,
+        35,
+        10751
+      ],
+      "id": 18360,
+      "original_language": "en",
+      "original_title": "Night at the Museum: Battle of the Smithsonian",
+      "overview": "Hapless museum night watchman Larry Daley must help his living, breathing exhibit friends out of a pickle now that they've been transferred to the archives at the Smithsonian Institution. Larry's (mis)adventures this time include close encounters with Amelia Earhart, Abe Lincoln and Ivan the Terrible.",
+      "popularity": 5.6513,
+      "poster_path": "/l9yAQn6TyrA3gv5xZZkiMMoZsiw.jpg",
+      "release_date": "2009-05-20",
+      "title": "Night at the Museum: Battle of the Smithsonian",
+      "video": false,
+      "vote_average": 6.141,
+      "vote_count": 6979
     },
     {
       "adult": false,
@@ -53327,8 +53337,8 @@
       "release_date": "2013-03-06",
       "title": "It Boy",
       "video": false,
-      "vote_average": 6.446,
-      "vote_count": 1485
+      "vote_average": 6.445,
+      "vote_count": 1486
     },
     {
       "adult": false,
@@ -53444,7 +53454,7 @@
       "release_date": "2020-12-03",
       "title": "Monster Hunter",
       "video": false,
-      "vote_average": 6.555,
+      "vote_average": 6.6,
       "vote_count": 3392
     },
     {
@@ -54284,6 +54294,27 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/f7sQHmdZdPHaRVt3428XmdoZ8Hs.jpg",
+      "genre_ids": [
+        18,
+        12,
+        10749,
+        53
+      ],
+      "id": 1907,
+      "original_language": "en",
+      "original_title": "The Beach",
+      "overview": "Twenty-something Richard travels to Thailand and finds himself in possession of a strange map. Rumours state that it leads to a solitary beach paradise, a tropical bliss - excited and intrigued, he sets out to find it.",
+      "popularity": 5.1368,
+      "poster_path": "/4y7LxD8TSi6AtsM2xSYqUm1gu7u.jpg",
+      "release_date": "2000-02-03",
+      "title": "The Beach",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 4462
+    },
+    {
+      "adult": false,
       "backdrop_path": "/AfGp6Ev3BVdEd7L99kGQzOzsqRb.jpg",
       "genre_ids": [
         18,
@@ -54357,25 +54388,6 @@
       "video": false,
       "vote_average": 7.758,
       "vote_count": 4588
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/fo6Gw1AylyRJSeKk6QqrKD3UUER.jpg",
-      "genre_ids": [
-        27,
-        53
-      ],
-      "id": 1339772,
-      "original_language": "id",
-      "original_title": "Pengantin Setan",
-      "overview": "Caught in a strained marriage, Echa finds solace in a man who visits her dreams. But comfort turns to terror when he emerges as a malicious spirit.",
-      "popularity": 5.3816,
-      "poster_path": "/rRkM4hAoT9wMPsYeHj2SdgJ3lmz.jpg",
-      "release_date": "2025-01-16",
-      "title": "The Devil's Bride",
-      "video": false,
-      "vote_average": 6.6,
-      "vote_count": 5
     },
     {
       "adult": false,
@@ -54773,6 +54785,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/eSSZgM4vMcA4XK2FPptLa9NFsAs.jpg",
+      "genre_ids": [
+        18,
+        10749
+      ],
+      "id": 617882,
+      "original_language": "ko",
+      "original_title": "소울메이트",
+      "overview": "Mi-so and Ha-eun meet in elementary school and quickly become best friends. In high school, Ha-eun meets Jin-woo and starts to have feelings for him, but he starts to have feelings for Mi-so. When they all meet again as adults, they are very different people, but they try to remember what friendship is really about.",
+      "popularity": 4.9708,
+      "poster_path": "/iL0jvWpSVW1uFn9aAoUh3UwzdYA.jpg",
+      "release_date": "2023-03-15",
+      "title": "Soulmate",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 70
+    },
+    {
+      "adult": false,
       "backdrop_path": "/fvaQkIcyGTTuBHimVvgk01Da2m6.jpg",
       "genre_ids": [
         16,
@@ -54903,8 +54934,8 @@
       "release_date": "2023-12-13",
       "title": "The Three Musketeers: Milady",
       "video": false,
-      "vote_average": 6.439,
-      "vote_count": 733
+      "vote_average": 6.441,
+      "vote_count": 734
     },
     {
       "adult": false,
@@ -55146,7 +55177,7 @@
       "release_date": "2005-06-10",
       "title": "The Adventures of Sharkboy and Lavagirl",
       "video": false,
-      "vote_average": 5.189,
+      "vote_average": 5.188,
       "vote_count": 1536
     },
     {
@@ -55205,8 +55236,8 @@
       "release_date": "1999-02-12",
       "title": "Blast from the Past",
       "video": false,
-      "vote_average": 6.775,
-      "vote_count": 1126
+      "vote_average": 6.776,
+      "vote_count": 1127
     },
     {
       "adult": false,
@@ -55381,7 +55412,7 @@
       "title": "Robin Hood",
       "video": false,
       "vote_average": 7.301,
-      "vote_count": 4445
+      "vote_count": 4446
     },
     {
       "adult": false,
@@ -55542,7 +55573,7 @@
       "release_date": "1987-03-13",
       "title": "Evil Dead II",
       "video": false,
-      "vote_average": 7.549,
+      "vote_average": 7.5,
       "vote_count": 3247
     },
     {
@@ -55680,7 +55711,7 @@
       "release_date": "1989-06-13",
       "title": "Licence to Kill",
       "video": false,
-      "vote_average": 6.416,
+      "vote_average": 6.4,
       "vote_count": 1996
     },
     {
@@ -55740,7 +55771,7 @@
       "title": "Logan Lucky",
       "video": false,
       "vote_average": 6.73,
-      "vote_count": 3622
+      "vote_count": 3623
     },
     {
       "adult": false,
@@ -55933,26 +55964,6 @@
       "video": false,
       "vote_average": 7.212,
       "vote_count": 3126
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/rmYAHOJoA55EKP2t4WQAntPTjMY.jpg",
-      "genre_ids": [
-        53,
-        27,
-        80
-      ],
-      "id": 207768,
-      "original_language": "en",
-      "original_title": "I Spit on Your Grave 2",
-      "overview": "Broke, and in desperate need to update her portfolio, New York City model Katie calls a number from a tear-off flyer offering free photos. But this innocent attempt quickly turns into an unthinkable kidnapping nightmare where she's ripped away from everyone and everything she knows.",
-      "popularity": 4.715,
-      "poster_path": "/5gM5nslul301XNHzQ9DpVxhGnLn.jpg",
-      "release_date": "2013-08-25",
-      "title": "I Spit on Your Grave 2",
-      "video": false,
-      "vote_average": 6.294,
-      "vote_count": 1327
     },
     {
       "adult": false,
@@ -56347,6 +56358,24 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/lVJVLe4EZ1hOKPUWgsZVebCnr0C.jpg",
+      "genre_ids": [
+        27
+      ],
+      "id": 845783,
+      "original_language": "en",
+      "original_title": "Baghead",
+      "overview": "Following the death of her estranged father, Iris learns she has inherited a run-down, centuries-old pub. She travels to Berlin to identify her father’s body and meet with The Solicitor to discuss the estate. Little does she know, when the deed is signed she will become inextricably tied to an unspeakable entity that resides in the pub’s basement – Baghead – a shape-shifting creature that can transform into the dead.",
+      "popularity": 5.0259,
+      "poster_path": "/lbOyeiiRYAE6Nm2e7xiNAAaRwZB.jpg",
+      "release_date": "2023-12-28",
+      "title": "Baghead",
+      "video": false,
+      "vote_average": 6.523,
+      "vote_count": 416
+    },
+    {
+      "adult": false,
       "backdrop_path": "/9a59H9qoAzMcj1NWurMgvg9iLaT.jpg",
       "genre_ids": [
         28,
@@ -56461,7 +56490,7 @@
       "title": "Fracture",
       "video": false,
       "vote_average": 7.267,
-      "vote_count": 4024
+      "vote_count": 4025
     },
     {
       "adult": false,
@@ -56718,27 +56747,6 @@
       "video": false,
       "vote_average": 6.538,
       "vote_count": 4010
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/ypuD6ZsupyVV1ElNSIPz2BooIlX.jpg",
-      "genre_ids": [
-        53,
-        878,
-        18,
-        9648
-      ],
-      "id": 157353,
-      "original_language": "en",
-      "original_title": "Transcendence",
-      "overview": "Two leading computer scientists work toward their goal of Technological Singularity,  as a radical anti-technology organization fights to prevent them from creating a world where computers can transcend the abilities of the human brain.",
-      "popularity": 4.1928,
-      "poster_path": "/qmOKJWl3wnXDcLhjtJHnCCCvAiO.jpg",
-      "release_date": "2014-04-16",
-      "title": "Transcendence",
-      "video": false,
-      "vote_average": 6.054,
-      "vote_count": 5514
     },
     {
       "adult": false,
@@ -58696,6 +58704,27 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/usRMTDl5fiVyalLKKjlZIlq3CP.jpg",
+      "genre_ids": [
+        12,
+        35,
+        10751,
+        14
+      ],
+      "id": 62764,
+      "original_language": "en",
+      "original_title": "Mirror Mirror",
+      "overview": "After she spends all her money, an evil enchantress queen schemes to marry a handsome, wealthy prince. There's just one problem - he's in love with a beautiful princess, Snow White. Now, joined by seven rebellious dwarves, Snow White launches an epic battle of good vs. evil...",
+      "popularity": 4.9361,
+      "poster_path": "/pys6zIJN8Sxlk2Ss2GZuYuXPbtw.jpg",
+      "release_date": "2012-03-15",
+      "title": "Mirror Mirror",
+      "video": false,
+      "vote_average": 5.923,
+      "vote_count": 3190
+    },
+    {
+      "adult": false,
       "backdrop_path": "/twkiKpUoaLl05HFdvoIhNxmkluV.jpg",
       "genre_ids": [
         10749
@@ -59083,6 +59112,24 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/yUjc0QIKJe0kyzjQ7Ky6dKRasv1.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 291870,
+      "original_language": "en",
+      "original_title": "Dirty Grandpa",
+      "overview": "Jason Kelly is one week away from marrying his boss's uber-controlling daughter, putting him on the fast track for a partnership at the law firm. However, when the straight-laced Jason is tricked into driving his foul-mouthed grandfather, Dick, to Daytona for spring break, his pending nuptials are suddenly in jeopardy. Between riotous frat parties, bar fights, and an epic night of karaoke, Dick is on a quest to live his life to the fullest and bring Jason along for the ride.",
+      "popularity": 8.6795,
+      "poster_path": "/k0Lz1TfSlbcQthQKYGwE7blDfwN.jpg",
+      "release_date": "2016-01-20",
+      "title": "Dirty Grandpa",
+      "video": false,
+      "vote_average": 5.9,
+      "vote_count": 4436
+    },
+    {
+      "adult": false,
       "backdrop_path": "/iihMna17sTxP3zwlWBsKZbvDiGZ.jpg",
       "genre_ids": [
         10402,
@@ -59467,27 +59514,7 @@
       "release_date": "1997-12-25",
       "title": "Jackie Brown",
       "video": false,
-      "vote_average": 7.4,
-      "vote_count": 6548
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/gvaeY5kz3wHrMU6xLdnybziwYXw.jpg",
-      "genre_ids": [
-        80,
-        18,
-        53
-      ],
-      "id": 184,
-      "original_language": "en",
-      "original_title": "Jackie Brown",
-      "overview": "Jackie Brown is a flight attendant who gets caught in the middle of smuggling cash into the country for her gunrunner boss. When the cops try to use Jackie to get to her boss, she hatches a plan — with help from a bail bondsman — to keep the money for herself.",
-      "popularity": 7.4953,
-      "poster_path": "/rOUx7qg4KmEh1juEDwqzbDSL1Nr.jpg",
-      "release_date": "1997-12-25",
-      "title": "Jackie Brown",
-      "video": false,
-      "vote_average": 7.4,
+      "vote_average": 7.357,
       "vote_count": 6548
     },
     {
@@ -59758,7 +59785,7 @@
       "release_date": "2001-06-08",
       "title": "Swordfish",
       "video": false,
-      "vote_average": 6.3,
+      "vote_average": 6.251,
       "vote_count": 2763
     },
     {
@@ -60233,28 +60260,8 @@
       "release_date": "2024-09-07",
       "title": "The Return",
       "video": false,
-      "vote_average": 6.528,
+      "vote_average": 6.5,
       "vote_count": 300
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/pYl4YpepgRbr504D7ep58C5gMyF.jpg",
-      "genre_ids": [
-        10749,
-        18,
-        14
-      ],
-      "id": 795,
-      "original_language": "en",
-      "original_title": "City of Angels",
-      "overview": "When a guardian angel – who invisibly watches over the citizens of Los Angeles – becomes captivated by a strong-willed heart surgeon, he ponders trading in his pure, otherworldly existence for a mortal life with his beloved. The couple embarks on a tender but forbidden romance spanning heaven and Earth.",
-      "popularity": 4.8333,
-      "poster_path": "/iuzxpUjHsbQJXV3kB9ZAdCimM60.jpg",
-      "release_date": "1998-04-10",
-      "title": "City of Angels",
-      "video": false,
-      "vote_average": 6.806,
-      "vote_count": 2201
     },
     {
       "adult": false,
@@ -61440,6 +61447,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/vmuQxo4PSdBRRuxBTTe2jCUhobQ.jpg",
+      "genre_ids": [
+        35,
+        10749
+      ],
+      "id": 10761,
+      "original_language": "en",
+      "original_title": "Made of Honor",
+      "overview": "Tom and Hannah have been platonic friends for 10 years. He's a serial dater, while she wants marriage but hasn't found Mr. Right. Just as Tom is starting to think that he is relationship material after all, Hannah gets engaged. When she asks Tom to be her 'maid' of honor, he reluctantly agrees just so he can attempt to stop the wedding and woo her.",
+      "popularity": 3.9667,
+      "poster_path": "/pDg8D0jNqmz7RbCBgblWvmPswHE.jpg",
+      "release_date": "2008-04-30",
+      "title": "Made of Honor",
+      "video": false,
+      "vote_average": 6.449,
+      "vote_count": 1696
+    },
+    {
+      "adult": false,
       "backdrop_path": "/fk4NXhazfRKtQaVEV9IPeM7OIVH.jpg",
       "genre_ids": [
         18,
@@ -61785,8 +61811,8 @@
       "release_date": "2017-01-26",
       "title": "Attraction",
       "video": false,
-      "vote_average": 6.7,
-      "vote_count": 843
+      "vote_average": 6.683,
+      "vote_count": 844
     },
     {
       "adult": false,
@@ -61803,8 +61829,8 @@
       "release_date": "2015-01-16",
       "title": "The Wedding Ringer",
       "video": false,
-      "vote_average": 6.455,
-      "vote_count": 1610
+      "vote_average": 6.453,
+      "vote_count": 1611
     },
     {
       "adult": false,
@@ -61824,6 +61850,26 @@
       "video": false,
       "vote_average": 7.998,
       "vote_count": 5693
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9nyToPG5mhfm4KiPGChu35jH9QZ.jpg",
+      "genre_ids": [
+        28,
+        878,
+        27
+      ],
+      "id": 315011,
+      "original_language": "ja",
+      "original_title": "シン・ゴジラ",
+      "overview": "When a massive, gilled monster emerges from the deep and tears through the city, the government scrambles to save its citizens.  A rag-tag team of volunteers cuts through a web of red tape to uncover the monster's weakness and its mysterious ties to a foreign superpower.  But time is not on their side - the greatest catastrophe to ever befall the world is about to evolve right before their very eyes.",
+      "popularity": 5.4643,
+      "poster_path": "/jPNShaWZMpVF0iQ7j1dvTuZLD20.jpg",
+      "release_date": "2016-07-29",
+      "title": "Shin Godzilla",
+      "video": false,
+      "vote_average": 7.206,
+      "vote_count": 1400
     },
     {
       "adult": false,
@@ -61882,25 +61928,6 @@
       "video": false,
       "vote_average": 7.078,
       "vote_count": 1058
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/70tfSdpFBXI8VzELLc015aN9kwa.jpg",
-      "genre_ids": [
-        12,
-        18
-      ],
-      "id": 13888,
-      "original_language": "en",
-      "original_title": "Return to the Blue Lagoon",
-      "overview": "In this sequel to the 1980 classic, two children are stranded on a beautiful island in the South Pacific. With no adults to guide them, the two make a simple life together and eventually become tanned teenagers in love.",
-      "popularity": 4.2664,
-      "poster_path": "/jhUTLuPgc3Qcvr5xtji8oiWSfYy.jpg",
-      "release_date": "1991-08-02",
-      "title": "Return to the Blue Lagoon",
-      "video": false,
-      "vote_average": 6.202,
-      "vote_count": 1200
     },
     {
       "adult": false,
@@ -62202,26 +62229,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/pkBV1whXgA9mv8UpOXujr0gGTnI.jpg",
-      "genre_ids": [
-        35,
-        27,
-        53
-      ],
-      "id": 1013482,
-      "original_language": "en",
-      "original_title": "Borderline",
-      "overview": "After escaping from a mental hospital, a violent sociopath named Paul begins a dangerous rampage targeting Sofia, a world-famous pop star. Obsessed with her, he takes Sofia hostage in her own home, acting under the delusional belief that they are getting married. Paul is desperate to prove his devotion, leading to a tense and unpredictable situation.",
-      "popularity": 4.6646,
-      "poster_path": "/hUrNKVrkMN7sdt0oAioopMcxyoq.jpg",
-      "release_date": "2025-03-14",
-      "title": "Borderline",
-      "video": false,
-      "vote_average": 5.606,
-      "vote_count": 80
-    },
-    {
-      "adult": false,
       "backdrop_path": "/vSd89kiENYeFa6mPHzsM5BgliPm.jpg",
       "genre_ids": [
         35,
@@ -62353,8 +62360,29 @@
       "release_date": "2008-09-25",
       "title": "Eagle Eye",
       "video": false,
-      "vote_average": 6.473,
-      "vote_count": 2932
+      "vote_average": 6.474,
+      "vote_count": 2933
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/3c59KMNs2MYqXUb2GZe8Yfwn4kb.jpg",
+      "genre_ids": [
+        14,
+        16,
+        18,
+        878
+      ],
+      "id": 14069,
+      "original_language": "ja",
+      "original_title": "時をかける少女",
+      "overview": "When 17-year-old Makoto Konno gains the ability to, quite literally, 'leap' backwards through time, she immediately sets about improving her grades and preventing personal mishaps. However, she soon realises that changing the past isn't as simple as it seems, and eventually, will have to rely on her new powers to shape the future of herself and her friends.",
+      "popularity": 4.6999,
+      "poster_path": "/xHnlWM8BmqY419YUccYy2KC5Jqo.jpg",
+      "release_date": "2006-07-15",
+      "title": "The Girl Who Leapt Through Time",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 2085
     },
     {
       "adult": false,
@@ -62973,26 +63001,6 @@
       "video": false,
       "vote_average": 6.0,
       "vote_count": 22
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/oRzXPixvyO3zHbAXatpOwbM6u1S.jpg",
-      "genre_ids": [
-        27,
-        9648,
-        53
-      ],
-      "id": 405746,
-      "original_language": "ja",
-      "original_title": "DOOR",
-      "overview": "Yasuko, a housewife, lives in an urban high-rise apartment with her husband Satoru and her son Takuto.  Annoyed by spam calls and door-to-door salesmen, Yasuko slams the door on a salesman’s hand when he tries to squeeze a flyer through the apartment's chained front door. He leaves, but the next day, her nightmare starts.",
-      "popularity": 4.2712,
-      "poster_path": "/mffMDHMhZ4zw25vAjtRJShlnfGR.jpg",
-      "release_date": "1988-05-14",
-      "title": "Door",
-      "video": false,
-      "vote_average": 6.5,
-      "vote_count": 14
     },
     {
       "adult": false,
@@ -63846,8 +63854,8 @@
       "release_date": "1999-08-13",
       "title": "The 13th Warrior",
       "video": false,
-      "vote_average": 6.7,
-      "vote_count": 1913
+      "vote_average": 6.686,
+      "vote_count": 1914
     },
     {
       "adult": false,
@@ -64549,6 +64557,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/ts2CQBbdPYRoq7yTovmDoRw7sTX.jpg",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "id": 357096,
+      "original_language": "en",
+      "original_title": "I Spit on Your Grave III: Vengeance Is Mine",
+      "overview": "Jennifer Hills is still tormented by the brutal sexual assault she endured years ago. She’s changed identities and cities, reluctantly joining a support group where she begins to piece together a new life. But when her new friend’s murderer goes free and the tales of serial rapists haunt her, Jennifer will hunt down the men responsible and do what the system won’t – make them pay for their crimes in the most horrific ways imaginable. Only this time, no jury may be able to save her.",
+      "popularity": 4.3245,
+      "poster_path": "/jG5GDIcqiqHXkvINZSjyzBUO2vH.jpg",
+      "release_date": "2015-10-01",
+      "title": "I Spit on Your Grave III: Vengeance Is Mine",
+      "video": false,
+      "vote_average": 5.776,
+      "vote_count": 983
+    },
+    {
+      "adult": false,
       "backdrop_path": "/fUHuBNqTFGCohCuHDEqHs1pDPj7.jpg",
       "genre_ids": [
         16,
@@ -64924,28 +64951,6 @@
       "video": false,
       "vote_average": 6.052,
       "vote_count": 1499
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/xnuy6CYEoBmXKhTjKDSbzLe1dB5.jpg",
-      "genre_ids": [
-        53,
-        18,
-        12,
-        28,
-        36
-      ],
-      "id": 205775,
-      "original_language": "en",
-      "original_title": "In the Heart of the Sea",
-      "overview": "In the winter of 1820, the New England whaling ship Essex is assaulted by something no one could believe—a whale of mammoth size and will, and an almost human sense of vengeance.",
-      "popularity": 4.4137,
-      "poster_path": "/weVvNPfk6FM9vBg3BXtRtNAmiYM.jpg",
-      "release_date": "2015-12-03",
-      "title": "In the Heart of the Sea",
-      "video": false,
-      "vote_average": 6.757,
-      "vote_count": 4179
     },
     {
       "adult": false,
@@ -65607,7 +65612,7 @@
       "release_date": "2022-06-03",
       "title": "Hustle",
       "video": false,
-      "vote_average": 7.736,
+      "vote_average": 7.7,
       "vote_count": 2641
     },
     {
@@ -67696,6 +67701,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/qQGHkmLWPcMGkKws78pFh14SzUo.jpg",
+      "genre_ids": [
+        18,
+        36,
+        10749
+      ],
+      "id": 8095,
+      "original_language": "en",
+      "original_title": "Cleopatra",
+      "overview": "Determined to hold on to the throne, Cleopatra seduces the Roman emperor Julius Caesar. When Caesar is murdered, she redirects her attentions to his general, Marc Antony, who vows to take power—but Caesar’s successor has other plans.",
+      "popularity": 4.4861,
+      "poster_path": "/bj7rUGUewofA9cpHt1h36gvDFfy.jpg",
+      "release_date": "1963-06-12",
+      "title": "Cleopatra",
+      "video": false,
+      "vote_average": 7.039,
+      "vote_count": 786
+    },
+    {
+      "adult": false,
       "backdrop_path": "/wygUDDRNpeKUnkekRGeLCZM93tA.jpg",
       "genre_ids": [
         878,
@@ -68142,7 +68167,7 @@
       "release_date": "1997-07-03",
       "title": "Bean",
       "video": false,
-      "vote_average": 6.464,
+      "vote_average": 6.5,
       "vote_count": 2460
     },
     {
@@ -68459,25 +68484,6 @@
       "video": false,
       "vote_average": 7.6,
       "vote_count": 29
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/5etQ5b9reaWiSJtc9cZK5ULVADp.jpg",
-      "genre_ids": [
-        35,
-        10749
-      ],
-      "id": 20943,
-      "original_language": "en",
-      "original_title": "The Ugly Truth",
-      "overview": "A romantically challenged morning show producer is reluctantly embroiled in a series of outrageous tests by her chauvinistic correspondent to prove his theories on relationships and help her find love. His clever ploys, however, lead to an unexpected result.",
-      "popularity": 4.2226,
-      "poster_path": "/2rq96Ihbqb1eU3TEBVtgFlqbeX7.jpg",
-      "release_date": "2009-07-24",
-      "title": "The Ugly Truth",
-      "video": false,
-      "vote_average": 6.505,
-      "vote_count": 3603
     },
     {
       "adult": false,
@@ -68872,6 +68878,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/z4T0CZxl8WQqNA8K5tZoBQib4jL.jpg",
+      "genre_ids": [
+        16,
+        9648,
+        12
+      ],
+      "id": 39203,
+      "original_language": "ja",
+      "original_title": "名探偵コナン 銀翼の奇術師",
+      "overview": "Once again, Kaitou Kid crosses swords with Conan Edogawa in this annual installment of the Detective Conan movie franchise. After receiving a letter from the thief, famous actress Juri Maki seeks the help of private detective Kogorou Mouri to protect the Star Sapphire—the \"Jewel of Destiny,\" said to represent faith, fate, and hope.",
+      "popularity": 4.6473,
+      "poster_path": "/bozQR8pgW43WFI4VpV9vCgyXlDq.jpg",
+      "release_date": "2004-04-17",
+      "title": "Detective Conan: Magician of the Silver Sky",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 149
+    },
+    {
+      "adult": false,
       "backdrop_path": "/69c9XLhOX3LdCW7V022917xu7Yb.jpg",
       "genre_ids": [
         12,
@@ -69051,8 +69077,8 @@
       "release_date": "2014-09-19",
       "title": "Tusk",
       "video": false,
-      "vote_average": 5.51,
-      "vote_count": 1464
+      "vote_average": 5.513,
+      "vote_count": 1465
     },
     {
       "adult": false,
@@ -69446,8 +69472,8 @@
       "release_date": "2020-10-01",
       "title": "2067",
       "video": false,
-      "vote_average": 5.361,
-      "vote_count": 864
+      "vote_average": 5.359,
+      "vote_count": 866
     },
     {
       "adult": false,
@@ -69545,7 +69571,7 @@
       "release_date": "1989-11-30",
       "title": "National Lampoon's Christmas Vacation",
       "video": false,
-      "vote_average": 7.237,
+      "vote_average": 7.2,
       "vote_count": 2495
     },
     {
@@ -69567,26 +69593,6 @@
       "video": false,
       "vote_average": 7.0,
       "vote_count": 238
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/aHtZFBjUCSpghKWl2rU7zP6FhRQ.jpg",
-      "genre_ids": [
-        80,
-        53,
-        28
-      ],
-      "id": 811945,
-      "original_language": "te",
-      "original_title": "హిట్: ది సెకండ్ కేస్",
-      "overview": "Krishna Dev aka KD, a laidback cop working in Andhra Pradesh State HIT, takes on a gruesome murder case. As KD unravels the layers of the crime, the stakes rise unbelievably high and the threat comes unusually close.",
-      "popularity": 4.8743,
-      "poster_path": "/tidXGOilCSa5sch1KGiEXrWeYCf.jpg",
-      "release_date": "2022-12-01",
-      "title": "HIT: The 2nd Case",
-      "video": false,
-      "vote_average": 7.0,
-      "vote_count": 31
     },
     {
       "adult": false,
@@ -69664,6 +69670,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/Aur8dDhjDDJBuSDa9Y9GNrvlPI5.jpg",
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "id": 23437,
+      "original_language": "en",
+      "original_title": "A Nightmare on Elm Street",
+      "overview": "The film that brings back horror icon Freddy Krueger as a darker and more sinister character than ever before. While Freddy is on the prowl, a group of teenagers being stalked soon learn they all have a common factor making them targets for this twisted killer.",
+      "popularity": 4.6184,
+      "poster_path": "/nsmW28GcNabCUZfP5YtUEe8Li0f.jpg",
+      "release_date": "2010-04-30",
+      "title": "A Nightmare on Elm Street",
+      "video": false,
+      "vote_average": 5.521,
+      "vote_count": 2770
+    },
+    {
+      "adult": false,
       "backdrop_path": "/tVCg0HYPLFVYljiQXJCWTY43LJR.jpg",
       "genre_ids": [
         18
@@ -69697,8 +69723,8 @@
       "release_date": "1987-09-18",
       "title": "Fatal Attraction",
       "video": false,
-      "vote_average": 6.844,
-      "vote_count": 1573
+      "vote_average": 6.842,
+      "vote_count": 1574
     },
     {
       "adult": false,
@@ -69757,8 +69783,8 @@
       "release_date": "1958-12-28",
       "title": "The Hidden Fortress",
       "video": false,
-      "vote_average": 7.968,
-      "vote_count": 640
+      "vote_average": 7.971,
+      "vote_count": 641
     },
     {
       "adult": false,
@@ -69891,7 +69917,7 @@
       "release_date": "2017-10-12",
       "title": "Cult of Chucky",
       "video": false,
-      "vote_average": 5.822,
+      "vote_average": 5.8,
       "vote_count": 1331
     },
     {
@@ -70031,25 +70057,6 @@
       "video": false,
       "vote_average": 6.719,
       "vote_count": 350
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/wePpxpU1eNZnHCChP5xGNJrGKY3.jpg",
-      "genre_ids": [
-        10751,
-        18
-      ],
-      "id": 339984,
-      "original_language": "en",
-      "original_title": "Miracles from Heaven",
-      "overview": "When Christy discovers her 10-year-old daughter Anna has a rare, incurable disease, she becomes a ferocious advocate for her daughter’s healing as she searches for a solution. After Anna has a freak accident and falls three stories, a miracle unfolds in the wake of her dramatic rescue that leaves medical specialists mystified, her family restored and their community inspired.",
-      "popularity": 3.8875,
-      "poster_path": "/hz9VF1TfaM0D04pYneSXUkNeOZv.jpg",
-      "release_date": "2016-03-17",
-      "title": "Miracles from Heaven",
-      "video": false,
-      "vote_average": 7.45,
-      "vote_count": 1209
     },
     {
       "adult": false,
@@ -72022,6 +72029,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/ekRp1sEA8pnuzVHQkUESTgNSKdW.jpg",
+      "genre_ids": [
+        878,
+        28,
+        80
+      ],
+      "id": 932420,
+      "original_language": "en",
+      "original_title": "Code 8 Part II",
+      "overview": "In a world where superpowered people are heavily policed by robots, an ex-con teams up with a drug lord he despises to protect a teen from a corrupt cop.",
+      "popularity": 4.7952,
+      "poster_path": "/h89INyaoH16CdlT7q7BtKikIFRy.jpg",
+      "release_date": "2024-02-27",
+      "title": "Code 8 Part II",
+      "video": false,
+      "vote_average": 6.368,
+      "vote_count": 622
+    },
+    {
+      "adult": false,
       "backdrop_path": "/nUJk4UjWS9YvBJUepCWziQ1QYSf.jpg",
       "genre_ids": [
         80,
@@ -72390,24 +72417,6 @@
       "video": false,
       "vote_average": 7.15,
       "vote_count": 2670
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/igfo3Wt9QvXEGMPvkh8bRSel9r2.jpg",
-      "genre_ids": [
-        99
-      ],
-      "id": 1455575,
-      "original_language": "en",
-      "original_title": "Behind the Curtain: Stranger Things: The First Shadow",
-      "overview": "Join the cast and crew behind the scenes of Stranger Things: The First Shadow, the award-winning stage play that expands the Hawkins universe. The Netflix series is simply an extension of the Stranger Things universe. The documentary gives viewers a glimpse into the making of the show as it prepares for its West End premiere. The show sold out quickly and received critical acclaim. It won two Olivier Awards in 2024.",
-      "popularity": 3.0711,
-      "poster_path": "/7jQIbTMx2BlZrYGyOS94YUNcGjV.jpg",
-      "release_date": "2025-04-15",
-      "title": "Behind the Curtain: Stranger Things: The First Shadow",
-      "video": false,
-      "vote_average": 8.3,
-      "vote_count": 3
     },
     {
       "adult": false,
@@ -72809,6 +72818,27 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/f2MzXz3vjuNtSPn17ugFa6oTUmc.jpg",
+      "genre_ids": [
+        35,
+        18,
+        10402,
+        10749
+      ],
+      "id": 6282,
+      "original_language": "en",
+      "original_title": "Coyote Ugly",
+      "overview": "Graced with a velvet voice, 21-year-old Violet Sanford heads to New York to pursue her dream of becoming a songwriter only to find her aspirations sidelined by the accolades and notoriety she receives at her \"day\" job as a barmaid at Coyote Ugly. The \"Coyotes\" as they are affectionately called tantalize customers and the media alike with their outrageous antics, making Coyote Ugly the watering hole for guys on the prowl.",
+      "popularity": 4.3244,
+      "poster_path": "/xYM0laKrEqjiRSQNvqRrXPXN3iL.jpg",
+      "release_date": "2000-07-30",
+      "title": "Coyote Ugly",
+      "video": false,
+      "vote_average": 6.263,
+      "vote_count": 2139
+    },
+    {
+      "adult": false,
       "backdrop_path": "/pLHK5934S3lX73PAGuGPxr7un2p.jpg",
       "genre_ids": [
         16,
@@ -72846,7 +72876,7 @@
       "release_date": "1993-10-09",
       "title": "Ocean Waves",
       "video": false,
-      "vote_average": 6.4,
+      "vote_average": 6.408,
       "vote_count": 911
     },
     {
@@ -73020,7 +73050,7 @@
       "release_date": "1973-06-27",
       "title": "Live and Let Die",
       "video": false,
-      "vote_average": 6.5,
+      "vote_average": 6.514,
       "vote_count": 2117
     },
     {
@@ -73179,44 +73209,6 @@
       "video": false,
       "vote_average": 6.0,
       "vote_count": 4
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/5r2BZajlRZqnOc6s2BS0aiFDcne.jpg",
-      "genre_ids": [
-        18,
-        37
-      ],
-      "id": 4512,
-      "original_language": "en",
-      "original_title": "The Assassination of Jesse James by the Coward Robert Ford",
-      "overview": "Outlaw Jesse James is rumored to be the 'fastest gun in the West'. An eager recruit into James' notorious gang, Robert Ford eventually grows jealous of the famed outlaw and, when Robert and his brother sense an opportunity to kill James, their murderous action elevates their target to near mythical status.",
-      "popularity": 3.8341,
-      "poster_path": "/2d1S6fJS80fvseg6mJE8eq5o7Kx.jpg",
-      "release_date": "2007-09-20",
-      "title": "The Assassination of Jesse James by the Coward Robert Ford",
-      "video": false,
-      "vote_average": 7.041,
-      "vote_count": 2583
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/5r2BZajlRZqnOc6s2BS0aiFDcne.jpg",
-      "genre_ids": [
-        18,
-        37
-      ],
-      "id": 4512,
-      "original_language": "en",
-      "original_title": "The Assassination of Jesse James by the Coward Robert Ford",
-      "overview": "Outlaw Jesse James is rumored to be the 'fastest gun in the West'. An eager recruit into James' notorious gang, Robert Ford eventually grows jealous of the famed outlaw and, when Robert and his brother sense an opportunity to kill James, their murderous action elevates their target to near mythical status.",
-      "popularity": 3.8341,
-      "poster_path": "/2d1S6fJS80fvseg6mJE8eq5o7Kx.jpg",
-      "release_date": "2007-09-20",
-      "title": "The Assassination of Jesse James by the Coward Robert Ford",
-      "video": false,
-      "vote_average": 7.041,
-      "vote_count": 2583
     },
     {
       "adult": false,
@@ -73591,6 +73583,44 @@
       "video": false,
       "vote_average": 6.416,
       "vote_count": 1285
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9E7RHTs5hyVCwZ8vmw0UtrcwfFD.jpg",
+      "genre_ids": [
+        35,
+        10749
+      ],
+      "id": 12177,
+      "original_language": "en",
+      "original_title": "The Love Guru",
+      "overview": "Born in America and raised in an Indian ashram, Pitka returns to his native land to seek his fortune as a spiritualist and self-help expert. His skills are put to the test when he must get a brokenhearted hockey player's marriage back on track in time for the man to help his team win the Stanley Cup.",
+      "popularity": 4.1069,
+      "poster_path": "/sp8AV64ftAZCT9uWfgbCb3olGDW.jpg",
+      "release_date": "2008-06-20",
+      "title": "The Love Guru",
+      "video": false,
+      "vote_average": 4.067,
+      "vote_count": 730
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9E7RHTs5hyVCwZ8vmw0UtrcwfFD.jpg",
+      "genre_ids": [
+        35,
+        10749
+      ],
+      "id": 12177,
+      "original_language": "en",
+      "original_title": "The Love Guru",
+      "overview": "Born in America and raised in an Indian ashram, Pitka returns to his native land to seek his fortune as a spiritualist and self-help expert. His skills are put to the test when he must get a brokenhearted hockey player's marriage back on track in time for the man to help his team win the Stanley Cup.",
+      "popularity": 4.1069,
+      "poster_path": "/sp8AV64ftAZCT9uWfgbCb3olGDW.jpg",
+      "release_date": "2008-06-20",
+      "title": "The Love Guru",
+      "video": false,
+      "vote_average": 4.067,
+      "vote_count": 730
     },
     {
       "adult": false,
@@ -73981,24 +74011,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/1jlEycX1XmP8exvLVpZ5VSM1bRA.jpg",
-      "genre_ids": [
-        99
-      ],
-      "id": 986355,
-      "original_language": "en",
-      "original_title": "Girls State",
-      "overview": "What would American democracy look like in the hands of teenage girls? In this documentary, young female leaders from wildly different backgrounds in Missouri navigate an immersive experiment to build a government from the ground up.",
-      "popularity": 2.7668,
-      "poster_path": "/hD1oCssH4GMGrzUljlVpydQFbGx.jpg",
-      "release_date": "2024-01-18",
-      "title": "Girls State",
-      "video": false,
-      "vote_average": 7.1,
-      "vote_count": 14
-    },
-    {
-      "adult": false,
       "backdrop_path": "/n4elrbXCYyhBGHuw3YrUHbwmQBo.jpg",
       "genre_ids": [
         18,
@@ -74368,6 +74380,28 @@
       "video": false,
       "vote_average": 7.453,
       "vote_count": 170
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qSc5JzPvSm6KxVv54nrn7SNXFtk.jpg",
+      "genre_ids": [
+        16,
+        10402,
+        35,
+        14,
+        10751
+      ],
+      "id": 1192209,
+      "original_language": "pt",
+      "original_title": "Arca de Noé",
+      "overview": "A pair of mice attempt to board Noah's Ark: Vini, a charismatic poet with terrible stage fright, and Tito, a talented and charming guitarist. When the rains come, only one male and one female of each species is allowed on Noah's Ark. With the help of an ingenious cockroach and fate's good luck, Vini and Tito sneak their way onto the Ark and together avert a showdown among the ships carnivores and plant eaters. All the while, the animals perform a series of classic songs inspired by world renowned poet, Vinicius de Moraes. Can these talented stowaways use music to break the tension and help these cooped up creatures survive the 40 days and 40 nights together?",
+      "popularity": 3.9907,
+      "poster_path": "/x6wH1kowr6uNFJ12CVKsRHzC0cm.jpg",
+      "release_date": "2024-01-05",
+      "title": "Noah's Ark",
+      "video": false,
+      "vote_average": 6.848,
+      "vote_count": 102
     },
     {
       "adult": false,
@@ -74767,24 +74801,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/lZbpGWA1P8k7P6MJXdMDDDS01z9.jpg",
-      "genre_ids": [
-        35
-      ],
-      "id": 521777,
-      "original_language": "en",
-      "original_title": "Good Boys",
-      "overview": "A group of young boys on the cusp of becoming teenagers embark on an epic quest to fix their broken drone before their parents get home.",
-      "popularity": 4.7814,
-      "poster_path": "/tximyCXMEnWIIyOy9STkOduUprG.jpg",
-      "release_date": "2019-08-14",
-      "title": "Good Boys",
-      "video": false,
-      "vote_average": 6.9,
-      "vote_count": 1888
-    },
-    {
-      "adult": false,
       "backdrop_path": "/xuLVW4mWU12CUtewcizdmgOQZp1.jpg",
       "genre_ids": [
         28,
@@ -75161,6 +75177,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/mwyO0J1pwaqqKygU0gnIyRP1cFN.jpg",
+      "genre_ids": [
+        35,
+        10749
+      ],
+      "id": 499726,
+      "original_language": "fr",
+      "original_title": "MILF",
+      "overview": "Three childhood friends - Elise, Sonia and Cecile - leave for a summer in the South of France to help clear Cecile’s holiday house before it is put up for sale. There, they soon become the prime targets of three horny young men, for whom these single forty-year-old women are much more attractive than girls their age.",
+      "popularity": 3.9099,
+      "poster_path": "/qBU82NPKF1LOAD9D3jLUqypyEdL.jpg",
+      "release_date": "2018-05-02",
+      "title": "MILF",
+      "video": false,
+      "vote_average": 5.734,
+      "vote_count": 566
+    },
+    {
+      "adult": false,
       "backdrop_path": "/m50btvvexrrDUpJjSey1C4IU1OD.jpg",
       "genre_ids": [
         36,
@@ -75314,7 +75349,7 @@
       "title": "The Unhealer",
       "video": false,
       "vote_average": 6.017,
-      "vote_count": 87
+      "vote_count": 88
     },
     {
       "adult": false,
@@ -75538,27 +75573,6 @@
       "video": false,
       "vote_average": 8.373,
       "vote_count": 236
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/8HfjrSxfTVKmjNh8cJjbu5eXzcX.jpg",
-      "genre_ids": [
-        10751,
-        14,
-        28,
-        12
-      ],
-      "id": 420808,
-      "original_language": "en",
-      "original_title": "Peter Pan & Wendy",
-      "overview": "Wendy Darling, a young girl afraid to leave her childhood home behind, meets Peter Pan, a boy who refuses to grow up. Alongside her brothers and a tiny fairy, Tinker Bell, she travels with Peter to the magical world of Neverland. There, she encounters an evil pirate captain, Captain Hook, and embarks on a thrilling adventure that will change her life forever.",
-      "popularity": 4.3127,
-      "poster_path": "/9NXAlFEE7WDssbXSMgdacsUD58Y.jpg",
-      "release_date": "2023-04-20",
-      "title": "Peter Pan & Wendy",
-      "video": false,
-      "vote_average": 5.438,
-      "vote_count": 714
     },
     {
       "adult": false,
@@ -75956,6 +75970,27 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/zflAbUauZilFNDtdsR8kavPJFZM.jpg",
+      "genre_ids": [
+        80,
+        18,
+        9648,
+        53
+      ],
+      "id": 346685,
+      "original_language": "en",
+      "original_title": "The Girl on the Train",
+      "overview": "Rachel Watson, devastated by her recent divorce, spends her daily commute fantasizing about the seemingly perfect couple who live in a house that her train passes every day, until one morning she sees something shocking happen there and becomes entangled in the mystery that unfolds.",
+      "popularity": 4.3926,
+      "poster_path": "/AhTO2QWG0tug7yDoh0XoaMhPt3J.jpg",
+      "release_date": "2016-10-05",
+      "title": "The Girl on the Train",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 5795
+    },
+    {
+      "adult": false,
       "backdrop_path": "/cDDyZ2qtBzNAepdTbgxKfFcxREl.jpg",
       "genre_ids": [
         80,
@@ -76319,25 +76354,6 @@
       "video": false,
       "vote_average": 7.3,
       "vote_count": 176
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/g3lCbTn3HYHTiFrfusxKGXMdyUW.jpg",
-      "genre_ids": [
-        878,
-        12
-      ],
-      "id": 533533,
-      "original_language": "en",
-      "original_title": "TRON: Ares",
-      "overview": "A highly sophisticated Program called Ares is sent from the digital world into the real world on a dangerous mission, marking humankind's first encounter with A.I. beings.",
-      "popularity": 3.6263,
-      "poster_path": "/chpWmskl3aKm1aTZqUHRCtviwPy.jpg",
-      "release_date": "2025-10-08",
-      "title": "TRON: Ares",
-      "video": false,
-      "vote_average": 0.0,
-      "vote_count": 0
     },
     {
       "adult": false,
@@ -76739,6 +76755,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/dzloVSv0FGM8fs4L5w9yV60p0PT.jpg",
+      "genre_ids": [
+        35,
+        12
+      ],
+      "id": 11282,
+      "original_language": "en",
+      "original_title": "Harold & Kumar Go to White Castle",
+      "overview": "Nerdy accountant Harold and his irrepressible friend, Kumar, get stoned watching television and find themselves utterly bewitched by a commercial for White Castle. Convinced there must be one nearby, the two set out on a late-night odyssey that takes them deep into New Jersey. Somehow, the boys manage to run afoul of rednecks, cops and even a car-stealing Neil Patrick Harris before getting anywhere near their beloved sliders.",
+      "popularity": 4.1505,
+      "poster_path": "/5vO7R4xYlDipTp8gzfRbWegO8eb.jpg",
+      "release_date": "2004-07-02",
+      "title": "Harold & Kumar Go to White Castle",
+      "video": false,
+      "vote_average": 6.538,
+      "vote_count": 2120
+    },
+    {
+      "adult": false,
       "backdrop_path": "/yZzPTih3HQZUBghrWirt0Rk17uE.jpg",
       "genre_ids": [
         28,
@@ -76871,8 +76906,8 @@
       "release_date": "2016-07-28",
       "title": "Bad Moms",
       "video": false,
-      "vote_average": 6.5,
-      "vote_count": 4136
+      "vote_average": 6.496,
+      "vote_count": 4137
     },
     {
       "adult": false,
@@ -77403,8 +77438,8 @@
       "release_date": "2018-11-23",
       "title": "The Favourite",
       "video": false,
-      "vote_average": 7.504,
-      "vote_count": 5621
+      "vote_average": 7.503,
+      "vote_count": 5622
     },
     {
       "adult": false,
@@ -77508,44 +77543,6 @@
       "video": false,
       "vote_average": 6.39,
       "vote_count": 750
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/miOnymJ0dN2psWBB8Vleo3fUyrc.jpg",
-      "genre_ids": [
-        18,
-        35
-      ],
-      "id": 607259,
-      "original_language": "en",
-      "original_title": "Fatherhood",
-      "overview": "A widowed new dad copes with doubts, fears, heartache and dirty diapers as he sets out to raise his daughter on his own. Inspired by a true story.",
-      "popularity": 4.1017,
-      "poster_path": "/wvqO1gTAMZIFGi3Ioq1BN6KV95R.jpg",
-      "release_date": "2021-06-18",
-      "title": "Fatherhood",
-      "video": false,
-      "vote_average": 7.5,
-      "vote_count": 1457
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/miOnymJ0dN2psWBB8Vleo3fUyrc.jpg",
-      "genre_ids": [
-        18,
-        35
-      ],
-      "id": 607259,
-      "original_language": "en",
-      "original_title": "Fatherhood",
-      "overview": "A widowed new dad copes with doubts, fears, heartache and dirty diapers as he sets out to raise his daughter on his own. Inspired by a true story.",
-      "popularity": 4.1017,
-      "poster_path": "/wvqO1gTAMZIFGi3Ioq1BN6KV95R.jpg",
-      "release_date": "2021-06-18",
-      "title": "Fatherhood",
-      "video": false,
-      "vote_average": 7.5,
-      "vote_count": 1457
     },
     {
       "adult": false,
@@ -77920,6 +77917,48 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/h467xrZyl0Iky5cM9NTjYUiSs2N.jpg",
+      "genre_ids": [
+        53,
+        878,
+        12,
+        28
+      ],
+      "id": 729854,
+      "original_language": "ko",
+      "original_title": "콘크리트 유토피아",
+      "overview": "The world has been reduced to rubble by a massive earthquake. While no one knows for sure how far the ruins stretch, or what the cause of the earthquake may be, in the heart of Seoul there is only one apartment building left standing. It is called Hwang Gung Apartments. As time passes, outsiders start coming in to Hwang Gung Apartments trying to escape the extreme cold. Before long, the apartment residents are unable to cope with the increasing numbers. Feeling a threat to their very survival, the residents enact a special measure.",
+      "popularity": 4.1478,
+      "poster_path": "/4l68KHxnPSow8MvnGUpjqLzJtLJ.jpg",
+      "release_date": "2023-08-09",
+      "title": "Concrete Utopia",
+      "video": false,
+      "vote_average": 7.0,
+      "vote_count": 254
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/h467xrZyl0Iky5cM9NTjYUiSs2N.jpg",
+      "genre_ids": [
+        53,
+        878,
+        12,
+        28
+      ],
+      "id": 729854,
+      "original_language": "ko",
+      "original_title": "콘크리트 유토피아",
+      "overview": "The world has been reduced to rubble by a massive earthquake. While no one knows for sure how far the ruins stretch, or what the cause of the earthquake may be, in the heart of Seoul there is only one apartment building left standing. It is called Hwang Gung Apartments. As time passes, outsiders start coming in to Hwang Gung Apartments trying to escape the extreme cold. Before long, the apartment residents are unable to cope with the increasing numbers. Feeling a threat to their very survival, the residents enact a special measure.",
+      "popularity": 4.1478,
+      "poster_path": "/4l68KHxnPSow8MvnGUpjqLzJtLJ.jpg",
+      "release_date": "2023-08-09",
+      "title": "Concrete Utopia",
+      "video": false,
+      "vote_average": 7.0,
+      "vote_count": 254
+    },
+    {
+      "adult": false,
       "backdrop_path": "/5VuOmxGfqu7yf05q8Q6SUKOh7oe.jpg",
       "genre_ids": [
         12,
@@ -77995,25 +78034,6 @@
       "video": false,
       "vote_average": 7.927,
       "vote_count": 663
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/pwq9aAUNN2EW4fh8N3kA5QBc8RN.jpg",
-      "genre_ids": [
-        18,
-        10749
-      ],
-      "id": 1476450,
-      "original_language": "tl",
-      "original_title": "Bayo",
-      "overview": "Can you mix business with pleasure? Claire definitely can. A new girl in town uses seduction and mind games  to tear a loving couple apart. Her motive: lust with a little bit of business.",
-      "popularity": 4.5412,
-      "poster_path": "/pNClIec4AsWkZmMBqqYXMPO0nzd.jpg",
-      "release_date": "2025-06-20",
-      "title": "Bayo",
-      "video": false,
-      "vote_average": 0.0,
-      "vote_count": 0
     },
     {
       "adult": false,
@@ -78171,8 +78191,8 @@
       "release_date": "2009-06-10",
       "title": "The Taking of Pelham 1 2 3",
       "video": false,
-      "vote_average": 6.353,
-      "vote_count": 3194
+      "vote_average": 6.352,
+      "vote_count": 3195
     },
     {
       "adult": false,
@@ -78191,7 +78211,7 @@
       "release_date": "1997-01-15",
       "title": "Lost Highway",
       "video": false,
-      "vote_average": 7.544,
+      "vote_average": 7.5,
       "vote_count": 2743
     },
     {
@@ -78271,8 +78291,8 @@
       "release_date": "1995-03-10",
       "title": "Outbreak",
       "video": false,
-      "vote_average": 6.568,
-      "vote_count": 2324
+      "vote_average": 6.567,
+      "vote_count": 2325
     },
     {
       "adult": false,
@@ -78371,7 +78391,7 @@
       "title": "3:10 to Yuma",
       "video": false,
       "vote_average": 7.217,
-      "vote_count": 3741
+      "vote_count": 3742
     },
     {
       "adult": false,
@@ -78843,8 +78863,8 @@
       "release_date": "1963-02-14",
       "title": "8½",
       "video": false,
-      "vote_average": 8.132,
-      "vote_count": 2382
+      "vote_average": 8.131,
+      "vote_count": 2383
     },
     {
       "adult": false,
@@ -79892,6 +79912,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/ihBDaN7OwT7D9DVri8SmxCnuRLB.jpg",
+      "genre_ids": [
+        28,
+        53
+      ],
+      "id": 8845,
+      "original_language": "en",
+      "original_title": "Under Siege",
+      "overview": "A disgruntled ex-CIA operative, his assistant and their assembled group of terrorists seize a battleship with nuclear blackmail in mind. They've planned for every contingency but ignore the ship's cook, former Navy SEAL Casey Ryback—an error that could be fatal.",
+      "popularity": 4.2299,
+      "poster_path": "/myHxm9p8fhEsXyaLO6DawYJKolg.jpg",
+      "release_date": "1992-10-08",
+      "title": "Under Siege",
+      "video": false,
+      "vote_average": 6.301,
+      "vote_count": 1594
+    },
+    {
+      "adult": false,
       "backdrop_path": "/9G5bteYI8FXaY9EomnUP0kdHm66.jpg",
       "genre_ids": [
         80,
@@ -79927,7 +79966,7 @@
       "release_date": "1986-02-28",
       "title": "Pretty in Pink",
       "video": false,
-      "vote_average": 6.722,
+      "vote_average": 6.7,
       "vote_count": 1139
     },
     {
@@ -80262,26 +80301,6 @@
       "video": false,
       "vote_average": 6.52,
       "vote_count": 3350
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/x7y8ezKtU1vRInk0dmbvDoKgJ8u.jpg",
-      "genre_ids": [
-        18,
-        35,
-        10749
-      ],
-      "id": 2898,
-      "original_language": "en",
-      "original_title": "As Good as It Gets",
-      "overview": "Melvin Udall, a cranky, bigoted, obsessive-compulsive writer of romantic fiction, is rude to everyone he meets, including his gay neighbor, Simon. After Simon is brutally attacked and hospitalized, Melvin finds his life turned upside down when he has to look after Simon's dog. In addition, Carol, the only waitress at the local diner who will tolerate him, leaves work to care for her chronically ill son, making it impossible for Melvin to eat breakfast.",
-      "popularity": 4.1072,
-      "poster_path": "/xXxuJPNUDZ0vjsAXca0O5p3leVB.jpg",
-      "release_date": "1997-12-19",
-      "title": "As Good as It Gets",
-      "video": false,
-      "vote_average": 7.392,
-      "vote_count": 3879
     },
     {
       "adult": false,
@@ -81468,6 +81487,44 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/xTQXtSQQZY5ZbJ1GxEcSCRP4aWV.jpg",
+      "genre_ids": [
+        18,
+        35,
+        10749
+      ],
+      "id": 6964,
+      "original_language": "en",
+      "original_title": "Something's Gotta Give",
+      "overview": "When perpetually single, aging music industry exec Harry Sanborn, and his latest trophy girlfriend, Marin, arrive at her mother's beach house in the Hamptons, they find that her mother, playwright Erica Barry, also plans to stay for the weekend. Erica is scandalized by the relationship and Harry's sexist ways. But when Harry has a heart attack while there, and the doctor prescribes bedrest, his only option is to stay at the Barry home. Left in the care of Erica and his doctor, a love triangle starts to take shape.",
+      "popularity": 3.4381,
+      "poster_path": "/1cpdqe0SpiHzzbOLq9GDUUlZdSl.jpg",
+      "release_date": "2003-12-12",
+      "title": "Something's Gotta Give",
+      "video": false,
+      "vote_average": 6.64,
+      "vote_count": 1644
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/478l3LCb5hrnI9rziHYDx8Yk15Z.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 23706,
+      "original_language": "en",
+      "original_title": "All About Steve",
+      "overview": "After one short blind date, Mary Horowitz, a brilliant and eccentric crossword constructor, is convinced that Steve, a CCN cameraman, is her soul mate. Because his job takes him hither and yon, she crisscrosses the country following Steve, with the encouragement of a reporter, turning up at media events he's at to convince him they are perfect for each other. Along the way, she befriends an assortment of misfits who accept her for who she is, leading her to reassess her reasons for this strange journey.",
+      "popularity": 3.8368,
+      "poster_path": "/k7lmf0OeOpQLUoTRLG7e5JZ7H4B.jpg",
+      "release_date": "2009-08-06",
+      "title": "All About Steve",
+      "video": false,
+      "vote_average": 5.0,
+      "vote_count": 1005
+    },
+    {
+      "adult": false,
       "backdrop_path": "/yU3nJxP2vNy8OQdDsfV09elG4k9.jpg",
       "genre_ids": [
         28,
@@ -82204,43 +82261,6 @@
       "video": false,
       "vote_average": 4.556,
       "vote_count": 63
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/lDc6JPsXm9ARe9w9PC9qegqYs94.jpg",
-      "genre_ids": [
-        35,
-        80
-      ],
-      "id": 109431,
-      "original_language": "en",
-      "original_title": "Identity Thief",
-      "overview": "When a mild-mannered businessman learns his identity has been stolen, he hits the road in an attempt to foil the thief -- a trip that puts him in the path of a deceptively harmless-looking woman.",
-      "popularity": 3.9632,
-      "poster_path": "/lIliJCGoWT6tEVaDivLpXEf038w.jpg",
-      "release_date": "2013-02-07",
-      "title": "Identity Thief",
-      "video": false,
-      "vote_average": 5.855,
-      "vote_count": 3367
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/chW0eMD6RlPhRnoVRFWc3zWk3Uh.jpg",
-      "genre_ids": [
-        18
-      ],
-      "id": 76025,
-      "original_language": "en",
-      "original_title": "Shame",
-      "overview": "Brandon, a thirty-something man living in New York, eludes intimacy with women but feeds his deepest desires with a compulsive addiction to sex. When his younger sister temporarily moves into his apartment, stirring up bitter memories of their shared painful past, Brandon's life, like his fragile mind, gets out of control.",
-      "popularity": 4.3209,
-      "poster_path": "/cAWLz9kFv4xc6IsEXTj2DrcqD55.jpg",
-      "release_date": "2011-10-02",
-      "title": "Shame",
-      "video": false,
-      "vote_average": 6.931,
-      "vote_count": 3233
     },
     {
       "adult": false,
@@ -83444,6 +83464,26 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/xACr1uSjnqRzw8COb7UUmPca1ZZ.jpg",
+      "genre_ids": [
+        16,
+        28,
+        18
+      ],
+      "id": 228805,
+      "original_language": "ja",
+      "original_title": "名探偵コナン・絶海の探偵",
+      "overview": "The movie is set on a state-of-the art Aegis vessel with the full cooperation of Japan's real-life Ministry of Defense and Maritime Self-Defense Force. The corpse of a Self-Defense Force member has been found — minus the left arm — and a spy has infiltrated the Aegis vessel. The heroine Ran is put in jeopardy, and Conan is forced to stand up against the dangerous Spy \"X.\"",
+      "popularity": 3.5151,
+      "poster_path": "/4QtpfeGuxWbfLMgBiP3u3MVws9M.jpg",
+      "release_date": "2013-04-19",
+      "title": "Detective Conan: Private Eye in the Distant Sea",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 118
+    },
+    {
+      "adult": false,
       "backdrop_path": "/xDwDhLtQnA7jK4f7DVkdeSvZnAp.jpg",
       "genre_ids": [
         12,
@@ -84104,7 +84144,7 @@
       "release_date": "2013-01-09",
       "title": "Gangster Squad",
       "video": false,
-      "vote_average": 6.4,
+      "vote_average": 6.372,
       "vote_count": 4100
     },
     {
@@ -84461,25 +84501,6 @@
       "video": false,
       "vote_average": 5.8,
       "vote_count": 20
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/pIVvTbK6wIOXfIfErIymh7inXSV.jpg",
-      "genre_ids": [
-        27,
-        878
-      ],
-      "id": 604079,
-      "original_language": "en",
-      "original_title": "The Long Walk",
-      "overview": "Every year, fifty teenage boys meet for an event known throughout the country as \"The Long Walk.\" Among this year's chosen crop is sixteen-year-old Ray Garraty. He knows the rules: that warnings are issued if you fall under speed, stumble, sit down. That after three warnings... you get your ticket. And what happens then serves as a chilling reminder that there can be only one winner in the Walk. The one that survives.",
-      "popularity": 3.9949,
-      "poster_path": "/wobVTa99eW0ht6c1rNNzLkazPtR.jpg",
-      "release_date": "2025-09-11",
-      "title": "The Long Walk",
-      "video": false,
-      "vote_average": 0.0,
-      "vote_count": 0
     },
     {
       "adult": false,
@@ -85014,26 +85035,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/cu5Qk2QHxOyyMrD3Bq93DxgmJer.jpg",
-      "genre_ids": [
-        80,
-        18,
-        53
-      ],
-      "id": 1046090,
-      "original_language": "zh",
-      "original_title": "周處除三害",
-      "overview": "The arrogant, third most-wanted criminal in Taiwan, decides to get rid of the top two competitors and crowns himself the most-wanted criminal before dying.",
-      "popularity": 3.5823,
-      "poster_path": "/9FhZ9VC999qeOWH2ytbangUMMt4.jpg",
-      "release_date": "2023-10-06",
-      "title": "The Pig, the Snake and the Pigeon",
-      "video": false,
-      "vote_average": 7.296,
-      "vote_count": 223
-    },
-    {
-      "adult": false,
       "backdrop_path": "/bs65jUGHevSDmfKF5LgVyWtPK4o.jpg",
       "genre_ids": [
         28,
@@ -85408,6 +85409,25 @@
       "video": false,
       "vote_average": 6.502,
       "vote_count": 1262
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6qOyw4yfzbzTp5YsCX26C28Do0S.jpg",
+      "genre_ids": [
+        35,
+        10749
+      ],
+      "id": 872,
+      "original_language": "en",
+      "original_title": "Singin' in the Rain",
+      "overview": "In 1927 Hollywood, a silent film production company and cast make a difficult transition to sound.",
+      "popularity": 3.9508,
+      "poster_path": "/w03EiJVHP8Un77boQeE7hg9DVdU.jpg",
+      "release_date": "1952-04-10",
+      "title": "Singin' in the Rain",
+      "video": false,
+      "vote_average": 8.147,
+      "vote_count": 3262
     },
     {
       "adult": false,
@@ -87752,26 +87772,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/hXTWVJMsI9BkxMLliqL1j0FT55t.jpg",
-      "genre_ids": [
-        28,
-        80,
-        53
-      ],
-      "id": 606402,
-      "original_language": "ko",
-      "original_title": "야차",
-      "overview": "Nicknamed after a human-devouring spirit, the ruthless leader of an overseas black ops team takes up a dangerous mission in a city riddled with spies.",
-      "popularity": 4.0155,
-      "poster_path": "/whZ8OkI7W8cBOmtoiFyb72Ekt3U.jpg",
-      "release_date": "2022-04-08",
-      "title": "Yaksha: Ruthless Operations",
-      "video": false,
-      "vote_average": 6.6,
-      "vote_count": 229
-    },
-    {
-      "adult": false,
       "backdrop_path": "/ct9S0m2U2RTCFAVnq3y0nF0Tgb2.jpg",
       "genre_ids": [
         12,
@@ -88281,7 +88281,7 @@
       "release_date": "2018-02-22",
       "title": "Every Day",
       "video": false,
-      "vote_average": 7.247,
+      "vote_average": 7.2,
       "vote_count": 2250
     },
     {
@@ -88499,7 +88499,7 @@
       "release_date": "2001-12-28",
       "title": "I Am Sam",
       "video": false,
-      "vote_average": 7.555,
+      "vote_average": 7.6,
       "vote_count": 2345
     },
     {
@@ -88539,6 +88539,27 @@
       "video": false,
       "vote_average": 5.4,
       "vote_count": 10
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7GjWHDHh7WMO02RyzrBXjmICYft.jpg",
+      "genre_ids": [
+        28,
+        35,
+        27,
+        53
+      ],
+      "id": 8869,
+      "original_language": "en",
+      "original_title": "Eight Legged Freaks",
+      "overview": "The residents of a rural mining town discover that an unfortunate chemical spill has caused hundreds of little spiders to mutate overnight to the size of SUVs. It's then up to mining engineer Chris McCormack and Sheriff Sam Parker to mobilize an eclectic group of townspeople, including the Sheriff's young son, Mike, her daughter, Ashley, and paranoid radio announcer Harlan, into battle against the bloodthirsty eight-legged beasts.",
+      "popularity": 3.7853,
+      "poster_path": "/5blAumPPS6vX6zcUlt9oIhOEheK.jpg",
+      "release_date": "2002-07-17",
+      "title": "Eight Legged Freaks",
+      "video": false,
+      "vote_average": 5.805,
+      "vote_count": 1276
     },
     {
       "adult": false,
@@ -89723,8 +89744,8 @@
       "release_date": "2004-01-16",
       "title": "Along Came Polly",
       "video": false,
-      "vote_average": 6.023,
-      "vote_count": 2892
+      "vote_average": 6.024,
+      "vote_count": 2893
     },
     {
       "adult": false,
@@ -89763,7 +89784,7 @@
       "title": "Marley & Me",
       "video": false,
       "vote_average": 7.194,
-      "vote_count": 4630
+      "vote_count": 4631
     },
     {
       "adult": false,
@@ -91308,26 +91329,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/zoaghiyPjQIs4B6TCpGqZ5wECsM.jpg",
-      "genre_ids": [
-        53,
-        18,
-        10749
-      ],
-      "id": 10497,
-      "original_language": "en",
-      "original_title": "Bitter Moon",
-      "overview": "A passenger on a cruise ship develops an irresistible infatuation with an eccentric paraplegic's wife.",
-      "popularity": 3.4951,
-      "poster_path": "/qU9hqUSGyQfbkEdqluX21nWVcp9.jpg",
-      "release_date": "1992-09-02",
-      "title": "Bitter Moon",
-      "video": false,
-      "vote_average": 7.116,
-      "vote_count": 789
-    },
-    {
-      "adult": false,
       "backdrop_path": "/ocz9qTRvkWqWHuWab5PWPBhZOhZ.jpg",
       "genre_ids": [
         28,
@@ -91710,7 +91711,7 @@
       "release_date": "2012-06-13",
       "title": "The Hunt",
       "video": false,
-      "vote_average": 8.092,
+      "vote_average": 8.1,
       "vote_count": 4385
     },
     {
@@ -91826,6 +91827,27 @@
       "video": false,
       "vote_average": 7.121,
       "vote_count": 112
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/Aa7iOVpdLgtwwtKXN6AfBQ57iHj.jpg",
+      "genre_ids": [
+        16,
+        10751,
+        18,
+        14
+      ],
+      "id": 110420,
+      "original_language": "ja",
+      "original_title": "おおかみこどもの雨と雪",
+      "overview": "After her werewolf lover unexpectedly dies in an accident, a woman must find a way to raise the son and daughter that she had with him. However, their inheritance of their father's traits prove to be a challenge for her.",
+      "popularity": 3.6328,
+      "poster_path": "/3Nllh6JgcrFdtOn6iFOWHudNInd.jpg",
+      "release_date": "2012-07-21",
+      "title": "Wolf Children",
+      "video": false,
+      "vote_average": 8.2,
+      "vote_count": 2341
     },
     {
       "adult": false,
@@ -92043,8 +92065,8 @@
       "release_date": "2023-11-30",
       "title": "The Coffee Table",
       "video": false,
-      "vote_average": 7.007,
-      "vote_count": 207
+      "vote_average": 6.993,
+      "vote_count": 208
     },
     {
       "adult": false,
@@ -92124,6 +92146,24 @@
       "video": false,
       "vote_average": 6.74,
       "vote_count": 3165
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ifGs4hSnqTCFmhJqCGe5Ec0cTe5.jpg",
+      "genre_ids": [
+        99
+      ],
+      "id": 1025169,
+      "original_language": "th",
+      "original_title": "13 หมูป่า: เรื่องเล่าจากในถ้ำ",
+      "overview": "In this compelling documentary, members of the Thai youth soccer team tell their stories of getting trapped in Tham Luang Cave in 2018 — and surviving.",
+      "popularity": 3.627,
+      "poster_path": "/jQb1UjOdc2DsU4SqDebrVH8dHvC.jpg",
+      "release_date": "2022-10-05",
+      "title": "The Trapped 13: How We Survived The Thai Cave",
+      "video": false,
+      "vote_average": 6.3,
+      "vote_count": 87
     },
     {
       "adult": false,
@@ -92263,26 +92303,6 @@
       "video": false,
       "vote_average": 7.211,
       "vote_count": 1813
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/fKxGUfI09ubxe594Nl8Om2cMuxH.jpg",
-      "genre_ids": [
-        35,
-        10749,
-        18
-      ],
-      "id": 641934,
-      "original_language": "en",
-      "original_title": "Am I OK?",
-      "overview": "Lucy and Jane have been best friends for most of their lives and think they know everything there is to know about each other. But when Jane announces she's moving to London, Lucy reveals a long-held secret. As Jane tries to help Lucy, their friendship is thrown into chaos.",
-      "popularity": 3.5852,
-      "poster_path": "/qKkaG7HVFVe7C1JuxTGwNz0eSyL.jpg",
-      "release_date": "2024-06-11",
-      "title": "Am I OK?",
-      "video": false,
-      "vote_average": 6.323,
-      "vote_count": 269
     },
     {
       "adult": false,
@@ -92583,8 +92603,8 @@
       "release_date": "2022-08-26",
       "title": "Odela Railway Station",
       "video": false,
-      "vote_average": 7.0,
-      "vote_count": 1
+      "vote_average": 6.0,
+      "vote_count": 2
     },
     {
       "adult": false,
@@ -93670,6 +93690,24 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/k1YVyPL1ZvEXAOeBvNEuPweA3XY.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 2609,
+      "original_language": "en",
+      "original_title": "Planes, Trains and Automobiles",
+      "overview": "An irritable marketing executive, Neal Page, is heading home to Chicago for Thanksgiving when a number of delays force him to travel with a well meaning but overbearing shower curtain ring salesman, Del Griffith.",
+      "popularity": 3.6056,
+      "poster_path": "/3RSucVsX96Ste8WDJfZP1hbNGqQ.jpg",
+      "release_date": "1987-11-26",
+      "title": "Planes, Trains and Automobiles",
+      "video": false,
+      "vote_average": 7.248,
+      "vote_count": 2012
+    },
+    {
+      "adult": false,
       "backdrop_path": "/gV31rejG3kVpwH5T7HG8G99eLy.jpg",
       "genre_ids": [
         28,
@@ -94433,8 +94471,8 @@
       "release_date": "2010-10-02",
       "title": "Life As We Know It",
       "video": false,
-      "vote_average": 6.9,
-      "vote_count": 3170
+      "vote_average": 6.911,
+      "vote_count": 3171
     },
     {
       "adult": false,
@@ -94835,25 +94873,6 @@
       "video": false,
       "vote_average": 9.25,
       "vote_count": 4
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/c8kjrMDDKrlpikQTgvNGLBZh5V8.jpg",
-      "genre_ids": [
-        35,
-        10749
-      ],
-      "id": 67660,
-      "original_language": "en",
-      "original_title": "Think Like a Man",
-      "overview": "The balance of power in four couples’ relationships is upset when the women start using the advice in Steve Harvey’s book, Act Like A Lady, Think Like A Man, to get more of what they want from their men. When the men realize that the women have gotten a hold of their relationship “playbook,” they decide that the best defense is a good offense and come up with a plan to use this information to their advantage.",
-      "popularity": 3.278,
-      "poster_path": "/kfIrKVPDzXJDBzPnFEuoatlaZPW.jpg",
-      "release_date": "2012-04-20",
-      "title": "Think Like a Man",
-      "video": false,
-      "vote_average": 6.8,
-      "vote_count": 854
     },
     {
       "adult": false,
@@ -95654,6 +95673,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/oxTgovZ3TQ8LLxifUm16ROMULP5.jpg",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "id": 532671,
+      "original_language": "en",
+      "original_title": "The Prodigy",
+      "overview": "A mother concerned about her young son's disturbing behavior thinks something supernatural may be affecting him.",
+      "popularity": 3.0091,
+      "poster_path": "/yyejodyk3lWncVjVhhrEkPctY9o.jpg",
+      "release_date": "2019-02-06",
+      "title": "The Prodigy",
+      "video": false,
+      "vote_average": 6.156,
+      "vote_count": 1006
+    },
+    {
+      "adult": false,
       "backdrop_path": "/dom8lzl2iU46nDu6s4lBolBNjQs.jpg",
       "genre_ids": [
         18,
@@ -95888,7 +95926,7 @@
       "release_date": "2005-03-10",
       "title": "The Ring Two",
       "video": false,
-      "vote_average": 5.742,
+      "vote_average": 5.7,
       "vote_count": 2322
     },
     {
@@ -96043,6 +96081,26 @@
       "video": false,
       "vote_average": 6.027,
       "vote_count": 5189
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/3A1DuYh9aXicQPyTZlVixAncvff.jpg",
+      "genre_ids": [
+        80,
+        28,
+        53
+      ],
+      "id": 438674,
+      "original_language": "en",
+      "original_title": "Dragged Across Concrete",
+      "overview": "Two policemen, one an old-timer, the other his volatile younger partner, find themselves suspended when a video of their strong-arm tactics becomes the media's cause du jour. Low on cash and with no other options, these two embittered soldiers descend into the criminal underworld to gain their just due, but instead find far more than they wanted awaiting them in the shadows.",
+      "popularity": 3.7442,
+      "poster_path": "/dQ9EkVyPYJNVCfP5jWXRe4faUFA.jpg",
+      "release_date": "2019-02-21",
+      "title": "Dragged Across Concrete",
+      "video": false,
+      "vote_average": 6.594,
+      "vote_count": 1030
     },
     {
       "adult": false,
@@ -96435,27 +96493,6 @@
     },
     {
       "adult": false,
-      "backdrop_path": "/b5NH2rjQFATYfkd1XYbGQWeyevx.jpg",
-      "genre_ids": [
-        10751,
-        12,
-        16,
-        14
-      ],
-      "id": 47292,
-      "original_language": "ja",
-      "original_title": "劇場版ポケットモンスター ダイヤモンド&パール ギラティナと氷空（そら）の花束 シェイミ",
-      "overview": "When Giratina is discovered to be able to create parallel dimensions, it's up to Ash and his friends to stop a mysterious stranger from using its powers for evil.",
-      "popularity": 3.4909,
-      "poster_path": "/e3T08IL68EVcrUPiJLVN9KSGlXs.jpg",
-      "release_date": "2008-07-19",
-      "title": "Pokémon: Giratina and the Sky Warrior",
-      "video": false,
-      "vote_average": 6.7,
-      "vote_count": 251
-    },
-    {
-      "adult": false,
       "backdrop_path": "/95cYzbSp13ChoUYlDwj1fPL4Q6X.jpg",
       "genre_ids": [
         35,
@@ -96815,25 +96852,6 @@
       "video": false,
       "vote_average": 6.947,
       "vote_count": 339
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/mUa1u2GvwaivJtbJTSjxwl1OEVK.jpg",
-      "genre_ids": [
-        27,
-        53
-      ],
-      "id": 676547,
-      "original_language": "en",
-      "original_title": "Prey for the Devil",
-      "overview": "In response to a global rise in demonic possessions, the Catholic Church reopens exorcism schools to train priests in the Rite of Exorcism. On this spiritual battlefield, an unlikely warrior rises: a young nun, Sister Ann. Thrust onto the spiritual frontline with fellow student Father Dante, Sister Ann finds herself in a battle for the soul of a young girl and soon realizes the Devil has her right where he wants her.",
-      "popularity": 3.6603,
-      "poster_path": "/iCvgemXf2Kpr2LvpDmt5J9NhjKM.jpg",
-      "release_date": "2022-10-23",
-      "title": "Prey for the Devil",
-      "video": false,
-      "vote_average": 6.9,
-      "vote_count": 953
     },
     {
       "adult": false,
@@ -97230,6 +97248,25 @@
     },
     {
       "adult": false,
+      "backdrop_path": "/73bGnOTxWCEuvYPbBudprkyPfnn.jpg",
+      "genre_ids": [
+        10749,
+        35
+      ],
+      "id": 11003,
+      "original_language": "en",
+      "original_title": "The Wedding Singer",
+      "overview": "Robbie, a local rock star turned wedding singer, is dumped on the day of his wedding. Meanwhile, waitress Julia finally sets a wedding date with her fiancée Glenn. When Julia and Robbie meet and hit it off, they find that things are more complicated than anybody thought.",
+      "popularity": 3.2314,
+      "poster_path": "/zVvyTrcZQb7kC2DPDzyo25WcxXp.jpg",
+      "release_date": "1998-02-13",
+      "title": "The Wedding Singer",
+      "video": false,
+      "vote_average": 6.773,
+      "vote_count": 1792
+    },
+    {
+      "adult": false,
       "backdrop_path": "/2rt2BAFDyOor693NVwUWHV0baky.jpg",
       "genre_ids": [
         10749,
@@ -97597,25 +97634,6 @@
       "video": false,
       "vote_average": 5.125,
       "vote_count": 12
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/uIh3mW3AuSM7ww7NYtvSWDQ1zc7.jpg",
-      "genre_ids": [
-        18,
-        35
-      ],
-      "id": 21450,
-      "original_language": "en",
-      "original_title": "Naked",
-      "overview": "An unemployed Brit vents his rage on unsuspecting strangers as he embarks on a nocturnal London odyssey.",
-      "popularity": 3.1829,
-      "poster_path": "/xMYP4uaNeyPmX4FQ2xxWk2eIN6K.jpg",
-      "release_date": "1993-08-06",
-      "title": "Naked",
-      "video": false,
-      "vote_average": 7.274,
-      "vote_count": 596
     },
     {
       "adult": false,
