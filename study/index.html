@@ -46,7 +46,8 @@
         </div>
         <div class="sidebar-group">
           <div class="sidebar-section">Study</div>
-          <a href="https://www.ara.ac.nz/student-services/library/" target="_blank"><span class="sidebar-icon">📚</span><span class="sidebar-label"> Library</span></a>
+          <a href="https://ara.primo.exlibrisgroup.com/" target="_blank"><span class="sidebar-icon">📚</span><span class="sidebar-label"> ARA Library</span></a>
+          <a href="https://mylibrary.openpolytechnic.ac.nz/" target="_blank"><span class="sidebar-icon">📘</span><span class="sidebar-label"> My OP Library</span></a>
           <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank"><span class="sidebar-icon">🌐</span><span class="sidebar-label"> My OP Portal</span></a>
           <a href="https://openpolytechnic.iqualify.com/" target="_blank"><span class="sidebar-icon">📖</span><span class="sidebar-label"> My OP Course Dashboard</span></a>
         </div>
@@ -57,15 +58,35 @@
     <main class="flex-1 p-6">
       <h1 class="text-3xl font-bold mb-6 text-purple-700">Your Student Tools</h1>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-        <a href="https://outlook.com/ara.ac.nz/" target="_blank" class="tile tile-blue">📧<br/>Ara Email</a>
-        <a href="https://outlook.office.com/mail/?realm=myop.ac.nz&login_hint=ThomasBernard@myop.ac.nz" target="_blank" class="tile tile-green">📨<br/>My OP Email</a>
+        <button onclick="showEmailModal()" class="tile tile-blue">📧<br/>Email</button>
+        <button onclick="showLibraryModal()" class="tile tile-indigo">📚<br/>Library</button>
         <a href="https://printfunds.ara.ac.nz/" target="_blank" class="tile tile-yellow">💳<br/>Print Balance</a>
         <a href="https://mobileprint.ara.ac.nz/" target="_blank" class="tile tile-pink">🖨️<br/>Mobile Print</a>
         <a href="https://techassist.ara.ac.nz" target="_blank" class="tile tile-teal">🛠️<br/>Tech Assist (ARA)</a>
-        <a href="https://www.ara.ac.nz/student-services/library/" target="_blank" class="tile tile-indigo">📚<br/>Library</a>
         <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank" class="tile tile-purple">🌐<br/>My OP Portal</a>
         <a href="https://openpolytechnic.iqualify.com/" target="_blank" class="tile tile-indigo">📖<br/>OP Course Dashboard</a>
       </div>
+
+      <!-- Email Modal -->
+      <div id="emailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-xl text-center w-80">
+          <h2 class="text-xl font-bold mb-4">Choose Email</h2>
+          <a href="https://outlook.com/ara.ac.nz/" target="_blank" class="block bg-blue-600 text-white rounded px-4 py-2 mb-2">ARA Email</a>
+          <a href="https://outlook.office.com/mail/?realm=myop.ac.nz&login_hint=ThomasBernard@myop.ac.nz" target="_blank" class="block bg-green-600 text-white rounded px-4 py-2">My OP Email</a>
+          <button onclick="closeEmailModal()" class="mt-4 text-sm text-gray-600 hover:underline">Close</button>
+        </div>
+      </div>
+
+      <!-- Library Modal -->
+      <div id="libraryModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-xl text-center w-80">
+          <h2 class="text-xl font-bold mb-4">Choose Library</h2>
+          <a href="https://ara.primo.exlibrisgroup.com/" target="_blank" class="block bg-indigo-600 text-white rounded px-4 py-2 mb-2">ARA Library</a>
+          <a href="https://mylibrary.openpolytechnic.ac.nz/" target="_blank" class="block bg-purple-600 text-white rounded px-4 py-2">My OP Library</a>
+          <button onclick="closeLibraryModal()" class="mt-4 text-sm text-gray-600 hover:underline">Close</button>
+        </div>
+      </div>
+
     </main>
   </div>
 </div>
@@ -101,6 +122,20 @@ function closeProfileOutside(e) {
     profileMenu.classList.add('hidden');
     document.removeEventListener('click', closeProfileOutside);
   }
+}
+
+function showEmailModal() {
+  document.getElementById('emailModal').classList.remove('hidden');
+}
+function closeEmailModal() {
+  document.getElementById('emailModal').classList.add('hidden');
+}
+
+function showLibraryModal() {
+  document.getElementById('libraryModal').classList.remove('hidden');
+}
+function closeLibraryModal() {
+  document.getElementById('libraryModal').classList.add('hidden');
 }
 </script>
 
