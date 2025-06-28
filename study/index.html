@@ -14,9 +14,14 @@
   <!-- Top bar -->
   <header class="flex items-center justify-between bg-white shadow px-6 py-4">
     <h1 class="text-xl font-semibold text-gray-800">Thomas Study</h1>
-    <div class="flex items-center gap-3">
-      <span class="text-gray-700 font-medium">Thomas Bernard</span>
-      <img src="https://ui-avatars.com/api/?name=Thomas+Bernard&background=6D28D9&color=fff&rounded=true" alt="Profile" class="w-10 h-10 rounded-full shadow"/>
+    <div class="relative">
+      <button onclick="toggleProfile()" class="flex items-center gap-3 focus:outline-none">
+        <span class="text-gray-700 font-medium">Thomas Bernard</span>
+        <img src="https://i.postimg.cc/7ZnRvz2s/download.jpg" alt="Profile" class="w-10 h-10 rounded-full shadow object-cover"/>
+      </button>
+      <div id="profileMenu" class="hidden absolute right-0 mt-2 w-64 bg-white border border-gray-300 rounded shadow-lg p-0 z-50 overflow-hidden">
+        <img src="https://i.postimg.cc/RCtX5fr7/image.png" alt="Full Profile" class="w-full h-auto block">
+      </div>
     </div>
   </header>
 
@@ -57,7 +62,7 @@
         <a href="https://outlook.office.com/mail/?realm=myop.ac.nz&login_hint=ThomasBernard@myop.ac.nz" target="_blank" class="tile tile-green">📨<br/>My OP Email</a>
         <a href="https://printfunds.ara.ac.nz/" target="_blank" class="tile tile-yellow">💳<br/>Print Balance</a>
         <a href="https://mobileprint.ara.ac.nz/" target="_blank" class="tile tile-pink">🖨️<br/>Mobile Print</a>
-        <a href="https://techassist.ara.ac.nz" target="_blank" class="tile tile-teal">🛠️<br/>Tech Assist(ARA)</a>
+        <a href="https://techassist.ara.ac.nz" target="_blank" class="tile tile-teal">🛠️<br/>Tech Assist (ARA)</a>
         <a href="https://safeplace.ara.ac.nz/" target="_blank" class="tile tile-red">🛟<br/>SafePlace</a>
         <a href="https://www.ara.ac.nz/student-services/library/" target="_blank" class="tile tile-indigo">📚<br/>Library</a>
         <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank" class="tile tile-purple">🌐<br/>My OP Portal</a>
@@ -71,11 +76,32 @@
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   sidebar.classList.toggle('collapsed');
-  const labels = sidebar.querySelectorAll('.sidebar-label');
+  const groups = sidebar.querySelectorAll('.sidebar-group');
   if (sidebar.classList.contains('collapsed')) {
-    labels.forEach(label => label.style.display = 'none');
+    groups.forEach(group => group.style.display = 'none');
   } else {
-    labels.forEach(label => label.style.display = '');
+    groups.forEach(group => group.style.display = '');
+  }
+}
+
+function toggleProfile() {
+  const profileMenu = document.getElementById('profileMenu');
+  const isVisible = !profileMenu.classList.contains('hidden');
+  profileMenu.classList.toggle('hidden');
+
+  if (!isVisible) {
+    document.addEventListener('click', closeProfileOutside);
+  } else {
+    document.removeEventListener('click', closeProfileOutside);
+  }
+}
+
+function closeProfileOutside(e) {
+  const profileMenu = document.getElementById('profileMenu');
+  const button = document.querySelector('button[onclick="toggleProfile()"]');
+  if (!profileMenu.contains(e.target) && !button.contains(e.target)) {
+    profileMenu.classList.add('hidden');
+    document.removeEventListener('click', closeProfileOutside);
   }
 }
 </script>
