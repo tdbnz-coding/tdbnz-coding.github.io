@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thomas Study</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 text-gray-900 min-h-screen">
+
+<div class="flex flex-col min-h-screen">
+
+  <!-- Top bar -->
+  <header class="flex items-center justify-between bg-white shadow px-6 py-4">
+    <h1 class="text-xl font-semibold text-gray-800">Thomas Study</h1>
+    <div class="flex items-center gap-3">
+      <span class="text-gray-700 font-medium">Thomas Bernard</span>
+      <img src="https://ui-avatars.com/api/?name=Thomas+Bernard&background=6D28D9&color=fff&rounded=true" alt="Profile" class="w-10 h-10 rounded-full shadow"/>
+    </div>
+  </header>
+
+  <div class="flex flex-1">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+      <div class="flex items-center justify-end mb-6">
+        <button onclick="toggleSidebar()" class="toggle-button">☰</button>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-group">
+          <div class="sidebar-section">Emails</div>
+          <a href="https://outlook.com/ara.ac.nz/" target="_blank"><span class="sidebar-icon">📧</span><span class="sidebar-label"> Ara Email</span></a>
+          <a href="https://outlook.office.com/mail/?realm=myop.ac.nz&login_hint=ThomasBernard@myop.ac.nz" target="_blank"><span class="sidebar-icon">📨</span><span class="sidebar-label"> My OP Email</span></a>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-section">Tools</div>
+          <a href="https://printfunds.ara.ac.nz/" target="_blank"><span class="sidebar-icon">💳</span><span class="sidebar-label"> Print Balance</span></a>
+          <a href="https://mobileprint.ara.ac.nz/" target="_blank"><span class="sidebar-icon">🖨️</span><span class="sidebar-label"> Mobile Print</span></a>
+          <a href="https://techassist.ara.ac.nz" target="_blank"><span class="sidebar-icon">🛠️</span><span class="sidebar-label"> Tech Assist (ARA)</span></a>
+          <a href="https://safeplace.ara.ac.nz/" target="_blank"><span class="sidebar-icon">🛟</span><span class="sidebar-label"> SafePlace</span></a>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-section">Study</div>
+          <a href="https://www.ara.ac.nz/student-services/library/" target="_blank"><span class="sidebar-icon">📚</span><span class="sidebar-label"> Library</span></a>
+          <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank"><span class="sidebar-icon">🌐</span><span class="sidebar-label"> My OP Portal</span></a>
+          <a href="https://openpolytechnic.iqualify.com/" target="_blank"><span class="sidebar-icon">📖</span><span class="sidebar-label"> My OP Course Dashboard</span></a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+      <h1 class="text-3xl font-bold mb-6 text-purple-700">Your Student Tools</h1>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <a href="https://outlook.com/ara.ac.nz/" target="_blank" class="tile tile-blue">📧<br/>Ara Email</a>
+        <a href="https://outlook.office.com/mail/?realm=myop.ac.nz&login_hint=ThomasBernard@myop.ac.nz" target="_blank" class="tile tile-green">📨<br/>My OP Email</a>
+        <a href="https://printfunds.ara.ac.nz/" target="_blank" class="tile tile-yellow">💳<br/>Print Balance</a>
+        <a href="https://mobileprint.ara.ac.nz/" target="_blank" class="tile tile-pink">🖨️<br/>Mobile Print</a>
+        <a href="https://techassist.ara.ac.nz" target="_blank" class="tile tile-teal">🛠️<br/>Tech Assist(ARA)</a>
+        <a href="https://safeplace.ara.ac.nz/" target="_blank" class="tile tile-red">🛟<br/>SafePlace</a>
+        <a href="https://www.ara.ac.nz/student-services/library/" target="_blank" class="tile tile-indigo">📚<br/>Library</a>
+        <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank" class="tile tile-purple">🌐<br/>My OP Portal</a>
+        <a href="https://openpolytechnic.iqualify.com/" target="_blank" class="tile tile-indigo">📖<br/>OP Course Dashboard</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('collapsed');
+  const labels = sidebar.querySelectorAll('.sidebar-label');
+  if (sidebar.classList.contains('collapsed')) {
+    labels.forEach(label => label.style.display = 'none');
+  } else {
+    labels.forEach(label => label.style.display = '');
+  }
+}
+</script>
+
+</body>
+</html>
