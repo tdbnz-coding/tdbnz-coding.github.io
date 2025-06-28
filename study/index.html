@@ -18,7 +18,7 @@
         <img src="https://i.postimg.cc/7ZnRvz2s/download.jpg" alt="Profile" class="w-10 h-10 rounded-full shadow object-cover border-2 border-purple-500"/>
       </button>
       <div id="profileMenu" class="hidden absolute right-0 mt-2 w-80 bg-white border border-gray-300 rounded shadow-lg p-0 z-50 overflow-hidden animate-fade-in">
-        <img src="https://i.postimg.cc/DyTmfW0k/image.png" alt="Full Profile" class="w-full h-auto block">
+        <img src="https://i.postimg.cc/RCtX5fr7/image.png" alt="Full Profile" class="w-full h-auto block">
       </div>
     </div>
   </header>
@@ -31,7 +31,7 @@
       <nav class="sidebar-nav">
         <div class="sidebar-group">
           <div class="sidebar-section">Emails</div>
-          <a href="#" onclick="showEmailModal()"><span class="sidebar-icon">📧</span><span class="sidebar-label"> Email</span></a>
+          <a href="#" onclick="showEmailModal()"><span class="sidebar-icon">📧</span><span class="sidebar-label"> Email Options</span></a>
         </div>
         <div class="sidebar-group">
           <div class="sidebar-section">Tools</div>
@@ -40,7 +40,7 @@
         </div>
         <div class="sidebar-group">
           <div class="sidebar-section">Study</div>
-          <a href="#" onclick="showLibraryModal()"><span class="sidebar-icon">📚</span><span class="sidebar-label"> Library</span></a>
+          <a href="#" onclick="showLibraryModal()"><span class="sidebar-icon">📚</span><span class="sidebar-label"> Library Options</span></a>
           <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank"><span class="sidebar-icon">🌐</span><span class="sidebar-label"> My OP Portal</span></a>
           <a href="https://openpolytechnic.iqualify.com/" target="_blank"><span class="sidebar-icon">📖</span><span class="sidebar-label"> My OP Course Dashboard</span></a>
         </div>
@@ -67,57 +67,61 @@
         <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank" class="tile tile-purple hover:scale-105 transition-transform">🌐<br/>My OP Portal</a>
         <a href="https://openpolytechnic.iqualify.com/" target="_blank" class="tile tile-indigo hover:scale-105 transition-transform">📖<br/>OP Course Dashboard</a>
         <button onclick="showStudyModal()" class="tile tile-purple hover:scale-105 transition-transform">🎓<br/>Study Tips</button>
+        <a href="https://ara.etv.org.nz/" target="_blank" class="tile bg-black hover:scale-105 transition-transform flex items-center justify-center"><img src="https://i.postimg.cc/VkFMMx56/idpe-Ra-IZAX-logos.png" alt="ETV" class="h-12 w-auto"></a>
       </div>
-
-      <!-- Modals -->
-      <div id="emailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-xl shadow-xl w-96 text-center">
-          <h2 class="text-2xl font-bold text-blue-700 mb-4">Email Options</h2>
-          <a href="https://outlook.com/ara.ac.nz/" target="_blank" class="block bg-blue-600 text-white rounded-full px-6 py-3 mb-3 hover:bg-blue-700">ARA Email</a>
-          <a href="https://outlook.office.com/mail/?realm=myop.ac.nz&login_hint=ThomasBernard@myop.ac.nz" target="_blank" class="block bg-green-600 text-white rounded-full px-6 py-3 hover:bg-green-700">My OP Email</a>
-          <button onclick="document.getElementById('emailModal').classList.add('hidden')" class="mt-4 text-sm text-gray-600 hover:underline">Close</button>
-        </div>
-      </div>
-
-      <div id="libraryModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-xl shadow-xl w-96 text-center">
-          <h2 class="text-2xl font-bold text-indigo-700 mb-4">Library Options</h2>
-          <a href="https://www.ara.ac.nz/student-services/library/" target="_blank" class="block bg-indigo-600 text-white rounded-full px-6 py-3 mb-3 hover:bg-indigo-700">ARA Library</a>
-          <a href="https://mylibrary.openpolytechnic.ac.nz/" target="_blank" class="block bg-purple-600 text-white rounded-full px-6 py-3 hover:bg-purple-700">My OP Library</a>
-          <button onclick="document.getElementById('libraryModal').classList.add('hidden')" class="mt-4 text-sm text-gray-600 hover:underline">Close</button>
-        </div>
-      </div>
-
-      <div id="printModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-xl shadow-xl w-96 text-center">
-          <h2 class="text-2xl font-bold text-yellow-700 mb-4">Print Options</h2>
-          <a href="https://printfunds.ara.ac.nz/" target="_blank" class="block bg-yellow-500 text-white rounded-full px-6 py-3 mb-3 hover:bg-yellow-600">Print Topup</a>
-          <a href="https://mobileprint.ara.ac.nz/" target="_blank" class="block bg-pink-500 text-white rounded-full px-6 py-3 hover:bg-pink-600">Mobile Print</a>
-          <button onclick="document.getElementById('printModal').classList.add('hidden')" class="mt-4 text-sm text-gray-600 hover:underline">Close</button>
-        </div>
-      </div>
-
-      <div id="studyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-xl shadow-xl w-[600px] text-center">
-          <h2 class="text-2xl font-bold text-purple-700 mb-4">Study Tips and Resources</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/get-ready-for-learning/" target="_blank" class="block bg-indigo-500 text-white rounded-lg px-4 py-3 hover:bg-indigo-600">Get Ready for Learning</a>
-            <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/study-skills/" target="_blank" class="block bg-indigo-500 text-white rounded-lg px-4 py-3 hover:bg-indigo-600">Study Skills</a>
-            <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/assignments/" target="_blank" class="block bg-indigo-500 text-white rounded-lg px-4 py-3 hover:bg-indigo-600">Assignments</a>
-            <a href="https://www.openpolytechnic.ac.nz/current-students/learner-support/study-support-from-the-library-and-learning-centre/" target="_blank" class="block bg-indigo-500 text-white rounded-lg px-4 py-3 hover:bg-indigo-600">Learning Centre Support</a>
-            <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/referencing/" target="_blank" class="block bg-indigo-500 text-white rounded-lg px-4 py-3 hover:bg-indigo-600">Referencing</a>
-            <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/exam-study/" target="_blank" class="block bg-indigo-500 text-white rounded-lg px-4 py-3 hover:bg-indigo-600">Exam Study</a>
-            <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/research-ethics-for-doing-research-projects/" target="_blank" class="block bg-indigo-500 text-white rounded-lg px-4 py-3 hover:bg-indigo-600">Research Ethics</a>
-          </div>
-          <button onclick="closeStudyModal()" class="mt-4 text-sm text-gray-600 hover:underline">Close</button>
-        </div>
-      </div>
-
     </main>
   </div>
 </div>
 
+<!-- Modals -->
+<div id="emailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-8 rounded-2xl shadow-2xl text-center w-96">
+    <h2 class="text-2xl font-extrabold mb-6 text-blue-700">Choose Email</h2>
+    <a href="https://outlook.com/ara.ac.nz/" target="_blank" class="block bg-blue-600 text-white rounded-full px-6 py-3 mb-3 text-lg hover:bg-blue-700">ARA Email</a>
+    <a href="https://outlook.office.com/mail/?realm=myop.ac.nz&login_hint=ThomasBernard@myop.ac.nz" target="_blank" class="block bg-green-600 text-white rounded-full px-6 py-3 text-lg hover:bg-green-700">My OP Email</a>
+    <button onclick="closeModal('emailModal')" class="mt-6 text-sm text-gray-600 hover:underline">Close</button>
+  </div>
+</div>
+
+<div id="libraryModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-8 rounded-2xl shadow-2xl text-center w-96">
+    <h2 class="text-2xl font-extrabold mb-6 text-indigo-700">Choose Library</h2>
+    <a href="https://www.ara.ac.nz/student-services/library/" target="_blank" class="block bg-indigo-600 text-white rounded-full px-6 py-3 mb-3 text-lg hover:bg-indigo-700">ARA Library</a>
+    <a href="https://mylibrary.openpolytechnic.ac.nz/" target="_blank" class="block bg-purple-600 text-white rounded-full px-6 py-3 text-lg hover:bg-purple-700">My OP Library</a>
+    <button onclick="closeModal('libraryModal')" class="mt-6 text-sm text-gray-600 hover:underline">Close</button>
+  </div>
+</div>
+
+<div id="printModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-8 rounded-2xl shadow-2xl text-center w-96">
+    <h2 class="text-2xl font-extrabold mb-6 text-yellow-600">Print Options</h2>
+    <a href="https://printfunds.ara.ac.nz/" target="_blank" class="block bg-yellow-500 text-white rounded-full px-6 py-3 mb-3 text-lg hover:bg-yellow-600">Print Topup</a>
+    <a href="https://mobileprint.ara.ac.nz/" target="_blank" class="block bg-pink-500 text-white rounded-full px-6 py-3 text-lg hover:bg-pink-600">Mobile Print</a>
+    <button onclick="closeModal('printModal')" class="mt-6 text-sm text-gray-600 hover:underline">Close</button>
+  </div>
+</div>
+
+<div id="studyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-8 rounded-2xl shadow-2xl text-center w-[30rem] max-w-full">
+    <h2 class="text-2xl font-extrabold mb-6 text-purple-700">Study Tips</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+      <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/get-ready-for-learning/" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-4 rounded-lg">✅ Get Ready for Learning</a>
+      <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/study-skills/" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-4 rounded-lg">📘 Study Skills</a>
+      <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/assignments/" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-4 rounded-lg">✍️ Assignments</a>
+      <a href="https://www.openpolytechnic.ac.nz/current-students/learner-support/study-support-from-the-library-and-learning-centre/" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-4 rounded-lg">📚 Study Support</a>
+      <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/referencing/" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-4 rounded-lg">🔖 Referencing</a>
+      <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/exam-study/" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-4 rounded-lg">📝 Exam Study</a>
+      <a href="https://www.openpolytechnic.ac.nz/current-students/study-tips-and-techniques/research-ethics-for-doing-research-projects/" target="_blank" class="bg-purple-100 hover:bg-purple-200 p-4 rounded-lg">🔬 Research Ethics</a>
+    </div>
+    <button onclick="closeModal('studyModal')" class="mt-6 text-sm text-gray-600 hover:underline">Close</button>
+  </div>
+</div>
+
 <script>
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("expanded");
+}
+
 document.getElementById("profileButton").addEventListener("click", function(event) {
   event.stopPropagation();
   document.getElementById("profileMenu").classList.toggle("hidden");
@@ -131,28 +135,21 @@ document.addEventListener("click", function(event) {
   }
 });
 
-function toggleSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  sidebar.classList.toggle("expanded");
-}
-
-function showStudyModal() {
-  document.getElementById("studyModal").classList.remove("hidden");
-}
-function closeStudyModal() {
-  document.getElementById("studyModal").classList.add("hidden");
+function closeModal(id) {
+  document.getElementById(id).classList.add("hidden");
 }
 
 function showEmailModal() {
   document.getElementById("emailModal").classList.remove("hidden");
 }
-
 function showLibraryModal() {
   document.getElementById("libraryModal").classList.remove("hidden");
 }
-
 function showPrintModal() {
   document.getElementById("printModal").classList.remove("hidden");
+}
+function showStudyModal() {
+  document.getElementById("studyModal").classList.remove("hidden");
 }
 </script>
 
