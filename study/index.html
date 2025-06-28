@@ -74,7 +74,7 @@
 </div>
 
 <script>
-fetch('motivational_quotes_with_authors.json')
+fetch('https://raw.githubusercontent.com/tdbnz-coding/tdbnz-coding.github.io/refs/heads/main/study/motivational_quotes_with_authors.json')
   .then(res => res.json())
   .then(data => {
     const random = data[Math.floor(Math.random() * data.length)];
