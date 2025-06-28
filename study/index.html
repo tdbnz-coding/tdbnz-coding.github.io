@@ -10,27 +10,25 @@
 <body class="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 text-gray-900 min-h-screen">
 
 <div class="flex flex-col min-h-screen">
-
   <!-- Top bar -->
   <header class="flex items-center justify-between bg-white shadow px-6 py-4">
-    <h1 class="text-xl font-semibold text-gray-800">Thomas Study</h1>
+    <h1 class="text-2xl font-bold text-purple-800">Thomas Study</h1>
     <div class="relative">
-      <button onclick="toggleProfile()" class="flex items-center gap-3 focus:outline-none">
-        <span class="text-gray-700 font-medium">Thomas Bernard</span>
-        <img src="https://i.postimg.cc/7ZnRvz2s/download.jpg" alt="Profile" class="w-10 h-10 rounded-full shadow object-cover"/>
+      <button onclick="toggleProfile()" class="flex items-center gap-3 focus:outline-none hover:scale-105 transition-transform">
+        <span class="text-gray-700 font-semibold">Thomas Bernard</span>
+        <img src="https://i.postimg.cc/7ZnRvz2s/download.jpg" alt="Profile" class="w-10 h-10 rounded-full shadow object-cover border-2 border-purple-500"/>
       </button>
-      <div id="profileMenu" class="hidden absolute right-0 mt-2 w-80 bg-white border border-gray-300 rounded shadow-lg p-0 z-50 overflow-hidden">
+      <div id="profileMenu" class="hidden absolute right-0 mt-2 w-80 bg-white border border-gray-300 rounded shadow-lg p-0 z-50 overflow-hidden animate-fade-in">
         <img src="https://i.postimg.cc/RCtX5fr7/image.png" alt="Full Profile" class="w-full h-auto block">
       </div>
     </div>
   </header>
 
   <div class="flex flex-1">
-
     <!-- Sidebar -->
     <aside id="sidebar" class="sidebar">
       <div class="flex items-center justify-end mb-6">
-        <button onclick="toggleSidebar()" class="toggle-button">☰</button>
+        <button onclick="toggleSidebar()" class="toggle-button text-xl">☰</button>
       </div>
       <nav class="sidebar-nav">
         <div class="sidebar-group">
@@ -46,7 +44,7 @@
         </div>
         <div class="sidebar-group">
           <div class="sidebar-section">Study</div>
-          <a href="https://ara.primo.exlibrisgroup.com/" target="_blank"><span class="sidebar-icon">📚</span><span class="sidebar-label"> ARA Library</span></a>
+          <a href="https://www.ara.ac.nz/student-services/library/" target="_blank"><span class="sidebar-icon">📚</span><span class="sidebar-label"> ARA Library</span></a>
           <a href="https://mylibrary.openpolytechnic.ac.nz/" target="_blank"><span class="sidebar-icon">📘</span><span class="sidebar-label"> My OP Library</span></a>
           <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank"><span class="sidebar-icon">🌐</span><span class="sidebar-label"> My OP Portal</span></a>
           <a href="https://openpolytechnic.iqualify.com/" target="_blank"><span class="sidebar-icon">📖</span><span class="sidebar-label"> My OP Course Dashboard</span></a>
@@ -56,87 +54,34 @@
 
     <!-- Main Content -->
     <main class="flex-1 p-6">
-      <h1 class="text-3xl font-bold mb-6 text-purple-700">Your Student Tools</h1>
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-3xl font-bold text-purple-700">Your Student Tools</h1>
+        <div class="text-right">
+          <blockquote id="quoteDisplay" class="text-lg italic text-gray-700"></blockquote>
+          <cite id="authorDisplay" class="block mt-1 text-sm text-gray-500"></cite>
+        </div>
+      </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-        <button onclick="showEmailModal()" class="tile tile-blue">📧<br/>Email</button>
-        <button onclick="showLibraryModal()" class="tile tile-indigo">📚<br/>Library</button>
-        <a href="https://printfunds.ara.ac.nz/" target="_blank" class="tile tile-yellow">💳<br/>Print Balance</a>
-        <a href="https://mobileprint.ara.ac.nz/" target="_blank" class="tile tile-pink">🖨️<br/>Mobile Print</a>
-        <a href="https://techassist.ara.ac.nz" target="_blank" class="tile tile-teal">🛠️<br/>Tech Assist (ARA)</a>
-        <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank" class="tile tile-purple">🌐<br/>My OP Portal</a>
-        <a href="https://openpolytechnic.iqualify.com/" target="_blank" class="tile tile-indigo">📖<br/>OP Course Dashboard</a>
+        <button onclick="showEmailModal()" class="tile tile-blue hover:scale-105 transition-transform">📧<br/>Email</button>
+        <button onclick="showLibraryModal()" class="tile tile-indigo hover:scale-105 transition-transform">📚<br/>Library</button>
+        <button onclick="showPrintModal()" class="tile tile-yellow hover:scale-105 transition-transform">🖨️<br/>Print</button>
+        <a href="https://techassist.ara.ac.nz" target="_blank" class="tile tile-teal hover:scale-105 transition-transform">🛠️<br/>Tech Assist (ARA)</a>
+        <a href="https://myop.openpolytechnic.ac.nz/student/" target="_blank" class="tile tile-purple hover:scale-105 transition-transform">🌐<br/>My OP Portal</a>
+        <a href="https://openpolytechnic.iqualify.com/" target="_blank" class="tile tile-indigo hover:scale-105 transition-transform">📖<br/>OP Course Dashboard</a>
       </div>
-
-      <!-- Email Modal -->
-      <div id="emailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-lg shadow-xl text-center w-80">
-          <h2 class="text-xl font-bold mb-4">Choose Email</h2>
-          <a href="https://outlook.com/ara.ac.nz/" target="_blank" class="block bg-blue-600 text-white rounded px-4 py-2 mb-2">ARA Email</a>
-          <a href="https://outlook.office.com/mail/?realm=myop.ac.nz&login_hint=ThomasBernard@myop.ac.nz" target="_blank" class="block bg-green-600 text-white rounded px-4 py-2">My OP Email</a>
-          <button onclick="closeEmailModal()" class="mt-4 text-sm text-gray-600 hover:underline">Close</button>
-        </div>
-      </div>
-
-      <!-- Library Modal -->
-      <div id="libraryModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-lg shadow-xl text-center w-80">
-          <h2 class="text-xl font-bold mb-4">Choose Library</h2>
-          <a href="https://ara.primo.exlibrisgroup.com/" target="_blank" class="block bg-indigo-600 text-white rounded px-4 py-2 mb-2">ARA Library</a>
-          <a href="https://mylibrary.openpolytechnic.ac.nz/" target="_blank" class="block bg-purple-600 text-white rounded px-4 py-2">My OP Library</a>
-          <button onclick="closeLibraryModal()" class="mt-4 text-sm text-gray-600 hover:underline">Close</button>
-        </div>
-      </div>
-
     </main>
   </div>
 </div>
 
 <script>
-function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  sidebar.classList.toggle('collapsed');
-  const groups = sidebar.querySelectorAll('.sidebar-group');
-  if (sidebar.classList.contains('collapsed')) {
-    groups.forEach(group => group.style.display = 'none');
-  } else {
-    groups.forEach(group => group.style.display = '');
-  }
-}
-
-function toggleProfile() {
-  const profileMenu = document.getElementById('profileMenu');
-  const isVisible = !profileMenu.classList.contains('hidden');
-  profileMenu.classList.toggle('hidden');
-
-  if (!isVisible) {
-    document.addEventListener('click', closeProfileOutside);
-  } else {
-    document.removeEventListener('click', closeProfileOutside);
-  }
-}
-
-function closeProfileOutside(e) {
-  const profileMenu = document.getElementById('profileMenu');
-  const button = document.querySelector('button[onclick="toggleProfile()"]');
-  if (!profileMenu.contains(e.target) && !button.contains(e.target)) {
-    profileMenu.classList.add('hidden');
-    document.removeEventListener('click', closeProfileOutside);
-  }
-}
-
-function showEmailModal() {
-  document.getElementById('emailModal').classList.remove('hidden');
-}
-function closeEmailModal() {
-  document.getElementById('emailModal').classList.add('hidden');
-}
-
-function showLibraryModal() {
-  document.getElementById('libraryModal').classList.remove('hidden');
-}
-function closeLibraryModal() {
-  document.getElementById('libraryModal').classList.add('hidden');
-}
+fetch('motivational_quotes_with_authors.json')
+  .then(res => res.json())
+  .then(data => {
+    const random = data[Math.floor(Math.random() * data.length)];
+    document.getElementById('quoteDisplay').textContent = `"${random['Motivational Quote']}"`;
+    document.getElementById('authorDisplay').textContent = `— ${random['Author']}`;
+  })
+  .catch(err => console.error('Failed to load quote', err));
 </script>
 
 </body>

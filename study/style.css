@@ -2,17 +2,20 @@
 .sidebar {
   background: linear-gradient(to bottom, #312e81, #5b21b6);
   color: white;
-  width: 16rem;
+  width: 4rem; /* Default to collapsed */
   transition: width 0.3s ease, padding 0.3s ease;
-  padding: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   min-height: 100vh;
   overflow: hidden;
 }
 
-.sidebar.collapsed {
-  width: 4rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+.sidebar.expanded {
+  width: 16rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .sidebar-title {
@@ -64,10 +67,12 @@
 /* Icons always visible */
 .sidebar-icon {
   font-size: 1.25rem;
+  display: inline-block;
 }
 
-/* Hide label when collapsed */
-.sidebar.collapsed .sidebar-label {
+/* Hide label and section titles when collapsed */
+.sidebar:not(.expanded) .sidebar-label,
+.sidebar:not(.expanded) .sidebar-section {
   display: none;
 }
 
@@ -108,7 +113,7 @@
     padding: 0;
   }
 
-  .sidebar.collapsed {
+  .sidebar.expanded {
     width: 16rem;
     padding: 1rem;
   }
