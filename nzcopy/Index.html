@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Freeview IPTV Streams</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+    }
+    .channel-box {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+    .url-box {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #999;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 6px;
+      padding: 6px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #005ea3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Freeview IPTV Streams</h1>
+
+  <div class="channel-box">
+    <strong>TVNZ 1</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/tvnz-1.m3u8" id="url0" class="url-box" readonly>
+    <button onclick="copyToClipboard('url0')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>TVNZ 2</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/tvnz-2.m3u8" id="url1" class="url-box" readonly>
+    <button onclick="copyToClipboard('url1')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Three</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/three.m3u8" id="url2" class="url-box" readonly>
+    <button onclick="copyToClipboard('url2')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Bravo</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/bravo.m3u8" id="url3" class="url-box" readonly>
+    <button onclick="copyToClipboard('url3')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Whakaata Māori</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/maori-tv.m3u8" id="url4" class="url-box" readonly>
+    <button onclick="copyToClipboard('url4')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>DUKE</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/tvnz-duke.m3u8" id="url5" class="url-box" readonly>
+    <button onclick="copyToClipboard('url5')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>eden</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/eden.m3u8" id="url6" class="url-box" readonly>
+    <button onclick="copyToClipboard('url6')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Bravo PLUS 1</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/bravo-plus1.m3u8" id="url7" class="url-box" readonly>
+    <button onclick="copyToClipboard('url7')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Te Reo</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/te-reo.m3u8" id="url8" class="url-box" readonly>
+    <button onclick="copyToClipboard('url8')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>ThreePlus1</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/three-plus1.m3u8" id="url9" class="url-box" readonly>
+    <button onclick="copyToClipboard('url9')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Rush</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/rush-nz.m3u8" id="url10" class="url-box" readonly>
+    <button onclick="copyToClipboard('url10')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Sky Open</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/prime.m3u8" id="url11" class="url-box" readonly>
+    <button onclick="copyToClipboard('url11')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>eden+1</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/eden-plus1.m3u8" id="url12" class="url-box" readonly>
+    <button onclick="copyToClipboard('url12')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>HGTV</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/discovery-hgtv.m3u8" id="url13" class="url-box" readonly>
+    <button onclick="copyToClipboard('url13')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Al Jazeera</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/al-jazeera.m3u8" id="url14" class="url-box" readonly>
+    <button onclick="copyToClipboard('url14')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Prime+1</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/prime-plus1.m3u8" id="url15" class="url-box" readonly>
+    <button onclick="copyToClipboard('url15')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>TAB Trackside 1</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/trackside-1.m3u8" id="url16" class="url-box" readonly>
+    <button onclick="copyToClipboard('url16')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>TAB Trackside 2</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/trackside-2.m3u8" id="url17" class="url-box" readonly>
+    <button onclick="copyToClipboard('url17')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Shine TV</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/shine-tv.m3u8" id="url18" class="url-box" readonly>
+    <button onclick="copyToClipboard('url18')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Firstlight</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/firstlight.m3u8" id="url19" class="url-box" readonly>
+    <button onclick="copyToClipboard('url19')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Hope Channel</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/hope-channel.m3u8" id="url20" class="url-box" readonly>
+    <button onclick="copyToClipboard('url20')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Chinese TV28</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/chinese-tv28.m3u8" id="url21" class="url-box" readonly>
+    <button onclick="copyToClipboard('url21')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Chinese TV29</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/chinese-tv29.m3u8" id="url22" class="url-box" readonly>
+    <button onclick="copyToClipboard('url22')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Parliament TV</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/parliament-tv.m3u8" id="url23" class="url-box" readonly>
+    <button onclick="copyToClipboard('url23')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Apna Television</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/apna-television.m3u8" id="url24" class="url-box" readonly>
+    <button onclick="copyToClipboard('url24')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Panda TV</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/panda-tv.m3u8" id="url25" class="url-box" readonly>
+    <button onclick="copyToClipboard('url25')">Copy</button>
+  </div>
+
+  <div class="channel-box">
+    <strong>Wairarapa TV</strong><br>
+    <input type="text" value="https://i.mjh.nz/.r/wairarapa-tv.m3u8" id="url26" class="url-box" readonly>
+    <button onclick="copyToClipboard('url26')">Copy</button>
+  </div>
+
+  <script>
+    function copyToClipboard(id) {
+      const copyText = document.getElementById(id);
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+    }
+  </script>
+</body>
+</html>
