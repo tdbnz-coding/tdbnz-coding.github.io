@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Sports 1 NZ</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            color: #ffffff;
+            overflow-x: hidden;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        h1, .main-title {
+            font-weight: 700;
+            color: #e50914;
+            animation: slideDown 1.5s ease;
+        }
+        @keyframes slideDown {
+            0% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .main-title {
+            font-size: 2.5rem;
+        }
+        .lightbulb {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        .lightbulb:hover {
+            color: yellow;
+        }
+        .iframe-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border: 5px solid #e50914;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(229, 9, 20, 0.6);
+            transform: scale(0.9);
+            animation: popIn 1.5s ease forwards;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 10px;
+        }
+        .stream-buttons {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
+            animation-delay: 1s;
+        }
+        @keyframes buttonHover {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .btn-stream {
+            background-color: #e50914;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            animation: buttonHover 2s infinite ease;
+        }
+        .btn-stream:hover {
+            background-color: #b20710;
+            transform: scale(1.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px 0;
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px solid #444;
+            animation: fadeIn 2s ease forwards;
+            animation-delay: 2s;
+        }
+        footer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center position-relative">
+        <div class="lightbulb" onclick="toggleTheme()">
+            <i class="bi bi-lightbulb-fill"></i>
+        </div>
+        <h1 class="my-4">PPV Streaming</h1>
+        <div class="main-title">Sky Sports 1 NZ</div>
+
+        <!-- Default Stream (Sky Sports 1 NZ) -->
+        <div class="iframe-container my-4" id="mainFrame">
+            <iframe class="video responsive" marginheight="0" marginwidth="0" src="https://thedaddy.to/embed/stream-588.php" name="iframe_a" scrolling="no" allowfullscreen="yes" width="100%" height="100%" frameborder="0">Your Browser Do not Support Iframe</iframe>
+        </div>
+
+        <!-- Buttons -->
+        <div class="stream-buttons">
+            <button class="btn btn-stream" onclick="changeStream('https://thedaddy.to/embed/stream-588.php')">Stream 1 (Default)</button>
+            <button class="btn btn-stream" onclick="changeStream('https://d.daddylivehd.sx/embed/stream-588.php')">Stream 2</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 PPV Streaming. Inspired by <a href="https://www.netflix.com" target="_blank">Netflix</a>. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function changeStream(url) {
+            document.querySelector('#mainFrame iframe').src = url;
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const isDark = body.style.background.includes('linear-gradient(135deg, #1a1a1a, #000000)');
+            if (isDark) {
+                body.style.background = 'linear-gradient(135deg, #f0f0f0, #ffffff)';
+                body.style.color = '#000000';
+            } else {
+                body.style.background = 'linear-gradient(135deg, #1a1a1a, #000000)';
+                body.style.color = '#ffffff';
+            }
+        }
+    </script>
+</body>
+</html>
