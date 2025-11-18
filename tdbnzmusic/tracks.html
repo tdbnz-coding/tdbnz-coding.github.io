@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tracks, Your Artist Name</title>
+  <title>Tracks, Relaxing Tunes NZ</title>
   <meta name="description" content="Browse all tracks, filter by mood, and play instantly.">
   <meta name="theme-color" content="#0d1117">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎵</text></svg>">
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
@@ -15,24 +14,19 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top" aria-label="Primary">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
         <span class="brand-logo" aria-hidden="true">♪</span>
-        <span class="fw-semibold">Your Artist Name</span>
+        <span class="fw-semibold">Relaxing Tunes NZ</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="tracks.html">Tracks</a></li>
-          <li class="nav-item"><a class="nav-link" href="#newsletter">Subscribe</a></li>
-          <li class="nav-item ms-lg-3">
-            <button id="shareBtn" class="btn btn-dark btn-sm"><i class="bi bi-share"></i> Share</button>
-          </li>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="tracks.html">Tracks</a></li>
         </ul>
       </div>
     </div>
@@ -54,19 +48,18 @@
       <div class="d-flex flex-wrap gap-2 mb-4" role="group" aria-label="Filter by tag">
         <button class="btn btn-outline-dark btn-sm filter-btn" data-tag="all">All</button>
         <button class="btn btn-outline-dark btn-sm filter-btn" data-tag="chill">Chill</button>
-        <button class="btn btn-outline-dark btn-sm filter-btn" data-tag="pop">Pop</button>
-        <button class="btn btn-outline-dark btn-sm filter-btn" data-tag="synth">Synth</button>
+        <button class="btn btn-outline-dark btn-sm filter-btn" data-tag="ambient">Ambient</button>
+        <button class="btn btn-outline-dark btn-sm filter-btn" data-tag="sleep">Sleep</button>
       </div>
 
       <div id="tracksGrid" class="row g-4">
-        <!-- Filled by script -->
       </div>
     </div>
   </main>
 
   <footer class="py-4 border-top">
     <div class="container d-flex flex-wrap align-items-center justify-content-between gap-2 small">
-      <div>&copy; <span id="year"></span> Your Artist Name</div>
+      <div>&copy; <span id="year"></span> Relaxing Tunes NZ</div>
       <a class="text-decoration-none" href="index.html#newsletter">Subscribe</a>
     </div>
   </footer>

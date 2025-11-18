@@ -3,53 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Artist Name, official site</title>
-  <meta name="description" content="Modern, clean, and accessible music site. Stream tracks, join the mailing list, and follow on social media.">
+  <title>Relaxing Tunes NZ, official site</title>
+  <meta name="description" content="Conservatory Rain, stream the latest release from Relaxing Tunes NZ. Clean and accessible site.">
   <meta name="theme-color" content="#0d1117">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎵</text></svg>">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Your Artist Name, official site">
-  <meta property="og:description" content="New releases, playlists, shows, and more.">
+
+  <meta property="og:title" content="Relaxing Tunes NZ, official site">
+  <meta property="og:description" content="Conservatory Rain, out now.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://i.postimg.cc/SQ6GFs1B/banner-1200-630.jpg">
   <meta property="og:url" content="https://yourusername.github.io/your-repo/">
-  <!-- Twitter Card -->
+
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Your Artist Name, official site">
-  <meta name="twitter:description" content="New releases, playlists, shows, and more.">
+  <meta name="twitter:title" content="Relaxing Tunes NZ, official site">
+  <meta name="twitter:description" content="Conservatory Rain, out now.">
   <meta name="twitter:image" content="https://i.postimg.cc/SQ6GFs1B/banner-1200-630.jpg">
 
-  <!-- JSON-LD, structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MusicGroup",
-    "name": "Your Artist Name",
+    "name": "Relaxing Tunes NZ",
     "url": "https://yourusername.github.io/your-repo/",
     "sameAs": [
-      "https://open.spotify.com/",
-      "https://music.apple.com/",
-      "https://www.youtube.com/"
+      "https://open.spotify.com/artist/71IfSctgD2ZCIrFPsHBLcf",
+      "https://music.apple.com/au/artist/relaxing-tunes-nz/1593397919",
+      "https://music.youtube.com/playlist?list=OLAK5uy_kBZPAgNkfSWkmpbkNhhrvERYnJjx1Sf9Q",
+      "https://tidal.com/artist/29123065",
+      "https://www.amazon.com/music/player/artists/B09KY96GWS/relaxing-tunes-nz",
+      "https://soundcloud.com/relaxingtunesnz"
     ]
   }
   </script>
 
-  <!-- Bootstrap CSS and Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Custom styles -->
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top" aria-label="Primary">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
         <span class="brand-logo" aria-hidden="true">♪</span>
-        <span class="fw-semibold">Your Artist Name</span>
+        <span class="fw-semibold">Relaxing Tunes NZ</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -67,15 +65,14 @@
     </div>
   </nav>
 
-  <!-- Hero -->
   <header class="hero text-center text-lg-start">
     <div class="container">
       <div class="row align-items-center g-4 py-5">
         <div class="col-lg-6 order-2 order-lg-1">
-          <h1 class="display-5 fw-bold lh-1 mb-3">New music that feels fresh</h1>
-          <p class="lead text-body-secondary">Clean design, fast pages, and accessible controls. Built for GitHub Pages, no backend needed.</p>
+          <h1 class="display-5 fw-bold lh-1 mb-3">Conservatory Rain is out now</h1>
+          <p class="lead text-body-secondary">Clean design, fast pages, accessible controls. Built for GitHub Pages.</p>
           <div class="d-flex gap-2 flex-wrap">
-            <a class="btn btn-primary btn-lg" href="#player" role="button">Play latest</a>
+            <a class="btn btn-primary btn-lg" href="#embed" role="button">Play on Spotify</a>
             <a class="btn btn-outline-dark btn-lg" href="tracks.html" role="button">Browse tracks</a>
           </div>
         </div>
@@ -89,7 +86,15 @@
   </header>
 
   <main id="main">
-    <!-- Player -->
+    <section id="embed" class="py-5 border-top" aria-labelledby="embed-heading">
+      <div class="container">
+        <h2 id="embed-heading" class="h4 mb-3">Conservatory Rain, stream on Spotify</h2>
+        <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
+          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5IhZIMnQxWzX8rFMJE1WOH?utm_source=generator" title="Spotify embed for Conservatory Rain" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
     <section id="player" class="py-5 border-top">
       <div class="container">
         <div class="row g-4 align-items-center">
@@ -99,8 +104,8 @@
                 <div class="d-flex align-items-center gap-3">
                   <img id="cover" src="assets/cover-placeholder.jpg" alt="Cover art" class="rounded-3 cover-md" width="96" height="96">
                   <div class="flex-grow-1">
-                    <h2 class="h4 mb-1" id="trackTitle">Track title</h2>
-                    <p class="mb-2 text-body-secondary" id="trackArtist">Artist name</p>
+                    <h2 class="h4 mb-1" id="trackTitle">Conservatory Rain</h2>
+                    <p class="mb-2 text-body-secondary" id="trackArtist">Relaxing Tunes NZ</p>
                     <div class="player-controls d-flex align-items-center gap-3">
                       <button class="btn btn-outline-dark btn-icon" id="prevBtn" aria-label="Previous track"><i class="bi bi-skip-start-fill"></i></button>
                       <button class="btn btn-dark btn-icon" id="playPauseBtn" aria-label="Play or pause"><i class="bi bi-play-fill"></i></button>
@@ -126,7 +131,6 @@
                 <audio id="audio" preload="metadata" aria-label="Audio player"></audio>
 
                 <ul id="queue" class="list-unstyled mt-4 mb-0" aria-label="Playlist">
-                  <!-- Filled by script -->
                 </ul>
               </div>
             </div>
@@ -134,13 +138,14 @@
           <div class="col-12 col-lg-6">
             <div class="p-4 rounded-4 border h-100">
               <h3 class="h4">Streaming links</h3>
-              <p class="text-body-secondary">Add your platform links here. Open in a new tab.</p>
+              <p class="text-body-secondary">Open in a new tab.</p>
               <div class="d-flex flex-wrap gap-2">
-                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="#" aria-label="Spotify link"><i class="bi bi-spotify"></i> Spotify</a>
-                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="#" aria-label="Apple Music link"><i class="bi bi-apple"></i> Apple Music</a>
-                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="#" aria-label="YouTube link"><i class="bi bi-youtube"></i> YouTube</a>
-                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="#" aria-label="Instagram link"><i class="bi bi-instagram"></i> Instagram</a>
-                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="#" aria-label="TikTok link"><i class="bi bi-tiktok"></i> TikTok</a>
+                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="https://open.spotify.com/artist/71IfSctgD2ZCIrFPsHBLcf" aria-label="Spotify link"><i class="bi bi-spotify"></i> Spotify</a>
+                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="https://music.apple.com/au/artist/relaxing-tunes-nz/1593397919" aria-label="Apple Music link"><i class="bi bi-apple"></i> Apple Music</a>
+                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="https://music.youtube.com/playlist?list=OLAK5uy_kBZPAgNkfSWkmpbkNhhrvERYnJjx1Sf9Q" aria-label="YouTube Music link"><i class="bi bi-youtube"></i> YouTube Music</a>
+                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="https://tidal.com/artist/29123065" aria-label="Tidal link"><i class="bi bi-music-note-beamed"></i> Tidal</a>
+                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="https://www.amazon.com/music/player/artists/B09KY96GWS/relaxing-tunes-nz" aria-label="Amazon Music link"><i class="bi bi-bag"></i> Amazon Music</a>
+                <a class="btn btn-outline-dark" target="_blank" rel="noopener" href="https://soundcloud.com/relaxingtunesnz" aria-label="SoundCloud link"><i class="bi bi-soundwave"></i> SoundCloud</a>
               </div>
             </div>
           </div>
@@ -148,7 +153,6 @@
       </div>
     </section>
 
-    <!-- Highlights -->
     <section class="py-5 border-top">
       <div class="container">
         <div class="d-flex align-items-end justify-content-between mb-3">
@@ -160,8 +164,8 @@
             <a href="tracks.html" class="card card-link rounded-4 h-100 shadow-sm">
               <img src="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1200&auto=format&fit=crop" class="card-img-top rounded-top-4" alt="Vinyl record in sunlight">
               <div class="card-body">
-                <h4 class="h6 mb-1">Summer pulses</h4>
-                <p class="text-body-secondary small mb-0">Bright, upbeat, and glossy.</p>
+                <h4 class="h6 mb-1">Conservatory Rain</h4>
+                <p class="text-body-secondary small mb-0">Gentle ambience, rain textures.</p>
               </div>
             </a>
           </div>
@@ -170,7 +174,7 @@
               <img src="https://images.unsplash.com/photo-1526702772661-7eba3991ae2f?q=80&w=1200&auto=format&fit=crop" class="card-img-top rounded-top-4" alt="Cassette tapes with colorful labels">
               <div class="card-body">
                 <h4 class="h6 mb-1">Night drive</h4>
-                <p class="text-body-secondary small mb-0">Moody synths, steady rhythm, clear vocals.</p>
+                <p class="text-body-secondary small mb-0">Moody synths, steady rhythm.</p>
               </div>
             </a>
           </div>
@@ -179,7 +183,7 @@
               <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" class="card-img-top rounded-top-4" alt="Headphones on a wooden table">
               <div class="card-body">
                 <h4 class="h6 mb-1">Chill room</h4>
-                <p class="text-body-secondary small mb-0">Low key beats for study or rest.</p>
+                <p class="text-body-secondary small mb-0">Low key beats for rest.</p>
               </div>
             </a>
           </div>
@@ -187,7 +191,6 @@
       </div>
     </section>
 
-    <!-- Newsletter -->
     <section id="newsletter" class="py-5 border-top bg-body-tertiary">
       <div class="container">
         <div class="row align-items-center g-4">
@@ -214,7 +217,7 @@
               <h4 class="h6">Quick setup guide</h4>
               <ol class="small mb-0">
                 <li>Replace text with your artist name and links.</li>
-                <li>Add audio files under <code>assets/audio</code>, update <code>script.js</code> track list.</li>
+                <li>Optional, add MP3 files under <code>assets/audio</code> and update <code>script.js</code>.</li>
                 <li>Commit to a GitHub repo, enable GitHub Pages in settings.</li>
                 <li>Update the site URL in meta tags for better SEO.</li>
               </ol>
@@ -227,7 +230,7 @@
 
   <footer class="py-4 border-top">
     <div class="container d-flex flex-wrap align-items-center justify-content-between gap-2 small">
-      <div>&copy; <span id="year"></span> Your Artist Name</div>
+      <div>&copy; <span id="year"></span> Relaxing Tunes NZ</div>
       <div class="d-flex gap-3">
         <a class="text-decoration-none" href="#" aria-label="Privacy policy">Privacy</a>
         <a class="text-decoration-none" href="#" aria-label="Contact email">Contact</a>

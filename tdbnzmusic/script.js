@@ -1,46 +1,39 @@
-// Simple, accessible audio player and track rendering
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 const tracks = [
   {
-    title: "Waimak River",
-    artist: "Your Artist Name",
-    url: "assets/audio/track1.mp3", // Replace with your file
+    title: "Conservatory Rain",
+    artist: "Relaxing Tunes NZ",
+    url: "assets/audio/track1.mp3",
     cover: "assets/cover-placeholder.jpg",
-    tags: ["chill", "synth"]
+    tags: ["ambient", "chill", "sleep"]
   },
   {
     title: "Night Drive",
-    artist: "Your Artist Name",
+    artist: "Relaxing Tunes NZ",
     url: "assets/audio/track2.mp3",
     cover: "assets/cover-placeholder.jpg",
-    tags: ["synth", "pop"]
+    tags: ["chill"]
   },
   {
-    title: "Summer Pulses",
-    artist: "Your Artist Name",
+    title: "Chill Room",
+    artist: "Relaxing Tunes NZ",
     url: "assets/audio/track3.mp3",
     cover: "assets/cover-placeholder.jpg",
-    tags: ["pop"]
+    tags: ["sleep"]
   }
 ];
 
-// Footer year
-const yearEl = $("#year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+const yearEl = document.querySelectorAll("#year");
+yearEl.forEach(el => el.textContent = new Date().getFullYear());
 
-// Share button
 const shareBtn = $("#shareBtn");
 if (shareBtn) {
   shareBtn.addEventListener("click", async () => {
     try {
       if (navigator.share) {
-        await navigator.share({
-          title: document.title,
-          text: "Check out this music",
-          url: window.location.href
-        });
+        await navigator.share({ title: document.title, text: "Listen to Relaxing Tunes NZ", url: window.location.href });
       } else {
         await navigator.clipboard.writeText(window.location.href);
         shareBtn.textContent = "Link copied";
@@ -50,7 +43,6 @@ if (shareBtn) {
   });
 }
 
-// Player wiring
 const audio = $("#audio");
 const trackTitle = $("#trackTitle");
 const trackArtist = $("#trackArtist");
@@ -65,9 +57,7 @@ const volumeEl = $("#volume");
 const queue = $("#queue");
 
 let index = 0;
-let seeking = false;
 
-// Render queue
 function renderQueue() {
   if (!queue) return;
   queue.innerHTML = "";
@@ -110,9 +100,7 @@ function loadTrack(i) {
 function play() {
   audio.play().then(() => {
     if (playPauseBtn) playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
-  }).catch(() => {
-    // Autoplay might be blocked, ignore
-  });
+  }).catch(() => {});
 }
 
 function pause() {
@@ -127,9 +115,7 @@ if (audio) {
     if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
     if (durationEl) durationEl.textContent = formatTime(audio.duration);
   });
-  audio.addEventListener("ended", () => {
-    next();
-  });
+  audio.addEventListener("ended", () => { next(); });
 }
 
 function next() { loadTrack(index + 1); play(); }
@@ -141,13 +127,10 @@ if (prevBtn) prevBtn.addEventListener("click", prev);
 
 if (volumeEl) {
   volumeEl.value = 0.9;
-  audio.volume = 0.9;
-  volumeEl.addEventListener("input", () => {
-    audio.volume = Number(volumeEl.value);
-  });
+  if (audio) audio.volume = 0.9;
+  volumeEl.addEventListener("input", () => { if (audio) audio.volume = Number(volumeEl.value); });
 }
 
-// Progress seek, click on bar to seek
 const progress = document.querySelector(".progress");
 if (progress && audio) {
   progress.addEventListener("click", e => {
@@ -164,11 +147,9 @@ function formatTime(s) {
   return m + ":" + String(r).padStart(2, "0");
 }
 
-// Initial render
 loadTrack(0);
 renderQueue();
 
-// Tracks page rendering
 const grid = $("#tracksGrid");
 if (grid) {
   function renderGrid(items) {
@@ -193,16 +174,13 @@ if (grid) {
     });
     $$(".play-from-grid").forEach(btn => btn.addEventListener("click", e => {
       const i = Number(e.currentTarget.getAttribute("data-i"));
-      // Navigate back to index and play, or play inline if audio exists here too
       window.location.href = "index.html#player";
       localStorage.setItem("playIndex", String(i));
     }));
   }
 
-  // Render initial grid
   renderGrid(tracks);
 
-  // Filter and search
   $$(".filter-btn").forEach(btn => btn.addEventListener("click", () => {
     const tag = btn.getAttribute("data-tag");
     const list = tag === "all" ? tracks : tracks.filter(t => t.tags.includes(tag));
@@ -219,7 +197,6 @@ if (grid) {
   }
 }
 
-// Support play from grid across pages
 const saved = localStorage.getItem("playIndex");
 if (saved && audio) {
   const i = Number(saved);
