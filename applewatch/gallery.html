@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apple Faces - Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-gallery">
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-icon"></span>
+      <span class="brand-text">Apple Faces</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="faces.html" class="active">Watch Faces</a>
+      <a href="how-to.html">How to Use</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-main">
+  <section class="page-hero">
+    <h1 id="galleryTitle">Gallery</h1>
+    <p id="galleryDescription">Loading gallery details...</p>
+  </section>
+
+  <section class="gallery-section">
+    <div class="section-header">
+      <h2 id="galleryFacesHeading">Watch faces</h2>
+      <p class="section-subtitle" id="galleryFacesSubtitle"></p>
+    </div>
+
+    <div id="galleryFacesGrid" class="faces-grid"></div>
+
+    <p id="galleryEmpty" class="empty-state" hidden>
+      This gallery does not have any faces yet.
+    </p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>Apple Faces is a fan made gallery. Apple Watch is a trademark of Apple Inc.</p>
+    <p class="footer-links">
+      <a href="faces.html">Back to galleries</a>
+    </p>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="previewModal" aria-hidden="true">
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close preview">&times;</button>
+    <div class="modal-layout">
+      <div class="modal-image-wrap">
+        <div class="watch-mock large">
+          <div class="watch-inner">
+            <img src="" alt="" id="modalImage">
+          </div>
+        </div>
+      </div>
+      <div class="modal-info">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription" class="modal-description"></p>
+        <div id="modalTags" class="tag-list"></div>
+        <a id="modalDownload" class="btn primary full-width" href="#" target="_blank" rel="noopener">
+          Download image
+        </a>
+        <p class="modal-note">
+          Save this image to your iPhone and use Create Watch Face in Photos.
+          See <a href="how-to.html">How to Use</a> for steps.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

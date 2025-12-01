@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apple Faces Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-admin">
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-icon"></span>
+      <span class="brand-text">Apple Faces</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="faces.html">Watch Faces</a>
+      <a href="how-to.html">How to Use</a>
+      <a href="admin.html" class="active">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="admin-card">
+    <h1>Apple Faces admin</h1>
+    <p>Use this page to generate JSON for new watch faces and galleries so you do not have to set dates or formatting by hand.</p>
+
+    <h2>Create watch face JSON</h2>
+    <p>This creates an object for the <code>"faces"</code> array and sets <strong>dateAdded</strong> to today automatically.</p>
+
+    <form id="adminFormFace" class="admin-form">
+      <div class="admin-field">
+        <label for="galleryId">Gallery ID</label>
+        <input id="galleryId" type="text" placeholder="christmas, birthday, minimal">
+        <small>This must match the <code>id</code> of a gallery in faces.json.</small>
+      </div>
+
+      <div class="admin-field">
+        <label for="faceId">Face ID</label>
+        <input id="faceId" type="text" placeholder="xmas-04">
+        <small>Use something unique, for example gallery name plus a number.</small>
+      </div>
+
+      <div class="admin-field">
+        <label for="title">Title</label>
+        <input id="title" type="text" placeholder="Snowy Lights">
+      </div>
+
+      <div class="admin-field">
+        <label for="description">Short description</label>
+        <textarea id="description" placeholder="Warm fairy lights hanging over a soft snowy background."></textarea>
+      </div>
+
+      <div class="admin-field">
+        <label for="imageUrl">Preview image URL</label>
+        <input id="imageUrl" type="text" placeholder="https://yourhost.com/face-600x800.jpg">
+        <small>Used in the grid and in the large preview.</small>
+      </div>
+
+      <div class="admin-field">
+        <label for="downloadUrl">Download image URL</label>
+        <input id="downloadUrl" type="text" placeholder="https://yourhost.com/face-fullres.jpg">
+        <small>If empty, the preview URL is used for download as well.</small>
+      </div>
+
+      <div class="admin-field">
+        <label for="tags">Tags (comma separated)</label>
+        <input id="tags" type="text" placeholder="christmas, red, lights">
+        <small>Used by search. For example christmas, birthday, minimal, red, blue, dark, photo.</small>
+      </div>
+    </form>
+
+    <div class="admin-actions">
+      <button class="btn primary" id="generateFaceBtn" type="button">Generate face JSON</button>
+      <button class="btn ghost" id="copyFaceBtn" type="button">Copy face JSON</button>
+    </div>
+
+    <div class="admin-output">
+      <label for="jsonFaceOutput">New face JSON</label>
+      <textarea id="jsonFaceOutput" readonly></textarea>
+      <p class="admin-note">
+        Paste this inside the <code>"faces"</code> array in <code>faces.json</code>.
+        <strong>dateAdded</strong> is set to today for you.
+      </p>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid rgba(55,65,81,0.8); margin: 1.4rem 0;">
+
+    <h2>Create gallery JSON</h2>
+    <p>This creates an object for the <code>"galleries"</code> array.</p>
+
+    <form id="adminFormGallery" class="admin-form">
+      <div class="admin-field">
+        <label for="galleryNewId">Gallery ID</label>
+        <input id="galleryNewId" type="text" placeholder="christmas, birthday, minimal">
+        <small>Lowercase with dashes is tidy, for example <code>christmas</code> or <code>nature-outdoors</code>.</small>
+      </div>
+
+      <div class="admin-field">
+        <label for="galleryName">Gallery name</label>
+        <input id="galleryName" type="text" placeholder="Christmas Collection">
+      </div>
+
+      <div class="admin-field">
+        <label for="galleryDescription">Gallery description</label>
+        <textarea id="galleryDescription" placeholder="Festive watch faces with reds, greens, lights, and snow."></textarea>
+      </div>
+
+      <div class="admin-field">
+        <label for="galleryCover">Cover image URL</label>
+        <input id="galleryCover" type="text" placeholder="https://yourhost.com/christmas-cover-600x400.jpg">
+        <small>Shown as the big image on the gallery card. You can also leave this blank and it will fall back to the first face image for that gallery.</small>
+      </div>
+
+      <div class="admin-field">
+        <label for="galleryTags">Tags (comma separated)</label>
+        <input id="galleryTags" type="text" placeholder="christmas, holiday, festive">
+        <small>Used by search indirectly and just for info, for example christmas, birthday, minimal, photos.</small>
+      </div>
+    </form>
+
+    <div class="admin-actions">
+      <button class="btn primary" id="generateGalleryBtn" type="button">Generate gallery JSON</button>
+      <button class="btn ghost" id="copyGalleryBtn" type="button">Copy gallery JSON</button>
+    </div>
+
+    <div class="admin-output">
+      <label for="jsonGalleryOutput">New gallery JSON</label>
+      <textarea id="jsonGalleryOutput" readonly></textarea>
+      <p class="admin-note">
+        Paste this inside the <code>"galleries"</code> array in <code>faces.json</code>.
+        Then create faces that use this gallery <code>id</code>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>Apple Faces admin helper. Not for public users.</p>
+  </div>
+</footer>
+
+<script>
+  function todayIsoDateOnly() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    return year + "-" + month + "-" + day;
+  }
+
+  function generateFaceJson() {
+    const galleryId = document.getElementById("galleryId").value.trim();
+    const faceId = document.getElementById("faceId").value.trim();
+    const title = document.getElementById("title").value.trim();
+    const description = document.getElementById("description").value.trim();
+    const imageUrl = document.getElementById("imageUrl").value.trim();
+    const downloadUrl = document.getElementById("downloadUrl").value.trim();
+    const tagsRaw = document.getElementById("tags").value.trim();
+
+    const tags = tagsRaw
+      ? tagsRaw.split(",").map(t => t.trim()).filter(Boolean)
+      : [];
+
+    const obj = {
+      id: faceId || "your-id-here",
+      galleryId: galleryId || "your-gallery-id",
+      title: title || "Untitled face",
+      description: description || "",
+      imageUrl: imageUrl || "https://example.com/face-600x800.jpg",
+      downloadUrl: downloadUrl || imageUrl || "https://example.com/face-fullres.jpg",
+      tags: tags,
+      dateAdded: todayIsoDateOnly()
+    };
+
+    const jsonText = JSON.stringify(obj, null, 2);
+    document.getElementById("jsonFaceOutput").value = jsonText;
+  }
+
+  function generateGalleryJson() {
+    const galleryNewId = document.getElementById("galleryNewId").value.trim();
+    const galleryName = document.getElementById("galleryName").value.trim();
+    const galleryDescription = document.getElementById("galleryDescription").value.trim();
+    const galleryCover = document.getElementById("galleryCover").value.trim();
+    const galleryTagsRaw = document.getElementById("galleryTags").value.trim();
+
+    const tags = galleryTagsRaw
+      ? galleryTagsRaw.split(",").map(t => t.trim()).filter(Boolean)
+      : [];
+
+    const obj = {
+      id: galleryNewId || "your-gallery-id",
+      name: galleryName || "New Gallery",
+      description: galleryDescription || "",
+      coverImage: galleryCover || "",
+      tags: tags
+    };
+
+    const jsonText = JSON.stringify(obj, null, 2);
+    document.getElementById("jsonGalleryOutput").value = jsonText;
+  }
+
+  function copyTextArea(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.focus();
+    el.select();
+    try {
+      document.execCommand("copy");
+    } catch (e) {
+      console.error("Copy failed", e);
+    }
+  }
+
+  document.getElementById("generateFaceBtn").addEventListener("click", generateFaceJson);
+  document.getElementById("copyFaceBtn").addEventListener("click", () => copyTextArea("jsonFaceOutput"));
+
+  document.getElementById("generateGalleryBtn").addEventListener("click", generateGalleryJson);
+  document.getElementById("copyGalleryBtn").addEventListener("click", () => copyTextArea("jsonGalleryOutput"));
+</script>
+</body>
+</html>

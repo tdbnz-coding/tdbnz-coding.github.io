@@ -1,0 +1,117 @@
+{
+  "galleries": [
+    {
+      "id": "christmas",
+      "name": "Christmas Collection",
+      "description": "Festive watch faces with reds, greens, lights, and snow.",
+      "coverImage": "https://picsum.photos/600/400?random=101",
+      "tags": ["christmas", "holiday", "festive"]
+    },
+    {
+      "id": "birthday",
+      "name": "Birthday Faces",
+      "description": "Fun and bright faces for birthdays and celebrations.",
+      "coverImage": "https://picsum.photos/600/400?random=102",
+      "tags": ["birthday", "party", "fun"]
+    },
+    {
+      "id": "minimal",
+      "name": "Minimal and Clean",
+      "description": "Calm gradients and simple shapes for everyday use.",
+      "coverImage": "https://picsum.photos/600/400?random=103",
+      "tags": ["minimal", "clean", "simple"]
+    }
+  ],
+  "faces": [
+    {
+      "id": "xmas-01",
+      "galleryId": "christmas",
+      "title": "Snowy Lights",
+      "description": "Warm fairy lights hanging over a soft snowy background.",
+      "imageUrl": "https://picsum.photos/600/800?random=111",
+      "downloadUrl": "https://picsum.photos/1200/1600?random=111",
+      "tags": ["christmas", "lights", "warm", "snow"],
+      "dateAdded": "2025-11-20"
+    },
+    {
+      "id": "xmas-02",
+      "galleryId": "christmas",
+      "title": "Tree Glow",
+      "description": "Close up of a Christmas tree with glowing ornaments.",
+      "imageUrl": "https://picsum.photos/600/800?random=112",
+      "downloadUrl": "https://picsum.photos/1200/1600?random=112",
+      "tags": ["christmas", "tree", "green"],
+      "dateAdded": "2025-11-18"
+    },
+    {
+      "id": "xmas-03",
+      "galleryId": "christmas",
+      "title": "Red Ribbon",
+      "description": "Minimal red bow on a dark background for a classy holiday face.",
+      "imageUrl": "https://picsum.photos/600/800?random=113",
+      "downloadUrl": "https://picsum.photos/1200/1600?random=113",
+      "tags": ["christmas", "red", "minimal"],
+      "dateAdded": "2025-11-15"
+    },
+    {
+      "id": "bday-01",
+      "galleryId": "birthday",
+      "title": "Rainbow Confetti",
+      "description": "Colorful confetti that feels like a party every time you raise your wrist.",
+      "imageUrl": "https://picsum.photos/600/800?random=121",
+      "downloadUrl": "https://picsum.photos/1200/1600?random=121",
+      "tags": ["birthday", "confetti", "colorful"],
+      "dateAdded": "2025-11-21"
+    },
+    {
+      "id": "bday-02",
+      "galleryId": "birthday",
+      "title": "Cake Closeup",
+      "description": "Pastel cake with candles for birthday photos and celebrations.",
+      "imageUrl": "https://picsum.photos/600/800?random=122",
+      "downloadUrl": "https://picsum.photos/1200/1600?random=122",
+      "tags": ["birthday", "cake", "pastel"],
+      "dateAdded": "2025-11-16"
+    },
+    {
+      "id": "bday-03",
+      "galleryId": "birthday",
+      "title": "Balloon Party",
+      "description": "Soft bokeh balloons in the background for a fun but clean face.",
+      "imageUrl": "https://picsum.photos/600/800?random=123",
+      "downloadUrl": "https://picsum.photos/1200/1600?random=123",
+      "tags": ["birthday", "balloons", "bokeh"],
+      "dateAdded": "2025-11-10"
+    },
+    {
+      "id": "min-01",
+      "galleryId": "minimal",
+      "title": "Soft Dawn Gradient",
+      "description": "Simple blue to pink gradient for a quiet start to the day.",
+      "imageUrl": "https://picsum.photos/600/800?random=131",
+      "downloadUrl": "https://picsum.photos/1200/1600?random=131",
+      "tags": ["minimal", "gradient", "soft"],
+      "dateAdded": "2025-11-22"
+    },
+    {
+      "id": "min-02",
+      "galleryId": "minimal",
+      "title": "Dark Circle Glow",
+      "description": "Dark face with a single glowing ring in the middle.",
+      "imageUrl": "https://picsum.photos/600/800?random=132",
+      "downloadUrl": "https://picsum.photos/1200/1600?random=132",
+      "tags": ["minimal", "dark", "circle"],
+      "dateAdded": "2025-11-14"
+    },
+    {
+      "id": "min-03",
+      "galleryId": "minimal",
+      "title": "Paper Texture",
+      "description": "Light paper texture that looks great with crisp black time.",
+      "imageUrl": "https://picsum.photos/600/800?random=133",
+      "downloadUrl": "https://picsum.photos/1200/1600?random=133",
+      "tags": ["minimal", "paper", "light"],
+      "dateAdded": "2025-11-12"
+    }
+  ]
+}
