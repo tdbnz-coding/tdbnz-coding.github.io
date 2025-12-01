@@ -59,7 +59,7 @@ async function initFacesPage() {
 }
 
 async function fetchJson(url) {
-  const res = await fetch(url + "?v=" + Date.now());
+  const res = await fetch(url + "?v=" + Date.now()); // cache bust
   if (!res.ok) {
     throw new Error("HTTP error " + res.status);
   }
@@ -95,7 +95,13 @@ function isNewFace(face) {
   const now = new Date();
   const diffMs = now.getTime() - added.getTime();
   const diffDays = diffMs / (1000 * 60 * 60 * 24);
-  return diffDays <= NEW_FACE_DAYS && diffDays >= -1; // allow slight clock skew and future dates
+  // allow a tiny bit of clock skew
+  return diffDays <= NEW_FACE_DAYS && diffDays >= -1;
+}
+
+function getFirstFaceImageForGallery(galleryId) {
+  const found = faces.find(f => f.galleryId === galleryId && f.imageUrl);
+  return found ? found.imageUrl : "";
 }
 
 // ------------- Galleries -------------
@@ -116,26 +122,28 @@ function renderGalleries() {
   }
 
   galleries.forEach(gallery => {
-    const card = document.createElement("button");
-    card.type = "button";
+    const card = document.createElement("div");
     card.className = "gallery-card";
     card.setAttribute("data-gallery-id", gallery.id);
 
     const name = gallery.name || "Gallery";
     const desc = gallery.description || "";
-    const cover = gallery.coverImage || "";
     const tags = Array.isArray(gallery.tags) ? gallery.tags.join(", ") : "";
+    const cover =
+      gallery.coverImage && gallery.coverImage.trim() !== ""
+        ? gallery.coverImage
+        : getFirstFaceImageForGallery(gallery.id);
+
+    // Only show an image block if we actually have an image
+    const imageBlock = cover
+      ? `
+      <div class="gallery-card-image-wrap">
+        <img src="${cover}" alt="${escapeHtml(name)}">
+      </div>`
+      : "";
 
     card.innerHTML = `
-      <div class="gallery-card-image-wrap">
-        ${
-          cover
-            ? `<img src="${cover}" alt="${escapeHtml(name)}">`
-            : `<div class="gallery-placeholder">${escapeHtml(
-                name.charAt(0)
-              )}</div>`
-        }
-      </div>
+      ${imageBlock}
       <div class="gallery-card-body">
         <h3>${escapeHtml(name)}</h3>
         ${desc ? `<p>${escapeHtml(desc)}</p>` : ""}
@@ -157,10 +165,10 @@ function setupGalleryClickFilter() {
   if (!grid) return;
 
   grid.addEventListener("click", event => {
-    const button = event.target.closest("[data-gallery-id]");
-    if (!button) return;
+    const card = event.target.closest("[data-gallery-id]");
+    if (!card) return;
 
-    const galleryId = button.getAttribute("data-gallery-id");
+    const galleryId = card.getAttribute("data-gallery-id");
     if (!galleryId) return;
 
     renderFacesForGallery(galleryId);
