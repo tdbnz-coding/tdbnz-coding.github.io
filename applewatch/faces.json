@@ -29,6 +29,26 @@
         "santa"
       ],
       "dateAdded": "2025-12-01"
+    },
+    {
+      "id": "grinchychristmas",
+      "galleryId": "festive-season",
+      "title": "Grinchy Christmas",
+      "description": "This Grinch inspired watch face blends bright ornaments, cozy wreaths, and playful stockings. It adds a fun mix of Christmas cheer with a cheeky twist, perfect for anyone who wants a little mischief on their wrist.",
+      "imageUrl": "https://i.ibb.co/RfNsQ7V/Grinchy-Christmas-Decoration.jpg",
+      "downloadUrl": "https://i.ibb.co/gNdft6B/Grinchy-Christmas-Decoration.jpg",
+      "tags": [
+        "Grinch watch face",
+        "Christmas watch face",
+        "festive watch face",
+        "holiday",
+        "Grinch theme",
+        "playful watch face",
+        "Christmas accessories",
+        "holiday style",
+        "smartwatch design"
+      ],
+      "dateAdded": "2025-12-01"
     }
   ]
 }
