@@ -32,7 +32,56 @@ let galleryById = {};
 
 const NEW_FACE_DAYS = 10;
 
+
+function applyStoredTheme() {
+  const root = document.documentElement;
+  const stored = window.localStorage ? localStorage.getItem("appleFacesTheme") : null;
+  if (stored === "light") {
+    root.setAttribute("data-theme", "light");
+  } else {
+    root.removeAttribute("data-theme");
+  }
+  updateThemeToggleLabel();
+}
+
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute("data-theme");
+  const next = current === "light" ? "dark" : "light";
+
+  if (next === "light") {
+    root.setAttribute("data-theme", "light");
+    if (window.localStorage) {
+      localStorage.setItem("appleFacesTheme", "light");
+    }
+  } else {
+    root.removeAttribute("data-theme");
+    if (window.localStorage) {
+      localStorage.setItem("appleFacesTheme", "dark");
+    }
+  }
+
+  updateThemeToggleLabel();
+}
+
+function updateThemeToggleLabel() {
+  const btn = document.getElementById("themeToggle");
+  if (!btn) return;
+  const label = btn.querySelector(".theme-toggle-label");
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
+  if (label) {
+    label.textContent = isLight ? "Light" : "Dark";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  applyStoredTheme();
+
+  const themeBtn = document.getElementById("themeToggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", toggleTheme);
+  }
+
   initFacesPage();
 });
 
@@ -256,6 +305,7 @@ function renderNewFacesAll() {
   }
 }
 
+
 function createFaceCard(face) {
   const card = document.createElement("button");
   card.type = "button";
@@ -268,6 +318,9 @@ function createFaceCard(face) {
   const imageUrl = face.imageUrl || "";
   const gallery = galleryById[face.galleryId];
   const galleryName = gallery ? gallery.name : "";
+  const fullDesc = face.description || "";
+  const shortDesc =
+    fullDesc.length > 80 ? fullDesc.slice(0, 77) + "..." : fullDesc;
 
   card.innerHTML = `
     <div class="watch-mock">
@@ -284,6 +337,11 @@ function createFaceCard(face) {
       ${
         galleryName
           ? `<p class="face-gallery">${escapeHtml(galleryName)}</p>`
+          : ""
+      }
+      ${
+        shortDesc
+          ? `<p class="face-description">${escapeHtml(shortDesc)}</p>`
           : ""
       }
     </div>
@@ -362,7 +420,6 @@ function setupSearch() {
     matches.forEach(face => {
       resultsGrid.appendChild(createFaceCard(face));
     });
-    applyRevealToCards();
   });
 }
 
@@ -439,42 +496,4 @@ function closeModal() {
   if (!modal) return;
   modal.setAttribute("aria-hidden", "true");
   modal.classList.remove("open");
-}
-
-
-// Simple scroll based reveal for cards
-
-let revealObserver = null;
-
-function applyRevealToCards() {
-  const cards = document.querySelectorAll(".face-card, .gallery-card");
-  if (!cards.length) return;
-
-  if (!("IntersectionObserver" in window)) {
-    cards.forEach(card => {
-      card.classList.add("reveal-card", "reveal-card-visible");
-    });
-    return;
-  }
-
-  if (!revealObserver) {
-    revealObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-card-visible");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-  }
-
-  cards.forEach(card => {
-    if (!card.classList.contains("reveal-card-visible")) {
-      card.classList.add("reveal-card");
-      revealObserver.observe(card);
-    }
-  });
 }
