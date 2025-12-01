@@ -5,6 +5,217 @@
   <title>Apple Faces Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body.page-admin main {
+      max-width: 980px;
+    }
+    .admin-card {
+      margin-top: 1.5rem;
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1rem 1.1rem 1.4rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+    }
+    .admin-card h1 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: 1.2rem;
+    }
+    .admin-card h2 {
+      margin-top: 1.3rem;
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+    .admin-card p {
+      margin: 0 0 0.9rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+    .admin-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .admin-field {
+      width: 100%;
+    }
+    .admin-field label {
+      display: block;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+      color: #e5e7eb;
+    }
+    .admin-field input,
+    .admin-field textarea {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+      color: #f5f5f7;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .admin-field textarea {
+      min-height: 60px;
+      resize: vertical;
+    }
+    .admin-field small {
+      display: block;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-top: 0.1rem;
+    }
+    .admin-output {
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+    }
+    .admin-output label {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .admin-output textarea {
+      width: 100%;
+      min-height: 160px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      padding: 0.6rem 0.7rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      resize: vertical;
+    }
+    .admin-actions {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .admin-note {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-top: 0.35rem;
+    }
+    .status-line {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 0.35rem;
+    }
+    .btn.small {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.82rem;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid rgba(55, 65, 81, 0.8);
+      margin: 1.4rem 0;
+    }
+
+    .list-section {
+      margin-top: 1rem;
+    }
+    .list-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+    .list-section-header h3 {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.6rem;
+    }
+    .gallery-item-card,
+    .face-item-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 14px;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      padding: 0.45rem 0.5rem 0.55rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    .gallery-item-card:hover,
+    .face-item-card:hover {
+      border-color: rgba(96, 165, 250, 0.9);
+    }
+    .item-check {
+      display: flex;
+      align-items: flex-start;
+      padding-top: 0.1rem;
+    }
+    .item-check input {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .item-meta {
+      overflow: hidden;
+    }
+    .item-title {
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 0.1rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .item-sub {
+      color: #9ca3af;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .item-tags {
+      margin-top: 0.15rem;
+      color: #6b7280;
+      font-size: 0.72rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .face-thumb-wrap {
+      width: 44px;
+      height: 54px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #020617;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .face-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .faces-list-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.35rem;
+    }
+    .faces-list-empty,
+    .galleries-list-empty {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin: 0.2rem 0 0.4rem;
+    }
+  </style>
 </head>
 <body class="page-admin">
 <header class="site-header">
@@ -25,10 +236,79 @@
 <main>
   <section class="admin-card">
     <h1>Apple Faces admin</h1>
-    <p>Use this page to generate JSON for new watch faces and galleries so you do not have to set dates or formatting by hand.</p>
+    <p>
+      Load your existing <code>faces.json</code>, add new faces or galleries, and remove ones you do not want anymore.  
+      Existing entries are not changed unless you delete them. The JSON output at the bottom always shows your live data.
+    </p>
 
-    <h2>Create watch face JSON</h2>
-    <p>This creates an object for the <code>"faces"</code> array and sets <strong>dateAdded</strong> to today automatically.</p>
+    <!-- STEP 1: LOAD faces.json -->
+
+    <h2>Step 1. Load existing faces.json</h2>
+
+    <div class="admin-output">
+      <label for="existingJsonInput">Paste faces.json here</label>
+      <textarea id="existingJsonInput" placeholder='Paste the whole faces.json here, for example: { "galleries": [...], "faces": [...] }'></textarea>
+      <div class="admin-actions">
+        <button type="button" class="btn ghost small" id="parseExistingBtn">Use pasted JSON</button>
+      </div>
+      <p class="admin-note">
+        If you do not paste anything or load a file or URL, the tool starts from an empty file and only includes new items you add.
+      </p>
+    </div>
+
+    <div class="admin-output">
+      <div class="admin-field">
+        <label for="jsonUrl">Or load from URL</label>
+        <input id="jsonUrl" type="url" placeholder="https://your-site.com/faces.json">
+        <small>The URL should return a JSON object with <code>galleries</code> and <code>faces</code> arrays.</small>
+      </div>
+      <button type="button" class="btn ghost small" id="loadFromUrlBtn">Load faces.json from URL</button>
+    </div>
+
+    <div class="admin-output">
+      <div class="admin-field">
+        <label for="jsonFileInput">Or load from a local file</label>
+        <input id="jsonFileInput" type="file" accept=".json">
+        <small>Select your faces.json file from your computer.</small>
+      </div>
+    </div>
+
+    <p id="existingStatus" class="status-line">No existing data loaded yet.</p>
+
+    <div class="admin-output">
+      <div class="admin-actions">
+        <button type="button" class="btn ghost small" id="toggleGalleriesBtn">Show galleries list</button>
+        <button type="button" class="btn ghost small" id="toggleFacesBtn">Show faces list</button>
+      </div>
+      <p class="admin-note">
+        Lists are hidden by default. Use the buttons above to show or hide the galleries and faces lists.
+      </p>
+    </div>
+
+    <!-- TOGGLEABLE LIST SECTIONS -->
+
+    <div id="galleriesSection" class="list-section" style="display:none;">
+      <div class="list-section-header">
+        <h3>Current galleries</h3>
+        <button type="button" class="btn ghost small" id="deleteSelectedGalleriesBtn">Delete selected galleries</button>
+      </div>
+      <div id="galleriesList"></div>
+    </div>
+
+    <div id="facesSection" class="list-section" style="display:none;">
+      <div class="list-section-header">
+        <h3>Current faces</h3>
+        <button type="button" class="btn ghost small" id="deleteSelectedFacesBtn">Delete selected faces</button>
+      </div>
+      <div id="facesList"></div>
+    </div>
+
+    <hr>
+
+    <!-- STEP 2: ADD NEW FACE -->
+
+    <h2>Step 2. Add a new watch face</h2>
+    <p>This creates one new face and appends it to the existing <code>faces</code> array. Only the new face gets <strong>dateAdded</strong>. New faces appear in the faces list so you can delete them if needed.</p>
 
     <form id="adminFormFace" class="admin-form">
       <div class="admin-field">
@@ -73,23 +353,15 @@
     </form>
 
     <div class="admin-actions">
-      <button class="btn primary" id="generateFaceBtn" type="button">Generate face JSON</button>
-      <button class="btn ghost" id="copyFaceBtn" type="button">Copy face JSON</button>
+      <button class="btn primary" id="addFaceBtn" type="button">Add new face and rebuild faces.json</button>
     </div>
 
-    <div class="admin-output">
-      <label for="jsonFaceOutput">New face JSON</label>
-      <textarea id="jsonFaceOutput" readonly></textarea>
-      <p class="admin-note">
-        Paste this inside the <code>"faces"</code> array in <code>faces.json</code>.
-        <strong>dateAdded</strong> is set to today for you.
-      </p>
-    </div>
+    <hr>
 
-    <hr style="border: 0; border-top: 1px solid rgba(55,65,81,0.8); margin: 1.4rem 0;">
+    <!-- STEP 3: ADD NEW GALLERY -->
 
-    <h2>Create gallery JSON</h2>
-    <p>This creates an object for the <code>"galleries"</code> array.</p>
+    <h2>Step 3. Add a new gallery</h2>
+    <p>This creates one new gallery and appends it to the existing <code>galleries</code> array. New galleries appear in the galleries list so you can delete them if needed.</p>
 
     <form id="adminFormGallery" class="admin-form">
       <div class="admin-field">
@@ -117,21 +389,29 @@
       <div class="admin-field">
         <label for="galleryTags">Tags (comma separated)</label>
         <input id="galleryTags" type="text" placeholder="christmas, holiday, festive">
-        <small>Used by search indirectly and just for info, for example christmas, birthday, minimal, photos.</small>
+        <small>Used by search indirectly and for info, for example christmas, birthday, minimal, photos.</small>
       </div>
     </form>
 
     <div class="admin-actions">
-      <button class="btn primary" id="generateGalleryBtn" type="button">Generate gallery JSON</button>
-      <button class="btn ghost" id="copyGalleryBtn" type="button">Copy gallery JSON</button>
+      <button class="btn primary" id="addGalleryBtn" type="button">Add new gallery and rebuild faces.json</button>
     </div>
 
+    <hr>
+
+    <!-- STEP 4: OUTPUT -->
+
+    <h2>Step 4. Live faces.json output</h2>
+
     <div class="admin-output">
-      <label for="jsonGalleryOutput">New gallery JSON</label>
-      <textarea id="jsonGalleryOutput" readonly></textarea>
+      <label for="updatedJsonOutput">Updated faces.json (live)</label>
+      <textarea id="updatedJsonOutput" readonly></textarea>
+      <div class="admin-actions">
+        <button class="btn ghost small" id="copyUpdatedBtn" type="button">Copy to clipboard</button>
+      </div>
       <p class="admin-note">
-        Paste this inside the <code>"galleries"</code> array in <code>faces.json</code>.
-        Then create faces that use this gallery <code>id</code>.
+        This always reflects the current state after loading, adding, or deleting items.  
+        Replace your existing <code>faces.json</code> with this content to apply your changes.
       </p>
     </div>
   </section>
@@ -144,6 +424,11 @@
 </footer>
 
 <script>
+  let currentData = {
+    galleries: [],
+    faces: []
+  };
+
   function todayIsoDateOnly() {
     const now = new Date();
     const year = now.getFullYear();
@@ -152,7 +437,245 @@
     return year + "-" + month + "-" + day;
   }
 
-  function generateFaceJson() {
+  function setStatus(message) {
+    const el = document.getElementById("existingStatus");
+    if (el) el.textContent = message;
+  }
+
+  function loadFromObject(obj) {
+    const galleries = Array.isArray(obj.galleries) ? obj.galleries : [];
+    const faces = Array.isArray(obj.faces) ? obj.faces : [];
+    currentData = { galleries, faces };
+    setStatus("Loaded " + galleries.length + " galleries and " + faces.length + " faces.");
+    renderLists();
+    updateOutput();
+  }
+
+  function parseExistingFromTextarea() {
+    const raw = document.getElementById("existingJsonInput").value.trim();
+    if (!raw) {
+      currentData = { galleries: [], faces: [] };
+      setStatus("No JSON pasted. Starting from empty data.");
+      renderLists();
+      updateOutput();
+      return;
+    }
+    try {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        currentData.faces = parsed;
+        currentData.galleries = currentData.galleries || [];
+        setStatus("Loaded " + parsed.length + " faces (no galleries in pasted JSON).");
+      } else {
+        loadFromObject(parsed);
+        return;
+      }
+      renderLists();
+      updateOutput();
+    } catch (e) {
+      console.error("Could not parse pasted JSON", e);
+      alert("Could not parse the JSON you pasted. Check that it is valid JSON.");
+    }
+  }
+
+  async function loadFromUrl() {
+    const url = document.getElementById("jsonUrl").value.trim();
+    if (!url) {
+      alert("Please enter a URL first.");
+      return;
+    }
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        alert("Could not load JSON from URL. Status " + res.status);
+        return;
+      }
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        currentData.faces = data;
+        currentData.galleries = currentData.galleries || [];
+        document.getElementById("existingJsonInput").value = JSON.stringify(data, null, 2);
+        setStatus("Loaded " + data.length + " faces from URL (no galleries found).");
+      } else {
+        loadFromObject(data);
+        document.getElementById("existingJsonInput").value = JSON.stringify(data, null, 2);
+      }
+      renderLists();
+      updateOutput();
+    } catch (e) {
+      console.error("Error loading JSON from URL", e);
+      alert("There was an error loading JSON from that URL.");
+    }
+  }
+
+  function loadFromFile(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      const text = evt.target.result;
+      document.getElementById("existingJsonInput").value = text;
+      parseExistingFromTextarea();
+    };
+    reader.readAsText(file);
+  }
+
+  function buildFullJson() {
+    return JSON.stringify(
+      {
+        galleries: currentData.galleries || [],
+        faces: currentData.faces || []
+      },
+      null,
+      2
+    );
+  }
+
+  function updateOutput() {
+    const out = document.getElementById("updatedJsonOutput");
+    if (out) {
+      out.value = buildFullJson();
+    }
+  }
+
+  function findGalleryNameById(id) {
+    const g = (currentData.galleries || []).find(g => g.id === id);
+    return g ? g.name : "";
+  }
+
+  function renderGalleriesList() {
+    const container = document.getElementById("galleriesList");
+    if (!container) return;
+    const galleries = currentData.galleries || [];
+
+    if (!galleries.length) {
+      container.innerHTML = '<p class="galleries-list-empty">No galleries loaded yet.</p>';
+      return;
+    }
+
+    const grid = document.createElement("div");
+    grid.className = "item-grid";
+
+    galleries.forEach(gal => {
+      const card = document.createElement("div");
+      card.className = "gallery-item-card";
+
+      const checkWrap = document.createElement("div");
+      checkWrap.className = "item-check";
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.dataset.galleryId = gal.id;
+      checkWrap.appendChild(checkbox);
+
+      const meta = document.createElement("div");
+      meta.className = "item-meta";
+
+      const title = document.createElement("div");
+      title.className = "item-title";
+      title.textContent = gal.name || "(no name)";
+
+      const sub = document.createElement("div");
+      sub.className = "item-sub";
+      sub.textContent = "ID: " + (gal.id || "none");
+
+      const tags = document.createElement("div");
+      tags.className = "item-tags";
+      const tagsList = Array.isArray(gal.tags) ? gal.tags.join(", ") : "";
+      tags.textContent = tagsList;
+
+      meta.appendChild(title);
+      meta.appendChild(sub);
+      if (tagsList) {
+        meta.appendChild(tags);
+      }
+
+      card.appendChild(checkWrap);
+      card.appendChild(meta);
+      grid.appendChild(card);
+    });
+
+    container.innerHTML = "";
+    container.appendChild(grid);
+  }
+
+  function renderFacesList() {
+    const container = document.getElementById("facesList");
+    if (!container) return;
+    const faces = currentData.faces || [];
+
+    if (!faces.length) {
+      container.innerHTML = '<p class="faces-list-empty">No faces loaded yet.</p>';
+      return;
+    }
+
+    const grid = document.createElement("div");
+    grid.className = "faces-list-items";
+
+    faces.forEach(face => {
+      const card = document.createElement("div");
+      card.className = "face-item-card";
+
+      const checkWrap = document.createElement("div");
+      checkWrap.className = "item-check";
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.dataset.faceId = face.id;
+      checkWrap.appendChild(checkbox);
+
+      const body = document.createElement("div");
+      body.style.display = "grid";
+      body.style.gridTemplateColumns = "auto 1fr";
+      body.style.gap = "0.4rem";
+      body.style.alignItems = "center";
+
+      const thumbWrap = document.createElement("div");
+      thumbWrap.className = "face-thumb-wrap";
+      const img = document.createElement("img");
+      img.src = face.imageUrl || "";
+      img.alt = face.title || "watch face";
+      thumbWrap.appendChild(img);
+
+      const meta = document.createElement("div");
+      meta.className = "item-meta";
+
+      const title = document.createElement("div");
+      title.className = "item-title";
+      title.textContent = face.title || "(no title)";
+
+      const galleryName = findGalleryNameById(face.galleryId);
+      const sub = document.createElement("div");
+      sub.className = "item-sub";
+      sub.textContent = "ID: " + (face.id || "none") + (galleryName ? " · " + galleryName : "");
+
+      const tags = document.createElement("div");
+      tags.className = "item-tags";
+      const tagsList = Array.isArray(face.tags) ? face.tags.join(", ") : "";
+      tags.textContent = tagsList;
+
+      meta.appendChild(title);
+      meta.appendChild(sub);
+      if (tagsList) {
+        meta.appendChild(tags);
+      }
+
+      body.appendChild(thumbWrap);
+      body.appendChild(meta);
+
+      card.appendChild(checkWrap);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+
+    container.innerHTML = "";
+    container.appendChild(grid);
+  }
+
+  function renderLists() {
+    renderGalleriesList();
+    renderFacesList();
+  }
+
+  function addNewFace() {
     const galleryId = document.getElementById("galleryId").value.trim();
     const faceId = document.getElementById("faceId").value.trim();
     const title = document.getElementById("title").value.trim();
@@ -165,7 +688,7 @@
       ? tagsRaw.split(",").map(t => t.trim()).filter(Boolean)
       : [];
 
-    const obj = {
+    const newFace = {
       id: faceId || "your-id-here",
       galleryId: galleryId || "your-gallery-id",
       title: title || "Untitled face",
@@ -176,11 +699,19 @@
       dateAdded: todayIsoDateOnly()
     };
 
-    const jsonText = JSON.stringify(obj, null, 2);
-    document.getElementById("jsonFaceOutput").value = jsonText;
+    currentData.faces = (currentData.faces || []).concat(newFace);
+    setStatus(
+      "Now have " +
+        currentData.galleries.length +
+        " galleries and " +
+        currentData.faces.length +
+        " faces (including your new one)."
+    );
+    renderLists();
+    updateOutput();
   }
 
-  function generateGalleryJson() {
+  function addNewGallery() {
     const galleryNewId = document.getElementById("galleryNewId").value.trim();
     const galleryName = document.getElementById("galleryName").value.trim();
     const galleryDescription = document.getElementById("galleryDescription").value.trim();
@@ -191,7 +722,7 @@
       ? galleryTagsRaw.split(",").map(t => t.trim()).filter(Boolean)
       : [];
 
-    const obj = {
+    const newGallery = {
       id: galleryNewId || "your-gallery-id",
       name: galleryName || "New Gallery",
       description: galleryDescription || "",
@@ -199,12 +730,64 @@
       tags: tags
     };
 
-    const jsonText = JSON.stringify(obj, null, 2);
-    document.getElementById("jsonGalleryOutput").value = jsonText;
+    currentData.galleries = (currentData.galleries || []).concat(newGallery);
+    setStatus(
+      "Now have " +
+        currentData.galleries.length +
+        " galleries and " +
+        currentData.faces.length +
+        " faces (including your new gallery)."
+    );
+    renderLists();
+    updateOutput();
   }
 
-  function copyTextArea(id) {
-    const el = document.getElementById(id);
+  function deleteSelectedGalleries() {
+    const checkboxes = document.querySelectorAll("#galleriesList input[type='checkbox'][data-gallery-id]:checked");
+    if (!checkboxes.length) {
+      alert("Select at least one gallery to delete.");
+      return;
+    }
+    if (!confirm("Delete " + checkboxes.length + " selected galleries? This does not delete faces that use those galleries.")) {
+      return;
+    }
+    const idsToDelete = new Set();
+    checkboxes.forEach(cb => idsToDelete.add(cb.dataset.galleryId));
+    const before = currentData.galleries.length;
+    currentData.galleries = currentData.galleries.filter(g => !idsToDelete.has(g.id));
+    const after = currentData.galleries.length;
+    setStatus(
+      "Deleted " + (before - after) + " galleries. " +
+      "Now have " + after + " galleries and " + currentData.faces.length + " faces."
+    );
+    renderLists();
+    updateOutput();
+  }
+
+  function deleteSelectedFaces() {
+    const checkboxes = document.querySelectorAll("#facesList input[type='checkbox'][data-face-id]:checked");
+    if (!checkboxes.length) {
+      alert("Select at least one face to delete.");
+      return;
+    }
+    if (!confirm("Delete " + checkboxes.length + " selected faces?")) {
+      return;
+    }
+    const idsToDelete = new Set();
+    checkboxes.forEach(cb => idsToDelete.add(cb.dataset.faceId));
+    const before = currentData.faces.length;
+    currentData.faces = currentData.faces.filter(f => !idsToDelete.has(f.id));
+    const after = currentData.faces.length;
+    setStatus(
+      "Deleted " + (before - after) + " faces. " +
+      "Now have " + currentData.galleries.length + " galleries and " + after + " faces."
+    );
+    renderLists();
+    updateOutput();
+  }
+
+  function copyUpdatedJson() {
+    const el = document.getElementById("updatedJsonOutput");
     if (!el) return;
     el.focus();
     el.select();
@@ -215,11 +798,37 @@
     }
   }
 
-  document.getElementById("generateFaceBtn").addEventListener("click", generateFaceJson);
-  document.getElementById("copyFaceBtn").addEventListener("click", () => copyTextArea("jsonFaceOutput"));
+  function toggleSection(sectionId, buttonId, showLabel, hideLabel) {
+    const section = document.getElementById(sectionId);
+    const button = document.getElementById(buttonId);
+    if (!section || !button) return;
+    const isHidden = section.style.display === "none" || section.style.display === "";
+    if (isHidden) {
+      section.style.display = "block";
+      button.textContent = hideLabel;
+    } else {
+      section.style.display = "none";
+      button.textContent = showLabel;
+    }
+  }
 
-  document.getElementById("generateGalleryBtn").addEventListener("click", generateGalleryJson);
-  document.getElementById("copyGalleryBtn").addEventListener("click", () => copyTextArea("jsonGalleryOutput"));
+  document.getElementById("parseExistingBtn").addEventListener("click", parseExistingFromTextarea);
+  document.getElementById("loadFromUrlBtn").addEventListener("click", loadFromUrl);
+  document.getElementById("jsonFileInput").addEventListener("change", loadFromFile);
+
+  document.getElementById("addFaceBtn").addEventListener("click", addNewFace);
+  document.getElementById("addGalleryBtn").addEventListener("click", addNewGallery);
+  document.getElementById("copyUpdatedBtn").addEventListener("click", copyUpdatedJson);
+
+  document.getElementById("deleteSelectedGalleriesBtn").addEventListener("click", deleteSelectedGalleries);
+  document.getElementById("deleteSelectedFacesBtn").addEventListener("click", deleteSelectedFaces);
+
+  document.getElementById("toggleGalleriesBtn").addEventListener("click", function() {
+    toggleSection("galleriesSection", "toggleGalleriesBtn", "Show galleries list", "Hide galleries list");
+  });
+  document.getElementById("toggleFacesBtn").addEventListener("click", function() {
+    toggleSection("facesSection", "toggleFacesBtn", "Show faces list", "Hide faces list");
+  });
 </script>
 </body>
 </html>
