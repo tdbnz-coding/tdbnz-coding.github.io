@@ -35,6 +35,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Subtle card reveal animation */
+
+.reveal-card {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.reveal-card.reveal-card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Header and nav */
 
 .site-header {
@@ -314,7 +326,7 @@ main {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
 }
 
 .face-card:hover {
@@ -377,7 +389,7 @@ main {
 }
 
 .face-description {
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   color: var(--text-soft);
   min-height: 2.3em;
 }
@@ -392,7 +404,7 @@ main {
 .tag {
   padding: 0.12rem 0.5rem;
   border-radius: 999px;
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   background: rgba(15, 23, 42, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.5);
   color: #e5e7eb;
@@ -640,7 +652,7 @@ main {
   text-decoration: none;
   color: var(--text-main);
   cursor: pointer;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
 }
 
 .gallery-card:hover {
@@ -668,7 +680,7 @@ main {
 }
 
 .gallery-card-description {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: var(--text-soft);
   margin: 0 0 0.45rem;
 }
@@ -677,7 +689,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: var(--text-soft);
 }
 

@@ -362,6 +362,7 @@ function setupSearch() {
     matches.forEach(face => {
       resultsGrid.appendChild(createFaceCard(face));
     });
+    applyRevealToCards();
   });
 }
 
@@ -438,4 +439,42 @@ function closeModal() {
   if (!modal) return;
   modal.setAttribute("aria-hidden", "true");
   modal.classList.remove("open");
+}
+
+
+// Simple scroll based reveal for cards
+
+let revealObserver = null;
+
+function applyRevealToCards() {
+  const cards = document.querySelectorAll(".face-card, .gallery-card");
+  if (!cards.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    cards.forEach(card => {
+      card.classList.add("reveal-card", "reveal-card-visible");
+    });
+    return;
+  }
+
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-card-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+  }
+
+  cards.forEach(card => {
+    if (!card.classList.contains("reveal-card-visible")) {
+      card.classList.add("reveal-card");
+      revealObserver.observe(card);
+    }
+  });
 }
