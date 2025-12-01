@@ -49,6 +49,22 @@
         "smartwatch design"
       ],
       "dateAdded": "2025-12-01"
+    },
+    {
+      "id": "Peekaboo1",
+      "galleryId": "festive-season",
+      "title": "Peekaboo Santa",
+      "description": "A cute Santa peeking over a bold red backdrop gives a fun surprise every time you check the time on your watch. Perfect for anyone who loves the joyful, whimsical side of Christmas.",
+      "imageUrl": "https://i.ibb.co/W4XYpcyZ/Peekaboo-Santa.jpg",
+      "downloadUrl": "https://i.ibb.co/xtbR8MjW/Peekaboo-Santa.jpg",
+      "tags": [
+        "santa",
+        "cute",
+        "red",
+        "joyful",
+        "christmas"
+      ],
+      "dateAdded": "2025-12-01"
     }
   ]
 }
