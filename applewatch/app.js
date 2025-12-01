@@ -1,440 +1,433 @@
-const DATA_URL = "faces.json";
-const NEW_DAYS = 10;
+// app.js
 
-let dataCache = null;
+// faces.json shape:
+//
+// {
+//   "galleries": [
+//     {
+//       "id": "festive-season",
+//       "name": "Festive Season",
+//       "description": "Festive Watch faces",
+//       "coverImage": "",
+//       "tags": ["christmas", "festive"]
+//     }
+//   ],
+//   "faces": [
+//     {
+//       "id": "Cute Penguin",
+//       "galleryId": "festive-season",
+//       "title": "Cute Penguin",
+//       "description": "Bring holiday happiness...",
+//       "imageUrl": "https://...jpg",
+//       "downloadUrl": "https://...jpg",
+//       "tags": [...],
+//       "dateAdded": "2025-12-01"
+//     }
+//   ]
+// }
 
-async function loadData() {
-  if (dataCache) return dataCache;
-  const response = await fetch(DATA_URL);
-  if (!response.ok) {
-    console.error("Could not load faces.json", response.status);
-    dataCache = { galleries: [], faces: [] };
-    return dataCache;
+let galleries = [];
+let faces = [];
+let galleryById = {};
+
+const NEW_FACE_DAYS = 10;
+
+document.addEventListener("DOMContentLoaded", () => {
+  initFacesPage();
+});
+
+async function initFacesPage() {
+  try {
+    const data = await fetchJson("faces.json");
+    galleries = Array.isArray(data.galleries) ? data.galleries : [];
+    faces = Array.isArray(data.faces) ? data.faces : [];
+
+    galleryById = {};
+    galleries.forEach(g => {
+      galleryById[g.id] = g;
+    });
+
+    renderGalleries();
+    renderNewFacesAll();
+    setupGalleryClickFilter();
+    setupSearch();
+    setupModal();
+  } catch (err) {
+    console.error("Failed to load faces.json", err);
+    showLoadError();
   }
-  const data = await response.json();
-  dataCache = data;
-  return data;
 }
 
-function isFaceNew(face) {
+async function fetchJson(url) {
+  const res = await fetch(url + "?v=" + Date.now());
+  if (!res.ok) {
+    throw new Error("HTTP error " + res.status);
+  }
+  return res.json();
+}
+
+function showLoadError() {
+  const galleriesGrid = document.getElementById("galleriesGrid");
+  const newFacesGrid = document.getElementById("newFacesGrid");
+
+  if (galleriesGrid) {
+    galleriesGrid.innerHTML = "<p>Could not load galleries right now.</p>";
+  }
+  if (newFacesGrid) {
+    newFacesGrid.innerHTML = "<p>Could not load faces right now.</p>";
+  }
+}
+
+// ------------- Helpers -------------
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function isNewFace(face) {
   if (!face.dateAdded) return false;
   const added = new Date(face.dateAdded);
-  if (Number.isNaN(added.getTime())) return false;
-
+  if (isNaN(added.getTime())) return false;
   const now = new Date();
   const diffMs = now.getTime() - added.getTime();
   const diffDays = diffMs / (1000 * 60 * 60 * 24);
-  return diffDays <= NEW_DAYS;
+  return diffDays <= NEW_FACE_DAYS && diffDays >= -1; // allow slight clock skew and future dates
 }
 
-function buildSearchString(face, gallery) {
-  const galleryName = gallery ? gallery.name : "";
-  const parts = [
-    face.title || "",
-    face.description || "",
-    Array.isArray(face.tags) ? face.tags.join(" ") : "",
-    galleryName || ""
-  ];
-  return parts.join(" ").toLowerCase();
-}
+// ------------- Galleries -------------
 
-function findGallery(data, id) {
-  return data.galleries.find(g => g.id === id);
-}
+function renderGalleries() {
+  const grid = document.getElementById("galleriesGrid");
+  const subtitle = document.getElementById("galleriesSubtitle");
+  if (!grid) return;
 
-function getQueryParam(name) {
-  const params = new URLSearchParams(window.location.search);
-  return params.get(name);
-}
+  grid.innerHTML = "";
 
-// Modal handling
-
-const previewModal = document.getElementById("previewModal");
-const modalImage = document.getElementById("modalImage");
-const modalTitle = document.getElementById("modalTitle");
-const modalDescription = document.getElementById("modalDescription");
-const modalTags = document.getElementById("modalTags");
-const modalDownload = document.getElementById("modalDownload");
-const modalCloseBtn = document.getElementById("modalCloseBtn");
-
-function openModal(face) {
-  if (!previewModal) return;
-
-  previewModal.classList.add("open");
-  previewModal.setAttribute("aria-hidden", "false");
-
-  modalImage.src = face.imageUrl;
-  modalImage.alt = face.title + " watch face large preview";
-  modalTitle.textContent = face.title;
-  modalDescription.textContent = face.description;
-  modalDownload.href = face.downloadUrl || face.imageUrl;
-
-  modalTags.innerHTML = "";
-  if (Array.isArray(face.tags) && face.tags.length) {
-    face.tags.forEach(tag => {
-      const span = document.createElement("span");
-      span.className = "tag";
-      span.textContent = tag;
-      modalTags.appendChild(span);
-    });
+  if (!galleries.length) {
+    grid.innerHTML = "<p>No galleries yet.</p>";
+    if (subtitle) {
+      subtitle.textContent = "No galleries available yet.";
+    }
+    return;
   }
 
-  document.body.style.overflow = "hidden";
+  galleries.forEach(gallery => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "gallery-card";
+    card.setAttribute("data-gallery-id", gallery.id);
+
+    const name = gallery.name || "Gallery";
+    const desc = gallery.description || "";
+    const cover = gallery.coverImage || "";
+    const tags = Array.isArray(gallery.tags) ? gallery.tags.join(", ") : "";
+
+    card.innerHTML = `
+      <div class="gallery-card-image-wrap">
+        ${
+          cover
+            ? `<img src="${cover}" alt="${escapeHtml(name)}">`
+            : `<div class="gallery-placeholder">${escapeHtml(
+                name.charAt(0)
+              )}</div>`
+        }
+      </div>
+      <div class="gallery-card-body">
+        <h3>${escapeHtml(name)}</h3>
+        ${desc ? `<p>${escapeHtml(desc)}</p>` : ""}
+        ${tags ? `<p class="gallery-tags">${escapeHtml(tags)}</p>` : ""}
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  if (subtitle) {
+    subtitle.textContent = "Pick a gallery to see faces from that collection.";
+  }
 }
 
-function closeModal() {
-  if (!previewModal) return;
-  previewModal.classList.remove("open");
-  previewModal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
+function setupGalleryClickFilter() {
+  const grid = document.getElementById("galleriesGrid");
+  const newFacesSubtitle = document.getElementById("newFacesSubtitle");
+  if (!grid) return;
+
+  grid.addEventListener("click", event => {
+    const button = event.target.closest("[data-gallery-id]");
+    if (!button) return;
+
+    const galleryId = button.getAttribute("data-gallery-id");
+    if (!galleryId) return;
+
+    renderFacesForGallery(galleryId);
+
+    const gallery = galleryById[galleryId];
+    if (newFacesSubtitle) {
+      if (gallery) {
+        newFacesSubtitle.textContent =
+          "Faces in gallery: " + (gallery.name || galleryId);
+      } else {
+        newFacesSubtitle.textContent = "Faces in selected gallery.";
+      }
+    }
+  });
 }
 
-if (modalCloseBtn) {
-  modalCloseBtn.addEventListener("click", closeModal);
+function renderFacesForGallery(galleryId) {
+  const grid = document.getElementById("newFacesGrid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  const filtered = faces.filter(f => f.galleryId === galleryId);
+
+  if (!filtered.length) {
+    grid.innerHTML = "<p>No faces in this gallery yet.</p>";
+    return;
+  }
+
+  const sorted = [...filtered].sort((a, b) => {
+    const da = a.dateAdded ? new Date(a.dateAdded) : 0;
+    const db = b.dateAdded ? new Date(b.dateAdded) : 0;
+    return db - da;
+  });
+
+  sorted.forEach(face => {
+    grid.appendChild(createFaceCard(face));
+  });
 }
 
-if (previewModal) {
-  previewModal.addEventListener("click", event => {
-    if (event.target === previewModal) {
+// ------------- New faces (last 10 days only) -------------
+
+function renderNewFacesAll() {
+  const grid = document.getElementById("newFacesGrid");
+  const subtitle = document.getElementById("newFacesSubtitle");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  if (!faces.length) {
+    grid.innerHTML = "<p>No faces yet. Check back soon.</p>";
+    if (subtitle) {
+      subtitle.textContent = "No faces available yet.";
+    }
+    return;
+  }
+
+  const newOnes = faces.filter(isNewFace);
+
+  if (!newOnes.length) {
+    grid.innerHTML =
+      "<p>No new faces in the last 10 days. Check the galleries above for all faces.</p>";
+    if (subtitle) {
+      subtitle.textContent =
+        "New faces added in the last 10 days. None right now.";
+    }
+    return;
+  }
+
+  const sorted = [...newOnes].sort((a, b) => {
+    const da = a.dateAdded ? new Date(a.dateAdded) : 0;
+    const db = b.dateAdded ? new Date(b.dateAdded) : 0;
+    return db - da;
+  });
+
+  const newest = sorted.slice(0, 12);
+
+  newest.forEach(face => {
+    grid.appendChild(createFaceCard(face));
+  });
+
+  if (subtitle) {
+    subtitle.textContent =
+      "New faces from the last 10 days. Showing " + newest.length + ".";
+  }
+}
+
+function createFaceCard(face) {
+  const card = document.createElement("button");
+  card.type = "button";
+  card.className = "face-card";
+  if (face.id) {
+    card.setAttribute("data-face-id", face.id);
+  }
+
+  const title = face.title || "Watch face";
+  const imageUrl = face.imageUrl || "";
+  const gallery = galleryById[face.galleryId];
+  const galleryName = gallery ? gallery.name : "";
+
+  card.innerHTML = `
+    <div class="watch-mock">
+      <div class="watch-inner">
+        ${
+          imageUrl
+            ? `<img src="${imageUrl}" alt="${escapeHtml(title)}">`
+            : ""
+        }
+      </div>
+    </div>
+    <div class="face-info">
+      <h3 class="face-title">${escapeHtml(title)}</h3>
+      ${
+        galleryName
+          ? `<p class="face-gallery">${escapeHtml(galleryName)}</p>`
+          : ""
+      }
+    </div>
+  `;
+
+  card.addEventListener("click", () => openModal(face));
+
+  return card;
+}
+
+// ------------- Search -------------
+
+function setupSearch() {
+  const input = document.getElementById("searchInput");
+  const galleriesSection = document.getElementById("galleriesSection");
+  const resultsSection = document.getElementById("searchResultsSection");
+  const resultsGrid = document.getElementById("searchResultsGrid");
+  const noResults = document.getElementById("searchNoResults");
+  const resultsSubtitle = document.getElementById("searchResultsSubtitle");
+
+  if (!input || !resultsSection || !resultsGrid) return;
+
+  input.addEventListener("input", () => {
+    const term = input.value.trim().toLowerCase();
+
+    if (term === "") {
+      if (galleriesSection) galleriesSection.hidden = false;
+      resultsSection.hidden = true;
+      if (noResults) noResults.hidden = true;
+      renderNewFacesAll();
+      return;
+    }
+
+    const matches = faces.filter(face => {
+      const title = (face.title || "").toLowerCase();
+      const desc = (face.description || "").toLowerCase();
+      const tagsText = Array.isArray(face.tags)
+        ? face.tags.join(" ").toLowerCase()
+        : "";
+      const gallery = galleryById[face.galleryId];
+      const galleryName = gallery && gallery.name
+        ? gallery.name.toLowerCase()
+        : "";
+
+      return (
+        title.includes(term) ||
+        desc.includes(term) ||
+        tagsText.includes(term) ||
+        galleryName.includes(term)
+      );
+    });
+
+    if (galleriesSection) galleriesSection.hidden = true;
+    resultsSection.hidden = false;
+    resultsGrid.innerHTML = "";
+
+    if (!matches.length) {
+      if (noResults) noResults.hidden = false;
+      if (resultsSubtitle) {
+        resultsSubtitle.textContent = "Matching faces";
+      }
+      return;
+    }
+
+    if (noResults) noResults.hidden = true;
+
+    if (resultsSubtitle) {
+      resultsSubtitle.textContent =
+        "Found " +
+        matches.length +
+        " face" +
+        (matches.length === 1 ? "" : "s") +
+        ".";
+    }
+
+    matches.forEach(face => {
+      resultsGrid.appendChild(createFaceCard(face));
+    });
+  });
+}
+
+// ------------- Modal -------------
+
+function setupModal() {
+  const modal = document.getElementById("previewModal");
+  const closeBtn = document.getElementById("modalCloseBtn");
+
+  if (!modal || !closeBtn) return;
+
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", event => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
       closeModal();
     }
   });
 }
 
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && previewModal && previewModal.classList.contains("open")) {
-    closeModal();
+function openModal(face) {
+  const modal = document.getElementById("previewModal");
+  if (!modal) return;
+
+  const img = document.getElementById("modalImage");
+  const title = document.getElementById("modalTitle");
+  const description = document.getElementById("modalDescription");
+  const tagsWrap = document.getElementById("modalTags");
+  const downloadLink = document.getElementById("modalDownload");
+
+  const faceTitle = face.title || "Watch face";
+  const faceDesc = face.description || "";
+  const imageUrl = face.downloadUrl || face.imageUrl || "";
+
+  if (img) {
+    img.src = imageUrl;
+    img.alt = faceTitle;
   }
-});
-
-// Render helpers
-
-function createFaceCard(face, gallery) {
-  const card = document.createElement("article");
-  card.className = "face-card";
-
-  const thumbWrap = document.createElement("div");
-  thumbWrap.className = "face-card-thumb";
-
-  const img = document.createElement("img");
-  img.src = face.imageUrl;
-  img.alt = face.title + " watch face";
-  thumbWrap.appendChild(img);
-
-  if (face.tags && face.tags.length) {
-    const chip = document.createElement("span");
-    chip.className = "face-tag-chip";
-    chip.textContent = face.tags[0];
-    thumbWrap.appendChild(chip);
+  if (title) {
+    title.textContent = faceTitle;
+  }
+  if (description) {
+    description.textContent = faceDesc;
   }
 
-  card.appendChild(thumbWrap);
-
-  const body = document.createElement("div");
-  body.className = "face-card-body";
-
-  const titleRow = document.createElement("div");
-  titleRow.className = "face-title-row";
-
-  const titleEl = document.createElement("h3");
-  titleEl.className = "face-title";
-  titleEl.textContent = face.title;
-
-  const pill = document.createElement("span");
-  pill.className = "face-pill";
-  pill.textContent = gallery ? gallery.name : "Watch face";
-
-  titleRow.appendChild(titleEl);
-
-  if (isFaceNew(face)) {
-    const newPill = document.createElement("span");
-    newPill.className = "face-new-pill";
-    newPill.textContent = "New";
-    titleRow.appendChild(newPill);
-  } else {
-    titleRow.appendChild(pill);
-  }
-
-  const desc = document.createElement("p");
-  desc.className = "face-description";
-  desc.textContent = face.description;
-
-  const tagList = document.createElement("div");
-  tagList.className = "tag-list";
-  if (Array.isArray(face.tags)) {
-    face.tags.forEach(tag => {
-      const span = document.createElement("span");
-      span.className = "tag";
-      span.textContent = tag;
-      tagList.appendChild(span);
-    });
-  }
-
-  const actions = document.createElement("div");
-  actions.className = "face-actions";
-
-  const previewBtn = document.createElement("button");
-  previewBtn.type = "button";
-  previewBtn.className = "btn secondary";
-  previewBtn.textContent = "Preview";
-
-  const downloadLink = document.createElement("a");
-  downloadLink.href = face.downloadUrl || face.imageUrl;
-  downloadLink.target = "_blank";
-  downloadLink.rel = "noopener";
-  downloadLink.className = "btn primary";
-  downloadLink.textContent = "Download";
-
-  actions.appendChild(previewBtn);
-  actions.appendChild(downloadLink);
-
-  body.appendChild(titleRow);
-  body.appendChild(desc);
-  body.appendChild(tagList);
-  body.appendChild(actions);
-
-  card.appendChild(body);
-
-  card.addEventListener("click", event => {
-    if (event.target === downloadLink) return;
-    if (event.target === previewBtn) {
-      event.preventDefault();
-      openModal(face);
-    } else if (event.target.closest(".btn")) {
-      return;
-    } else {
-      openModal(face);
-    }
-  });
-
-  return card;
-}
-
-function renderGalleryCards(data) {
-  const galleriesGrid = document.getElementById("galleriesGrid");
-  if (!galleriesGrid) return;
-
-  galleriesGrid.innerHTML = "";
-
-  data.galleries.forEach(gallery => {
-    const facesInGallery = data.faces.filter(f => f.galleryId === gallery.id);
-
-    const card = document.createElement("a");
-    card.href = `gallery.html?gallery=${encodeURIComponent(gallery.id)}`;
-    card.className = "gallery-card";
-
-    const thumb = document.createElement("div");
-    thumb.className = "gallery-card-thumb";
-
-    const img = document.createElement("img");
-    img.src = gallery.coverImage || (facesInGallery[0] && facesInGallery[0].imageUrl) || "";
-    img.alt = gallery.name + " cover image";
-
-    thumb.appendChild(img);
-
-    const body = document.createElement("div");
-    body.className = "gallery-card-body";
-
-    const title = document.createElement("h3");
-    title.className = "gallery-card-title";
-    title.textContent = gallery.name;
-
-    const desc = document.createElement("p");
-    desc.className = "gallery-card-description";
-    desc.textContent = gallery.description;
-
-    const meta = document.createElement("div");
-    meta.className = "gallery-card-meta";
-
-    const countSpan = document.createElement("span");
-    countSpan.className = "gallery-count-pill";
-    countSpan.textContent = `${facesInGallery.length} face${facesInGallery.length !== 1 ? "s" : ""}`;
-
-    const tagsSpan = document.createElement("span");
-    tagsSpan.textContent = (gallery.tags || []).slice(0, 2).join(" · ");
-
-    meta.appendChild(tagsSpan);
-    meta.appendChild(countSpan);
-
-    body.appendChild(title);
-    body.appendChild(desc);
-    body.appendChild(meta);
-
-    card.appendChild(thumb);
-    card.appendChild(body);
-
-    galleriesGrid.appendChild(card);
-  });
-}
-
-function renderNewFaces(data) {
-  const newFacesSection = document.getElementById("newFacesSection");
-  const newFacesGrid = document.getElementById("newFacesGrid");
-  if (!newFacesSection || !newFacesGrid) return;
-
-  const newFaces = data.faces.filter(isFaceNew);
-  newFacesGrid.innerHTML = "";
-
-  if (!newFaces.length) {
-    newFacesSection.style.display = "none";
-    return;
-  }
-
-  newFacesSection.style.display = "";
-
-  newFaces.forEach(face => {
-    const gallery = findGallery(data, face.galleryId);
-    const card = createFaceCard(face, gallery);
-    newFacesGrid.appendChild(card);
-  });
-
-  const subtitle = document.getElementById("newFacesSubtitle");
-  if (subtitle) {
-    subtitle.textContent = `${newFaces.length} new face${newFaces.length !== 1 ? "s" : ""} recently added.`;
-  }
-}
-
-function initFacesPage(data) {
-  const searchInput = document.getElementById("searchInput");
-  const galleriesSection = document.getElementById("galleriesSection");
-  const searchSection = document.getElementById("searchResultsSection");
-  const searchResultsGrid = document.getElementById("searchResultsGrid");
-  const searchNoResults = document.getElementById("searchNoResults");
-  const searchSubtitle = document.getElementById("searchResultsSubtitle");
-
-  renderGalleryCards(data);
-  renderNewFaces(data);
-
-  function showGalleriesView() {
-    if (galleriesSection) galleriesSection.hidden = false;
-    if (searchSection) searchSection.hidden = true;
-  }
-
-  function showSearchView() {
-    if (galleriesSection) galleriesSection.hidden = true;
-    if (searchSection) searchSection.hidden = false;
-  }
-
-  function handleSearch() {
-    const query = (searchInput ? searchInput.value : "").trim().toLowerCase();
-    if (!searchResultsGrid || !searchNoResults) return;
-
-    if (!query) {
-      showGalleriesView();
-      return;
-    }
-
-    const matches = [];
-    data.faces.forEach(face => {
-      const gallery = findGallery(data, face.galleryId);
-      const searchString = buildSearchString(face, gallery);
-      if (searchString.includes(query)) {
-        matches.push({ face, gallery });
-      }
-    });
-
-    showSearchView();
-    searchResultsGrid.innerHTML = "";
-
-    if (!matches.length) {
-      searchNoResults.hidden = false;
-      if (searchSubtitle) {
-        searchSubtitle.textContent = "No faces found.";
-      }
-      return;
-    }
-
-    searchNoResults.hidden = true;
-    if (searchSubtitle) {
-      searchSubtitle.textContent = `${matches.length} face${matches.length !== 1 ? "s" : ""} match your search.`;
-    }
-
-    matches.forEach(item => {
-      const card = createFaceCard(item.face, item.gallery);
-      searchResultsGrid.appendChild(card);
-    });
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener("input", handleSearch);
-  }
-}
-
-function initGalleryPage(data) {
-  const galleryId = getQueryParam("gallery") || "";
-  const galleryTitleEl = document.getElementById("galleryTitle");
-  const galleryDescriptionEl = document.getElementById("galleryDescription");
-  const galleryFacesGrid = document.getElementById("galleryFacesGrid");
-  const galleryEmpty = document.getElementById("galleryEmpty");
-  const galleryFacesSubtitle = document.getElementById("galleryFacesSubtitle");
-
-  if (!galleryFacesGrid) return;
-
-  let facesInGallery = [];
-  let galleryMeta = null;
-
-  if (galleryId === "new") {
-    facesInGallery = data.faces.filter(isFaceNew);
-    galleryMeta = {
-      name: "New faces",
-      description: `Faces that were added in the last ${NEW_DAYS} days.`
-    };
-  } else {
-    galleryMeta = findGallery(data, galleryId);
-    if (galleryMeta) {
-      facesInGallery = data.faces.filter(f => f.galleryId === galleryMeta.id);
+  if (tagsWrap) {
+    tagsWrap.innerHTML = "";
+    if (Array.isArray(face.tags) && face.tags.length) {
+      face.tags.forEach(tag => {
+        const span = document.createElement("span");
+        span.className = "tag-pill";
+        span.textContent = tag;
+        tagsWrap.appendChild(span);
+      });
     }
   }
 
-  if (!galleryMeta) {
-    if (galleryTitleEl) galleryTitleEl.textContent = "Gallery not found";
-    if (galleryDescriptionEl) galleryDescriptionEl.textContent = "The gallery you requested does not exist.";
-    if (galleryEmpty) galleryEmpty.hidden = false;
-    return;
+  if (downloadLink && imageUrl) {
+    downloadLink.href = imageUrl;
   }
 
-  if (galleryTitleEl) galleryTitleEl.textContent = galleryMeta.name;
-  if (galleryDescriptionEl) galleryDescriptionEl.textContent = galleryMeta.description || "";
-
-  galleryFacesGrid.innerHTML = "";
-
-  if (!facesInGallery.length) {
-    if (galleryEmpty) galleryEmpty.hidden = false;
-    return;
-  }
-
-  if (galleryEmpty) galleryEmpty.hidden = true;
-  if (galleryFacesSubtitle) {
-    galleryFacesSubtitle.textContent = `${facesInGallery.length} face${facesInGallery.length !== 1 ? "s" : ""} in this gallery.`;
-  }
-
-  facesInGallery.forEach(face => {
-    const card = createFaceCard(face, galleryMeta);
-    galleryFacesGrid.appendChild(card);
-  });
+  modal.setAttribute("aria-hidden", "false");
+  modal.classList.add("open");
 }
 
-function initHomePage(data) {
-  const heroPreviewImage = document.getElementById("heroPreviewImage");
-  if (heroPreviewImage) {
-    const firstFace = data.faces[0];
-    if (firstFace) {
-      heroPreviewImage.src = firstFace.imageUrl;
-      heroPreviewImage.alt = firstFace.title + " watch face preview";
-    }
-  }
+function closeModal() {
+  const modal = document.getElementById("previewModal");
+  if (!modal) return;
+  modal.setAttribute("aria-hidden", "true");
+  modal.classList.remove("open");
 }
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const data = await loadData();
-
-  if (document.body.classList.contains("page-home")) {
-    initHomePage(data);
-  }
-  if (document.body.classList.contains("page-faces")) {
-    initFacesPage(data);
-  }
-  if (document.body.classList.contains("page-gallery")) {
-    initGalleryPage(data);
-  }
-});
