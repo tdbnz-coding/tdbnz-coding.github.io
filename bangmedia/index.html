@@ -3,19 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
   <title>Bang Media status</title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Auto redirect (fallback) -->
-  <meta http-equiv="refresh" content="5;url=https://stats.uptimerobot.com/dvX7pDX4Te" />
+  <meta http-equiv="refresh" content="10;url=https://stats.uptimerobot.com/dvX7pDX4Te" />
 
   <style>
     :root{
@@ -27,325 +20,100 @@
       --muted:rgba(255,255,255,.62);
       --accent:#7C3AED;
       --accent2:#06B6D4;
-      --good:#22C55E;
-      --warn:#F59E0B;
     }
     html,body{height:100%;}
     body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
+      font-family:Inter,system-ui;
       background:
-        radial-gradient(1100px 700px at 15% 15%, rgba(124,58,237,.28), transparent 60%),
-        radial-gradient(900px 600px at 85% 25%, rgba(6,182,212,.24), transparent 55%),
-        radial-gradient(900px 700px at 60% 90%, rgba(34,197,94,.14), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
-    }
-    .noise{
-      pointer-events:none;
-      position:fixed; inset:0;
-      opacity:.08;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-      mix-blend-mode:overlay;
-    }
-    .glow-line{
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
-      opacity:.8;
+        radial-gradient(900px 600px at 20% 20%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(6,182,212,.22), transparent 60%),
+        linear-gradient(180deg,var(--bg0),var(--bg1));
+      color:var(--text);
     }
     .glass{
       background:var(--card);
       border:1px solid var(--stroke);
-      box-shadow:
-        0 30px 80px rgba(0,0,0,.45),
-        inset 0 1px 0 rgba(255,255,255,.08);
-      border-radius:20px;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      border-radius:22px;
+      backdrop-filter:blur(14px);
+      box-shadow:0 30px 80px rgba(0,0,0,.45);
     }
-    .badge-soft{
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      color:var(--muted);
-      border-radius:999px;
-      padding:.35rem .7rem;
-      display:inline-flex;
-      gap:.45rem;
-      align-items:center;
-      font-size:.9rem;
-    }
-    .dot{
-      width:.6rem; height:.6rem; border-radius:999px;
-      background:var(--good);
-      box-shadow:0 0 0 6px rgba(34,197,94,.12);
-    }
-
-    /* Countdown ring */
     .ring-wrap{
-      width:170px; height:170px;
-      display:grid; place-items:center;
-      position:relative;
-      margin-inline:auto;
-    }
-    .ring-wrap::before{
-      content:"";
-      position:absolute; inset:-20px;
-      background:radial-gradient(circle, rgba(124,58,237,.18), transparent 60%);
-      filter: blur(2px);
-      border-radius:999px;
-      z-index:0;
-    }
-    .ring{
-      width:170px; height:170px;
-      position:relative;
-      z-index:1;
-      filter: drop-shadow(0 18px 30px rgba(0,0,0,.35));
-    }
-    .ring text{ font-family: Inter, sans-serif; }
-    .ring-center{
-      position:absolute;
-      inset:0;
-      display:grid;
-      place-items:center;
-      z-index:2;
+      width:180px;height:180px;
+      display:grid;place-items:center;
+      margin:auto;
     }
     .seconds{
-      font-size:2.3rem;
+      font-size:2.6rem;
       font-weight:700;
-      letter-spacing:-.03em;
-      line-height:1;
     }
-    .sub{
-      margin-top:.25rem;
-      font-size:.95rem;
-      color:var(--muted);
-    }
-
+    .sub{color:var(--muted);}
     .btn-fancy{
-      border:1px solid rgba(255,255,255,.18);
-      background:
-        linear-gradient(135deg, rgba(124,58,237,.95), rgba(6,182,212,.7));
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
       color:white;
       border-radius:14px;
-      padding:.85rem 1.05rem;
-      box-shadow: 0 18px 45px rgba(124,58,237,.20);
-      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      padding:.85rem 1.1rem;
+      border:none;
     }
-    .btn-fancy:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 24px 60px rgba(124,58,237,.28);
-      filter: brightness(1.05);
-      color:white;
-    }
-    .btn-ghost{
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      color:rgba(255,255,255,.86);
-      border-radius:14px;
-      padding:.85rem 1.05rem;
-    }
-    .btn-ghost:hover{
-      background:rgba(255,255,255,.10);
-      color:white;
-    }
-
-    .tiny{
-      font-size:.85rem;
-      color:var(--muted);
-    }
-
-    .footer-note{
-      opacity:.85;
-      font-size:.82rem;
-      color:rgba(255,255,255,.55);
-    }
-
-    /* Subtle animated gradient border */
-    .border-anim{
-      position:relative;
-      border-radius:22px;
-    }
-    .border-anim::before{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      border-radius:22px;
-      background:conic-gradient(from 180deg,
-        rgba(124,58,237,.0),
-        rgba(124,58,237,.55),
-        rgba(6,182,212,.55),
-        rgba(34,197,94,.25),
-        rgba(124,58,237,.0)
-      );
-      filter: blur(10px);
-      opacity:.55;
-      z-index:-1;
-      animation: spin 10s linear infinite;
-    }
-    @keyframes spin{ to{ transform: rotate(360deg); } }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      .border-anim::before{ animation:none; }
-    }
+    .btn-fancy:hover{opacity:.95;}
   </style>
 </head>
+
 <body>
-  <div class="noise"></div>
+<main class="container py-5 text-center">
+  <h1 class="fw-bold mb-3">Bang Media status</h1>
+  <p class="text-white-50 mb-4">
+    Redirecting to the live status dashboard in
+    <strong id="inlineSec">10</strong> seconds
+  </p>
 
-  <main class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-9 col-xl-8">
-
-        <div class="text-center mb-4">
-          <div class="badge-soft mb-3">
-            <span class="dot"></span>
-            <span>Status redirect is active</span>
-          </div>
-          <h1 class="display-6 fw-bold mb-2">Bang Media status</h1>
-          <div class="glow-line mx-auto" style="max-width:420px;"></div>
-          <p class="mt-3 mb-0 text-white-50">
-            Taking you to the live status dashboard in <span class="fw-semibold text-white" id="secInline">5</span> seconds.
-          </p>
-        </div>
-
-        <div class="border-anim">
-          <div class="glass p-4 p-md-5">
-            <div class="row g-4 align-items-center">
-              <div class="col-12 col-md-5">
-                <div class="ring-wrap">
-                  <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
-                    <!-- Track -->
-                    <circle cx="60" cy="60" r="46"
-                            fill="none"
-                            stroke="rgba(255,255,255,.10)"
-                            stroke-width="10"
-                            stroke-linecap="round" />
-                    <!-- Progress -->
-                    <circle id="progressCircle"
-                            cx="60" cy="60" r="46"
-                            fill="none"
-                            stroke="url(#grad)"
-                            stroke-width="10"
-                            stroke-linecap="round"
-                            stroke-dasharray="289.03"
-                            stroke-dashoffset="0"
-                            transform="rotate(-90 60 60)" />
-                    <defs>
-                      <linearGradient id="grad" x1="20" y1="20" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="#7C3AED"/>
-                        <stop offset=".55" stop-color="#06B6D4"/>
-                        <stop offset="1" stop-color="#22C55E"/>
-                      </linearGradient>
-                    </defs>
-                  </svg>
-
-                  <div class="ring-center text-center">
-                    <div class="seconds" id="seconds">5</div>
-                    <div class="sub">seconds</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12 col-md-7">
-                <h2 class="h4 fw-semibold mb-2">Live service uptime</h2>
-                <p class="text-white-50 mb-3">
-                  If you are checking Plex or the server, this page will open the official UptimeRobot status dashboard.
-                </p>
-
-                <div class="d-flex flex-wrap gap-2">
-                  <a class="btn btn-fancy" id="goNow" href="https://stats.uptimerobot.com/dvX7pDX4Te" rel="noopener">
-                    Open status now
-                  </a>
-                  <button class="btn btn-ghost" id="cancel" type="button">
-                    Cancel redirect
-                  </button>
-                </div>
-
-                <div class="mt-3 tiny">
-                  Destination:
-                  <span class="text-white" style="word-break:break-all;">https://stats.uptimerobot.com/dvX7pDX4Te</span>
-                </div>
-              </div>
-            </div>
-
-            <hr class="my-4" style="border-color: rgba(255,255,255,.12);">
-
-            <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
-              <div class="footer-note">
-                Tip: bookmark this page, it is a clean shortcut to your live status dashboard.
-              </div>
-              <div class="footer-note">
-                If the redirect is blocked, click “Open status now”.
-              </div>
-            </div>
-          </div>
-        </div>
-
+  <div class="glass p-5 mx-auto" style="max-width:680px;">
+    <div class="ring-wrap position-relative mb-4">
+      <svg width="180" height="180" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="10"/>
+        <circle id="prog" cx="60" cy="60" r="46" fill="none"
+          stroke="url(#g)" stroke-width="10"
+          stroke-dasharray="289" stroke-dashoffset="0"
+          transform="rotate(-90 60 60)"/>
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7C3AED"/>
+            <stop offset="100%" stop-color="#06B6D4"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="position-absolute top-50 start-50 translate-middle text-center">
+        <div class="seconds" id="sec">10</div>
+        <div class="sub">seconds</div>
       </div>
     </div>
-  </main>
 
-  <script>
-    (function () {
-      const targetUrl = "https://stats.uptimerobot.com/dvX7pDX4Te";
-      const totalSeconds = 10;
+    <div class="mb-4 text-white-50">
+      Destination: <span class="text-white fw-semibold">Bang Media Status page</span>
+    </div>
 
-      const secondsEl = document.getElementById("seconds");
-      const secInlineEl = document.getElementById("secInline");
-      const progress = document.getElementById("progressCircle");
-      const cancelBtn = document.getElementById("cancel");
-      const goNow = document.getElementById("goNow");
+    <a href="https://stats.uptimerobot.com/dvX7pDX4Te" class="btn btn-fancy">
+      Open status now
+    </a>
+  </div>
+</main>
 
-      const circumference = 289.03; // 2πr where r=46
-      let remaining = totalSeconds;
-      let cancelled = false;
+<script>
+  const total = 10;
+  let left = total;
+  const circ = 289;
+  const sec = document.getElementById("sec");
+  const inline = document.getElementById("inlineSec");
+  const prog = document.getElementById("prog");
 
-      function setRing(rem) {
-        const ratio = rem / totalSeconds;
-        const offset = circumference * (1 - ratio);
-        progress.style.strokeDasharray = String(circumference);
-        progress.style.strokeDashoffset = String(offset);
-      }
-
-      function update() {
-        secondsEl.textContent = String(remaining);
-        secInlineEl.textContent = String(remaining);
-        setRing(remaining);
-      }
-
-      update();
-
-      const timer = setInterval(() => {
-        if (cancelled) return;
-
-        remaining -= 1;
-        if (remaining <= 0) {
-          clearInterval(timer);
-          window.location.href = targetUrl;
-          return;
-        }
-        update();
-      }, 1000);
-
-      cancelBtn.addEventListener("click", () => {
-        cancelled = true;
-        clearInterval(timer);
-
-        // Turn ring into a full "paused" state
-        secondsEl.textContent = "Paused";
-        secInlineEl.textContent = "paused";
-        progress.style.stroke = "rgba(255,255,255,.28)";
-        progress.style.strokeDashoffset = "0";
-        cancelBtn.disabled = true;
-        cancelBtn.textContent = "Redirect cancelled";
-      });
-
-      // Make "Open status now" always work, even if JS is blocked
-      goNow.addEventListener("click", (e) => {
-        // Let the link navigate normally
-      });
-    })();
-  </script>
+  setInterval(() => {
+    left--;
+    if(left <= 0){
+      window.location.href = "https://stats.uptimerobot.com/dvX7pDX4Te";
+    }
+    sec.textContent = left;
+    inline.textContent = left;
+    prog.style.strokeDashoffset = circ * (1 - left / total);
+  }, 1000);
+</script>
 </body>
 </html>
