@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZL3TOM - Status Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #212529;
+      font-size: 1.1rem;
+    }
+    a:focus, button:focus {
+      outline: 3px solid #007bff;
+      outline-offset: 2px;
+    }
+    .card-header button {
+      width: 100%;
+      text-align: left;
+      font-size: 1.2rem;
+    }
+    .link-section p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <h1 class="text-center">Welcome to ZL3TOM - Status Page</h1>
+
+    <div class="text-center mt-3" aria-label="System Modes">
+      <h2>My Multi Mode System</h2>
+      <p>Echolink: <b>304602 (ZL3TOM-L)</b></p>
+
+      <div class="link-section">
+        <p>
+          AllStar: <b>40452</b> – 
+          <a href="https://stats.allstarlink.org/stats/40452" target="_blank" aria-label="40452 Status Link">Status</a> | 
+          <a href="https://stats.allstarlink.org/stats/40452/networkMap" target="_blank" aria-label="40452 Bubble Map">Bubble Map</a>
+        </p>
+        <p>
+          <a href="https://www.qrz.com/db/zl3tom" target="_blank" aria-label="ZL3TOM ALLSTAR NODE PAGE">ZL3TOM - ALLSTAR NODE Dashboard</a>
+        </p>
+        <p>
+          <a href="https://www.qrz.com/db/zl3tom" target="_blank" aria-label="ZL3TOM QRZ Profile">Visit My QRZ Profile</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="accordion mt-5" id="dtmfCommands" role="region" aria-labelledby="dtmfCommandsHeader">
+      <div class="card">
+        <div class="card-header" id="linkCommandsHeading">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" 
+                    data-toggle="collapse" data-target="#linkCommands" 
+                    aria-expanded="true" aria-controls="linkCommands">
+              1. Link Commands
+            </button>
+          </h2>
+        </div>
+        <div id="linkCommands" class="collapse show" 
+             aria-labelledby="linkCommandsHeading" data-parent="#dtmfCommands">
+          <div class="card-body">
+            <ul>
+              <li><code>*1&lt;node&gt;</code> – Disconnect from the specified node</li>
+              <li><code>*2&lt;node&gt;</code> – Connect in monitor-only mode</li>
+              <li><code>*3&lt;node&gt;</code> – Connect in transceive mode</li>
+              <li><code>*808&lt;node&gt;</code> – Local monitor-only mode</li>
+              <li><code>*6</code> – Disconnect all links</li>
+              <li><code>*7</code> – Last node to key up</li>
+              <li><code>*72</code> – Report the last active node</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="statusCommandsHeading">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" 
+                    data-toggle="collapse" data-target="#statusCommands" 
+                    aria-expanded="false" aria-controls="statusCommands">
+              2. System Status Commands
+            </button>
+          </h2>
+        </div>
+        <div id="statusCommands" class="collapse" 
+             aria-labelledby="statusCommandsHeading" data-parent="#dtmfCommands">
+          <div class="card-body">
+            <ul>
+              <li><code>*70</code> – System status (reports current connections)</li>
+              <li><code>*73</code> – Full network connection status</li>
+              <li><code>*721</code> – Force ID</li>
+              <li><code>*722</code> – Report time of day</li>
+              <li><code>*723</code> – Report software version</li>
+              <li><code>*725</code> – Last DTMF user</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="controlCommandsHeading">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" 
+                    data-toggle="collapse" data-target="#controlCommands" 
+                    aria-expanded="false" aria-controls="controlCommands">
+              3. Control Commands
+            </button>
+          </h2>
+        </div>
+        <div id="controlCommands" class="collapse" 
+             aria-labelledby="controlCommandsHeading" data-parent="#dtmfCommands">
+          <div class="card-body">
+            <ul>
+              <li><code>901</code> – System warm boot</li>
+              <li><code>902</code> – System enable</li>
+              <li><code>903</code> – System disable</li>
+              <li><code>911</code> – Enable linking functions</li>
+              <li><code>912</code> – Disable linking functions</li>
+              <li><code>921</code> – Enable parrot mode</li>
+              <li><code>922</code> – Disable parrot mode</li>
+              <li><code>933</code> – Enable telemetry output</li>
+              <li><code>934</code> – Disable telemetry output</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="autopatchCommandsHeading">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" 
+                    data-toggle="collapse" data-target="#autopatchCommands" 
+                    aria-expanded="false" aria-controls="autopatchCommands">
+              4. Autopatch Commands
+            </button>
+          </h2>
+        </div>
+        <div id="autopatchCommands" class="collapse" 
+             aria-labelledby="autopatchCommandsHeading" data-parent="#dtmfCommands">
+          <div class="card-body">
+            <ul>
+              <li><code>61</code> – Enable autopatch</li>
+              <li><code>62</code> – Disable autopatch</li>
+              <li><code>903</code> – Dump system variables on console</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center mt-5 mb-3">
+    <p>Powered by <a href="https://wiki.allstarlink.org/" target="_blank">AllStarLink</a> | ZL3TOM Node</p>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
