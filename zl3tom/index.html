@@ -62,26 +62,22 @@
       <header class="hero">
         <div class="container hero-content">
           <div class="row">
-            <div class="col-lg-8">
-              <div class="kicker mb-3">
-                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
-                Christchurch, New Zealand
-              </div>
-
+            <div class="col-lg-9">
+              <div class="kicker mb-2"><i class="bi bi-play-fill" aria-hidden="true"></i>Now Playing</div>
               <h1 class="display-4 display-title mb-3">Thomas Bernard, ZL3TOM</h1>
               <p class="lead text-muted mb-4">
-                Multimode operator, EchoLink and AllStar, and chasing great chats around the world.
+                Amateur radio operator in Christchurch, New Zealand. Multimode, EchoLink, AllStar, and worldwide contacts.
               </p>
 
               <div class="d-flex flex-wrap gap-2">
                 <a class="btn btn-brand" href="radio-fun.html">
-                  <i class="bi bi-broadcast me-2" aria-hidden="true"></i>Watch where I am on air
+                  <i class="bi bi-play-fill me-2" aria-hidden="true"></i>Play, Radio Fun
                 </a>
                 <a class="btn btn-ghost" href="qsl.html">
-                  <i class="bi bi-patch-check me-2" aria-hidden="true"></i>QSL and confirmations
+                  <i class="bi bi-patch-check me-2" aria-hidden="true"></i>QSL
                 </a>
-                <a class="btn btn-ghost" href="about.html">
-                  <i class="bi bi-person-circle me-2" aria-hidden="true"></i>About me
+                <a class="btn btn-ghost" href="contact.html">
+                  <i class="bi bi-envelope me-2" aria-hidden="true"></i>Contact
                 </a>
               </div>
 
@@ -89,7 +85,7 @@
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
                   <div>
                     <div class="fw-bold">Visitor Flag Counter</div>
-                    <div class="text-muted">Counts the countries that have visited this station site.</div>
+                    <div class="text-muted">Countries that have visited this station site.</div>
                   </div>
                   <div>
                     <a href="https://info.flagcounter.com/DowS" target="_blank" rel="noopener" aria-label="Open Flag Counter details">
@@ -104,6 +100,19 @@
                 </div>
               </div>
 
+              <div class="mt-3 panel p-3">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="fw-bold"><i class="bi bi-wifi me-2" aria-hidden="true"></i>EchoLink</div>
+                    <div class="text-muted">304602 (ZL3TOM-L)</div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="fw-bold"><i class="bi bi-diagram-3 me-2" aria-hidden="true"></i>AllStar</div>
+                    <div class="text-muted">40452</div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -111,66 +120,12 @@
 
       <section class="section">
         <div class="container">
-          <h2 class="row-title">Featured</h2>
-          <div class="scroller" aria-label="Featured sections">
-            <a class="tile" href="radio-fun.html" aria-label="Open Radio Fun">
-              <div class="thumb"><i class="bi bi-broadcast-pin me-2" aria-hidden="true"></i>Radio Fun</div>
-              <div class="body">
-                <div class="fw-bold">EchoLink, AllStar, Networks</div>
-                <div class="meta">Node details, networks, and places to find me.</div>
-              </div>
-            </a>
-
-            <a class="tile" href="qsl.html" aria-label="Open QSL and Confirmations">
-              <div class="thumb"><i class="bi bi-patch-check me-2" aria-hidden="true"></i>QSL</div>
-              <div class="body">
-                <div class="fw-bold">Confirm your QSO</div>
-                <div class="meta">What to send, QRZ logbook, and network QSOs.</div>
-              </div>
-            </a>
-
-            <a class="tile" href="about.html" aria-label="Open About">
-              <div class="thumb"><i class="bi bi-person-badge me-2" aria-hidden="true"></i>About</div>
-              <div class="body">
-                <div class="fw-bold">Meet Thomas</div>
-                <div class="meta">Station story, interests, and gallery.</div>
-              </div>
-            </a>
-
-            <a class="tile" href="contact.html" aria-label="Open Contact">
-              <div class="thumb"><i class="bi bi-envelope me-2" aria-hidden="true"></i>Contact</div>
-              <div class="body">
-                <div class="fw-bold">Get in touch</div>
-                <div class="meta">Email for questions and confirmations.</div>
-              </div>
-            </a>
-          </div>
-
-          <h2 class="row-title mt-3">On Air now</h2>
-          <div class="scroller" aria-label="On air connections">
-            <div class="tile" role="group" aria-label="EchoLink connection">
-              <div class="thumb"><i class="bi bi-wifi me-2" aria-hidden="true"></i>EchoLink</div>
-              <div class="body">
-                <div class="fw-bold">304602 (ZL3TOM-L)</div>
-                <div class="meta">Best for quick worldwide chats.</div>
-              </div>
-            </div>
-
-            <div class="tile" role="group" aria-label="AllStar connection">
-              <div class="thumb"><i class="bi bi-diagram-3 me-2" aria-hidden="true"></i>AllStar</div>
-              <div class="body">
-                <div class="fw-bold">40452</div>
-                <div class="meta">Linked nodes, nets, and hangouts.</div>
-              </div>
-            </div>
-
-            <a class="tile" href="http://165.22.121.189/link.php?nodes=40452" target="_blank" rel="noopener" aria-label="Open AllStar node status page">
-              <div class="thumb"><i class="bi bi-activity me-2" aria-hidden="true"></i>Status</div>
-              <div class="body">
-                <div class="fw-bold">AllStar Node Page</div>
-                <div class="meta">See connections and activity.</div>
-              </div>
-            </a>
+          <div class="panel p-4">
+            <h2 class="row-title mb-2">Confirm a contact</h2>
+            <p class="text-muted mb-0">
+              Log the QSO on QRZ, then send me the UTC time, mode, and band or network. I will match it in my log and confirm it.
+              Full details are on the QSL page.
+            </p>
           </div>
         </div>
       </section>
@@ -192,5 +147,21 @@
   document.getElementById("yearNow").textContent = new Date().getFullYear();
 </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RadioStation",
+  "name": "ZL3TOM Amateur Radio Station",
+  "url": "https://zl3tom.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Christchurch",
+    "addressCountry": "NZ"
+  },
+  "email": "zl3tom@tdbnz.email"
+}
+</script>
+
+</body>
 </html>
