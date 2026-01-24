@@ -1,47 +1,124 @@
 <!doctype html>
-<html lang="en" ng-app="imgurDownloader">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Imgur Album Downloader</title>
-
-    <link rel="stylesheet" href="bower_components/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/jszip/jszip.min.js"></script>
-    <script src="bower_components/bootstrap/js/bootstrap.min.js"></script>
-    <script src="bower_components/jquery-bookmarklet/jquery.bookmarklet.js"></script>
-
-    <link rel="stylesheet" href="css/app.css">
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thomas Imgur Album Downloader</title>
+  <meta name="description" content="Download Imgur albums as a ZIP, right in your browser." />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
 </head>
 <body>
-    <div ng-view id="wrap"></div>
-    <footer id="footer">
-        <div class="container">
-            <p class="muted credit">
-            © 2026 Thomas Imgur Album Downloader, Source on <a href="https://github.com/">GitHub</a>.
-            Source on <a href="https://github.com/dschep/imgur-album-downloader">
-                <i class="icon-github"></i></a>
-            </p>
-            <p class="muted">
-            Tab crashing during the download? Download the album natively from Imgur by
-            appending <tt>/zip</tt> to the Imgur album URL.
-            </p>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">TI</div>
+        <div>
+          <div class="brand-title">Thomas Imgur Album Downloader</div>
+          <div class="brand-sub">Paste an Imgur album link, preview, then download as a ZIP</div>
         </div>
-    </footer>
-    <script>
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-40822116-4']);
-        _gaq.push(['_setDomainName', 'github.io']);
-        //_gaq.push(['_trackPageview']);
+      </div>
+      <div class="actions">
+        <a class="btn btn-ghost" href="#how" aria-label="Jump to help">Help</a>
+      </div>
+    </div>
+  </header>
 
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <main class="container">
+    <section class="card">
+      <h1>Download an Imgur album</h1>
+      <p class="muted">
+        Works with links like <code>imgur.com/a/ALBUMID</code> or <code>imgur.com/gallery/ALBUMID</code>.
+        If Imgur blocks cross origin requests in your browser, use the fallback link at the bottom.
+      </p>
+
+      <div class="form-row">
+        <label class="label" for="albumUrl">Album URL or ID</label>
+        <div class="input-row">
+          <input id="albumUrl" class="input" placeholder="https://imgur.com/a/xxxxxxx" autocomplete="off" />
+          <button id="loadBtn" class="btn btn-primary">Load</button>
+        </div>
+        <div id="loadError" class="alert alert-error hidden" role="alert"></div>
+      </div>
+
+      <div id="albumMeta" class="album-meta hidden">
+        <div class="album-meta-left">
+          <div class="album-title" id="albumTitle">Album</div>
+          <div class="muted" id="albumCount"></div>
+        </div>
+        <div class="album-meta-right">
+          <button id="selectAllBtn" class="btn btn-ghost">Select all</button>
+          <button id="selectNoneBtn" class="btn btn-ghost">Select none</button>
+          <button id="downloadBtn" class="btn btn-primary" disabled>Download ZIP</button>
+        </div>
+      </div>
+
+      <div id="progressWrap" class="progress-wrap hidden" aria-live="polite">
+        <div class="progress-top">
+          <div class="muted" id="progressText">Preparing…</div>
+          <div class="muted" id="progressCount"></div>
+        </div>
+        <div class="progress-bar">
+          <div id="progressBar" class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div id="grid" class="grid hidden" aria-label="Album media"></div>
+    </section>
+
+    <section id="how" class="card">
+      <div class="accordion">
+        <button class="accordion-btn" id="helpToggle" aria-expanded="false" aria-controls="helpBody">
+          <span>Help and tips</span>
+          <span class="accordion-icon" aria-hidden="true">▾</span>
+        </button>
+        <div class="accordion-body hidden" id="helpBody">
+      <ul class="list">
+        <li><strong>Fastest option:</strong> Imgur supports a native ZIP download. Add <code>/zip</code> to the end of the album URL.</li>
+        <li><strong>Example:</strong> <code>https://imgur.com/a/ALBUMID/zip</code></li>
+        <li><strong>Why this tool exists:</strong> preview images, choose what to include, then download a clean ZIP.</li>
+      </ul>
+
+      <div class="tip">
+        <div class="tip-title">Fallback link</div>
+        <div class="tip-body">
+          <a id="zipLink" href="#" target="_blank" rel="noopener" class="mono">Enter an album first to get the /zip link</a>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <div class="dock" id="dock">
+      <div class="dock-inner">
+        <button id="dockLoad" class="btn btn-primary">Load</button>
+        <button id="dockDownload" class="btn btn-primary" disabled>Download</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="muted">© 2026 Thomas Imgur Album Downloader</div>
+      <div class="muted">
+        Source on <a href="#" id="sourceLink">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/jszip.min.js"></script>
+  <script type="module" src="assets/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>

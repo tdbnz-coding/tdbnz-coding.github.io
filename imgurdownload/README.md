@@ -1,10 +1,13 @@
-Imgur Album Downlaoder
-======================
+# Thomas Imgur Album Downloader (2026)
 
-A Pure JS webapp to download entire or parts of Imgur albums.
+Static site, no build step.
 
-Go to http://dschep.github.io/imgur-album-downloader to use it!
+## Run locally
+Open `index.html` in a browser, or serve the folder:
 
-Note: Large albums or albums containing very high resolution photos
-might not work, depending on how much RAM your system has. You can
-download whole albums natively on Imgur by appending `/zip` to the URL.
+- Python: `python -m http.server 8000`
+- Then visit `http://localhost:8000`
+
+## Notes
+- Uses an unofficial Imgur endpoint to list album images.
+- If that fails due to CORS or endpoint changes, use the `/zip` fallback link shown on the page.
