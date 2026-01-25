@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Torn Status</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="avatarWrap" aria-hidden="true">
+          <img id="avatarImg" class="avatarImg" alt="Profile picture" />
+          <div id="avatarFallback" class="avatarFallback">T</div>
+        </div>
+        <div>
+          <div class="title" id="title">Torn Status</div>
+          <div class="subtitle" id="subtitle">Loading…</div>
+        </div>
+      </div>
+
+      <div class="chips">
+        <div class="chip" id="chipUpdated">Updating…</div>
+        <div class="chip" id="chipMode">Public</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card span-8">
+        <h3>Overview</h3>
+        <div class="big" id="overviewLine">Loading…</div>
+        <div class="muted" id="overviewSub"></div>
+
+        <div class="badge">
+          <span class="dot" id="availabilityDot"></span>
+          <span id="availabilityText">Checking…</span>
+        </div>
+
+        <div class="btnRow">
+          <button class="btn" id="copyLinkBtn" type="button">Copy link</button>
+          <button class="btn" id="privateBtn" type="button">Private mode</button>
+        </div>
+      </div>
+
+      <div class="card span-4">
+        <h3>Countdown</h3>
+        <div class="big" id="countdownMain">—</div>
+        <div class="muted" id="countdownSub">—</div>
+        <div class="progress" aria-label="progress">
+          <div class="bar" id="progressBar"></div>
+        </div>
+      </div>
+
+      <div class="card span-6">
+        <h3>Status</h3>
+        <div class="big" id="statusState">—</div>
+        <div class="muted" id="statusDesc">—</div>
+
+        <div class="row"><div class="k">Ends</div><div class="v" id="statusUntil">—</div></div>
+        <div class="row"><div class="k">Time left</div><div class="v" id="statusLeft">—</div></div>
+      </div>
+
+      <div class="card span-6">
+        <h3>Travel</h3>
+        <div class="big" id="travelHeadline">—</div>
+        <div class="muted" id="travelSub">—</div>
+
+        <div class="row"><div class="k">Arrives</div><div class="v" id="travelArrives">—</div></div>
+        <div class="row"><div class="k">Time left</div><div class="v" id="travelLeft">—</div></div>
+      </div>
+
+      <div class="card span-12" id="workCard">
+        <h3>Work stats</h3>
+        <div class="workGrid">
+          <div class="workItem">
+            <div class="workK">Manual labor</div>
+            <div class="workV" id="workManual">—</div>
+          </div>
+          <div class="workItem">
+            <div class="workK">Intelligence</div>
+            <div class="workV" id="workIntel">—</div>
+          </div>
+          <div class="workItem">
+            <div class="workK">Endurance</div>
+            <div class="workV" id="workEnd">—</div>
+          </div>
+        </div>
+        <div class="muted" id="workNote">Public, basic work stats only.</div>
+      </div>
+
+      <div class="card span-12" id="privateCard" style="display:none;">
+        <h3>Private</h3>
+        <div class="muted">Only visible when you enter your password.</div>
+
+        <div class="privateGrid">
+          <div class="pCard">
+            <div class="pTitle">Bars</div>
+            <div class="pRows" id="pBars"></div>
+          </div>
+
+          <div class="pCard">
+            <div class="pTitle">Cooldowns</div>
+            <div class="pRows" id="pCooldowns"></div>
+          </div>
+
+          <div class="pCard">
+            <div class="pTitle">Work</div>
+            <div class="pRows" id="pWork"></div>
+          </div>
+
+          <div class="pCard">
+            <div class="pTitle">Networth</div>
+            <div class="pRows" id="pNetworth"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer" id="footerLine"></div>
+  </div>
+
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
