@@ -1,17 +1,20 @@
 const API = "https://ancient-lab-55d7.thomasnz.workers.dev";
 const IMG = "https://image.tmdb.org/t/p/w500";
+const BACKDROP = "https://image.tmdb.org/t/p/original";
 
 // SEARCH
 document.getElementById("searchBtn").onclick = () => {
   const query = document.getElementById("searchInput").value.trim();
   if (!query) return;
 
+  hideDetails();
+  hidePlayer();
+
   fetch(`${API}/3/search/multi?query=${encodeURIComponent(query)}`)
     .then(res => res.json())
     .then(data => {
       const results = document.getElementById("searchResults");
       results.innerHTML = "";
-      hideTVSection();
 
       data.results.forEach(item => {
         if (!item.poster_path) return;
@@ -25,79 +28,123 @@ document.getElementById("searchBtn").onclick = () => {
           <div class="card-title">${title}</div>
         `;
 
-        // MOVIE → open player
-        if (item.media_type === "movie") {
-          card.onclick = () => openPlayer(item.id, "movie");
-        }
-
-        // TV SHOW → load seasons
-        if (item.media_type === "tv") {
-          card.onclick = () => loadTVShow(item.id, item.name);
-        }
-
+        card.onclick = () => loadDetails(item.id, item.media_type);
         results.appendChild(card);
       });
     });
 };
 
-// LOAD TV SHOW SEASONS
-function loadTVShow(tvId, tvName) {
+// LOAD FULL DETAILS PAGE
+function loadDetails(id, type) {
   hidePlayer();
-  const tvSection = document.getElementById("tvSection");
-  const seasonList = document.getElementById("seasonList");
-  const episodeList = document.getElementById("episodeList");
 
-  tvSection.style.display = "block";
-  document.getElementById("tvTitle").innerText = tvName;
-  seasonList.innerHTML = "<h3>Seasons</h3>";
-  episodeList.innerHTML = "";
+  const page = document.getElementById("detailsPage");
+  const title = document.getElementById("detailsTitle");
+  const meta = document.getElementById("detailsMeta");
+  const overview = document.getElementById("detailsOverview");
+  const cast = document.getElementById("detailsCast");
+  const backdrop = document.getElementById("detailsBackdrop");
+  const playBtn = document.getElementById("playBtn");
+  const seasons = document.getElementById("tvSeasons");
+  const seasonButtons = document.getElementById("seasonButtons");
+  const episodeGrid = document.getElementById("episodeGrid");
+
+  page.style.display = "block";
+  seasons.style.display = "none";
+  seasonButtons.innerHTML = "";
+  episodeGrid.innerHTML = "";
+
+  // Fetch main details
+  fetch(`${API}/3/${type}/${id}`)
+    .then(res => res.json())
+    .then(data => {
+      title.innerText = type === "movie" ? data.title : data.name;
+      overview.innerText = data.overview || "No description available.";
+
+      backdrop.style.backgroundImage = data.backdrop_path
+        ? `url(${BACKDROP + data.backdrop_path})`
+        : "none";
+
+      const year = (data.release_date || data.first_air_date || "").split("-")[0];
+      const runtime = data.runtime || data.episode_run_time?.[0] || "N/A";
+      const genres = data.genres.map(g => g.name).join(", ");
+      const rating = data.vote_average?.toFixed(1) || "N/A";
+
+      meta.innerText = `${year} • ${runtime} min • ${genres} • ⭐ ${rating}`;
+
+      // Play button
+      playBtn.onclick = () => {
+        if (type === "movie") {
+          openPlayer(id, "movie");
+        } else {
+          seasons.style.display = "block";
+          loadSeasons(id);
+        }
+      };
+    });
+
+  // Fetch cast
+  fetch(`${API}/3/${type}/${id}/credits`)
+    .then(res => res.json())
+    .then(data => {
+      const actors = data.cast.slice(0, 6).map(a => `${a.name} (${a.character})`);
+      cast.innerText = "Cast: " + actors.join(", ");
+    });
+}
+
+// LOAD TV SEASONS
+function loadSeasons(tvId) {
+  const seasonButtons = document.getElementById("seasonButtons");
+  seasonButtons.innerHTML = "";
 
   fetch(`${API}/3/tv/${tvId}`)
     .then(res => res.json())
-    .then(show => {
-      show.seasons.forEach(season => {
-        if (season.season_number === 0) return; // skip specials
+    .then(data => {
+      data.seasons.forEach(season => {
+        if (season.season_number === 0) return;
 
         const btn = document.createElement("button");
         btn.className = "season-btn";
         btn.innerText = `Season ${season.season_number}`;
         btn.onclick = () => loadEpisodes(tvId, season.season_number);
-        seasonList.appendChild(btn);
+        seasonButtons.appendChild(btn);
       });
     });
 }
 
-// LOAD EPISODES FOR SELECTED SEASON
+// LOAD EPISODES
 function loadEpisodes(tvId, seasonNumber) {
-  const episodeList = document.getElementById("episodeList");
-  episodeList.innerHTML = `<h3>Episodes (Season ${seasonNumber})</h3>`;
+  const episodeGrid = document.getElementById("episodeGrid");
+  episodeGrid.innerHTML = "";
 
   fetch(`${API}/3/tv/${tvId}/season/${seasonNumber}`)
     .then(res => res.json())
     .then(data => {
       data.episodes.forEach(ep => {
+        const still = ep.still_path ? IMG + ep.still_path : "https://via.placeholder.com/500x281?text=No+Image";
+
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-          <img src="${IMG + ep.still_path}">
-          <div class="card-title">Episode ${ep.episode_number}: ${ep.name}</div>
+          <img src="${still}">
+          <div class="card-title">Ep ${ep.episode_number}: ${ep.name}</div>
         `;
 
         card.onclick = () => openEpisode(tvId, seasonNumber, ep.episode_number);
-
-        episodeList.appendChild(card);
+        episodeGrid.appendChild(card);
       });
     });
 }
 
-// OPEN MOVIE OR TV EPISODE PLAYER
+// PLAYER
 function openPlayer(id, type) {
   const modal = document.getElementById("playerModal");
   const frame = document.getElementById("playerFrame");
 
-  if (type === "movie") {
-    frame.src = `https://www.vidking.net/embed/movie/${id}?autoPlay=true`;
-  }
+  frame.src =
+    type === "movie"
+      ? `https://www.vidking.net/embed/movie/${id}?autoPlay=true`
+      : frame.src;
 
   modal.style.display = "flex";
 }
@@ -122,6 +169,9 @@ function hidePlayer() {
   frame.src = "";
 }
 
-function hideTVSection() {
-  document.getElementById("tvSection").style.display = "none";
+// HIDE DETAILS PAGE
+document.getElementById("backBtn").onclick = () => hideDetails();
+
+function hideDetails() {
+  document.getElementById("detailsPage").style.display = "none";
 }

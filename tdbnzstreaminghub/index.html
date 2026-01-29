@@ -7,24 +7,35 @@
 </head>
 <body>
 
-<header>tdbnz Streaming Hub</header>
+<header>🎬 tdbnz Streaming Hub</header>
 
 <section class="section">
   <h2>🔍 Search</h2>
   <input id="searchInput" type="text" placeholder="Search for a movie or TV show..." />
   <button id="searchBtn">Search</button>
-
   <div id="searchResults" class="grid"></div>
 </section>
 
-<!-- TV Seasons + Episodes -->
-<section class="section" id="tvSection" style="display:none;">
-  <h2 id="tvTitle">TV Show</h2>
-  <div id="seasonList"></div>
-  <div id="episodeList" class="grid"></div>
+<!-- Full-page media view -->
+<section id="detailsPage" style="display:none;">
+  <div id="detailsBackdrop"></div>
+  <div id="detailsContent">
+    <h1 id="detailsTitle"></h1>
+    <p id="detailsMeta"></p>
+    <p id="detailsOverview"></p>
+    <div id="detailsCast"></div>
+    <div id="detailsActions">
+      <button id="playBtn">▶ Play</button>
+      <button id="backBtn">← Back</button>
+    </div>
+    <div id="tvSeasons" style="display:none;">
+      <h3>Seasons</h3>
+      <div id="seasonButtons"></div>
+      <div id="episodeGrid" class="grid"></div>
+    </div>
+  </div>
 </section>
 
-<!-- Player Modal -->
 <div id="playerModal">
   <span id="closeBtn">✖</span>
   <iframe id="playerFrame" allowfullscreen></iframe>
