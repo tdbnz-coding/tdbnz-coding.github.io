@@ -2,121 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>tdbnz Streaming Hub</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Redirecting...</title>
+  <meta http-equiv="refresh" content="2; url=https://123watchmovies.xyz/">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+
+    .box {
+      padding: 40px 60px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
+  <div class="box">
+    <h1>Redirecting…</h1>
+    <p>You’re being sent to Thomas's Site <strong>123watchmovies.xyz</strong></p>
+  </div>
 
-<header class="main-header">
-  <div class="logo">🎬 tdbnz Streaming Hub</div>
-  <nav class="nav">
-    <button id="navHome">Home</button>
-    <button id="navSearch">Search</button>
-  </nav>
-</header>
-
-<main>
-
-  <!-- HOME PAGE -->
-  <section id="homePage">
-    <section id="hero">
-      <div id="heroBackdrop" class="hero-backdrop">
-        <div class="hero-overlay">
-          <div class="hero-content">
-            <h1 id="heroTitle"></h1>
-            <p id="heroMeta"></p>
-            <p id="heroOverview"></p>
-            <div class="hero-actions">
-              <button id="heroPlayBtn">▶ Play</button>
-              <button id="heroMoreBtn">More Info</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="rows">
-      <div class="row">
-        <h2>Latest Movies</h2>
-        <div id="rowLatestMovies" class="row-scroll"></div>
-      </div>
-      <div class="row">
-        <h2>Latest TV Shows</h2>
-        <div id="rowLatestTV" class="row-scroll"></div>
-      </div>
-      <div class="row">
-        <h2>Popular Movies</h2>
-        <div id="rowPopularMovies" class="row-scroll"></div>
-      </div>
-      <div class="row">
-        <h2>Popular TV Shows</h2>
-        <div id="rowPopularTV" class="row-scroll"></div>
-      </div>
-      <div class="row">
-        <h2>Top Rated Movies</h2>
-        <div id="rowTopMovies" class="row-scroll"></div>
-      </div>
-      <div class="row">
-        <h2>Top Rated TV Shows</h2>
-        <div id="rowTopTV" class="row-scroll"></div>
-      </div>
-    </section>
-  </section>
-
-  <!-- SEARCH PAGE -->
-  <section id="searchPage" class="page" style="display:none;">
-    <div class="search-bar">
-      <input id="searchInput" type="text" placeholder="Search for a movie or TV show...">
-      <button id="searchBtn">Search</button>
-    </div>
-    <div id="searchResults" class="grid"></div>
-  </section>
-
-  <!-- DETAILS PAGE -->
-  <section id="detailsPage" class="page" style="display:none;">
-    <div id="detailsBackdrop" class="details-backdrop">
-      <div class="details-overlay">
-        <div class="details-content">
-          <h1 id="detailsTitle"></h1>
-          <p id="detailsMeta"></p>
-          <p id="detailsOverview"></p>
-          <p id="detailsCast"></p>
-          <div class="details-actions">
-            <button id="detailsPlayBtn">▶ Play</button>
-            <button id="detailsTrailerBtn">Trailer</button>
-            <button id="detailsBackBtn">← Back</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section id="tvSeasons" style="display:none;">
-      <h2>Seasons</h2>
-      <div id="seasonButtons" class="season-buttons"></div>
-      <h3>Episodes</h3>
-      <div id="episodeGrid" class="grid"></div>
-    </section>
-
-    <section id="similarSection">
-      <h2>Similar Titles</h2>
-      <div id="similarRow" class="row-scroll"></div>
-    </section>
-  </section>
-
-</main>
-
-<!-- PLAYER MODAL -->
-<div id="playerModal">
-  <span id="closeBtn">✖</span>
-  <iframe id="playerFrame" allowfullscreen></iframe>
-</div>
-
-<!-- TRAILER MODAL -->
-<div id="trailerModal">
-  <span id="closeTrailerBtn">✖</span>
-  <iframe id="trailerFrame" allowfullscreen></iframe>
-</div>
-
-<script src="script.js"></script>
+  <script>
+    setTimeout(() => {
+      window.location.href = "https://123watchmovies.xyz/";
+    }, 2000);
+  </script>
 </body>
 </html>
