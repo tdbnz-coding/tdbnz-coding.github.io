@@ -1,41 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>tdbnz Streaming Hub</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="main-header">
+  <div class="logo">🎬 tdbnz Streaming Hub</div>
+  <nav class="nav">
+    <button id="navHome">Home</button>
+    <button id="navSearch">Search</button>
+  </nav>
+</header>
 
-<header>🎬 tdbnz Streaming Hub</header>
+<main>
+  <!-- HOME PAGE -->
+  <section id="homePage">
+    <section id="hero">
+      <div id="heroBackdrop" class="hero-backdrop">
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h1 id="heroTitle"></h1>
+            <p id="heroMeta"></p>
+            <p id="heroOverview"></p>
+            <div class="hero-actions">
+              <button id="heroPlayBtn">▶ Play</button>
+              <button id="heroMoreBtn">More Info</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="section">
-  <h2>🔍 Search</h2>
-  <input id="searchInput" type="text" placeholder="Search for a movie or TV show..." />
-  <button id="searchBtn">Search</button>
-  <div id="searchResults" class="grid"></div>
-</section>
+    <section class="rows">
+      <div class="row">
+        <h2>Latest Movies</h2>
+        <div id="rowLatestMovies" class="row-scroll"></div>
+      </div>
+      <div class="row">
+        <h2>Latest TV Shows</h2>
+        <div id="rowLatestTV" class="row-scroll"></div>
+      </div>
+      <div class="row">
+        <h2>Popular Movies</h2>
+        <div id="rowPopularMovies" class="row-scroll"></div>
+      </div>
+      <div class="row">
+        <h2>Popular TV Shows</h2>
+        <div id="rowPopularTV" class="row-scroll"></div>
+      </div>
+      <div class="row">
+        <h2>Top Rated Movies</h2>
+        <div id="rowTopMovies" class="row-scroll"></div>
+      </div>
+      <div class="row">
+        <h2>Top Rated TV Shows</h2>
+        <div id="rowTopTV" class="row-scroll"></div>
+      </div>
+    </section>
+  </section>
 
-<!-- Full-page media view -->
-<section id="detailsPage" style="display:none;">
-  <div id="detailsBackdrop"></div>
-  <div id="detailsContent">
-    <h1 id="detailsTitle"></h1>
-    <p id="detailsMeta"></p>
-    <p id="detailsOverview"></p>
-    <div id="detailsCast"></div>
-    <div id="detailsActions">
-      <button id="playBtn">▶ Play</button>
-      <button id="backBtn">← Back</button>
+  <!-- SEARCH PAGE -->
+  <section id="searchPage" class="page" style="display:none;">
+    <div class="search-bar">
+      <input id="searchInput" type="text" placeholder="Search for a movie or TV show...">
+      <button id="searchBtn">Search</button>
     </div>
-    <div id="tvSeasons" style="display:none;">
-      <h3>Seasons</h3>
-      <div id="seasonButtons"></div>
+    <div id="searchResults" class="grid"></div>
+  </section>
+
+  <!-- DETAILS PAGE -->
+  <section id="detailsPage" class="page" style="display:none;">
+    <div id="detailsBackdrop" class="details-backdrop">
+      <div class="details-overlay">
+        <div class="details-content">
+          <h1 id="detailsTitle"></h1>
+          <p id="detailsMeta"></p>
+          <p id="detailsOverview"></p>
+          <p id="detailsCast"></p>
+          <div class="details-actions">
+            <button id="detailsPlayBtn">▶ Play</button>
+            <button id="detailsBackBtn">← Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="tvSeasons" style="display:none;">
+      <h2>Seasons</h2>
+      <div id="seasonButtons" class="season-buttons"></div>
+      <h3>Episodes</h3>
       <div id="episodeGrid" class="grid"></div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <section id="similarSection">
+      <h2>Similar Titles</h2>
+      <div id="similarRow" class="row-scroll"></div>
+    </section>
+  </section>
+</main>
+
+<!-- PLAYER MODAL -->
 <div id="playerModal">
   <span id="closeBtn">✖</span>
   <iframe id="playerFrame" allowfullscreen></iframe>
