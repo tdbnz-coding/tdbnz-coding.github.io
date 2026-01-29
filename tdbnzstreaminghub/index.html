@@ -2,12 +2,12 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Streaming Hub</title>
+  <title>tdbnz Streaming Hub</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>🎬 Streaming Hub</header>
+<header>tdbnz Streaming Hub</header>
 
 <section class="section">
   <h2>🔍 Search</h2>
@@ -17,16 +17,14 @@
   <div id="searchResults" class="grid"></div>
 </section>
 
-<section class="section">
-  <h2>🔥 Trending Movies</h2>
-  <div id="movieGrid" class="grid"></div>
+<!-- TV Seasons + Episodes -->
+<section class="section" id="tvSection" style="display:none;">
+  <h2 id="tvTitle">TV Show</h2>
+  <div id="seasonList"></div>
+  <div id="episodeList" class="grid"></div>
 </section>
 
-<section class="section">
-  <h2>📺 Trending TV Shows</h2>
-  <div id="tvGrid" class="grid"></div>
-</section>
-
+<!-- Player Modal -->
 <div id="playerModal">
   <span id="closeBtn">✖</span>
   <iframe id="playerFrame" allowfullscreen></iframe>
