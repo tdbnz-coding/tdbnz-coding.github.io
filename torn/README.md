@@ -24,3 +24,14 @@
 
 3) config.js
 - Ensure API_BASE is set to your Worker URL.
+
+
+## Market watch (items, stocks)
+Edit WATCH_ITEMS and WATCH_STOCKS in config.js.
+
+Items:
+- Market value comes from Torn "torn items" data (updates periodically).
+- Lowest sell comes from the Torn item market (live).
+
+Stocks:
+- Uses Torn "torn stocks" data.

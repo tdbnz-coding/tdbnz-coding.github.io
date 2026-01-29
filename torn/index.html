@@ -115,6 +115,25 @@
           </div>
         </div>
       </div>
+
+      <div class="card span-12" id="marketCard">
+        <h3>Market watch</h3>
+        <div class="muted">Live prices pulled via the Worker, your API key stays secret.</div>
+
+        <div class="tabs">
+          <button class="tabBtn tabActive" id="tabItems" type="button">Items</button>
+          <button class="tabBtn" id="tabStocks" type="button">Stocks</button>
+        </div>
+
+        <div id="marketItems">
+          <div class="table" id="itemsTable">Loading…</div>
+        </div>
+
+        <div id="marketStocks" style="display:none;">
+          <div class="table" id="stocksTable">Loading…</div>
+        </div>
+      </div>
+
     </div>
 
     <div class="footer" id="footerLine"></div>

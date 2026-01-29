@@ -101,6 +101,19 @@ function setProgress(left, until){
   bar.style.width = `${pct.toFixed(0)}%`;
 }
 
+
+async function fetchWatchedItems(){
+  const ids = (window.WATCH_ITEMS || []).map(x => x.id).filter(Boolean).join(",");
+  const res = await fetch(`${API_BASE}/watch/items?ids=${encodeURIComponent(ids)}`, { cache: "no-store" });
+  return res.json();
+}
+
+async function fetchWatchedStocks(){
+  const syms = (window.WATCH_STOCKS || []).filter(Boolean).join(",");
+  const res = await fetch(`${API_BASE}/watch/stocks?symbols=${encodeURIComponent(syms)}`, { cache: "no-store" });
+  return res.json();
+}
+
 async function fetchPublic(){
   const res = await fetch(`${API_BASE}/public`, { cache: "no-store" });
   return res.json();
@@ -266,6 +279,64 @@ function renderPrivateCards(data){
   ]);
 }
 
+
+function renderItemsTable(data){
+  const box = el("itemsTable");
+  if (!box) return;
+  if (!data || data.error) { box.textContent = "Could not load item prices."; return; }
+  const rows = data.items || [];
+  if (!rows.length) { box.textContent = "No watched items set. Edit WATCH_ITEMS in config.js."; return; }
+
+  box.innerHTML = [
+    `<div class="tRow tHead"><div class="tCell">Item</div><div class="tCell">Market value</div><div class="tCell tHideMobile">Lowest sell</div></div>`,
+    ...rows.map(r => {
+      const mv = r.market_value != null ? `$${Number(r.market_value).toLocaleString()}` : "—";
+      const low = r.lowest_sell != null ? `$${Number(r.lowest_sell).toLocaleString()}` : "—";
+      return `<div class="tRow"><div class="tCell">${escapeHtml(r.name || ("Item " + r.id))}</div><div class="tCell">${escapeHtml(mv)}</div><div class="tCell tHideMobile">${escapeHtml(low)}</div></div>`;
+    })
+  ].join("");
+}
+
+function renderStocksTable(data){
+  const box = el("stocksTable");
+  if (!box) return;
+  if (!data || data.error) { box.textContent = "Could not load stock prices."; return; }
+  const rows = data.stocks || [];
+  if (!rows.length) { box.textContent = "No watched stocks set. Edit WATCH_STOCKS in config.js."; return; }
+
+  box.innerHTML = [
+    `<div class="tRow tHead"><div class="tCell">Stock</div><div class="tCell">Current price</div><div class="tCell tHideMobile">Change</div></div>`,
+    ...rows.map(r => {
+      const px = r.price != null ? `$${Number(r.price).toLocaleString()}` : "—";
+      const ch = (r.change_pct == null) ? "—" : `${Number(r.change_pct).toFixed(2)}%`;
+      const cls = (r.change_pct == null) ? "" : (r.change_pct > 0 ? "tGood" : (r.change_pct < 0 ? "tBad" : ""));
+      return `<div class="tRow"><div class="tCell">${escapeHtml(r.symbol || r.name || "—")}</div><div class="tCell">${escapeHtml(px)}</div><div class="tCell tHideMobile ${cls}">${escapeHtml(ch)}</div></div>`;
+    })
+  ].join("");
+}
+
+function setupMarketTabs(){
+  const tabItems = el("tabItems");
+  const tabStocks = el("tabStocks");
+  const paneItems = el("marketItems");
+  const paneStocks = el("marketStocks");
+  if (!tabItems || !tabStocks || !paneItems || !paneStocks) return;
+
+  tabItems.addEventListener("click", () => {
+    tabItems.classList.add("tabActive");
+    tabStocks.classList.remove("tabActive");
+    paneItems.style.display = "block";
+    paneStocks.style.display = "none";
+  });
+
+  tabStocks.addEventListener("click", () => {
+    tabStocks.classList.add("tabActive");
+    tabItems.classList.remove("tabActive");
+    paneItems.style.display = "none";
+    paneStocks.style.display = "block";
+  });
+}
+
 function setupButtons(){
   el("copyLinkBtn").addEventListener("click", async () => {
     try {
@@ -298,11 +369,16 @@ async function tick(){
   try {
     const pub = await fetchPublic();
     renderPublic(pub);
+
+    const [items, stocks] = await Promise.allSettled([fetchWatchedItems(), fetchWatchedStocks()]);
+    if (items.status === "fulfilled") renderItemsTable(items.value);
+    if (stocks.status === "fulfilled") renderStocksTable(stocks.value);
   } catch {
     el("subtitle").textContent = "Could not load data. Check config.js Worker URL, and that Worker /public works.";
   }
 }
 
+setupMarketTabs();
 setupButtons();
 tick();
 setInterval(tick, 30000);

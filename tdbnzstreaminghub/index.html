@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Streaming Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>🎬 Streaming Hub</header>
+
+<section class="section">
+  <h2>🔍 Search</h2>
+  <input id="searchInput" type="text" placeholder="Search for a movie or TV show..." />
+  <button id="searchBtn">Search</button>
+
+  <div id="searchResults" class="grid"></div>
+</section>
+
+<section class="section">
+  <h2>🔥 Trending Movies</h2>
+  <div id="movieGrid" class="grid"></div>
+</section>
+
+<section class="section">
+  <h2>📺 Trending TV Shows</h2>
+  <div id="tvGrid" class="grid"></div>
+</section>
+
+<div id="playerModal">
+  <span id="closeBtn">✖</span>
+  <iframe id="playerFrame" allowfullscreen></iframe>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

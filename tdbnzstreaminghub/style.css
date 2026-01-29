@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  background: #0d0d0d;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  background: #111;
+}
+
+.section {
+  padding: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.card-title {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#playerModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#playerModal iframe {
+  width: 80%;
+  height: 70%;
+  border-radius: 10px;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+#searchInput {
+  width: 60%;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  margin-right: 10px;
+}
+
+#searchBtn {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #e50914;
+  color: white;
+  cursor: pointer;
+}
+
+#searchBtn:hover {
+  background: #b20710;
+}
