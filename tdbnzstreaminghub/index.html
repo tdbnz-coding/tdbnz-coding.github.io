@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header class="main-header">
   <div class="logo">🎬 tdbnz Streaming Hub</div>
   <nav class="nav">
@@ -15,6 +16,7 @@
 </header>
 
 <main>
+
   <!-- HOME PAGE -->
   <section id="homePage">
     <section id="hero">
@@ -81,6 +83,7 @@
           <p id="detailsCast"></p>
           <div class="details-actions">
             <button id="detailsPlayBtn">▶ Play</button>
+            <button id="detailsTrailerBtn">Trailer</button>
             <button id="detailsBackBtn">← Back</button>
           </div>
         </div>
@@ -99,12 +102,19 @@
       <div id="similarRow" class="row-scroll"></div>
     </section>
   </section>
+
 </main>
 
 <!-- PLAYER MODAL -->
 <div id="playerModal">
   <span id="closeBtn">✖</span>
   <iframe id="playerFrame" allowfullscreen></iframe>
+</div>
+
+<!-- TRAILER MODAL -->
+<div id="trailerModal">
+  <span id="closeTrailerBtn">✖</span>
+  <iframe id="trailerFrame" allowfullscreen></iframe>
 </div>
 
 <script src="script.js"></script>

@@ -38,10 +38,6 @@ body {
   color: #e50914;
 }
 
-main {
-  padding-bottom: 3rem;
-}
-
 /* HERO */
 
 #hero {
@@ -69,19 +65,6 @@ main {
 .hero-content {
   padding: 2rem;
   max-width: 600px;
-}
-
-.hero-content h1 {
-  margin: 0 0 0.5rem;
-  font-size: 2rem;
-}
-
-.hero-content p {
-  margin: 0.25rem 0;
-}
-
-.hero-actions {
-  margin-top: 1rem;
 }
 
 .hero-actions button {
@@ -113,25 +96,11 @@ main {
   margin-bottom: 1.5rem;
 }
 
-.row h2 {
-  font-size: 1.1rem;
-  margin: 0 0 0.5rem;
-}
-
 .row-scroll {
   display: flex;
   overflow-x: auto;
   gap: 0.5rem;
   padding-bottom: 0.5rem;
-}
-
-.row-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.row-scroll::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 3px;
 }
 
 /* CARDS */
@@ -141,19 +110,17 @@ main {
   width: 150px;
   flex: 0 0 auto;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .card img {
   width: 100%;
   border-radius: 4px;
-  display: block;
 }
 
 .card:hover {
-  transform: scale(1.25);
+  transform: scale(1.15);
   z-index: 10;
-  box-shadow: 0 0 20px rgba(0,0,0,0.8);
 }
 
 .card-info {
@@ -175,10 +142,6 @@ main {
   color: #ccc;
 }
 
-.card-actions {
-  margin-top: 0.25rem;
-}
-
 .card-actions button {
   padding: 0.2rem 0.4rem;
   font-size: 0.7rem;
@@ -188,32 +151,17 @@ main {
   cursor: pointer;
 }
 
-.card-actions .play-btn {
+.play-btn {
   background: #fff;
   color: #000;
 }
 
-.card-actions .info-btn {
+.info-btn {
   background: rgba(109,109,110,0.7);
   color: #fff;
 }
 
-/* HOVER TRAILER */
-
-.card-trailer {
-  position: absolute;
-  inset: 0;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.card-trailer iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* SEARCH PAGE */
+/* SEARCH */
 
 .page {
   padding: 1.5rem;
@@ -247,12 +195,11 @@ main {
   gap: 0.75rem;
 }
 
-/* DETAILS PAGE */
+/* DETAILS */
 
 .details-backdrop {
   position: relative;
   height: 60vh;
-  min-height: 320px;
   background-size: cover;
   background-position: center;
 }
@@ -270,18 +217,6 @@ main {
   max-width: 700px;
 }
 
-.details-content h1 {
-  margin: 0 0 0.5rem;
-}
-
-.details-content p {
-  margin: 0.25rem 0;
-}
-
-.details-actions {
-  margin-top: 1rem;
-}
-
 .details-actions button {
   padding: 0.6rem 1.4rem;
   margin-right: 0.5rem;
@@ -296,26 +231,30 @@ main {
   color: #000;
 }
 
+#detailsTrailerBtn {
+  background: #e50914;
+  color: #fff;
+}
+
 #detailsBackBtn {
   background: rgba(109,109,110,0.7);
   color: #fff;
 }
 
-/* SEASONS / EPISODES */
+/* SEASONS */
 
 .season-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 0.75rem 0 1rem;
+  margin: 1rem 0;
 }
 
 .season-buttons button {
   padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  border: none;
   background: #333;
-  color: #fff;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -325,7 +264,8 @@ main {
 
 /* PLAYER MODAL */
 
-#playerModal {
+#playerModal,
+#trailerModal {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.9);
@@ -335,33 +275,19 @@ main {
   z-index: 200;
 }
 
-#playerFrame {
+#playerFrame,
+#trailerFrame {
   width: 90%;
   height: 80%;
   border: none;
 }
 
-#closeBtn {
+#closeBtn,
+#closeTrailerBtn {
   position: absolute;
   top: 20px;
   right: 30px;
   font-size: 2rem;
   cursor: pointer;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 1.2rem;
-  }
-  .hero-content h1 {
-    font-size: 1.5rem;
-  }
-  .details-content {
-    padding: 1.2rem;
-  }
-  .card {
-    width: 120px;
-  }
+  color: #fff;
 }
