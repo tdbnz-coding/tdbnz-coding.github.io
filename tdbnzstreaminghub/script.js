@@ -1,4 +1,4 @@
-const API = "https://ancient-llab-55d7.thomasnz.workers.dev/api";
+const API = "https://ancient-lab-55d7.thomasnz.workers.dev/";
 const IMG = "https://image.tmdb.org/t/p/w500";
 
 // Movies
