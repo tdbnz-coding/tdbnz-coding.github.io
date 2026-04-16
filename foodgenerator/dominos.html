@@ -40,7 +40,11 @@
             <p class="section-subtitle mb-0">Popular offers and featured Domino’s vouchers.</p>
           </div>
         </div>
-        <div class="row g-3 g-md-4" id="nationalDealsRow"></div>
+        <div class="row g-3 g-md-4" id="nationalDealsRow">
+          <div class="col-12">
+            <div class="alert alert-secondary mb-0">Loading deals...</div>
+          </div>
+        </div>
       </section>
 
       <section class="mb-4 mb-lg-5">
@@ -77,6 +81,9 @@
   </main>
 
   <script>
+    const WORKER_URL = "https://your-worker-name.your-subdomain.workers.dev";
+    const FALLBACK_JSON_URL = "./deals.json";
+
     function escapeHtml(value) {
       return String(value ?? "")
         .replace(/&/g, "&amp;")
@@ -167,26 +174,35 @@
 
     function renderNationalDeals(deals) {
       const container = document.getElementById("nationalDealsRow");
+      if (!deals.length) {
+        container.innerHTML = `
+          <div class="col-12">
+            <div class="alert alert-secondary mb-0">
+              No national deals available right now.
+            </div>
+          </div>
+        `;
+        return;
+      }
       container.innerHTML = deals.map(createNationalCard).join("");
     }
 
     function renderLocalDeals(deals) {
       const container = document.getElementById("localDealsRow");
+      if (!deals.length) {
+        container.innerHTML = `
+          <div class="col-12">
+            <div class="alert alert-secondary mb-0">
+              No pickup or delivery deals available right now.
+            </div>
+          </div>
+        `;
+        return;
+      }
       container.innerHTML = deals.map(createLocalCard).join("");
     }
 
-    async function loadDeals() {
-      const res = await fetch("./deals.json", { cache: "no-store" });
-      if (!res.ok) throw new Error("Failed to load deals.json");
-      const data = await res.json();
-
-      renderNationalDeals(Array.isArray(data.nationalDeals) ? data.nationalDeals : []);
-      renderLocalDeals(Array.isArray(data.localOffers) ? data.localOffers : []);
-    }
-
-    loadDeals().catch((err) => {
-      console.error(err);
-
+    function renderLoadError() {
       document.getElementById("nationalDealsRow").innerHTML = `
         <div class="col-12">
           <div class="alert alert-warning mb-0">
@@ -194,6 +210,53 @@
           </div>
         </div>
       `;
+
+      document.getElementById("localDealsRow").innerHTML = `
+        <div class="col-12">
+          <div class="alert alert-warning mb-0">
+            Could not load pickup and delivery deals right now.
+          </div>
+        </div>
+      `;
+    }
+
+    async function fetchDealsFrom(url) {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error(`Failed to load deals from ${url}`);
+      }
+      return res.json();
+    }
+
+    async function loadDeals() {
+      const sources = [
+        WORKER_URL,
+        FALLBACK_JSON_URL
+      ];
+
+      let lastError = null;
+
+      for (const url of sources) {
+        try {
+          const data = await fetchDealsFrom(url);
+
+          renderNationalDeals(Array.isArray(data.nationalDeals) ? data.nationalDeals : []);
+          renderLocalDeals(Array.isArray(data.localOffers) ? data.localOffers : []);
+
+          console.log("Loaded Domino's deals from:", url);
+          return;
+        } catch (err) {
+          console.warn("Failed source:", url, err);
+          lastError = err;
+        }
+      }
+
+      throw lastError || new Error("Failed to load all deal sources");
+    }
+
+    loadDeals().catch((err) => {
+      console.error(err);
+      renderLoadError();
     });
   </script>
 </body>
