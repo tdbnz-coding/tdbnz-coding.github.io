@@ -21,13 +21,20 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Show repo files
+        run: |
+          pwd
+          ls
+          ls foodgenerator
+          ls foodgenerator/scripts
+
       - name: Update deals.json
-        run: node scripts/update-dominos-deals.js
+        run: node foodgenerator/scripts/update-dominos-deals.js
 
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add deals.json
+          git add foodgenerator/deals.json
           git diff --staged --quiet || git commit -m "Update Domino's deals"
           git push
