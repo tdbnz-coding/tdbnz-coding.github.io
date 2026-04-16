@@ -3,112 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>40% Off Domino’s Promo Code | Today’s Discount Code NZ</title>
-  <meta name="description" content="Get 40% off Domino’s Pizza (Traditional & Gourmet) with today’s promo code. Updated daily. Works for pickup and delivery in New Zealand">
-  <meta name="keywords" content="Domino's promo code, Domino's voucher, Domino's NZ code, Domino's discount, pizza discount, Domino's coupon NZ, pizza promo code">
+  <title>Domino’s NZ Promo Codes and Deals</title>
+  <meta name="description" content="Latest Domino’s NZ promo codes, vouchers, pickup deals and delivery offers." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://tdbnz-coding.github.io/foodgenerator/dominos.html" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Domino’s NZ Promo Code Generator",
-    "description": "Daily updated Domino’s promo codes for Traditional & Gourmet pizzas in NZ. Save 40% today. Works for pickup and delivery. Free and easy to use.",
-    "url": "https://tdbnz-coding.github.io/foodgenerator/dominos.html",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Thomas Coupons"
-    }
-  }
-  </script>
   <style>
     body {
-      background: linear-gradient(to right, #1a1a1a, #000000);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f1115, #111827 45%, #0a0a0a);
+      color: #fff;
+      font-family: "Segoe UI", sans-serif;
+      min-height: 100vh;
     }
     .glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
     }
-    .copy-hover:hover {
+    .deal-card {
+      height: 100%;
+      overflow: hidden;
+    }
+    .deal-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #111;
+    }
+    .deal-body {
+      padding: 1rem;
+    }
+    .deal-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .deal-desc {
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 0.8rem;
+    }
+    .deal-tag {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(13,202,240,0.16);
+      color: #8de3ff;
+      margin-bottom: 0.75rem;
+    }
+    .voucher-box {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 0.7rem 0.9rem;
+      margin-top: 0.8rem;
+    }
+    .voucher-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.2rem;
+    }
+    .voucher-code {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffd166;
+      letter-spacing: 1px;
       cursor: pointer;
-      text-decoration: underline;
     }
   </style>
 </head>
-<body class="text-center p-4">
+<body>
+  <main class="container py-4 py-md-5">
+    <section class="glass p-4 mb-4 text-center">
+      <h1 class="display-5 fw-bold mb-3">Domino’s New Zealand Promo Codes and Deals</h1>
+    </section>
 
-<main id="main" class="container glass" role="main" aria-label="Domino's Deal Generator">
-  <h1 class="display-5 mb-4">Domino’s New Zealand Promo Code Generator</h1>
+    <section class="mb-5">
+      <h2 class="h3 fw-bold mb-3">National Deals</h2>
+      <div class="row g-4" id="nationalDealsRow"></div>
+    </section>
 
-  <div class="alert alert-info text-dark fw-semibold fs-5 mx-auto" style="max-width: 500px;">
-    <strong>Today’s 40% Off Domino’s Promo Code</strong><br>
-    Works for Traditional & Gourmet Pizzas — Pickup or Delivery
-  </div>
+    <section class="mb-5">
+      <h2 class="h3 fw-bold mb-3">Pickup and Delivery Deals</h2>
+      <div class="row g-4" id="localDealsRow"></div>
+    </section>
 
-  <p class="lead mb-3" id="date" aria-live="polite"></p>
+    <section class="glass p-4">
+      <h3 class="h5 fw-bold mb-3">Source</h3>
+      <p class="mb-0 text-white-50">Deals are from Domino</p>
+    </section>
+  </main>
 
-  <div id="codeBox" class="mb-4" aria-label="Domino's Discount Code">
-    <h2 class="text-info fs-1">
-      <span id="code" class="copy-hover" aria-label="Click to copy code" title="Click to copy code"></span>
-    </h2>
-    <a href="#" id="link" class="btn btn-success btn-lg mt-2" target="_blank" rel="noopener">Use Code</a>
-    <p class="mt-2 text-warning fw-semibold" id="copiedText" style="display: none;">Copied to clipboard!</p>
-  </div>
-
-  <p class="text-white-75 fw-semibold">Daily updated Domino’s codes for New Zealand</p>
-
-  <footer class="text-white mt-5 fs-6">
-    <p><strong>Domino’s NZ Terms & Conditions:</strong></p>
-    <ul class="text-start text-white" style="max-width: 800px; margin: auto; font-size: 1rem; line-height: 1.6;">
-      <li>Valid at selected stores only. Minimum delivery order $20.</li>
-      <li>Not valid with other offers. Excludes Lamb Range, half 'n' half, extras, indulgent crusts.</li>
-      <li>Extra costs apply for Gluten Free, Cheesy Crust, and Gourmet pizzas.</li>
-      <li>Drivers carry $20 max change. Limited delivery area. Prices include GST.</li>
-    </ul>
-    <p class="mt-3"><em>DOMINO’S and related trademarks are owned by Domino’s IP Holder LLC in New Zealand.</em></p>
-    <p class="mt-4">Made by <a href="https://www.cheapies.nz/user/1636" target="_blank" class="link-info text-decoration-none">Thomas</a></p>
-  </footer>
-</main>
-
-<script>
-  const encodedData = "eyIxMi8wNS8yMDI1IjoiMzg0MTciLCIxMy8wNS8yMDI1IjoiMzYxODAiLCIxNC8wNS8yMDI1IjoiNjk0MTUiLCIxNS8wNS8yMDI1IjoiODY3MTUiLCIxNi8wNS8yMDI1IjoiNzk3MzgiLCIxNy8wNS8yMDI1IjoiMDE2MjQiLCIxOC8wNS8yMDI1IjoiMjU2MjciLCIxOS8wNS8yMDI1IjoiNTk4NTQiLCIyMC8wNS8yMDI1IjoiMDUxMzAiLCIyMS8wNS8yMDI1IjoiMDE1MzYiLCIyMi8wNS8yMDI1IjoiMjY2OTEiLCIyMy8wNS8yMDI1IjoiNjg2NzQiLCIyNC8wNS8yMDI1IjoiOTEwOTMiLCIyNS8wNS8yMDI1IjoiMjEzNjQiLCIyNi8wNS8yMDI1IjoiODUxNTYiLCIyNy8wNS8yMDI1IjoiNDg0MzYiLCIyOC8wNS8yMDI1IjoiOTQzNTkiLCIyOS8wNS8yMDI1IjoiNDU5ODEiLCIzMC8wNS8yMDI1IjoiMzU5NjEiLCIzMS8wNS8yMDI1IjoiODgwOTIifQ==";
-  const decoded = atob(encodedData);
-  const codes = JSON.parse(decoded);
-
-  const today = new Date();
-  const day = String(today.getDate()).padStart(2, '0');
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const year = today.getFullYear();
-  const formattedDate = `${day}/${month}/${year}`;
-
-  const code = codes[formattedDate];
-  const codeElement = document.getElementById("code");
-  const dateElement = document.getElementById("date");
-  const link = document.getElementById("link");
-  const copiedText = document.getElementById("copiedText");
-
-  dateElement.innerText = `Today: ${formattedDate}`;
-
-  if (code) {
-    codeElement.innerText = code;
-    link.href = `https://order.dominos.co.nz/?vc=${code}&utm_source=shopback&transaction_id=1027bec3569188ed1227e3923babad`;
-
-    codeElement.addEventListener('click', () => {
+  <script>
+    function copyDealCode(code, element) {
       navigator.clipboard.writeText(code).then(() => {
-        copiedText.style.display = 'block';
-        setTimeout(() => copiedText.style.display = 'none', 2000);
-      });
-    });
-  } else {
-    document.getElementById("codeBox").innerHTML = `<p class="text-warning">No code found for today.</p>`;
-  }
-</script>
+        const original = element.textContent;
+        element.textContent = "Copied";
+        setTimeout(() => {
+          element.textContent = original;
+        }, 1400);
+      }).catch(() => {});
+    }
 
+    function createVoucherBox(code) {
+      if (!code) return "";
+      return `
+        <div class="voucher-box">
+          <div class="voucher-label">Voucher Code</div>
+          <div class="voucher-code" onclick="copyDealCode('${code}', this)" title="Click to copy">${code}</div>
+        </div>
+      `;
+    }
+
+    function renderNationalDeals(deals) {
+      const container = document.getElementById("nationalDealsRow");
+      container.innerHTML = deals.map(deal => `
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="glass deal-card">
+            <img src="${deal.image}" alt="${deal.title}" class="deal-image" loading="lazy">
+            <div class="deal-body">
+              <div class="deal-title">${deal.title}</div>
+              <div class="deal-desc">${deal.desc}</div>
+              <div class="d-grid">
+                <a href="${deal.cta_link}" class="btn btn-success" target="_blank" rel="noopener">${deal.cta_copy || "ORDER NOW"}</a>
+              </div>
+              ${createVoucherBox(deal.voucherCode)}
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderLocalDeals(deals) {
+      const container = document.getElementById("localDealsRow");
+      container.innerHTML = deals.map(deal => `
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="glass deal-card">
+            <div class="deal-body">
+              <div class="deal-tag">${deal.tag || deal.serviceMethodType || "Offer"}</div>
+              <div class="deal-title">${deal.title}</div>
+              <div class="deal-desc">${deal.desc}</div>
+              <div class="d-grid">
+                <a href="${deal.cta_link}" class="btn btn-success" target="_blank" rel="noopener">${deal.cta_copy || "ORDER NOW"}</a>
+              </div>
+              ${createVoucherBox(deal.voucherCode)}
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    async function loadDeals() {
+      const res = await fetch("./deals.json", { cache: "no-store" });
+      if (!res.ok) throw new Error("Failed to load deals.json");
+      const data = await res.json();
+      renderNationalDeals(data.nationalDeals || []);
+      renderLocalDeals(data.localOffers || []);
+    }
+
+    loadDeals().catch(err => {
+      console.error(err);
+      document.getElementById("nationalDealsRow").innerHTML =
+        '<div class="col-12"><div class="alert alert-warning">Could not load deals.</div></div>';
+    });
+  </script>
 </body>
 </html>
