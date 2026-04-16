@@ -13,25 +13,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Show repo files
+      - name: Show repo structure
         run: |
           pwd
-          ls
-          ls foodgenerator
-          ls foodgenerator/scripts
+          ls -la
+          ls -la foodgenerator || true
+          ls -la foodgenerator/scripts || true
 
-      - name: Update deals.json
+      - name: Run Domino's deals updater
         run: node foodgenerator/scripts/update-dominos-deals.js
 
-      - name: Commit changes
+      - name: Commit updated deals.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
