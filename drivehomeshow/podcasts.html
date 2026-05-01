@@ -1,13 +1,82 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Drive Home Show posts and podcasts from Substack."><title>Posts & Podcasts | Drive Home Show</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="assets/css/style.css" rel="stylesheet"></head>
-<body><div id="site-nav"></div>
-<header class="page-header"><div class="container"><div class="eyebrow mb-3">Posts & podcasts</div><h1 class="section-title">Latest updates from The Drive Home Show.</h1><p class="lead text-white-50 col-lg-8">Read newsletter posts, show notes, interview updates, and podcast content through Substack.</p></div></header>
-<main class="container py-5">
-  <section class="dark-panel p-4 p-lg-5 mb-5"><div class="row g-4 align-items-center"><div class="col-lg-6"><div class="section-kicker mb-2 text-pink">Newsletter</div><h2 class="h1 fw-black">Subscribe for show updates</h2><p class="text-white-50 mb-0">Join the Drive Home Show mailing list for new posts, guest announcements, episode links, and behind-the-scenes updates.</p></div><div class="col-lg-6"><div data-substack-signup><div class="substack-fallback bg-white text-dark"><h3 class="h5 fw-bold">Substack signup loading</h3><p class="text-secondary mb-3">If the form does not appear, open Substack directly.</p><a class="btn btn-gold" data-substack-link href="https://drivehomeshow.substack.com" target="_blank" rel="noopener">Open Substack</a></div></div></div></div></section>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Latest Drive Home Show posts and podcast episodes automatically loaded from Substack RSS feeds.">
+  <title>Posts & Podcasts | Drive Home Show</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div id="site-nav"></div>
 
-  <section class="mb-5"><div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4"><div><div class="section-kicker mb-2">Read and listen</div><h2 class="section-title mb-0">Posts and podcasts</h2></div><a class="btn btn-dark-premium" data-substack-link href="https://drivehomeshow.substack.com" target="_blank" rel="noopener">Open on Substack</a></div><div data-substack-posts><div class="substack-fallback"><h3 class="h5 fw-bold">Substack archive loading</h3><p class="text-secondary mb-0">Your latest Substack posts will appear here once the site is online and the Substack URL is correct.</p></div></div></section>
+  <header class="page-header">
+    <div class="container">
+      <div class="eyebrow mb-3">Posts & podcasts</div>
+      <h1 class="section-title">Latest from The Drive Home Show.</h1>
+      <p class="lead text-white-50 col-lg-8">Posts and podcast episodes load automatically from Substack using your live RSS feeds.</p>
+    </div>
+  </header>
 
-  <section class="premium-card p-4 p-lg-5"><h2 class="h3 fw-bold">Need to change the Substack link?</h2><p class="text-secondary mb-2">Open <strong>assets/js/substack.js</strong> and change this line:</p><pre class="bg-dark text-white rounded-4 p-3 mb-0"><code>const SUBSTACK_BASE_URL = "https://drivehomeshow.substack.com";</code></pre></section>
-</main>
-<div id="site-footer"></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="assets/js/includes.js"></script><script src="assets/js/substack.js"></script></body></html>
+  <main class="container py-5">
+    <section class="dark-panel p-4 p-lg-5 mb-5">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <div class="section-kicker mb-2 text-pink">Newsletter</div>
+          <h2 class="h1 fw-black">Subscribe for show updates</h2>
+          <p class="text-white-50 mb-0">Join the Drive Home Show mailing list for new posts, guest announcements, episode links, and behind-the-scenes updates.</p>
+        </div>
+        <div class="col-lg-6">
+          <div data-substack-signup>
+            <div class="substack-fallback bg-white text-dark">
+              <h3 class="h5 fw-bold">Substack signup loading</h3>
+              <p class="text-secondary mb-3">If the form does not appear, open Substack directly.</p>
+              <a class="btn btn-gold" data-substack-link href="https://drivehomeshow.substack.com" target="_blank" rel="noopener">Open Substack</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+        <div>
+          <div class="section-kicker mb-2">Read</div>
+          <h2 class="section-title mb-0">Latest Substack posts</h2>
+        </div>
+        <a class="btn btn-dark-premium" href="https://drivehomeshow.substack.com" target="_blank" rel="noopener">Open Substack</a>
+      </div>
+      <div data-rss-posts data-limit="6"></div>
+    </section>
+
+    <section class="mb-5">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+        <div>
+          <div class="section-kicker mb-2">Listen</div>
+          <h2 class="section-title mb-0">Latest podcast episodes</h2>
+        </div>
+        <a class="btn btn-dark-premium" href="https://drivehomeshow.substack.com/podcast" target="_blank" rel="noopener">Open podcast</a>
+      </div>
+      <div data-rss-podcasts data-limit="6"></div>
+    </section>
+
+    <section class="premium-card p-4 p-lg-5">
+      <h2 class="h3 fw-bold">RSS feeds connected</h2>
+      <p class="text-secondary mb-2">Posts feed:</p>
+      <pre class="bg-dark text-white rounded-4 p-3"><code>https://drivehomeshow.substack.com/feed</code></pre>
+      <p class="text-secondary mb-2">Podcast feed:</p>
+      <pre class="bg-dark text-white rounded-4 p-3 mb-0"><code>https://api.substack.com/feed/podcast/2976961.rss</code></pre>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/includes.js"></script>
+  <script src="assets/js/substack.js"></script>
+  <script src="assets/js/rss-feeds.js"></script>
+</body>
+</html>
