@@ -1,9 +1,12 @@
 :root {
   --ink: #0b1020;
   --navy: #111a35;
-  --blue: #1b4dff;
-  --violet: #7a35ff;
-  --gold: #f8c15c;
+  --pink: #d90368;
+  --pink-dark: #920044;
+  --pink-soft: #ff4fa0;
+  --blue: #d90368;
+  --violet: #920044;
+  --gold: #d90368;
   --cream: #fff8ec;
   --muted: #6c7485;
   --card: rgba(255, 255, 255, 0.88);
@@ -15,8 +18,8 @@
 body {
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
-  background: radial-gradient(circle at top left, rgba(122, 53, 255, 0.14), transparent 28rem),
-              radial-gradient(circle at top right, rgba(248, 193, 92, 0.15), transparent 25rem),
+  background: radial-gradient(circle at top left, rgba(217, 3, 104, 0.12), transparent 28rem),
+              radial-gradient(circle at top right, rgba(217, 3, 104, 0.10), transparent 25rem),
               #f6f7fb;
   min-height: 100vh;
 }
@@ -37,11 +40,11 @@ a { color: inherit; }
   border-radius: 15px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, var(--gold), #fff0b2);
+  background: linear-gradient(135deg, var(--pink), var(--pink-soft));
   color: #131313;
   font-weight: 900;
   letter-spacing: -0.04em;
-  box-shadow: 0 12px 30px rgba(248, 193, 92, 0.28);
+  box-shadow: 0 12px 30px rgba(217, 3, 104, 0.28);
 }
 
 .brand-text { font-weight: 800; letter-spacing: -0.03em; }
@@ -55,14 +58,14 @@ a { color: inherit; }
 .navbar .nav-link:hover, .navbar .nav-link.active { color: #fff; }
 
 .btn-gold {
-  background: linear-gradient(135deg, var(--gold), #ffe6a0);
+  background: linear-gradient(135deg, var(--pink), var(--pink-soft));
   border: 0;
-  color: #141414;
+  color: #fff;
   font-weight: 800;
-  box-shadow: 0 14px 30px rgba(248, 193, 92, 0.24);
+  box-shadow: 0 14px 30px rgba(217, 3, 104, 0.24);
 }
 
-.btn-gold:hover { transform: translateY(-1px); color: #141414; }
+.btn-gold:hover { transform: translateY(-1px); color: #fff; filter: brightness(1.05); }
 
 .btn-dark-premium {
   background: linear-gradient(135deg, var(--ink), #26314f);
@@ -78,7 +81,7 @@ a { color: inherit; }
   position: relative;
   overflow: hidden;
   color: #fff;
-  background: linear-gradient(135deg, rgba(11, 16, 32, 0.94), rgba(27, 77, 255, 0.72)), url('../img/hero-placeholder.svg') center/cover;
+  background: linear-gradient(135deg, rgba(11, 16, 32, 0.95), rgba(217, 3, 104, 0.74)), url('../img/hero-placeholder.svg') center/cover;
   border-radius: 0 0 42px 42px;
 }
 
@@ -87,7 +90,7 @@ a { color: inherit; }
   position: absolute;
   inset: auto -10% -35% -10%;
   height: 50%;
-  background: radial-gradient(circle, rgba(248,193,92,0.28), transparent 60%);
+  background: radial-gradient(circle, rgba(217,3,104,0.32), transparent 60%);
 }
 
 .hero-content { position: relative; z-index: 1; padding: 6rem 0; }
@@ -96,7 +99,7 @@ a { color: inherit; }
   text-transform: uppercase;
   letter-spacing: .18em;
   font-size: .78rem;
-  color: var(--gold);
+  color: var(--pink-soft);
   font-weight: 900;
 }
 
@@ -138,7 +141,7 @@ a { color: inherit; }
 
 .placeholder-img {
   min-height: 240px;
-  background: linear-gradient(135deg, rgba(27,77,255,.16), rgba(122,53,255,.18)), url('../img/photo-placeholder.svg') center/cover;
+  background: linear-gradient(135deg, rgba(217,3,104,.16), rgba(146,0,68,.18)), url('../img/photo-placeholder.svg') center/cover;
   display: grid;
   place-items: center;
   color: rgba(11,16,32,.6);
@@ -154,7 +157,7 @@ a { color: inherit; }
   display: grid;
   place-items: center;
   font-weight: 900;
-  box-shadow: 0 16px 30px rgba(27,77,255,.2);
+  box-shadow: 0 16px 30px rgba(217,3,104,.2);
 }
 
 .dark-panel {
@@ -171,7 +174,7 @@ a { color: inherit; }
   width: 280px;
   height: 280px;
   border-radius: 999px;
-  background: rgba(248,193,92,.18);
+  background: rgba(217,3,104,.18);
   right: -80px;
   top: -100px;
 }
@@ -193,8 +196,8 @@ a { color: inherit; }
 }
 
 .form-control:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 .2rem rgba(27,77,255,.12);
+  border-color: var(--pink);
+  box-shadow: 0 0 0 .2rem rgba(217,3,104,.12);
 }
 
 .social-pill {
@@ -218,7 +221,7 @@ a { color: inherit; }
 
 .footer-logo { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.05em; }
 .footer-copy { color: rgba(255,255,255,.68); max-width: 520px; }
-.footer-heading { font-size: .82rem; text-transform: uppercase; letter-spacing: .15em; color: var(--gold); font-weight: 900; }
+.footer-heading { font-size: .82rem; text-transform: uppercase; letter-spacing: .15em; color: var(--pink-soft); font-weight: 900; }
 .footer-links { list-style: none; padding: 0; margin: 0; }
 .footer-links li { margin: .55rem 0; }
 .footer-links a { color: rgba(255,255,255,.72); text-decoration: none; }
@@ -226,7 +229,7 @@ a { color: inherit; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.55); font-size: .92rem; }
 
 .page-header {
-  background: linear-gradient(135deg, var(--ink), #1a2b66);
+  background: linear-gradient(135deg, var(--ink), #32051b);
   color: #fff;
   padding: 5rem 0 4rem;
   border-radius: 0 0 38px 38px;
@@ -237,3 +240,10 @@ a { color: inherit; }
   .hero { border-radius: 0 0 28px 28px; }
   .site-footer { border-radius: 30px 30px 0 0; }
 }
+
+
+/* Substack embeds */
+.substack-embed-frame{width:100%;border:0;border-radius:22px;background:#fff;box-shadow:0 18px 45px rgba(0,0,0,.12)}
+.substack-signup-frame{min-height:340px}.substack-posts-frame{min-height:720px}
+.substack-fallback{border:1px dashed rgba(217,3,104,.35);background:rgba(217,3,104,.06);border-radius:22px;padding:1.25rem}
+.text-pink{color:var(--pink)!important}.bg-pink{background:var(--pink)!important}

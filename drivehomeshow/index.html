@@ -93,11 +93,12 @@
             <p class="text-white-50 mb-0">Connect this section to your Substack newsletter. Replace the placeholder link with your own Substack subscribe URL.</p>
           </div>
           <div class="col-lg-5">
-            <div class="substack-box">
-              <h3 class="h5 fw-bold">Subscribe on Substack</h3>
-              <p class="text-secondary">Add your Substack embed or signup link here.</p>
-              <a class="btn btn-gold w-100" href="#" target="_blank" rel="noopener">Subscribe</a>
-              <small class="d-block text-secondary mt-3">Tip, replace this button with your Substack URL.</small>
+            <div data-substack-signup>
+              <div class="substack-box">
+                <h3 class="h5 fw-bold">Subscribe on Substack</h3>
+                <p class="text-secondary">The signup form will load here when the site is online.</p>
+                <a class="btn btn-gold w-100" data-substack-link href="https://drivehomeshow.substack.com" target="_blank" rel="noopener">Open Substack</a>
+              </div>
             </div>
           </div>
         </div>
@@ -123,5 +124,6 @@
   <div id="site-footer"></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/includes.js"></script>
+  <script src="assets/js/substack.js"></script>
 </body>
 </html>
