@@ -3,80 +3,118 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Latest Drive Home Show posts and podcast episodes automatically loaded from Substack RSS feeds.">
-  <title>Posts & Podcasts | Drive Home Show</title>
+  <meta name="description" content="Listen to the Drive Home Show podcast, interviews, and latest episodes from Plains Media 96.9FM Christchurch.">
+  <title>Podcast | Drive Home Show</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
+
 <body>
   <div id="site-nav"></div>
 
-  <header class="page-header">
+  <header class="page-header podcast-hero">
     <div class="container">
-      <div class="eyebrow mb-3">Posts & podcasts</div>
-      <h1 class="section-title">Latest from The Drive Home Show.</h1>
-      <p class="lead text-white-50 col-lg-8">Posts and podcast episodes load automatically from Substack using your live RSS feeds.</p>
+      <div class="eyebrow mb-3">Podcast & interviews</div>
+      <h1 class="section-title">Listen to the Drive Home Show.</h1>
+      <p class="lead text-white-50 col-lg-8">
+        Catch the latest episodes, guest interviews, and local stories from the Drive Home Show on Plains Media 96.9FM Christchurch.
+      </p>
+
+      <div class="d-flex flex-wrap gap-3 mt-4">
+        <a href="https://plains.org.nz" target="_blank" rel="noopener" class="btn btn-primary">
+          Listen Live
+        </a>
+        <a href="https://drivehomeshow.substack.com/podcast" target="_blank" rel="noopener" class="btn btn-dark-premium">
+          Open on Substack
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="container py-5">
-    <section class="dark-panel p-4 p-lg-5 mb-5">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-6">
-          <div class="section-kicker mb-2 text-pink">Newsletter</div>
-          <h2 class="h1 fw-black">Subscribe for show updates</h2>
-          <p class="text-white-50 mb-0">Join the Drive Home Show mailing list for new posts, guest announcements, episode links, and behind-the-scenes updates.</p>
-        </div>
-        <div class="col-lg-6">
-          <div data-substack-signup>
-            <div class="substack-fallback bg-white text-dark">
-              <h3 class="h5 fw-bold">Substack signup loading</h3>
-              <p class="text-secondary mb-3">If the form does not appear, open Substack directly.</p>
-              <a class="btn btn-gold" data-substack-link href="https://drivehomeshow.substack.com" target="_blank" rel="noopener">Open Substack</a>
+  <main>
+    <section class="container py-5">
+      <div class="premium-card latest-episode-card p-4 p-lg-5 mb-5">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <div class="section-kicker text-pink mb-2">Latest episode</div>
+            <h2 id="latest-podcast-title" class="h1 fw-black mb-3">Loading latest episode...</h2>
+            <p id="latest-podcast-description" class="text-secondary mb-4">
+              The newest podcast episode will appear here automatically from your Substack podcast feed.
+            </p>
+            <a id="latest-podcast-link" href="https://drivehomeshow.substack.com/podcast" target="_blank" rel="noopener" class="btn btn-primary">
+              Listen to latest episode
+            </a>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="podcast-art-placeholder">
+              <div>
+                <span>Drive Home Show</span>
+                <strong>Podcast</strong>
+                <small>96.9FM Christchurch</small>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="mb-5">
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
         <div>
-          <div class="section-kicker mb-2">Read</div>
-          <h2 class="section-title mb-0">Latest Substack posts</h2>
+          <div class="section-kicker text-pink mb-2">Listen now</div>
+          <h2 class="section-title mb-0">Full podcast player</h2>
         </div>
-        <a class="btn btn-dark-premium" href="https://drivehomeshow.substack.com" target="_blank" rel="noopener">Open Substack</a>
+        <p class="text-secondary mb-0">Episodes update automatically from Substack.</p>
       </div>
-      <div data-rss-posts data-limit="6"></div>
-    </section>
 
-    <section class="mb-5">
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
-        <div>
-          <div class="section-kicker mb-2">Listen</div>
-          <h2 class="section-title mb-0">Latest podcast episodes</h2>
-        </div>
-        <a class="btn btn-dark-premium" href="https://drivehomeshow.substack.com/podcast" target="_blank" rel="noopener">Open podcast</a>
+      <div class="podcast-player-shell">
+        <iframe 
+          src="https://widget.justcast.com/widget?rss=https://api.substack.com/feed/podcast/2976961.rss&primaryBackgroundColor=0c1824&primaryButtonColor=f7f8f9&primaryTextColor=f7f8f9&progressBarFilledColor=f7f8f9&progressBarBackgroundColor=8A8175&playlistBackgroundColor=30343c&playlistTextColor=eff3f5&chapterBackgroundColor=30343c&chapterTextColor=f7f8f9"
+          frameborder="0"
+          scrolling="yes"
+          loading="lazy">
+        </iframe>
       </div>
-      <div data-rss-podcasts data-limit="6"></div>
-    </section>
-
-    <section class="premium-card p-4 p-lg-5">
-      <h2 class="h3 fw-bold">RSS feeds connected</h2>
-      <p class="text-secondary mb-2">Posts feed:</p>
-      <pre class="bg-dark text-white rounded-4 p-3"><code>https://drivehomeshow.substack.com/feed</code></pre>
-      <p class="text-secondary mb-2">Podcast feed:</p>
-      <pre class="bg-dark text-white rounded-4 p-3 mb-0"><code>https://api.substack.com/feed/podcast/2976961.rss</code></pre>
     </section>
   </main>
 
   <div id="site-footer"></div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/includes.js"></script>
-  <script src="assets/js/substack.js"></script>
-  <script src="assets/js/rss-feeds.js"></script>
+
+  <script>
+    async function loadLatestPodcast() {
+      const feedUrl = "https://api.substack.com/feed/podcast/2976961.rss";
+      const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
+
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        if (!data.items || !data.items.length) return;
+
+        const episode = data.items[0];
+
+        document.getElementById("latest-podcast-title").textContent = episode.title || "Latest episode";
+
+        const cleanDescription = (episode.description || "")
+          .replace(/<[^>]*>/g, "")
+          .slice(0, 220);
+
+        document.getElementById("latest-podcast-description").textContent =
+          cleanDescription + (cleanDescription.length >= 220 ? "..." : "");
+
+        document.getElementById("latest-podcast-link").href = episode.link || "https://drivehomeshow.substack.com/podcast";
+      } catch (error) {
+        console.log("Podcast feed could not be loaded", error);
+      }
+    }
+
+    loadLatestPodcast();
+  </script>
 </body>
 </html>
