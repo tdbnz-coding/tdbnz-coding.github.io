@@ -1,0 +1,54 @@
+name: tdbnz Downloader
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "Video URL"
+        required: true
+        type: string
+
+      download_type:
+        description: "video or audio"
+        required: true
+        type: string
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y ffmpeg
+          python3 -m pip install -U yt-dlp
+
+      - name: Download video
+        if: github.event.inputs.download_type == 'video'
+        run: |
+          mkdir -p downloads
+
+          yt-dlp \
+            -f "bv*+ba/best" \
+            --merge-output-format mp4 \
+            -o "downloads/%(title).80s.%(ext)s" \
+            "${{ github.event.inputs.video_url }}"
+
+      - name: Download audio
+        if: github.event.inputs.download_type == 'audio'
+        run: |
+          mkdir -p downloads
+
+          yt-dlp \
+            -x \
+            --audio-format mp3 \
+            -o "downloads/%(title).80s.%(ext)s" \
+            "${{ github.event.inputs.video_url }}"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: downloaded-file
+          path: downloads/

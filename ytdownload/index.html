@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tdbnz Video Download</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>tdbnz Video Download</h1>
+  <p class="subtitle">
+    Download videos or audio using GitHub Actions + yt-dlp
+  </p>
+
+  <input type="text" id="videoUrl" placeholder="Paste video URL here">
+
+  <select id="downloadType">
+    <option value="video">Video (MP4)</option>
+    <option value="audio">Audio (MP3)</option>
+  </select>
+
+  <button onclick="startDownload()">Start Download</button>
+
+  <div class="info">
+    <h2>How it works</h2>
+    <ol>
+      <li>Paste a video URL</li>
+      <li>Choose Video or Audio</li>
+      <li>Click Start Download</li>
+      <li>GitHub Actions will process the file</li>
+      <li>Download it from GitHub Artifacts</li>
+    </ol>
+  </div>
+
+  <div id="status"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
