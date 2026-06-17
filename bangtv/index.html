@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bang TV - Premium IPTV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-dark: #050509;
+      --bg-card: #111119;
+      --accent: #ffb400;
+      --accent-soft: #ffdd80;
+      --text-main: #f5f5f5;
+      --text-muted: #b3b3c2;
+      --danger: #ff4b4b;
+      --success: #3ddc84;
+      --family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--family);
+      background: radial-gradient(circle at top, #181828 0, #050509 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5, 5, 9, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #222233;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ffb400, #ff4b4b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 900;
+      color: #050509;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-soft);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffb400, #ff4b4b);
+      color: #050509;
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    section {
+      margin: 2.5rem 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 480px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      border: 1px solid #333344;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--success);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #26263a 0, #111119 55%);
+      border-radius: 18px;
+      padding: 1.25rem;
+      border: 1px solid #26263a;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-card-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card-price {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-card-price span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-left: 0.4rem;
+    }
+
+    .hero-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-card-list li::before {
+      content: "• ";
+      color: var(--accent-soft);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .plan-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 1rem;
+      border: 1px solid #26263a;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .plan-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .plan-name {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .plan-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+      border: 1px solid #333344;
+      color: var(--text-muted);
+    }
+
+    .plan-price {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .plan-price span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-left: 0.3rem;
+    }
+
+    .plan-profit {
+      font-size: 0.78rem;
+      color: var(--accent-soft);
+    }
+
+    .plan-footnote {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    .tag-popular {
+      color: #050509;
+      background: var(--accent);
+      border-radius: 999px;
+      padding: 0.15rem 0.55rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: inline-block;
+      margin-bottom: 0.3rem;
+    }
+
+    .refer-box {
+      background: linear-gradient(135deg, #26263a, #111119);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      border: 1px solid #333344;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.5fr);
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .refer-steps {
+      list-style: none;
+      color: var(--text-muted);
+    }
+
+    .refer-steps li {
+      margin-bottom: 0.25rem;
+    }
+
+    .refer-steps li span {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    .refer-tagline {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .how-step {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 0.75rem;
+      border: 1px solid #26263a;
+    }
+
+    .how-step-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .how-step-num {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-soft);
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 0.9rem;
+      border: 1px solid #26263a;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      color: var(--text-muted);
+    }
+
+    .contact-box {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      border: 1px solid #26263a;
+      font-size: 0.85rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-pill {
+      border-radius: 999px;
+      border: 1px solid #333344;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid #222233;
+      padding: 1.25rem 1.25rem 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .plans-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .how-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .refer-box {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+      .plans-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .how-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      main {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <div class="logo-badge">B</div>
+        <span>Bang TV</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#plans">Plans</a>
+        <a href="#refer">Refer & Save</a>
+        <a href="#how">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="btn-primary" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">
+        View Plans
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div>
+        <h1 class="hero-title">
+          Premium <span class="hero-highlight">IPTV</span> for Every Home.
+        </h1>
+        <p class="hero-subtitle">
+          Thousands of channels, movies, and sports with fast activation, flexible plans, and support you can trust.
+        </p>
+        <div class="hero-badges">
+          <div class="badge">
+            <span class="badge-dot"></span> Live TV, Movies & Sports
+          </div>
+          <div class="badge">
+            <span class="badge-dot"></span> Works on Firestick, Smart TV & more
+          </div>
+          <div class="badge">
+            <span class="badge-dot"></span> No contracts. Easy renewals.
+          </div>
+        </div>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">
+            Choose Your Plan
+          </button>
+          <span class="hero-note">Most popular: 6‑Month Home (3 connections)</span>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-tag">Most Popular Plan</div>
+        <div class="hero-card-title">6‑Month Home — 3 Connections</div>
+        <div class="hero-card-price">
+          $180 <span>$200</span>
+        </div>
+        <div class="hero-card-sub">
+          Best balance of price, value, and flexibility. Perfect for families and shared homes.
+        </div>
+        <ul class="hero-card-list">
+          <li>3 devices at the same time</li>
+          <li>Huge channel & movie library</li>
+          <li>Fast activation after payment</li>
+          <li>Easy renewals and friendly support</li>
+        </ul>
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Get Started
+        </button>
+      </aside>
+    </section>
+
+    <!-- PLANS -->
+    <section id="plans">
+      <h2 class="section-title">Plans & Pricing</h2>
+      <p class="section-subtitle">
+        Choose the plan that fits your home. All plans include access to live TV, movies, series, and sports.
+      </p>
+
+      <div class="plans-grid">
+        <!-- 3-Month Family -->
+        <article class="plan-card">
+          <div class="plan-label">Starter Plan</div>
+          <div class="plan-name">3‑Month Family</div>
+          <div class="plan-pill">2 Connections</div>
+          <div class="plan-price">
+            $90 <span>$100</span>
+          </div>
+          <div class="plan-profit">
+            Profit: ~$74 normal / ~$64 sale
+          </div>
+          <div class="plan-footnote">
+            Great for new users wanting to test Bang TV without a long commitment.
+          </div>
+        </article>
+
+        <!-- 6-Month Home -->
+        <article class="plan-card">
+          <div class="tag-popular">Most Popular</div>
+          <div class="plan-label">Best Value</div>
+          <div class="plan-name">6‑Month Home</div>
+          <div class="plan-pill">3 Connections</div>
+          <div class="plan-price">
+            $180 <span>$200</span>
+          </div>
+          <div class="plan-profit">
+            Profit: ~$148 normal / ~$128 sale
+          </div>
+          <div class="plan-footnote">
+            The perfect balance of price, value, and flexibility. Ideal for most families.
+          </div>
+        </article>
+
+        <!-- 12-Month Pro -->
+        <article class="plan-card">
+          <div class="plan-label">Long‑Term</div>
+          <div class="plan-name">12‑Month Pro</div>
+          <div class="plan-pill">4 Connections</div>
+          <div class="plan-price">
+            $320 <span>$360</span>
+          </div>
+          <div class="plan-profit">
+            Profit: ~$267 normal / ~$227 sale
+          </div>
+          <div class="plan-footnote">
+            Perfect for loyal users who want a full year of streaming stability.
+          </div>
+        </article>
+
+        <!-- 12-Month Max -->
+        <article class="plan-card">
+          <div class="plan-label">Family Max</div>
+          <div class="plan-name">12‑Month Max</div>
+          <div class="plan-pill">5 Connections</div>
+          <div class="plan-price">
+            $350 <span>$400</span>
+          </div>
+          <div class="plan-profit">
+            Profit: ~$296 normal / ~$247 sale
+          </div>
+          <div class="plan-footnote">
+            Best for big families or heavy streamers who want maximum flexibility.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- REFER & SAVE -->
+    <section id="refer">
+      <h2 class="section-title">Refer a Friend & Save</h2>
+      <p class="section-subtitle">
+        Share Bang TV with friends and family and earn discounts on your new accounts or renewals.
+      </p>
+
+      <div class="refer-box">
+        <div>
+          <div class="refer-tagline">Simple referral rewards that stack.</div>
+          <ul class="refer-steps">
+            <li><span>1 friend</span> → $10 off</li>
+            <li><span>2 friends</span> → $20 off</li>
+            <li><span>3 friends</span> → $30 off</li>
+            <li><span>4 friends</span> → $40 off (max)</li>
+          </ul>
+          <p style="margin-top:0.5rem;color:var(--text-muted);font-size:0.8rem;">
+            Discounts can be used on a new plan or your next renewal.  
+            Each friend must sign up and activate their plan for the discount to apply.
+          </p>
+        </div>
+        <div>
+          <p class="refer-tagline">How it works:</p>
+          <p style="color:var(--text-muted);font-size:0.8rem;">
+            Each customer gets a simple referral code (for example: <strong>JORDAN01</strong>).  
+            When someone signs up using that code, we track it and add the discount to your account for your next renewal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <h2 class="section-title">How to Sign Up</h2>
+      <p class="section-subtitle">
+        Getting started with Bang TV is quick and easy. Follow these simple steps.
+      </p>
+
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-step-num">Step 1</div>
+          <div class="how-step-title">Choose Your Plan</div>
+          <p>Select the plan that fits your home and how many devices you want to use.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">Step 2</div>
+          <div class="how-step-title">Make Payment</div>
+          <p>Pay via bank transfer, PayID, or your preferred method (details provided on request).</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">Step 3</div>
+          <div class="how-step-title">Send Screenshot</div>
+          <p>Send your payment screenshot along with your plan choice and device type.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">Step 4</div>
+          <div class="how-step-title">Activation</div>
+          <p>We activate your account in our IPTV panel and send your login details.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">Step 5</div>
+          <div class="how-step-title">Start Watching</div>
+          <p>Install the app on your device, enter your details, and enjoy Bang TV.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">
+        A few quick answers to common questions about Bang TV.
+      </p>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">What devices does Bang TV work on?</div>
+          <div class="faq-a">
+            Bang TV works on Firestick, Smart TVs, Android boxes, phones, tablets, and PCs using supported IPTV apps.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How fast is activation?</div>
+          <div class="faq-a">
+            Once payment is confirmed, activation is usually completed within minutes, depending on current demand.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I need a VPN?</div>
+          <div class="faq-a">
+            A VPN is optional but recommended for privacy and a more stable experience in some regions.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I upgrade my plan later?</div>
+          <div class="faq-a">
+            Yes. You can upgrade to a higher plan or more connections at any time by contacting support.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact & Support</h2>
+      <p class="section-subtitle">
+        Ready to get started or need help with a plan? Reach out and we’ll get you set up.
+      </p>
+
+      <div class="contact-box">
+        <p>
+          Bang TV offers fast replies, friendly support, and clear communication around activations and renewals.
+        </p>
+        <div class="contact-row">
+          <div class="contact-pill">Messenger: Bang TV</div>
+          <div class="contact-pill">WhatsApp: +XX XXX XXX XXX</div>
+          <div class="contact-pill">Email: support@bangtv.example</div>
+        </div>
+        <p style="margin-top:0.7rem;color:var(--text-muted);font-size:0.8rem;">
+          Send us a message with your chosen plan, device type, and payment screenshot, and we’ll guide you through the rest.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Bang TV. All rights reserved. IPTV service for personal use only.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
