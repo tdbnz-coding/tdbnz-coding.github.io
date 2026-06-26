@@ -9,7 +9,7 @@ from datetime import datetime, timedelta, timezone
 FORCE = "force" in sys.argv
 
 WEBHOOK = os.getenv("DISCORD_WEBHOOK")
-LAST_FILE = "last.json"
+LAST_FILE = "bangtv/last.json"
 
 # Sport emojis
 SPORT_EMOJIS = {
