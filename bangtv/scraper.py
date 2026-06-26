@@ -50,6 +50,18 @@ BASE_URL = (
     "&bg=f8f8f9&bgs=b7b7b7&grp=1&sd=0&lng=1&typeID=0"
 )
 
+# Ordinal helper (1st, 2nd, 3rd, 4th...)
+def ordinal(n):
+    if 11 <= n % 100 <= 13:
+        return f"{n}th"
+    if n % 10 == 1:
+        return f"{n}st"
+    if n % 10 == 2:
+        return f"{n}nd"
+    if n % 10 == 3:
+        return f"{n}rd"
+    return f"{n}th"
+
 def load_last():
     try:
         with open(LAST_FILE, "r") as f:
@@ -102,39 +114,71 @@ def parse_events(html, date_str):
 
     return events
 
-def format_message(events):
-    lines = []
-    current_date = ""
-
-    for e in events:
-        if e["date"] != current_date:
-            current_date = e["date"]
-            lines.append(f"\n📅 **{current_date}**\n")
-
-        emoji = SPORT_EMOJIS.get(e["sport"], "🏆")
-
-        lines.append(
-            f"{emoji} **{e['sport']} — {e['title']}**\n"
-            f"🕒 {e['time']} NZT\n"
-            f"📺 {e['channel']}\n"
-            f"📝 {e['description']}\n"
-        )
-
-    return "\n".join(lines)
-
-def send_to_discord(msg):
+def send_split_messages_by_day(events):
     if not WEBHOOK:
-        print("ERROR: DISCORD_WEBHOOK is missing!")
+        print("ERROR: DISCORD_WEBHOOK missing")
         return
 
-    payload = {
-        "username": "Bang TV Sports",
-        "avatar_url": "https://i.imgur.com/5QFQKpS.png",
-        "content": msg
-    }
+    MAX = 1800  # safe limit
+    days = {}
 
-    r = requests.post(WEBHOOK, json=payload)
-    print("Webhook status:", r.status_code, r.text)
+    # Group events by date
+    for e in events:
+        days.setdefault(e["date"], []).append(e)
+
+    for date_str, day_events in days.items():
+        # Convert date to weekday + ordinal date
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        day_name = dt.strftime("%A")
+        pretty_date = f"{day_name} {ordinal(dt.day)} {dt.strftime('%B %Y')}"
+
+        # Build full text for this day
+        lines = [f"📅 **{pretty_date}**", ""]
+        for e in day_events:
+            emoji = SPORT_EMOJIS.get(e["sport"], "🏆")
+            lines.append(
+                f"{emoji} **{e['sport']} — {e['title']}**\n"
+                f"🕒 {e['time']} NZT\n"
+                f"📺 {e['channel']}\n"
+                f"📝 {e['description']}\n"
+            )
+
+        # Split into chunks without cutting lines
+        chunks = []
+        current = ""
+
+        for line in lines:
+            if len(current) + len(line) + 1 > MAX:
+                chunks.append(current)
+                current = line + "\n"
+            else:
+                current += line + "\n"
+
+        if current.strip():
+            chunks.append(current)
+
+        # Send each chunk
+        for i, chunk in enumerate(chunks):
+            if i == 0:
+                header = f"**{pretty_date}**"
+            else:
+                header = f"**{pretty_date} (continued)**"
+
+            payload = {
+                "username": "Bang TV Sports",
+                "avatar_url": "https://i.imgur.com/5QFQKpS.png",
+                "content": header + "\n\n" + chunk
+            }
+
+            r = requests.post(WEBHOOK, json=payload)
+            print(f"{pretty_date} chunk {i+1} status:", r.status_code)
+
+        # Blank gap between days
+        requests.post(WEBHOOK, json={
+            "username": "Bang TV Sports",
+            "avatar_url": "https://i.imgur.com/5QFQKpS.png",
+            "content": "\n"
+        })
 
 if __name__ == "__main__":
     last = load_last()
@@ -144,16 +188,19 @@ if __name__ == "__main__":
         html, date_str = fetch_day(d)
         all_events.extend(parse_events(html, date_str))
 
-    msg = format_message(all_events)
+    # Hash the full message text
+    msg = "\n".join([
+        f"{e['date']}|{e['sport']}|{e['time']}|{e['title']}|{e['description']}|{e['channel']}"
+        for e in all_events
+    ])
     new_hash = hash(msg)
 
     print("FORCE:", FORCE)
     print("Old hash:", last.get("hash"))
     print("New hash:", new_hash)
-    print("Message length:", len(msg))
 
     if FORCE or last.get("hash") != new_hash:
-        send_to_discord(msg)
+        send_split_messages_by_day(all_events)
         save_last({"hash": new_hash})
     else:
         print("No changes detected — not posting.")
