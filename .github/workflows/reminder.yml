@@ -1,13 +1,27 @@
-name: Bang TV Webhook Test
+name: Bang TV Event Reminders
 
 on:
+  schedule:
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 jobs:
-  test:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          curl -H "Content-Type: application/json" \
-          -d '{"username":"Bang TV Sports","avatar_url":"https://i.imgur.com/5QFQKpS.png","content":"🧪 Bang TV Test Message — webhook is working!"}' \
-          ${{ secrets.DISCORD_WEBHOOK }}
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests beautifulsoup4
+
+      - env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python bangtv/reminder.py
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update reminder.json"
+          file_pattern: bangtv/reminder.json
