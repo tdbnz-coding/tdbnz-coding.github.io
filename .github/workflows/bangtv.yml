@@ -27,7 +27,7 @@ jobs:
       - name: Run scraper
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: python scraper.py ${{ github.event.inputs.force == 'yes' && 'force' || '' }}
+        run: python bangtv/scraper.py ${{ github.event.inputs.force == 'yes' && 'force' || '' }}
 
       - name: Save state
         uses: stefanzweifel/git-auto-commit-action@v5

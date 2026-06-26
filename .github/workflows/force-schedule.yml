@@ -20,4 +20,4 @@ jobs:
       - name: Force post schedule
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: python scraper.py force
+        run: python bangtv/scraper.py force
