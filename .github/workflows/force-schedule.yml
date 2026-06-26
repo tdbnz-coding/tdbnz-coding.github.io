@@ -7,10 +7,10 @@ jobs:
   force:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -21,3 +21,9 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: python bangtv/scraper.py force
+
+      - name: Save state
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Force update last.json"
+          file_pattern: bangtv/last.json
