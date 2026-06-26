@@ -1,0 +1,14 @@
+name: Bang TV Webhook Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send test message
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{"username":"Bang TV Sports","avatar_url":"https://i.imgur.com/5QFQKpS.png","content":"🧪 **Bang TV Test Message** — webhook is working!"}' \
+          ${{ secrets.DISCORD_WEBHOOK }}

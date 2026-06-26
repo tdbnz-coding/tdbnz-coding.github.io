@@ -1,0 +1,36 @@
+name: Bang TV Sports Daily
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force post schedule?"
+        required: false
+        default: "no"
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run scraper
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python scraper.py ${{ github.event.inputs.force == 'yes' && 'force' || '' }}
+
+      - name: Save state
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update last.json"
+          file_pattern: last.json
