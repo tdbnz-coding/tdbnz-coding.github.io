@@ -5,19 +5,20 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
 
-# Force mode for manual runs
+# Force mode
 FORCE = "force" in sys.argv
 
+# Webhook from GitHub Actions
 WEBHOOK = os.getenv("DISCORD_WEBHOOK")
 
-# Always resolve last.json relative to THIS script
+# Path to last.json (same folder as this script)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LAST_FILE = os.path.join(BASE_DIR, "last.json")
 
-# Ensure last.json exists
+# Create last.json if missing
 if not os.path.exists(LAST_FILE):
     with open(LAST_FILE, "w") as f:
-        json.dump({}, f)
+        json.dump({"hash": None}, f)
 
 # Sport emojis
 SPORT_EMOJIS = {
@@ -54,7 +55,7 @@ def load_last():
         with open(LAST_FILE, "r") as f:
             return json.load(f)
     except:
-        return None
+        return {"hash": None}
 
 def save_last(data):
     with open(LAST_FILE, "w") as f:
@@ -122,12 +123,18 @@ def format_message(events):
     return "\n".join(lines)
 
 def send_to_discord(msg):
+    if not WEBHOOK:
+        print("ERROR: DISCORD_WEBHOOK is missing!")
+        return
+
     payload = {
         "username": "Bang TV Sports",
         "avatar_url": "https://i.imgur.com/5QFQKpS.png",
         "content": msg
     }
-    requests.post(WEBHOOK, json=payload)
+
+    r = requests.post(WEBHOOK, json=payload)
+    print("Webhook status:", r.status_code, r.text)
 
 if __name__ == "__main__":
     last = load_last()
@@ -140,8 +147,12 @@ if __name__ == "__main__":
     msg = format_message(all_events)
     new_hash = hash(msg)
 
-    # FORCE mode always posts
-    if FORCE or not last or last.get("hash") != new_hash:
+    print("FORCE:", FORCE)
+    print("Old hash:", last.get("hash"))
+    print("New hash:", new_hash)
+    print("Message length:", len(msg))
+
+    if FORCE or last.get("hash") != new_hash:
         send_to_discord(msg)
         save_last({"hash": new_hash})
     else:

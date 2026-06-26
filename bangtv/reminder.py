@@ -1,17 +1,20 @@
 import os
-import sys
 import json
+import sys
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
 
-WEBHOOK = os.getenv("DISCORD_WEBHOOK")
-REMINDER_FILE = "reminder.json"
-
-# Force mode for manual runs
 FORCE = "force" in sys.argv
+WEBHOOK = os.getenv("DISCORD_WEBHOOK")
 
-# Sport emojis
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+REMINDER_FILE = os.path.join(BASE_DIR, "reminder.json")
+
+if not os.path.exists(REMINDER_FILE):
+    with open(REMINDER_FILE, "w") as f:
+        json.dump({}, f)
+
 SPORT_EMOJIS = {
     "Football": "⚽",
     "Rugby": "🏉",
@@ -42,8 +45,6 @@ BASE_URL = (
 )
 
 def load_reminders():
-    if not os.path.exists(REMINDER_FILE):
-        return {}
     with open(REMINDER_FILE, "r") as f:
         return json.load(f)
 
@@ -51,9 +52,29 @@ def save_reminders(data):
     with open(REMINDER_FILE, "w") as f:
         json.dump(data, f)
 
-def get_dates():
-    today = datetime.now(timezone.utc).astimezone().date()
-    return [today + timedelta(days=i) for i in range(3)]
+def parse_nz_datetime(date_str, time_str):
+    dt = datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %I:%M%p")
+    nz = timezone(timedelta(hours=12))
+    return dt.replace(tzinfo=nz)
+
+def send_reminder(event, channels):
+    emoji = SPORT_EMOJIS.get(event["sport"], "🏆")
+
+    msg = (
+        f"🔔 **30‑minute reminder!**\n"
+        f"{emoji} **{event['sport']} — {event['title']}**\n"
+        f"🕒 Starts at **{event['time']} NZT**\n"
+        f"📺 Channels: **{', '.join(channels)}**\n"
+        f"📝 {event['description']}\n"
+    )
+
+    r = requests.post(WEBHOOK, json={
+        "username": "Bang TV Sports",
+        "avatar_url": "https://i.imgur.com/5QFQKpS.png",
+        "content": msg
+    })
+
+    print("Reminder webhook:", r.status_code, r.text)
 
 def fetch_day(date_obj):
     date_str = date_obj.isoformat()
@@ -92,45 +113,20 @@ def parse_events(html, date_str):
 
     return events
 
-def parse_nz_datetime(date_str, time_str):
-    dt = datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %I:%M%p")
-    nz = timezone(timedelta(hours=12))
-    return dt.replace(tzinfo=nz)
-
-def send_reminder(event, channels):
-    emoji = SPORT_EMOJIS.get(event["sport"], "🏆")
-
-    msg = (
-        f"🔔 **30‑minute reminder!**\n"
-        f"{emoji} **{event['sport']} — {event['title']}**\n"
-        f"🕒 Starts at **{event['time']} NZT**\n"
-        f"📺 Channels: **{', '.join(channels)}**\n"
-        f"📝 {event['description']}\n"
-    )
-
-    payload = {
-        "username": "Bang TV Sports",
-        "avatar_url": "https://i.imgur.com/5QFQKpS.png",
-        "content": msg
-    }
-
-    requests.post(WEBHOOK, json=payload)
-
 if __name__ == "__main__":
     reminders = load_reminders()
     now = datetime.now(timezone.utc).astimezone()
 
     all_events = []
-    for d in get_dates():
+    for i in range(3):
+        d = now.date() + timedelta(days=i)
         html, date_str = fetch_day(d)
         all_events.extend(parse_events(html, date_str))
 
-    # Group events by title + date + time
     grouped = {}
     for e in all_events:
         key = f"{e['date']}|{e['time']}|{e['title']}"
-        if key not in grouped:
-            grouped[key] = {"event": e, "channels": []}
+        grouped.setdefault(key, {"event": e, "channels": []})
         grouped[key]["channels"].append(e["channel"])
 
     for key, data in grouped.items():
@@ -140,7 +136,6 @@ if __name__ == "__main__":
         event_dt = parse_nz_datetime(event["date"], event["time"])
         diff = event_dt - now
 
-        # Within 30 minutes
         if timedelta(minutes=0) < diff <= timedelta(minutes=30):
             if FORCE or key not in reminders:
                 send_reminder(event, channels)
