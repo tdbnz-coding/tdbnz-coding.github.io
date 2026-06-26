@@ -143,12 +143,18 @@ def send_split_messages_by_day(events):
                 f"📝 {e['description']}\n"
             )
 
+        # Add separator at end of day
+        lines.append("----------------------")
+        lines.append("")
+
         # Split into chunks without cutting lines
         chunks = []
         current = ""
 
         for line in lines:
             if len(current) + len(line) + 1 > MAX:
+                # Add separator inside day breaks
+                current += "\n----------------------\n"
                 chunks.append(current)
                 current = line + "\n"
             else:
@@ -173,11 +179,11 @@ def send_split_messages_by_day(events):
             r = requests.post(WEBHOOK, json=payload)
             print(f"{pretty_date} chunk {i+1} status:", r.status_code)
 
-        # Blank gap between days
+        # Separator between days
         requests.post(WEBHOOK, json={
             "username": "Bang TV Sports",
             "avatar_url": "https://i.imgur.com/5QFQKpS.png",
-            "content": "\n"
+            "content": "----------------------\n"
         })
 
 if __name__ == "__main__":
