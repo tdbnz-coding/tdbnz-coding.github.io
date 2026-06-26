@@ -9,7 +9,15 @@ from datetime import datetime, timedelta, timezone
 FORCE = "force" in sys.argv
 
 WEBHOOK = os.getenv("DISCORD_WEBHOOK")
-LAST_FILE = "bangtv/last.json"
+
+# Always resolve last.json relative to THIS script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+LAST_FILE = os.path.join(BASE_DIR, "last.json")
+
+# Ensure last.json exists
+if not os.path.exists(LAST_FILE):
+    with open(LAST_FILE, "w") as f:
+        json.dump({}, f)
 
 # Sport emojis
 SPORT_EMOJIS = {
@@ -42,10 +50,11 @@ BASE_URL = (
 )
 
 def load_last():
-    if not os.path.exists(LAST_FILE):
+    try:
+        with open(LAST_FILE, "r") as f:
+            return json.load(f)
+    except:
         return None
-    with open(LAST_FILE, "r") as f:
-        return json.load(f)
 
 def save_last(data):
     with open(LAST_FILE, "w") as f:
