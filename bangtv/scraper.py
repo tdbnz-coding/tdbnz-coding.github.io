@@ -107,8 +107,7 @@ def parse_epg_datetime(dt_str):
     if not m:
         return None
     y, mo, d, h, mi, s, off = m.groups()
-    dt = datetime(int(y), int(mo), int(d), int(h), int(mi), int(s)
-    )
+    dt = datetime(int(y), int(mo), int(d), int(h), int(mi), int(s))
     sign = 1 if off[0] == "+" else -1
     oh = int(off[1:3])
     om = int(off[3:5])
@@ -308,8 +307,6 @@ def send_schedule(groups):
                 f"📝 {e['description']}\n"
             )
 
-        lines.append("----------------------")
-
         # Chunk lines into message-sized blocks
         chunks = []
         current = ""
@@ -324,7 +321,7 @@ def send_schedule(groups):
         if current.strip():
             chunks.append(current)
 
-        # Send chunks with 30s delay between posts, separator as its own message
+        # Send chunks with 30s delay between posts, break as its own message
         for i, chunk in enumerate(chunks):
             if i == 0:
                 header = f"📅 **{pretty}**"
@@ -332,7 +329,7 @@ def send_schedule(groups):
                 header = f"📅 **{pretty} (continued)**"
 
             # Blank line at top, then header, then blank line, then content
-            content = "\n" + header + "\n\n" + chunk
+            content = "\n\n" + header + "\n\n" + chunk
 
             requests.post(WEBHOOK, json={
                 "username": "Bang TV Sports",
@@ -341,9 +338,9 @@ def send_schedule(groups):
             })
             time.sleep(30)
 
-            # If there is another chunk after this, send separator as its own message
+            # If there is another chunk after this, send break as its own message
             if i < len(chunks) - 1:
-                sep_content = "\n\n=========================\n\n"
+                sep_content = "\n=========================\n"
                 requests.post(WEBHOOK, json={
                     "content": sep_content
                 })
