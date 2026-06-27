@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import time
 import requests
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
@@ -72,17 +73,14 @@ def ordinal(n):
         return f"{n}rd"
     return f"{n}th"
 
-# ⭐ UNIVERSAL TIME NORMALISER
+# UNIVERSAL TIME NORMALISER
 def fix_time_format(t):
     if not t:
         return t
 
     t = t.strip().replace("  ", " ")
 
-    # Normalize lowercase am/pm → AM/PM
     t = re.sub(r"(?i)\b(am|pm)\b", lambda m: m.group(1).upper(), t)
-
-    # Insert missing space before AM/PM
     t = re.sub(r"(?i)(\d)(AM|PM)$", r"\1 \2", t)
     t = re.sub(r"(?i)(\d{1,2}:\d{2})(AM|PM)$", r"\1 \2", t)
 
@@ -233,7 +231,6 @@ def events_match(e1, e2):
 def merge_events(events, programmes):
     merged_groups = []
 
-    # Convert EPG programmes into event-like objects
     for p in programmes:
         merged_groups.append({
             "event": {
@@ -246,7 +243,6 @@ def merge_events(events, programmes):
             "channels": [(p["channel"], True)]
         })
 
-    # Add STVG events
     for e in events:
         placed = False
 
@@ -262,7 +258,6 @@ def merge_events(events, programmes):
                 "channels": [(e["channel"], False)]
             })
 
-    # Sort channels
     for g in merged_groups:
         g["channels"] = sorted(
             g["channels"],
@@ -278,19 +273,19 @@ def send_schedule(groups):
 
     MAX = 1800  # safety margin under Discord's 2000-char limit
 
-    # Group events by date
     days = {}
     for g in groups:
         d = g["event"]["date"]
         days.setdefault(d, []).append(g)
 
-    # Process each day separately
-    for date_str, items in days.items():
+    sorted_dates = sorted(days.keys())
+
+    for idx, date_str in enumerate(sorted_dates):
+        items = days[date_str]
         dt = datetime.strptime(date_str, "%Y-%m-%d")
         pretty = f"{dt.strftime('%A')} {ordinal(dt.day)} {dt.strftime('%B %Y')}"
 
-        # Build all lines for the day
-        lines = [f"📅 **{pretty}**", ""]
+        lines = []
         for g in items:
             e = g["event"]
             emoji = SPORT_EMOJIS.get(e["sport"], "🏆")
@@ -309,12 +304,12 @@ def send_schedule(groups):
 
         lines.append("----------------------")
 
-        # Chunk the day's lines into multiple posts if needed
         chunks = []
         current = ""
 
         for line in lines:
             if len(current) + len(line) > MAX:
+                current += "\n\n=========================\n\n"
                 chunks.append(current)
                 current = line + "\n"
             else:
@@ -323,10 +318,10 @@ def send_schedule(groups):
         if current.strip():
             chunks.append(current)
 
-        # Send each chunk
         for i, chunk in enumerate(chunks):
-            header = f"📅 **{pretty}**"
-            if i > 0:
+            if i == 0:
+                header = f"📅 **{pretty}**"
+            else:
                 header = f"📅 **{pretty} (continued)**"
 
             content = header + "\n\n" + chunk
@@ -336,6 +331,9 @@ def send_schedule(groups):
                 "avatar_url": "https://i.imgur.com/5QFQKpS.png",
                 "content": content
             })
+
+        if idx < len(sorted_dates) - 1:
+            time.sleep(60)
 
 if __name__ == "__main__":
     all_events = []
