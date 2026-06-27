@@ -73,7 +73,6 @@ def ordinal(n):
         return f"{n}rd"
     return f"{n}th"
 
-# UNIVERSAL TIME NORMALISER
 def fix_time_format(t):
     if not t:
         return t
@@ -108,7 +107,8 @@ def parse_epg_datetime(dt_str):
     if not m:
         return None
     y, mo, d, h, mi, s, off = m.groups()
-    dt = datetime(int(y), int(mo), int(d), int(h), int(mi), int(s))
+    dt = datetime(int(y), int(mo), int(d), int(h), int(mi), int(s)
+    )
     sign = 1 if off[0] == "+" else -1
     oh = int(off[1:3])
     om = int(off[3:5])
@@ -234,9 +234,13 @@ def merge_events(events, programmes):
     for p in programmes:
         merged_groups.append({
             "event": {
-                "date": p["start"].astimezone(timezone(timedelta(hours=12))).strftime("%Y-%m-%d"),
+                "date": p["start"].astimezone(
+                    timezone(timedelta(hours=12))
+                ).strftime("%Y-%m-%d"),
                 "sport": "Unknown",
-                "time": p["start"].astimezone(timezone(timedelta(hours=12))).strftime("%I:%M %p"),
+                "time": p["start"].astimezone(
+                    timezone(timedelta(hours=12))
+                ).strftime("%I:%M %p"),
                 "title": p["title"],
                 "description": p["description"],
             },
@@ -261,7 +265,8 @@ def merge_events(events, programmes):
     for g in merged_groups:
         g["channels"] = sorted(
             g["channels"],
-            key=lambda x: SKY_SPORT_ORDER.index(x[0]) if x[0] in SKY_SPORT_ORDER else 999
+            key=lambda x: SKY_SPORT_ORDER.index(x[0])
+            if x[0] in SKY_SPORT_ORDER else 999
         )
 
     return merged_groups
@@ -280,11 +285,12 @@ def send_schedule(groups):
 
     sorted_dates = sorted(days.keys())
 
-    for idx, date_str in enumerate(sorted_dates):
+    for day_index, date_str in enumerate(sorted_dates):
         items = days[date_str]
         dt = datetime.strptime(date_str, "%Y-%m-%d")
         pretty = f"{dt.strftime('%A')} {ordinal(dt.day)} {dt.strftime('%B %Y')}"
 
+        # Build lines for this day (no header here; header added per message)
         lines = []
         for g in items:
             e = g["event"]
@@ -304,12 +310,12 @@ def send_schedule(groups):
 
         lines.append("----------------------")
 
+        # Chunk lines into message-sized blocks
         chunks = []
         current = ""
 
         for line in lines:
-            if len(current) + len(line) > MAX:
-                current += "\n\n=========================\n\n"
+            if len(current) + len(line) > MAX and current:
                 chunks.append(current)
                 current = line + "\n"
             else:
@@ -318,22 +324,34 @@ def send_schedule(groups):
         if current.strip():
             chunks.append(current)
 
+        # Send chunks with 30s delay between posts, separator as its own message
         for i, chunk in enumerate(chunks):
             if i == 0:
                 header = f"📅 **{pretty}**"
             else:
                 header = f"📅 **{pretty} (continued)**"
 
-            content = header + "\n\n" + chunk
+            # Blank line at top, then header, then blank line, then content
+            content = "\n" + header + "\n\n" + chunk
 
             requests.post(WEBHOOK, json={
                 "username": "Bang TV Sports",
                 "avatar_url": "https://i.imgur.com/5QFQKpS.png",
                 "content": content
             })
+            time.sleep(30)
 
-        if idx < len(sorted_dates) - 1:
-            time.sleep(60)
+            # If there is another chunk after this, send separator as its own message
+            if i < len(chunks) - 1:
+                sep_content = "\n\n=========================\n\n"
+                requests.post(WEBHOOK, json={
+                    "content": sep_content
+                })
+                time.sleep(30)
+
+        # After finishing a day, wait 61 seconds before next day (if any)
+        if day_index < len(sorted_dates) - 1:
+            time.sleep(61)
 
 if __name__ == "__main__":
     all_events = []
@@ -349,10 +367,12 @@ if __name__ == "__main__":
     merged = merge_events(all_events, programmes)
 
     msg_hash = hash(str(merged))
-    last = json.load(open(LAST_FILE))
+    with open(LAST_FILE) as f:
+        last = json.load(f)
 
     if FORCE or last.get("hash") != msg_hash:
         send_schedule(merged)
-        json.dump({"hash": msg_hash}, open(LAST_FILE, "w"))
+        with open(LAST_FILE, "w") as f:
+            json.dump({"hash": msg_hash}, f)
     else:
         print("No changes")
