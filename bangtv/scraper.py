@@ -276,19 +276,21 @@ def send_schedule(groups):
         print("Missing webhook")
         return
 
-    MAX = 1800
+    MAX = 1800  # safety margin under Discord's 2000-char limit
 
+    # Group events by date
     days = {}
     for g in groups:
         d = g["event"]["date"]
         days.setdefault(d, []).append(g)
 
+    # Process each day separately
     for date_str, items in days.items():
         dt = datetime.strptime(date_str, "%Y-%m-%d")
         pretty = f"{dt.strftime('%A')} {ordinal(dt.day)} {dt.strftime('%B %Y')}"
 
+        # Build all lines for the day
         lines = [f"📅 **{pretty}**", ""]
-
         for g in items:
             e = g["event"]
             emoji = SPORT_EMOJIS.get(e["sport"], "🏆")
@@ -307,6 +309,7 @@ def send_schedule(groups):
 
         lines.append("----------------------")
 
+        # Chunk the day's lines into multiple posts if needed
         chunks = []
         current = ""
 
@@ -320,11 +323,18 @@ def send_schedule(groups):
         if current.strip():
             chunks.append(current)
 
-        for chunk in chunks:
+        # Send each chunk
+        for i, chunk in enumerate(chunks):
+            header = f"📅 **{pretty}**"
+            if i > 0:
+                header = f"📅 **{pretty} (continued)**"
+
+            content = header + "\n\n" + chunk
+
             requests.post(WEBHOOK, json={
                 "username": "Bang TV Sports",
                 "avatar_url": "https://i.imgur.com/5QFQKpS.png",
-                "content": chunk
+                "content": content
             })
 
 if __name__ == "__main__":
