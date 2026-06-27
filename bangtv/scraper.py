@@ -72,6 +72,22 @@ def ordinal(n):
         return f"{n}rd"
     return f"{n}th"
 
+# ⭐ UNIVERSAL TIME NORMALISER
+def fix_time_format(t):
+    if not t:
+        return t
+
+    t = t.strip().replace("  ", " ")
+
+    # Normalize lowercase am/pm → AM/PM
+    t = re.sub(r"(?i)\b(am|pm)\b", lambda m: m.group(1).upper(), t)
+
+    # Insert missing space before AM/PM
+    t = re.sub(r"(?i)(\d)(AM|PM)$", r"\1 \2", t)
+    t = re.sub(r"(?i)(\d{1,2}:\d{2})(AM|PM)$", r"\1 \2", t)
+
+    return t.strip()
+
 def append_nz_if_epg(channel, from_epg):
     return f"{channel} NZ" if from_epg else channel
 
@@ -161,6 +177,7 @@ def fuzzy_title_match(a, b):
     return len(ta & tb) >= 2
 
 def parse_nz_time(date_str, time_str):
+    time_str = fix_time_format(time_str)
     dt = datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %I:%M %p")
     return dt.replace(tzinfo=timezone(timedelta(hours=12)))
 
@@ -216,7 +233,7 @@ def events_match(e1, e2):
 def merge_events(events, programmes):
     merged_groups = []
 
-    # Convert programmes into event-like objects
+    # Convert EPG programmes into event-like objects
     for p in programmes:
         merged_groups.append({
             "event": {
