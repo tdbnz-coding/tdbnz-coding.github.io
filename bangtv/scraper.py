@@ -8,9 +8,9 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
 import re
 
-FORCE = "force" in sys.argv
+# --- CONFIG ---
 WEBHOOK = os.getenv("DISCORD_WEBHOOK")
-
+FORCE = "force" in sys.argv
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LAST_FILE = os.path.join(BASE_DIR, "last.json")
 
@@ -18,24 +18,14 @@ if not os.path.exists(LAST_FILE):
     with open(LAST_FILE, "w") as f:
         json.dump({"hash": None}, f)
 
+# --- CONSTANTS ---
 SPORT_EMOJIS = {
-    "Football": "⚽",
-    "Rugby": "🏉",
-    "Rugby League": "🏉",
-    "Cricket": "🏏",
-    "Tennis": "🎾",
-    "Golf": "⛳",
-    "Motorsport": "🏎️",
-    "Basketball": "🏀",
-    "Snooker": "🎱",
-    "Aussie rules": "🏉",
-    "Baseball": "⚾",
-    "Ice Hockey": "🏒",
-    "Boxing": "🥊",
-    "MMA": "🥋",
-    "Cycling": "🚴",
-    "Athletics": "🏃",
-    "Swimming": "🏊",
+    "Football": "⚽", "Rugby": "🏉", "Rugby League": "🏉",
+    "Cricket": "🏏", "Tennis": "🎾", "Golf": "⛳",
+    "Motorsport": "🏎️", "Basketball": "🏀", "Snooker": "🎱",
+    "Aussie rules": "🏉", "Baseball": "⚾", "Ice Hockey": "🏒",
+    "Boxing": "🥊", "MMA": "🥋", "Cycling": "🚴",
+    "Athletics": "🏃", "Swimming": "🏊"
 }
 
 BASE_URL = (
@@ -49,69 +39,37 @@ BASE_URL = (
 
 SKY_EPG_URL = "https://i.mjh.nz/SkyGo/epg.xml"
 
-SKY_SPORT_ORDER = [
-    "Sky Sport 1",
-    "Sky Sport 2",
-    "Sky Sport 3",
-    "Sky Sport 4",
-    "Sky Sport 5",
-    "Sky Sport 6",
-    "Sky Sport 7",
-    "Sky Sport 8",
-    "Sky Sport 9",
-    "Sky Sport Select",
+SKY_ORDER = [
+    "Sky Sport 1", "Sky Sport 2", "Sky Sport 3", "Sky Sport 4",
+    "Sky Sport 5", "Sky Sport 6", "Sky Sport 7", "Sky Sport 8",
+    "Sky Sport 9", "Sky Sport Select"
 ]
 
+# --- HELPERS ---
 def ordinal(n):
     if 11 <= n % 100 <= 13:
         return f"{n}th"
-    if n % 10 == 1:
-        return f"{n}st"
-    if n % 10 == 2:
-        return f"{n}nd"
-    if n % 10 == 3:
-        return f"{n}rd"
-    return f"{n}th"
+    return f"{n}{['th','st','nd','rd','th'][min(n % 10, 4)]}"
 
-def fix_time_format(t):
-    if not t:
-        return t
-
-    t = t.strip().replace("  ", " ")
-
-    t = re.sub(r"(?i)\b(am|pm)\b", lambda m: m.group(1).upper(), t)
-    t = re.sub(r"(?i)(\d)(AM|PM)$", r"\1 \2", t)
-    t = re.sub(r"(?i)(\d{1,2}:\d{2})(AM|PM)$", r"\1 \2", t)
-
-    return t.strip()
-
-def append_nz_if_epg(channel, from_epg):
-    return f"{channel} NZ" if from_epg else channel
-
-def normalize_channel_name(name):
+def normalize_channel(name):
     if not name:
         return ""
     n = name.strip()
-    n = re.sub(r"\s*\(HD\)", "", n, flags=re.IGNORECASE)
-    n = re.sub(r"\s*\(NZ\)", "", n, flags=re.IGNORECASE)
-    n = re.sub(r"\s*HD$", "", n, flags=re.IGNORECASE)
-    n = re.sub(r"\s*\+\d+$", "", n)
-    n = re.sub(r"\s*\+$", "", n)
+    n = re.sub(r"\s*\(HD\)|\s*\(NZ\)|HD$", "", n, flags=re.I)
+    n = re.sub(r"\s*\+\d+$|\s*\+$", "", n)
     return n.strip()
 
-def is_sky_sport_channel(name):
-    return normalize_channel_name(name) in SKY_SPORT_ORDER
+def is_sky(name):
+    return normalize_channel(name) in SKY_ORDER
 
-def parse_epg_datetime(dt_str):
-    m = re.match(r"(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})([+-]\d{4})", dt_str)
+def parse_epg_datetime(dt):
+    m = re.match(r"(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})([+-]\d{4})", dt)
     if not m:
         return None
     y, mo, d, h, mi, s, off = m.groups()
     dt = datetime(int(y), int(mo), int(d), int(h), int(mi), int(s))
     sign = 1 if off[0] == "+" else -1
-    oh = int(off[1:3])
-    om = int(off[3:5])
-    tz = timezone(sign * timedelta(hours=oh, minutes=om))
+    tz = timezone(sign * timedelta(hours=int(off[1:3]), minutes=int(off[3:5])))
     return dt.replace(tzinfo=tz)
 
 def fetch_sky_epg():
@@ -119,24 +77,18 @@ def fetch_sky_epg():
     r.raise_for_status()
     return r.content
 
-def parse_sky_epg(xml_data):
-    root = ET.fromstring(xml_data)
-    channel_names = {}
+def parse_sky(xml):
+    root = ET.fromstring(xml)
+    names = {ch.get("id"): ch.find("display-name").text.strip()
+             for ch in root.findall("channel")}
 
-    for ch in root.findall("channel"):
-        cid = ch.get("id")
-        name_el = ch.find("display-name")
-        if cid and name_el is not None:
-            channel_names[cid] = name_el.text.strip()
-
-    programmes = []
+    out = []
     for prog in root.findall("programme"):
         cid = prog.get("channel")
-        if cid not in channel_names:
+        if cid not in names:
             continue
-
-        raw_name = channel_names[cid]
-        if not is_sky_sport_channel(raw_name):
+        raw = names[cid]
+        if not is_sky(raw):
             continue
 
         start = parse_epg_datetime(prog.get("start"))
@@ -144,50 +96,45 @@ def parse_sky_epg(xml_data):
         if not start or not stop:
             continue
 
-        title_el = prog.find("title")
-        desc_el = prog.find("desc")
+        title = prog.find("title").text.strip() if prog.find("title") is not None else ""
+        desc = prog.find("desc").text.strip() if prog.find("desc") is not None else ""
 
-        programmes.append({
-            "channel": normalize_channel_name(raw_name),
-            "from_epg": True,
-            "start": start,
-            "stop": stop,
-            "title": title_el.text.strip() if title_el is not None else "",
-            "description": desc_el.text.strip() if desc_el is not None else "",
+        nz = start.astimezone(timezone(timedelta(hours=12)))
+
+        out.append({
+            "date": nz.strftime("%Y-%m-%d"),
+            "sport": "Unknown",
+            "time": nz.strftime("%I:%M %p"),
+            "title": title,
+            "description": desc,
+            "channel": normalize_channel(raw),
+            "from_epg": True
         })
+    return out
 
-    return programmes
+def fix_time(t):
+    if not t:
+        return t
+    t = t.strip().replace("  ", " ")
+    t = re.sub(r"(?i)\b(am|pm)\b", lambda m: m.group(1).upper(), t)
+    t = re.sub(r"(?i)(\d)(AM|PM)$", r"\1 \2", t)
+    t = re.sub(r"(?i)(\d{1,2}:\d{2})(AM|PM)$", r"\1 \2", t)
+    return t.strip()
 
-def clean_title(t):
-    t = t.lower()
-    t = t.replace(" vs ", " v ")
-    t = t.replace(" vs. ", " v ")
-    t = re.sub(r"[^\w\s]", " ", t)
-    return re.sub(r"\s+", " ", t).strip()
-
-def title_tokens(t):
-    return set(clean_title(t).split())
-
-def fuzzy_title_match(a, b):
-    ta = title_tokens(a)
-    tb = title_tokens(b)
-    return len(ta & tb) >= 2
-
-def parse_nz_time(date_str, time_str):
-    time_str = fix_time_format(time_str)
-    dt = datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %I:%M %p")
+def parse_nz(date, time):
+    time = fix_time(time)
+    dt = datetime.strptime(f"{date} {time}", "%Y-%m-%d %I:%M %p")
     return dt.replace(tzinfo=timezone(timedelta(hours=12)))
 
-def fetch_day(date_obj):
-    date_str = date_obj.isoformat()
-    url = BASE_URL + f"&date={date_str}"
-    r = requests.get(url, timeout=15)
+def fetch_day(d):
+    ds = d.isoformat()
+    r = requests.get(BASE_URL + f"&date={ds}", timeout=15)
     r.raise_for_status()
-    return r.text, date_str
+    return r.text, ds
 
-def parse_events(html, date_str):
+def parse_events(html, date):
     soup = BeautifulSoup(html, "html.parser")
-    events = []
+    out = []
 
     for a in soup.select("a.article"):
         row = a.select_one(".row")
@@ -197,139 +144,121 @@ def parse_events(html, date_str):
         sport = row.select_one(".typeName").get_text(strip=True)
         time_str = row.select_one(".time b").get_text(strip=True)
 
-        text_blocks = row.select(".col-xs-8 .text-nowrap")
-        title = text_blocks[0].get_text(strip=True)
-        desc = text_blocks[1].get_text(strip=True) if len(text_blocks) > 1 else ""
+        blocks = row.select(".col-xs-8 .text-nowrap")
+        title = blocks[0].get_text(strip=True)
+        desc = blocks[1].get_text(strip=True) if len(blocks) > 1 else ""
 
-        chan_img = row.select_one(".col-xs-2 img[title]")
-        channel = chan_img["title"].strip() if chan_img else "Unknown channel"
+        img = row.select_one(".col-xs-2 img[title]")
+        channel = normalize_channel(img["title"].strip()) if img else "Unknown"
 
-        events.append({
-            "date": date_str,
+        out.append({
+            "date": date,
             "sport": sport,
             "time": time_str,
             "title": title,
             "description": desc,
-            "channel": normalize_channel_name(channel),
-            "from_epg": False,
+            "channel": channel,
+            "from_epg": False
         })
+    return out
 
-    return events
+def fuzzy(a, b):
+    def tok(t):
+        t = t.lower().replace(" vs ", " v ")
+        t = re.sub(r"[^\w\s]", " ", t)
+        return set(re.sub(r"\s+", " ", t).split())
+    return len(tok(a) & tok(b)) >= 2
 
-def events_match(e1, e2):
-    if e1["date"] != e2["date"]:
-        return False
+def merge(events, epg):
+    groups = []
 
-    dt1 = parse_nz_time(e1["date"], e1["time"])
-    dt2 = parse_nz_time(e2["date"], e2["time"])
-    if abs((dt1 - dt2).total_seconds()) > 10 * 60:
-        return False
-
-    return fuzzy_title_match(e1["title"], e2["title"])
-
-def merge_events(events, programmes):
-    merged_groups = []
-
-    for p in programmes:
-        merged_groups.append({
+    # Add EPG first
+    for p in epg:
+        groups.append({
             "event": {
-                "date": p["start"].astimezone(
-                    timezone(timedelta(hours=12))
-                ).strftime("%Y-%m-%d"),
-                "sport": "Unknown",
-                "time": p["start"].astimezone(
-                    timezone(timedelta(hours=12))
-                ).strftime("%I:%M %p"),
+                "date": p["date"],
+                "sport": p["sport"],
+                "time": p["time"],
                 "title": p["title"],
-                "description": p["description"],
+                "description": p["description"]
             },
             "channels": [(p["channel"], True)]
         })
 
+    # Merge TV Guide events
     for e in events:
         placed = False
-
-        for g in merged_groups:
-            if events_match(e, g["event"]):
-                g["channels"].append((e["channel"], False))
-                placed = True
-                break
-
+        for g in groups:
+            if g["event"]["date"] == e["date"]:
+                dt1 = parse_nz(g["event"]["date"], g["event"]["time"])
+                dt2 = parse_nz(e["date"], e["time"])
+                if abs((dt1 - dt2).total_seconds()) <= 600 and fuzzy(g["event"]["title"], e["title"]):
+                    g["channels"].append((e["channel"], False))
+                    placed = True
+                    break
         if not placed:
-            merged_groups.append({
+            groups.append({
                 "event": e,
                 "channels": [(e["channel"], False)]
             })
 
-    for g in merged_groups:
+    # Sort channels
+    for g in groups:
         g["channels"] = sorted(
             g["channels"],
-            key=lambda x: SKY_SPORT_ORDER.index(x[0])
-            if x[0] in SKY_SPORT_ORDER else 999
+            key=lambda x: SKY_ORDER.index(x[0]) if x[0] in SKY_ORDER else 999
         )
 
-    return merged_groups
+    return groups
 
-def send_schedule(groups):
+def send(groups):
     if not WEBHOOK:
         print("Missing webhook")
         return
 
-    MAX = 1800  # safety margin under Discord's 2000-char limit
-
+    MAX = 1800
     days = {}
+
     for g in groups:
         d = g["event"]["date"]
         days.setdefault(d, []).append(g)
 
-    sorted_dates = sorted(days.keys())
+    for idx, date in enumerate(sorted(days.keys())):
+        dt = datetime.strptime(date, "%Y-%m-%d")
+        header = f"{dt.strftime('%A')} {ordinal(dt.day)} {dt.strftime('%B %Y')}"
 
-    for day_index, date_str in enumerate(sorted_dates):
-        items = days[date_str]
-        dt = datetime.strptime(date_str, "%Y-%m-%d")
-        pretty = f"{dt.strftime('%A')} {ordinal(dt.day)} {dt.strftime('%B %Y')}"
-
-        # Build lines for this day (no header here; header added per message)
         lines = []
-        for g in items:
+        for g in days[date]:
             e = g["event"]
             emoji = SPORT_EMOJIS.get(e["sport"], "🏆")
-
-            chan_list = [
-                append_nz_if_epg(ch, is_epg)
-                for ch, is_epg in g["channels"]
+            chans = [
+                f"{ch} NZ" if epg else ch
+                for ch, epg in g["channels"]
             ]
 
             lines.append(
                 f"{emoji} **{e['sport']} — {e['title']}**\n"
                 f"🕒 {e['time']} NZT\n"
-                f"📺 {', '.join(chan_list)}\n"
+                f"📺 {', '.join(chans)}\n"
                 f"📝 {e['description']}\n"
             )
 
-        # Chunk lines into message-sized blocks
         chunks = []
-        current = ""
+        cur = ""
 
         for line in lines:
-            if len(current) + len(line) > MAX and current:
-                chunks.append(current)
-                current = line + "\n"
+            if len(cur) + len(line) > MAX:
+                chunks.append(cur)
+                cur = line + "\n"
             else:
-                current += line + "\n"
+                cur += line + "\n"
 
-        if current.strip():
-            chunks.append(current)
+        if cur.strip():
+            chunks.append(cur)
 
-        # Send chunks with 30s delay between posts, break as its own message
         for i, chunk in enumerate(chunks):
-            if i == 0:
-                header = f"📅 **{pretty}**"
-            else:
-                header = f"📅 **{pretty} (continued)**"
-
-            # Blank line at top, then header, then blank line, then content
-            content = "\n\n" + header + "\n\n" + chunk
+            title = f"📅 **{header}**" if i == 0 else f"📅 **{header} (continued)**"
+            content = f"\n\n{title}\n\n{chunk}"
 
             requests.post(WEBHOOK, json={
                 "username": "Bang TV Sports",
@@ -338,37 +267,32 @@ def send_schedule(groups):
             })
             time.sleep(30)
 
-            # If there is another chunk after this, send break as its own message
             if i < len(chunks) - 1:
-                sep_content = "\n=========================\n"
-                requests.post(WEBHOOK, json={
-                    "content": sep_content
-                })
+                requests.post(WEBHOOK, json={"content": "\n=========================\n"})
                 time.sleep(30)
 
-        # After finishing a day, wait 61 seconds before next day (if any)
-        if day_index < len(sorted_dates) - 1:
+        if idx < len(days) - 1:
             time.sleep(61)
 
+# --- MAIN ---
 if __name__ == "__main__":
-    all_events = []
     today = datetime.now(timezone.utc).astimezone().date()
+    all_events = []
 
-    for i in range(3):
-        html, date_str = fetch_day(today + timedelta(days=i))
-        all_events.extend(parse_events(html, date_str))
+    # NEXT 3 DAYS ONLY
+    for i in range(1, 4):
+        html, ds = fetch_day(today + timedelta(days=i))
+        all_events.extend(parse_events(html, ds))
 
-    epg_xml = fetch_sky_epg()
-    programmes = parse_sky_epg(epg_xml)
-
-    merged = merge_events(all_events, programmes)
+    epg = parse_sky(fetch_sky_epg())
+    merged = merge(all_events, epg)
 
     msg_hash = hash(str(merged))
     with open(LAST_FILE) as f:
         last = json.load(f)
 
     if FORCE or last.get("hash") != msg_hash:
-        send_schedule(merged)
+        send(merged)
         with open(LAST_FILE, "w") as f:
             json.dump({"hash": msg_hash}, f)
     else:
