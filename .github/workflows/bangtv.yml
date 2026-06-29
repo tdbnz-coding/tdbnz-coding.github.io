@@ -2,7 +2,7 @@ name: Bang TV Sports Daily
 
 on:
   schedule:
-    # 10 PM NZ time (runs at 10 AM UTC)
+    # 10 PM NZ local time (runs at 10 AM UTC)
     - cron: "0 10 * * *"
   workflow_dispatch:
     inputs:

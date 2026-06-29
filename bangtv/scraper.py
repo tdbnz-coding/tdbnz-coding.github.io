@@ -8,9 +8,13 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
 import re
 
-# --- CONFIG ---
+# ------------------------------------------------------------
+# CONFIG
+# ------------------------------------------------------------
+
 WEBHOOK = os.getenv("DISCORD_WEBHOOK")
 FORCE = "force" in sys.argv
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LAST_FILE = os.path.join(BASE_DIR, "last.json")
 
@@ -18,8 +22,7 @@ if not os.path.exists(LAST_FILE):
     with open(LAST_FILE, "w") as f:
         json.dump({"hash": None}, f)
 
-# --- CONSTANTS ---
-SPORT_EMOJIS = {
+SPORT_EMOJI = {
     "Football": "⚽", "Rugby": "🏉", "Rugby League": "🏉",
     "Cricket": "🏏", "Tennis": "🎾", "Golf": "⛳",
     "Motorsport": "🏎️", "Basketball": "🏀", "Snooker": "🎱",
@@ -28,7 +31,7 @@ SPORT_EMOJIS = {
     "Athletics": "🏃", "Swimming": "🏊"
 }
 
-BASE_URL = (
+SPORT_URL = (
     "https://sport-tv-guide.live/sportwidget/1e479ae78733"
     "?time_zone=Pacific/Auckland"
     "&fc=29,3,102,14,1,7,2"
@@ -45,7 +48,12 @@ SKY_ORDER = [
     "Sky Sport 9", "Sky Sport Select"
 ]
 
-# --- HELPERS ---
+NZ_TZ = timezone(timedelta(hours=12))
+
+# ------------------------------------------------------------
+# HELPERS
+# ------------------------------------------------------------
+
 def ordinal(n):
     if 11 <= n % 100 <= 13:
         return f"{n}th"
@@ -72,6 +80,31 @@ def parse_epg_datetime(dt):
     tz = timezone(sign * timedelta(hours=int(off[1:3]), minutes=int(off[3:5])))
     return dt.replace(tzinfo=tz)
 
+def fuzzy_match(a, b):
+    def tok(t):
+        t = t.lower().replace(" vs ", " v ")
+        t = re.sub(r"[^\w\s]", " ", t)
+        return set(re.sub(r"\s+", " ", t).split())
+    return len(tok(a) & tok(b)) >= 2
+
+def fix_time(t):
+    if not t:
+        return t
+    t = t.strip().replace("  ", " ")
+    t = re.sub(r"(?i)\b(am|pm)\b", lambda m: m.group(1).upper(), t)
+    t = re.sub(r"(?i)(\d)(AM|PM)$", r"\1 \2", t)
+    t = re.sub(r"(?i)(\d{1,2}:\d{2})(AM|PM)$", r"\1 \2", t)
+    return t.strip()
+
+def parse_nz(date, time):
+    time = fix_time(time)
+    dt = datetime.strptime(f"{date} {time}", "%Y-%m-%d %I:%M %p")
+    return dt.replace(tzinfo=NZ_TZ)
+
+# ------------------------------------------------------------
+# FETCHERS
+# ------------------------------------------------------------
+
 def fetch_sky_epg():
     r = requests.get(SKY_EPG_URL, timeout=20)
     r.raise_for_status()
@@ -92,14 +125,12 @@ def parse_sky(xml):
             continue
 
         start = parse_epg_datetime(prog.get("start"))
-        stop = parse_epg_datetime(prog.get("stop"))
-        if not start or not stop:
+        if not start:
             continue
 
+        nz = start.astimezone(NZ_TZ)
         title = prog.find("title").text.strip() if prog.find("title") is not None else ""
         desc = prog.find("desc").text.strip() if prog.find("desc") is not None else ""
-
-        nz = start.astimezone(timezone(timedelta(hours=12)))
 
         out.append({
             "date": nz.strftime("%Y-%m-%d"),
@@ -112,23 +143,9 @@ def parse_sky(xml):
         })
     return out
 
-def fix_time(t):
-    if not t:
-        return t
-    t = t.strip().replace("  ", " ")
-    t = re.sub(r"(?i)\b(am|pm)\b", lambda m: m.group(1).upper(), t)
-    t = re.sub(r"(?i)(\d)(AM|PM)$", r"\1 \2", t)
-    t = re.sub(r"(?i)(\d{1,2}:\d{2})(AM|PM)$", r"\1 \2", t)
-    return t.strip()
-
-def parse_nz(date, time):
-    time = fix_time(time)
-    dt = datetime.strptime(f"{date} {time}", "%Y-%m-%d %I:%M %p")
-    return dt.replace(tzinfo=timezone(timedelta(hours=12)))
-
 def fetch_day(d):
     ds = d.isoformat()
-    r = requests.get(BASE_URL + f"&date={ds}", timeout=15)
+    r = requests.get(SPORT_URL + f"&date={ds}", timeout=15)
     r.raise_for_status()
     return r.text, ds
 
@@ -162,12 +179,9 @@ def parse_events(html, date):
         })
     return out
 
-def fuzzy(a, b):
-    def tok(t):
-        t = t.lower().replace(" vs ", " v ")
-        t = re.sub(r"[^\w\s]", " ", t)
-        return set(re.sub(r"\s+", " ", t).split())
-    return len(tok(a) & tok(b)) >= 2
+# ------------------------------------------------------------
+# MERGING
+# ------------------------------------------------------------
 
 def merge(events, epg):
     groups = []
@@ -192,7 +206,7 @@ def merge(events, epg):
             if g["event"]["date"] == e["date"]:
                 dt1 = parse_nz(g["event"]["date"], g["event"]["time"])
                 dt2 = parse_nz(e["date"], e["time"])
-                if abs((dt1 - dt2).total_seconds()) <= 600 and fuzzy(g["event"]["title"], e["title"]):
+                if abs((dt1 - dt2).total_seconds()) <= 600 and fuzzy_match(g["event"]["title"], e["title"]):
                     g["channels"].append((e["channel"], False))
                     placed = True
                     break
@@ -210,6 +224,10 @@ def merge(events, epg):
         )
 
     return groups
+
+# ------------------------------------------------------------
+# SENDING
+# ------------------------------------------------------------
 
 def send(groups):
     if not WEBHOOK:
@@ -230,7 +248,7 @@ def send(groups):
         lines = []
         for g in days[date]:
             e = g["event"]
-            emoji = SPORT_EMOJIS.get(e["sport"], "🏆")
+            emoji = SPORT_EMOJI.get(e["sport"], "🏆")
             chans = [
                 f"{ch} NZ" if epg else ch
                 for ch, epg in g["channels"]
@@ -274,14 +292,18 @@ def send(groups):
         if idx < len(days) - 1:
             time.sleep(61)
 
-# --- MAIN ---
+# ------------------------------------------------------------
+# MAIN
+# ------------------------------------------------------------
+
 if __name__ == "__main__":
-    today = datetime.now(timezone.utc).astimezone().date()
+    today = datetime.now(timezone.utc).astimezone(NZ_TZ).date()
     all_events = []
 
     # NEXT 3 DAYS ONLY
     for i in range(1, 4):
-        html, ds = fetch_day(today + timedelta(days=i))
+        target_day = today + timedelta(days=i)
+        html, ds = fetch_day(target_day)
         all_events.extend(parse_events(html, ds))
 
     epg = parse_sky(fetch_sky_epg())
