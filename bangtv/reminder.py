@@ -17,79 +17,55 @@ if not os.path.exists(REMINDER_FILE):
     with open(REMINDER_FILE, "w") as f:
         json.dump({}, f)
 
-SPORT_EMOJIS = {
-    "Football": "⚽",
-    "Rugby": "🏉",
-    "Rugby League": "🏉",
-    "Cricket": "🏏",
-    "Tennis": "🎾",
-    "Golf": "⛳",
-    "Motorsport": "🏎️",
-    "Basketball": "🏀",
-    "Snooker": "🎱",
-    "Aussie rules": "🏉",
-    "Baseball": "⚾",
-    "Ice Hockey": "🏒",
-    "Boxing": "🥊",
-    "MMA": "🥋",
-    "Cycling": "🚴",
-    "Athletics": "🏃",
-    "Swimming": "🏊",
-}
+NZ_TZ = timezone(timedelta(hours=12))
 
-BASE_URL = (
-    "https://sport-tv-guide.live/sportwidget/1e479ae78733"
-    "?time_zone=Pacific/Auckland"
-    "&fc=29,3,102,14,1,7,2"
-    "&time12=1"
-    "&sports=28,29,1,5,18,7,8,10,39,40,13"
-    "&bg=f8f8f9&bgs=b7b7b7&grp=1&sd=0&lng=1&typeID=0"
-)
+# -----------------------------
+# TIME HELPERS
+# -----------------------------
 
-SKY_EPG_URL = "https://i.mjh.nz/SkyGo/epg.xml"
+def nz_now():
+    return datetime.now(timezone.utc).astimezone(NZ_TZ)
 
-SKY_SPORT_ORDER = [
-    "Sky Sport 1",
-    "Sky Sport 2",
-    "Sky Sport 3",
-    "Sky Sport 4",
-    "Sky Sport 5",
-    "Sky Sport 6",
-    "Sky Sport 7",
-    "Sky Sport 8",
-    "Sky Sport 9",
-    "Sky Sport Select",
-]
+def parse_nz_time(date_str, time_str):
+    time_str = fix_time_format(time_str)
+    dt = datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %I:%M %p")
+    return dt.replace(tzinfo=NZ_TZ)
 
-# ⭐ UNIVERSAL TIME NORMALISER
 def fix_time_format(t):
     if not t:
         return t
-
     t = t.strip().replace("  ", " ")
-
-    # Normalize lowercase am/pm → AM/PM
     t = re.sub(r"(?i)\b(am|pm)\b", lambda m: m.group(1).upper(), t)
-
-    # Insert missing space before AM/PM
     t = re.sub(r"(?i)(\d)(AM|PM)$", r"\1 \2", t)
     t = re.sub(r"(?i)(\d{1,2}:\d{2})(AM|PM)$", r"\1 \2", t)
-
     return t.strip()
 
-def append_nz_if_epg(channel, from_epg):
-    return f"{channel} NZ" if from_epg else channel
+# -----------------------------
+# CHANNEL NORMALISATION
+# -----------------------------
 
 def normalize_channel_name(name):
     if not name:
         return ""
     n = name.strip()
-    n = re.sub(r"\s*\(HD\)", "", n, flags=re.IGNORECASE)
-    n = re.sub(r"\s*\(NZ\)", "", n, flags=re.IGNORECASE)
-    n = re.sub(r"\s*HD$", "", n, flags=re.IGNORECASE)
-    n = re.sub(r"\s*\+\d+$", "", n)
-    n = re.sub(r"\s*\+$", "", n)
+    n = re.sub(r"\s*\(HD\)|\s*\(NZ\)|HD$", "", n, flags=re.I)
+    n = re.sub(r"\s*\+\d+$|\s*\+$", "", n)
     return n.strip()
+
+def append_nz_if_epg(channel, from_epg):
+    return f"{channel} NZ" if from_epg else channel
+
+# -----------------------------
+# SKY EPG
+# -----------------------------
+
+SKY_EPG_URL = "https://i.mjh.nz/SkyGo/epg.xml"
+
+SKY_SPORT_ORDER = [
+    "Sky Sport 1","Sky Sport 2","Sky Sport 3","Sky Sport 4",
+    "Sky Sport 5","Sky Sport 6","Sky Sport 7","Sky Sport 8",
+    "Sky Sport 9","Sky Sport Select"
+]
 
 def is_sky_sport_channel(name):
     return normalize_channel_name(name) in SKY_SPORT_ORDER
@@ -101,9 +77,7 @@ def parse_epg_datetime(dt_str):
     y, mo, d, h, mi, s, off = m.groups()
     dt = datetime(int(y), int(mo), int(d), int(h), int(mi), int(s))
     sign = 1 if off[0] == "+" else -1
-    oh = int(off[1:3])
-    om = int(off[3:5])
-    tz = timezone(sign * timedelta(hours=oh, minutes=om))
+    tz = timezone(sign * timedelta(hours=int(off[1:3]), minutes=int(off[3:5])))
     return dt.replace(tzinfo=tz)
 
 def fetch_sky_epg():
@@ -113,73 +87,61 @@ def fetch_sky_epg():
 
 def parse_sky_epg(xml_data):
     root = ET.fromstring(xml_data)
-    channel_names = {}
+    names = {ch.get("id"): ch.find("display-name").text.strip()
+             for ch in root.findall("channel")}
 
-    for ch in root.findall("channel"):
-        cid = ch.get("id")
-        name_el = ch.find("display-name")
-        if cid and name_el is not None:
-            channel_names[cid] = name_el.text.strip()
-
-    programmes = []
+    out = []
     for prog in root.findall("programme"):
         cid = prog.get("channel")
-        if cid not in channel_names:
+        if cid not in names:
             continue
 
-        raw_name = channel_names[cid]
-        if not is_sky_sport_channel(raw_name):
+        raw = names[cid]
+        if not is_sky_sport_channel(raw):
             continue
 
         start = parse_epg_datetime(prog.get("start"))
-        stop = parse_epg_datetime(prog.get("stop"))
-        if not start or not stop:
+        if not start:
             continue
+
+        nz_start = start.astimezone(NZ_TZ)
 
         title_el = prog.find("title")
         desc_el = prog.find("desc")
 
-        programmes.append({
-            "channel": normalize_channel_name(raw_name),
+        out.append({
+            "channel": normalize_channel_name(raw),
             "from_epg": True,
-            "start": start,
-            "stop": stop,
+            "date": nz_start.strftime("%Y-%m-%d"),
+            "time": nz_start.strftime("%I:%M %p"),
             "title": title_el.text.strip() if title_el is not None else "",
             "description": desc_el.text.strip() if desc_el is not None else "",
         })
 
-    return programmes
+    return out
 
-def clean_title(t):
-    t = t.lower()
-    t = t.replace(" vs ", " v ")
-    t = t.replace(" vs. ", " v ")
-    t = re.sub(r"[^\w\s]", " ", t)
-    return re.sub(r"\s+", " ", t).strip()
+# -----------------------------
+# SPORT TV GUIDE
+# -----------------------------
 
-def title_tokens(t):
-    return set(clean_title(t).split())
-
-def fuzzy_title_match(a, b):
-    ta = title_tokens(a)
-    tb = title_tokens(b)
-    return len(ta & tb) >= 2
-
-def parse_nz_time(date_str, time_str):
-    time_str = fix_time_format(time_str)
-    dt = datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %I:%M %p")
-    return dt.replace(tzinfo=timezone(timedelta(hours=12)))
+BASE_URL = (
+    "https://sport-tv-guide.live/sportwidget/1e479ae78733"
+    "?time_zone=Pacific/Auckland"
+    "&fc=29,3,102,14,1,7,2"
+    "&time12=1"
+    "&sports=28,29,1,5,18,7,8,10,39,40,13"
+    "&bg=f8f8f9&bgs=b7b7b7&grp=1&sd=0&lng=1&typeID=0"
+)
 
 def fetch_day(date_obj):
-    date_str = date_obj.isoformat()
-    url = BASE_URL + f"&date={date_str}"
-    r = requests.get(url, timeout=15)
+    ds = date_obj.isoformat()
+    r = requests.get(BASE_URL + f"&date={ds}", timeout=15)
     r.raise_for_status()
-    return r.text, date_str
+    return r.text, ds
 
 def parse_events(html, date_str):
     soup = BeautifulSoup(html, "html.parser")
-    events = []
+    out = []
 
     for a in soup.select("a.article"):
         row = a.select_one(".row")
@@ -189,46 +151,39 @@ def parse_events(html, date_str):
         sport = row.select_one(".typeName").get_text(strip=True)
         time_str = row.select_one(".time b").get_text(strip=True)
 
-        text_blocks = row.select(".col-xs-8 .text-nowrap")
-        title = text_blocks[0].get_text(strip=True)
-        desc = text_blocks[1].get_text(strip=True) if len(text_blocks) > 1 else ""
+        blocks = row.select(".col-xs-8 .text-nowrap")
+        title = blocks[0].get_text(strip=True)
+        desc = blocks[1].get_text(strip=True) if len(blocks) > 1 else ""
 
-        chan_img = row.select_one(".col-xs-2 img[title]")
-        channel = chan_img["title"].strip() if chan_img else "Unknown channel"
+        img = row.select_one(".col-xs-2 img[title]")
+        channel = normalize_channel_name(img["title"].strip()) if img else "Unknown"
 
-        events.append({
+        out.append({
             "date": date_str,
             "sport": sport,
             "time": time_str,
             "title": title,
             "description": desc,
-            "channel": normalize_channel_name(channel),
+            "channel": channel,
             "from_epg": False,
         })
 
-    return events
+    return out
 
-def events_match(e1, e2):
-    if e1["date"] != e2["date"]:
-        return False
+# -----------------------------
+# MERGING
+# -----------------------------
 
-    dt1 = parse_nz_time(e1["date"], e1["time"])
-    dt2 = parse_nz_time(e2["date"], e2["time"])
-    if abs((dt1 - dt2).total_seconds()) > 10 * 60:
-        return False
+def merge_events(events, epg):
+    merged = []
 
-    return fuzzy_title_match(e1["title"], e2["title"])
-
-def merge_events(events, programmes):
-    merged_groups = []
-
-    # Convert EPG programmes into event-like objects
-    for p in programmes:
-        merged_groups.append({
+    # Add EPG first
+    for p in epg:
+        merged.append({
             "event": {
-                "date": p["start"].astimezone(timezone(timedelta(hours=12))).strftime("%Y-%m-%d"),
-                "sport": "Unknown",
-                "time": p["start"].astimezone(timezone(timedelta(hours=12))).strftime("%I:%M %p"),
+                "date": p["date"],
+                "sport": p["sport"],
+                "time": p["time"],
                 "title": p["title"],
                 "description": p["description"],
             },
@@ -237,32 +192,26 @@ def merge_events(events, programmes):
 
     # Add STVG events
     for e in events:
-        placed = False
+        merged.append({
+            "event": e,
+            "channels": [(e["channel"], False)]
+        })
 
-        for g in merged_groups:
-            if events_match(e, g["event"]):
-                g["channels"].append((e["channel"], False))
-                placed = True
-                break
+    return merged
 
-        if not placed:
-            merged_groups.append({
-                "event": e,
-                "channels": [(e["channel"], False)]
-            })
+# -----------------------------
+# REMINDER LOGIC
+# -----------------------------
 
-    # Sort channels
-    for g in merged_groups:
-        g["channels"] = sorted(
-            g["channels"],
-            key=lambda x: SKY_SPORT_ORDER.index(x[0]) if x[0] in SKY_SPORT_ORDER else 999
-        )
-
-    return merged_groups
+def should_send(event):
+    now = nz_now()
+    e = event["event"]
+    dt = parse_nz_time(e["date"], e["time"])
+    diff = (dt - now).total_seconds()
+    return 0 < diff <= 1800  # 30 minutes
 
 def send_reminder(event):
     if not WEBHOOK:
-        print("Missing reminder webhook")
         return
 
     e = event["event"]
@@ -271,40 +220,29 @@ def send_reminder(event):
         for ch, is_epg in event["channels"]
     ]
 
-    emoji = SPORT_EMOJIS.get(e["sport"], "🏆")
-
     msg = (
-        f"{emoji} **{e['sport']} — {e['title']}**\n"
+        f"🔔 **Reminder — 30 minutes to kickoff!**\n"
+        f"🏆 {e['sport']} — {e['title']}\n"
         f"🕒 {e['time']} NZT\n"
         f"📺 {', '.join(channels)}\n"
-        f"📝 {e['description']}\n"
-        f"----------------------"
+        f"📝 {e['description']}"
     )
 
     requests.post(WEBHOOK, json={"content": msg})
 
-def should_send(event):
-    now = datetime.now(timezone(timedelta(hours=12)))
-    e = event["event"]
-
-    dt = parse_nz_time(e["date"], e["time"])
-
-    diff = (dt - now).total_seconds()
-
-    return 0 <= diff <= 300  # 5 minutes
+# -----------------------------
+# MAIN
+# -----------------------------
 
 if __name__ == "__main__":
-    today = datetime.now(timezone(timedelta(hours=12))).date()
+    today = nz_now().date()
 
-    all_events = []
-    for i in range(3):
-        html, date_str = fetch_day(today + timedelta(days=i))
-        all_events.extend(parse_events(html, date_str))
+    # Only TODAY
+    html, date_str = fetch_day(today)
+    events = parse_events(html, date_str)
 
-    epg_xml = fetch_sky_epg()
-    programmes = parse_sky_epg(epg_xml)
-
-    merged = merge_events(all_events, programmes)
+    epg = parse_sky_epg(fetch_sky_epg())
+    merged = merge_events(events, epg)
 
     sent = json.load(open(REMINDER_FILE))
 
