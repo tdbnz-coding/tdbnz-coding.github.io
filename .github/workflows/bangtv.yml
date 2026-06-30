@@ -11,23 +11,38 @@ on:
         required: false
         default: "no"
 
+concurrency:
+  group: bangtv-daily-scraper
+  cancel-in-progress: true
+
 jobs:
   run:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    timeout-minutes: 5
 
-      - uses: actions/setup-python@v5
+    steps:
+      - id: checkout
+        uses: actions/checkout@v4
+
+      - id: setup-python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - run: pip install requests beautifulsoup4
+      - id: install-deps
+        run: pip install --no-cache-dir requests beautifulsoup4
+        shell: bash
 
-      - env:
+      - id: run-scraper
+        env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: python bangtv/scraper.py ${{ github.event.inputs.force == 'yes' && 'force' || '' }}
+        run: python -u bangtv/scraper.py ${{ github.event.inputs.force == 'yes' && 'force' || '' }}
+        shell: bash
+        continue-on-error: true
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - id: commit-lastjson
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update last.json"
           file_pattern: bangtv/last.json
+          skip_dirty_check: false

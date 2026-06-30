@@ -7,6 +7,10 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
 import re
 
+# ---------------------------------------
+# CONFIG
+# ---------------------------------------
+
 FORCE = "force" in sys.argv
 WEBHOOK = os.getenv("DISCORD_WEBHOOK")
 
@@ -19,17 +23,12 @@ if not os.path.exists(REMINDER_FILE):
 
 NZ_TZ = timezone(timedelta(hours=12))
 
-# -----------------------------
+# ---------------------------------------
 # TIME HELPERS
-# -----------------------------
+# ---------------------------------------
 
 def nz_now():
     return datetime.now(timezone.utc).astimezone(NZ_TZ)
-
-def parse_nz_time(date_str, time_str):
-    time_str = fix_time_format(time_str)
-    dt = datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %I:%M %p")
-    return dt.replace(tzinfo=NZ_TZ)
 
 def fix_time_format(t):
     if not t:
@@ -40,9 +39,14 @@ def fix_time_format(t):
     t = re.sub(r"(?i)(\d{1,2}:\d{2})(AM|PM)$", r"\1 \2", t)
     return t.strip()
 
-# -----------------------------
+def parse_nz_time(date_str, time_str):
+    time_str = fix_time_format(time_str)
+    dt = datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %I:%M %p")
+    return dt.replace(tzinfo=NZ_TZ)
+
+# ---------------------------------------
 # CHANNEL NORMALISATION
-# -----------------------------
+# ---------------------------------------
 
 def normalize_channel_name(name):
     if not name:
@@ -55,9 +59,9 @@ def normalize_channel_name(name):
 def append_nz_if_epg(channel, from_epg):
     return f"{channel} NZ" if from_epg else channel
 
-# -----------------------------
+# ---------------------------------------
 # SKY EPG
-# -----------------------------
+# ---------------------------------------
 
 SKY_EPG_URL = "https://i.mjh.nz/SkyGo/epg.xml"
 
@@ -120,9 +124,9 @@ def parse_sky_epg(xml_data):
 
     return out
 
-# -----------------------------
+# ---------------------------------------
 # SPORT TV GUIDE
-# -----------------------------
+# ---------------------------------------
 
 BASE_URL = (
     "https://sport-tv-guide.live/sportwidget/1e479ae78733"
@@ -170,9 +174,9 @@ def parse_events(html, date_str):
 
     return out
 
-# -----------------------------
+# ---------------------------------------
 # MERGING
-# -----------------------------
+# ---------------------------------------
 
 def merge_events(events, epg):
     merged = []
@@ -199,45 +203,62 @@ def merge_events(events, epg):
 
     return merged
 
-# -----------------------------
+# ---------------------------------------
 # REMINDER LOGIC
-# -----------------------------
+# ---------------------------------------
 
-def should_send(event):
+def minutes_to_event(event):
     now = nz_now()
     e = event["event"]
     dt = parse_nz_time(e["date"], e["time"])
     diff = (dt - now).total_seconds()
-    return 0 < diff <= 1800  # 30 minutes
+    return diff / 60  # minutes
+
+def should_send(event):
+    mins = minutes_to_event(event)
+    return 0 < mins <= 30  # 30-minute window
+
+def wording_for_minutes(mins):
+    if mins >= 25:
+        return "30 minutes to kickoff"
+    if mins >= 10:
+        return f"{mins} minutes to kickoff"
+    if mins >= 1:
+        return f"Starting shortly — {mins} minutes"
+    return "LIVE NOW!"
 
 def send_reminder(event):
     if not WEBHOOK:
         return
 
     e = event["event"]
+    mins = int(minutes_to_event(event))
+    phrase = wording_for_minutes(mins)
+
     channels = [
         append_nz_if_epg(ch, is_epg)
         for ch, is_epg in event["channels"]
     ]
 
     msg = (
-        f"🔔 **Reminder — 30 minutes to kickoff!**\n"
+        f"🔔 **Reminder — {phrase}!**\n"
         f"🏆 {e['sport']} — {e['title']}\n"
         f"🕒 {e['time']} NZT\n"
         f"📺 {', '.join(channels)}\n"
-        f"📝 {e['description']}"
+        f"📝 {e['description']}\n"
+        f"========================="
     )
 
     requests.post(WEBHOOK, json={"content": msg})
 
-# -----------------------------
+# ---------------------------------------
 # MAIN
-# -----------------------------
+# ---------------------------------------
 
 if __name__ == "__main__":
     today = nz_now().date()
 
-    # Only TODAY
+    # TODAY ONLY
     html, date_str = fetch_day(today)
     events = parse_events(html, date_str)
 
@@ -252,6 +273,6 @@ if __name__ == "__main__":
         if key not in sent or FORCE:
             if should_send(event):
                 send_reminder(event)
-                sent[key] = True
+                sent[key] = "sent"
 
     json.dump(sent, open(REMINDER_FILE, "w"))

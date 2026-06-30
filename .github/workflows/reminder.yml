@@ -2,26 +2,41 @@ name: Bang TV Event Reminders
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/5 * * * *"   # Every 5 minutes
   workflow_dispatch:
+
+concurrency:
+  group: bangtv-reminders
+  cancel-in-progress: true
 
 jobs:
   run:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    timeout-minutes: 3
 
-      - uses: actions/setup-python@v5
+    steps:
+      - id: checkout
+        uses: actions/checkout@v4
+
+      - id: setup-python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - run: pip install requests beautifulsoup4
+      - id: install-deps
+        run: pip install --no-cache-dir requests beautifulsoup4
+        shell: bash
 
-      - env:
+      - id: run-reminder
+        env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: python bangtv/reminder.py
+        run: python -u bangtv/reminder.py
+        shell: bash
+        continue-on-error: true   # Discord outage won't break workflow
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - id: commit-reminder
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update reminder.json"
           file_pattern: bangtv/reminder.json
+          skip_dirty_check: false

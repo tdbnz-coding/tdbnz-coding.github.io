@@ -22,6 +22,8 @@ if not os.path.exists(LAST_FILE):
     with open(LAST_FILE, "w") as f:
         json.dump({"hash": None}, f)
 
+NZ_TZ = timezone(timedelta(hours=12))
+
 SPORT_EMOJI = {
     "Football": "⚽", "Rugby": "🏉", "Rugby League": "🏉",
     "Cricket": "🏏", "Tennis": "🎾", "Golf": "⛳",
@@ -43,12 +45,10 @@ SPORT_URL = (
 SKY_EPG_URL = "https://i.mjh.nz/SkyGo/epg.xml"
 
 SKY_ORDER = [
-    "Sky Sport 1", "Sky Sport 2", "Sky Sport 3", "Sky Sport 4",
-    "Sky Sport 5", "Sky Sport 6", "Sky Sport 7", "Sky Sport 8",
-    "Sky Sport 9", "Sky Sport Select"
+    "Sky Sport 1","Sky Sport 2","Sky Sport 3","Sky Sport 4",
+    "Sky Sport 5","Sky Sport 6","Sky Sport 7","Sky Sport 8",
+    "Sky Sport 9","Sky Sport Select"
 ]
-
-NZ_TZ = timezone(timedelta(hours=12))
 
 # ------------------------------------------------------------
 # HELPERS
@@ -70,23 +70,6 @@ def normalize_channel(name):
 def is_sky(name):
     return normalize_channel(name) in SKY_ORDER
 
-def parse_epg_datetime(dt):
-    m = re.match(r"(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})([+-]\d{4})", dt)
-    if not m:
-        return None
-    y, mo, d, h, mi, s, off = m.groups()
-    dt = datetime(int(y), int(mo), int(d), int(h), int(mi), int(s))
-    sign = 1 if off[0] == "+" else -1
-    tz = timezone(sign * timedelta(hours=int(off[1:3]), minutes=int(off[3:5])))
-    return dt.replace(tzinfo=tz)
-
-def fuzzy_match(a, b):
-    def tok(t):
-        t = t.lower().replace(" vs ", " v ")
-        t = re.sub(r"[^\w\s]", " ", t)
-        return set(re.sub(r"\s+", " ", t).split())
-    return len(tok(a) & tok(b)) >= 2
-
 def fix_time(t):
     if not t:
         return t
@@ -101,9 +84,26 @@ def parse_nz(date, time):
     dt = datetime.strptime(f"{date} {time}", "%Y-%m-%d %I:%M %p")
     return dt.replace(tzinfo=NZ_TZ)
 
+def fuzzy_match(a, b):
+    def tok(t):
+        t = t.lower().replace(" vs ", " v ")
+        t = re.sub(r"[^\w\s]", " ", t)
+        return set(re.sub(r"\s+", " ", t).split())
+    return len(tok(a) & tok(b)) >= 2
+
 # ------------------------------------------------------------
-# FETCHERS
+# FETCH SKY EPG
 # ------------------------------------------------------------
+
+def parse_epg_datetime(dt):
+    m = re.match(r"(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})([+-]\d{4})", dt)
+    if not m:
+        return None
+    y, mo, d, h, mi, s, off = m.groups()
+    dt = datetime(int(y), int(mo), int(d), int(h), int(mi), int(s))
+    sign = 1 if off[0] == "+" else -1
+    tz = timezone(sign * timedelta(hours=int(off[1:3]), minutes=int(off[3:5])))
+    return dt.replace(tzinfo=tz)
 
 def fetch_sky_epg():
     r = requests.get(SKY_EPG_URL, timeout=20)
@@ -142,6 +142,10 @@ def parse_sky(xml):
             "from_epg": True
         })
     return out
+
+# ------------------------------------------------------------
+# FETCH SPORT TV GUIDE
+# ------------------------------------------------------------
 
 def fetch_day(d):
     ds = d.isoformat()
@@ -280,7 +284,7 @@ def send(groups):
 
             requests.post(WEBHOOK, json={
                 "username": "Bang TV Sports",
-                "avatar_url": "https://i.imgur.com/5QFQKpS.png",
+                "avatar_url": "https://i.postimg.cc/gkqpYLhP/image.png",
                 "content": content
             })
             time.sleep(30)
