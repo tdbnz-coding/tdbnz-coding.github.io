@@ -1,0 +1,27 @@
+name: Bang TV Scraper 2 Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force run Scraper 2?"
+        required: false
+        default: "no"
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install --no-cache-dir requests beautifulsoup4
+
+      - env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          SPORT_TV_COOKIES: ${{ secrets.SPORT_TV_COOKIES }}
+        run: python -u bangtv/scraper2_aussie_rules.py ${{ github.event.inputs.force == 'yes' && 'force' || '' }}
