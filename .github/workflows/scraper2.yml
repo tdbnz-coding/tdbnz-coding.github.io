@@ -24,4 +24,4 @@ jobs:
       - env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           SPORT_TV_COOKIES: ${{ secrets.SPORT_TV_COOKIES }}
-        run: python -u bangtv/scraper2_aussie_rules.py ${{ github.event.inputs.force == 'yes' && 'force' || '' }}
+        run: python -u bangtv/scraper_multi.py ${{ github.event.inputs.force == 'yes' && 'force' || '' }}
