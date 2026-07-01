@@ -20,6 +20,12 @@ FORCE = "force" in sys.argv
 # Load cookies from GitHub Secrets
 COOKIES = json.loads(os.getenv("SPORT_TV_COOKIES", "{}"))
 
+# Discord webhook
+WEBHOOK = os.getenv("DISCORD_WEBHOOK")
+
+# Avatar for posting
+AVATAR_URL = "https://i.postimg.cc/gkqpYLhP/image.png"
+
 # ------------------------------------------------------------
 # HELPERS
 # ------------------------------------------------------------
@@ -172,11 +178,44 @@ def scrape():
 
 
 # ------------------------------------------------------------
+# DISCORD POSTING
+# ------------------------------------------------------------
+
+def send_to_discord(events):
+    if not WEBHOOK:
+        print("No webhook found")
+        return
+
+    for e in events:
+        content = (
+            f"🏉 **{e['sport']} — {e['teams']}**\n"
+            f"🕒 {e['time']} NZT\n"
+            f"📅 {e['date']}\n"
+            f"🏆 {e['league']}\n"
+            f"📺 {', '.join(e['channels'])}\n"
+            f"{e['url']}"
+        )
+
+        try:
+            r = requests.post(WEBHOOK, json={
+                "username": "Bang TV Scraper2",
+                "avatar_url": AVATAR_URL,
+                "content": content
+            })
+
+            print(f"Posted event to Discord ({r.status_code})")
+
+        except Exception as ex:
+            print(f"Failed to post: {ex}")
+
+
+# ------------------------------------------------------------
 # MAIN
 # ------------------------------------------------------------
 
 if __name__ == "__main__":
     data = scrape()
+    send_to_discord(data)
 
     print("\n=== FINAL OUTPUT ===")
     print(json.dumps(data, indent=2))
