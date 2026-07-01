@@ -126,11 +126,6 @@ def scrape_url(sport_name, url):
     r = requests.get(url, cookies=COOKIES, timeout=20)
     r.raise_for_status()
 
-    if FORCE:
-        print("\n=== RAW HTML (first 5000 chars) ===")
-        print(r.text[:5000])
-        print("\n=== END RAW HTML ===\n")
-
     soup = BeautifulSoup(r.text, "html.parser")
     events_by_day = defaultdict(list)
 
@@ -163,6 +158,9 @@ def scrape_url(sport_name, url):
             title_block = row.select_one(".col-inline")
             teams = title_block.select_one(".text-nowrap").get_text(strip=True) if title_block else "Unknown"
 
+            # DESCRIPTION (league or round)
+            desc_block = title_block.select("div.text-nowrap")[1].get_text(strip=True) if title_block else ""
+
             # CHANNELS (remove sport names)
             channels = [
                 img.get("title", "").strip()
@@ -177,6 +175,7 @@ def scrape_url(sport_name, url):
                 "sport": sport_name,
                 "time": fix_time(time_str),
                 "teams": teams,
+                "desc": desc_block,
                 "channels": channels
             })
 
@@ -222,7 +221,7 @@ def filter_next_three_days(events_by_day):
 
 
 # ------------------------------------------------------------
-# DISCORD POSTING WITH AUTO-SPLIT
+# DISCORD POSTING WITH AUTO-SPLIT + SEPARATORS
 # ------------------------------------------------------------
 
 def send_to_discord(events_by_day):
@@ -241,8 +240,9 @@ def send_to_discord(events_by_day):
 
             block = (
                 f"🏉 {e['sport']} — {e['teams']}\n"
-                f"🕒 {e['time']}\n"
+                f"📘 {e['desc']}\n"
                 f"📺 {', '.join(e['channels'])}\n\n"
+                f"====\n\n"
             )
 
             if len(message) + len(block) > DISCORD_LIMIT:
