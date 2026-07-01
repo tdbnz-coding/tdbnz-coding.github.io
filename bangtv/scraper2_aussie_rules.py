@@ -13,7 +13,28 @@ from collections import defaultdict
 
 NZ_TZ = timezone(timedelta(hours=12))
 
-URL = "https://sport-tv-guide.live/live/aussie-rules"
+URLS = [
+    ("Aussie Rules", "https://sport-tv-guide.live/live/aussie-rules"),
+    ("Rugby League", "https://sport-tv-guide.live/live/rugby-league"),
+    ("Football", "https://sport-tv-guide.live/live/football"),
+    ("Basketball", "https://sport-tv-guide.live/live/basketball"),
+    ("Motorsport", "https://sport-tv-guide.live/live/motorsport"),
+    ("Tennis", "https://sport-tv-guide.live/live/tennis"),
+    ("Cricket", "https://sport-tv-guide.live/live/cricket"),
+    ("Golf", "https://sport-tv-guide.live/live/golf"),
+    ("Horse Racing", "https://sport-tv-guide.live/live/horse-racing"),
+    ("Rugby Union", "https://sport-tv-guide.live/live/rugby-union"),
+    ("WWE", "https://sport-tv-guide.live/live/wwe"),
+    ("Boxing", "https://sport-tv-guide.live/live/boxing"),
+    ("Baseball", "https://sport-tv-guide.live/live/baseball"),
+    ("Snooker", "https://sport-tv-guide.live/live/snooker"),
+    ("Darts", "https://sport-tv-guide.live/live/darts"),
+    ("NFL", "https://sport-tv-guide.live/live/nfl"),
+    ("Squash", "https://sport-tv-guide.live/live/squash"),
+    ("Field Hockey", "https://sport-tv-guide.live/live/field-hockey"),
+    ("Netball", "https://sport-tv-guide.live/live/netball"),
+    ("Ice Hockey", "https://sport-tv-guide.live/live/ice-hockey"),
+]
 
 FORCE = "force" in sys.argv
 
@@ -21,13 +42,14 @@ COOKIES = json.loads(os.getenv("SPORT_TV_COOKIES", "{}"))
 WEBHOOK = os.getenv("DISCORD_WEBHOOK")
 AVATAR_URL = "https://i.postimg.cc/gkqpYLhP/image.png"
 
+DISCORD_LIMIT = 1800  # safe split point
+
 
 # ------------------------------------------------------------
 # HELPERS
 # ------------------------------------------------------------
 
 def ordinal(n):
-    """Return ordinal number: 1st, 2nd, 3rd, 4th, etc."""
     if 10 <= n % 100 <= 20:
         suffix = "th"
     else:
@@ -36,7 +58,6 @@ def ordinal(n):
 
 
 def format_date(date_str):
-    """Convert YYYY-MM-DD → Monday 23rd March 2026"""
     dt = datetime.strptime(date_str, "%Y-%m-%d")
     weekday = dt.strftime("%A")
     month = dt.strftime("%B")
@@ -46,7 +67,6 @@ def format_date(date_str):
 
 
 def parse_short_date(short):
-    """Convert '3 Jul' → '2026-07-03'"""
     day, mon = short.strip().split()
 
     months = {
@@ -63,7 +83,6 @@ def parse_short_date(short):
 
 
 def fix_time(t):
-    """Clean AM/PM formatting."""
     if not t:
         return "00:00 AM" if FORCE else None
 
@@ -75,14 +94,36 @@ def fix_time(t):
 
 
 # ------------------------------------------------------------
-# SCRAPER
+# SCRAPER FOR ONE URL
 # ------------------------------------------------------------
 
-def scrape():
-    print("\n=== SCRAPER 2 START ===")
-    print(f"FORCE MODE: {FORCE}")
+SPORT_TITLES_TO_EXCLUDE = {
+    "Aussie rules", "AFL",
+    "Rugby Union", "Rugby", "Union", "Super Rugby",
+    "Rugby League", "NRL", "League",
+    "Football", "Soccer",
+    "Basketball",
+    "Motorsport",
+    "Tennis",
+    "Cricket",
+    "Golf",
+    "Horse Racing",
+    "WWE",
+    "Boxing",
+    "Baseball",
+    "Snooker",
+    "Darts",
+    "NFL",
+    "Squash",
+    "Field Hockey",
+    "Netball",
+    "Ice Hockey",
+}
 
-    r = requests.get(URL, cookies=COOKIES, timeout=20)
+def scrape_url(sport_name, url):
+    print(f"\n=== SCRAPING {sport_name} ===")
+
+    r = requests.get(url, cookies=COOKIES, timeout=20)
     r.raise_for_status()
 
     if FORCE:
@@ -94,7 +135,6 @@ def scrape():
     events_by_day = defaultdict(list)
 
     current_date = None
-
     blocks = soup.select(".dateSeparator, a.article.flag")
 
     for elem in blocks:
@@ -127,14 +167,14 @@ def scrape():
             channels = [
                 img.get("title", "").strip()
                 for img in row.select("img[title]")
-                if img.get("title", "").strip() not in ["Aussie rules", "AFL"]
+                if img.get("title", "").strip() not in SPORT_TITLES_TO_EXCLUDE
             ]
 
-            # Missing date fallback
             if not current_date and FORCE:
                 current_date = datetime.now(NZ_TZ).strftime("%Y-%m-%d")
 
             events_by_day[current_date].append({
+                "sport": sport_name,
                 "time": fix_time(time_str),
                 "teams": teams,
                 "channels": channels
@@ -144,13 +184,26 @@ def scrape():
 
 
 # ------------------------------------------------------------
-# DATE FILTERING (NEXT 3 DAYS ONLY)
+# MERGE MULTIPLE URL RESULTS
+# ------------------------------------------------------------
+
+def merge_events():
+    merged = defaultdict(list)
+
+    for sport_name, url in URLS:
+        data = scrape_url(sport_name, url)
+        for day, events in data.items():
+            merged[day].extend(events)
+
+    return merged
+
+
+# ------------------------------------------------------------
+# NEXT 3 DAYS FILTERING
 # ------------------------------------------------------------
 
 def filter_next_three_days(events_by_day):
     now = datetime.now(NZ_TZ)
-
-    # Always start from tomorrow (or "today" if after midnight)
     start_day = now.date() + timedelta(days=1)
 
     days_to_post = [
@@ -169,7 +222,7 @@ def filter_next_three_days(events_by_day):
 
 
 # ------------------------------------------------------------
-# DISCORD POSTING
+# DISCORD POSTING WITH AUTO-SPLIT
 # ------------------------------------------------------------
 
 def send_to_discord(events_by_day):
@@ -180,25 +233,36 @@ def send_to_discord(events_by_day):
     for date, events in events_by_day.items():
 
         header = format_date(date)
-        message = f"📅 **{header}**\n" \
-                  f"────────────────────────────\n"
+        base_header = f"📅 **{header}**\n────────────────────────────\n"
+
+        message = base_header
 
         for e in events:
-            message += (
-                f"🕒 {e['time']} — {e['teams']}\n"
+
+            block = (
+                f"🏉 {e['sport']} — {e['teams']}\n"
+                f"🕒 {e['time']}\n"
                 f"📺 {', '.join(e['channels'])}\n\n"
             )
 
-        try:
-            r = requests.post(WEBHOOK, json={
-                "username": "Bang TV Scraper2",
-                "avatar_url": AVATAR_URL,
-                "content": message
-            })
-            print(f"Posted day to Discord ({r.status_code})")
+            if len(message) + len(block) > DISCORD_LIMIT:
+                requests.post(WEBHOOK, json={
+                    "username": "Bang TV Scraper2",
+                    "avatar_url": AVATAR_URL,
+                    "content": message
+                })
+                print("Posted split part")
 
-        except Exception as ex:
-            print(f"Failed to post: {ex}")
+                message = f"📅 **{header} (continued)**\n────────────────────────────\n"
+
+            message += block
+
+        requests.post(WEBHOOK, json={
+            "username": "Bang TV Scraper2",
+            "avatar_url": AVATAR_URL,
+            "content": message
+        })
+        print("Posted final part")
 
 
 # ------------------------------------------------------------
@@ -206,8 +270,8 @@ def send_to_discord(events_by_day):
 # ------------------------------------------------------------
 
 if __name__ == "__main__":
-    events_by_day = scrape()
-    filtered = filter_next_three_days(events_by_day)
+    merged = merge_events()
+    filtered = filter_next_three_days(merged)
     send_to_discord(filtered)
 
     print("\n=== FINAL OUTPUT ===")
