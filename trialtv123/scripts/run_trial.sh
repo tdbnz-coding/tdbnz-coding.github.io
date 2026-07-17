@@ -13,13 +13,12 @@ run_trial() {
       -H "Content-Type: application/x-www-form-urlencoded" \
       --data "email=${EMAIL}&trial_type=m3u&gtv_trial_action=1")
 
-    # Extract raw URL
     RAW_URL=$(echo "$HTML" | grep -oP 'data-copy="\K[^"]+')
 
-    # Decode HTML entities (&amp; → &)
+    # Decode &amp; → &
     M3U_URL=$(echo "$RAW_URL" | sed 's/&amp;/\&/g')
 
-    echo "$NAME M3U URL: $M3U_URL"
+    echo "$NAME M3U URL extracted."
 
     curl -s -o "$FILE" "$M3U_URL"
 
