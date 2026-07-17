@@ -16,13 +16,12 @@ run_trial() {
     RAW_URL=$(echo "$HTML" | grep -oP 'data-copy="\K[^"]+')
     M3U_URL=$(echo "$RAW_URL" | sed 's/&amp;/\&/g')
 
-    SAFE_URL=$(echo "$M3U_URL" | sed 's/password=[^&]*/password=HIDDEN/')
-    echo "DEBUG URL: $SAFE_URL"
-
     curl -s -o "$FILE" "$M3U_URL"
 
+    # Force file to be different every run
+    echo "# Updated: $(date)" >> "$FILE"
+
     echo "Saved playlist to $FILE"
-    echo "FILE SIZE: $(wc -c < "$FILE") bytes"
 }
 
 run_trial "thomas"
