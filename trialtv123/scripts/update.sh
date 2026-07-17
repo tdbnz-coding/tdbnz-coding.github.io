@@ -1,31 +1,38 @@
 #!/bin/bash
 
-# Resolve the correct directory of the repo
-REPO_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
-PLAYLIST_DIR="$REPO_DIR/trialtv123"
+# Function to fetch trial and update M3U file
+run_trial() {
+    NAME=$1
+    FILE="./trialtv123/${NAME}.m3u"
 
-fetch_trial() {
-    TARGET_FILE=$1
+    # Generate random email
+    RAND=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 10)
+    EMAIL="${RAND}@gmail.com"
 
-    EMAIL="trial$(date +%s%N)@gmail.com"
+    echo "Fetching trial for $NAME using email: $EMAIL"
 
-    HTML=$(curl -s -X POST "https://gr8iptv.com/free-trial/" \
-      -d "gtv_trial_action=1" \
-      -d "trial_type=m3u" \
-      -d "email=$EMAIL")
+    # Request trial page
+    HTML=$(curl -s -X POST "https://www.greatestiptv.com/free-trial/" \
+      -H "Content-Type: application/x-www-form-urlencoded" \
+      --data "email=${EMAIL}&trial_type=m3u&gtv_trial_action=1")
 
-    echo "Trial fetched."
+    # Extract M3U URL from HTML
+    RAW_URL=$(echo "$HTML" | grep -oP 'data-copy="\K[^"]+')
 
-    M3U_URL=$(echo "$HTML" | grep -oP 'data-copy="\K[^"]+' | sed 's/&amp;/\&/g')
+    # Decode HTML entities (&amp; → &)
+    M3U_URL=$(echo "$RAW_URL" | sed 's/&amp;/\&/g')
 
-    echo "Extracted M3U URL."
+    echo "Extracted M3U URL for $NAME."
 
-    # Force update: always overwrite
-    curl -s -o "$PLAYLIST_DIR/$TARGET_FILE" "$M3U_URL"
+    # Download playlist
+    curl -s -o "$FILE" "$M3U_URL"
 
-    echo "$TARGET_FILE updated."
+    # Force file to change every run so GitHub commits it
+    echo "# Updated: $(date)" >> "$FILE"
+
+    echo "$NAME.m3u updated."
 }
 
-# Update both files
-fetch_trial "thomas.m3u"
-fetch_trial "duncan.m3u"
+# Run for both users
+run_trial "thomas"
+run_trial "duncan"
