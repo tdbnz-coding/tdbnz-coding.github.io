@@ -1,13 +1,26 @@
-name: Auto Update trial playlists
+name: Auto Update Trials Playlists
 
-      - name: Run update script
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */12 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run playlist update script
         run: |
-          bash scripts/update.sh
+          bash trialtv123/scripts/update.sh
 
-      - name: Commit changes
+      - name: Commit updated playlists
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add thomas.m3u duncan.m3u
-          git commit -m "Auto-update playlists" || echo "No changes"
+          git add trialtv123/thomas.m3u trialtv123/duncan.m3u
+          git commit -m "Auto-update playlists" || echo "No changes to commit"
           git push
