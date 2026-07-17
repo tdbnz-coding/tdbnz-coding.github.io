@@ -1,28 +1,31 @@
 #!/bin/bash
 
-run_trial() {
-    NAME=$1
-    FILE="./trialtv123/${NAME}.m3u"
+# Function to fetch a fresh trial and save it
+fetch_trial() {
+    TARGET_FILE=$1
 
-    RAND=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 10)
-    EMAIL="${RAND}@gmail.com"
+    # Generate random Gmail
+    EMAIL="trial$(date +%s%N)@gmail.com"
 
-    echo "Starting trial for $NAME using email: $EMAIL"
+    # Fetch trial HTML
+    HTML=$(curl -s -X POST "https://gr8iptv.com/free-trial/" \
+      -d "gtv_trial_action=1" \
+      -d "trial_type=m3u" \
+      -d "email=$EMAIL")
 
-    HTML=$(curl -s -X POST "https://www.greatestiptv.com/free-trial/" \
-      -H "Content-Type: application/x-www-form-urlencoded" \
-      --data "email=${EMAIL}&trial_type=m3u&gtv_trial_action=1")
+    echo "Trial fetched."
 
-    RAW_URL=$(echo "$HTML" | grep -oP 'data-copy="\K[^"]+')
-    M3U_URL=$(echo "$RAW_URL" | sed 's/&amp;/\&/g')
+    # Extract M3U URL (do NOT print it)
+    M3U_URL=$(echo "$HTML" | grep -oP 'data-copy="\K[^"]+' | sed 's/&amp;/\&/g')
 
-    curl -s -o "$FILE" "$M3U_URL"
+    echo "Extracted M3U URL."
 
-    # Force file to be different every run
-    echo "# Updated: $(date)" >> "$FILE"
+    # Download playlist
+    curl -s -o "$TARGET_FILE" "$M3U_URL"
 
-    echo "Saved playlist to $FILE"
+    echo "$TARGET_FILE updated."
 }
 
-run_trial "thomas"
-run_trial "duncan"
+# Update both files
+fetch_trial "thomas.m3u"
+fetch_trial "duncan.m3u"
