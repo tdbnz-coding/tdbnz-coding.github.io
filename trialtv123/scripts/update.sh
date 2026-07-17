@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Fetch trial and update M3U file
 run_trial() {
     NAME=$1
     FILE="./trialtv123/${NAME}.m3u"
@@ -16,7 +15,7 @@ run_trial() {
       -H "Content-Type: application/x-www-form-urlencoded" \
       --data "email=${EMAIL}&trial_type=m3u&gtv_trial_action=1")
 
-    # Extract M3U URL from HTML
+    # Extract M3U URL
     RAW_URL=$(echo "$HTML" | grep -oP 'data-copy="\K[^"]+')
 
     if [ -z "$RAW_URL" ]; then
@@ -25,17 +24,17 @@ run_trial() {
         return
     fi
 
-    # Decode HTML entities (&amp; → &)
+    # Decode HTML entities
     M3U_URL=$(echo "$RAW_URL" | sed 's/&amp;/\&/g')
 
-    # Print URL safely (password hidden)
+    # DEBUG: Show URL safely
     SAFE_URL=$(echo "$M3U_URL" | sed 's/password=[^&]*/password=HIDDEN/')
     echo "DEBUG URL for $NAME: $SAFE_URL"
 
     # Download playlist
     curl -s -o "$FILE" "$M3U_URL"
 
-    # Check if file is valid (not 404)
+    # Check for 404
     if grep -q "404 Not Found" "$FILE"; then
         echo "ERROR: Playlist download failed for $NAME (404)"
         echo "# ERROR: 404 returned" >> "$FILE"
@@ -43,10 +42,9 @@ run_trial() {
         echo "$NAME.m3u downloaded successfully."
     fi
 
-    # Force file to change every run so GitHub commits it
+    # Force GitHub commit
     echo "# Updated: $(date)" >> "$FILE"
 }
 
-# Run for both users
 run_trial "thomas"
 run_trial "duncan"

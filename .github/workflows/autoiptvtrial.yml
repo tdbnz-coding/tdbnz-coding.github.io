@@ -16,8 +16,13 @@ jobs:
           fetch-depth: 0
           clean: false
 
-      - name: Run trial script twice
-        run: bash trialtv123/scripts/update.sh
+      - name: Install Python dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install requests
+
+      - name: Run Python trial updater
+        run: python3 trialtv123/scripts/update.py
 
       - name: Commit updated M3U files
         uses: stefanzweifel/git-auto-commit-action@v5
