@@ -8,33 +8,27 @@ run_trial() {
     RAND=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 10)
     EMAIL="${RAND}@gmail.com"
 
-    echo "Running trial for $NAME using email $EMAIL"
+    echo "Starting trial for $NAME using email: $EMAIL"
 
-    # Submit trial form
+    # Submit trial form and wait for full HTML response
     HTML=$(curl -s -X POST "https://www.greatestiptv.com/free-trial/" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       --data "email=${EMAIL}&trial_type=m3u&gtv_trial_action=1")
 
-    # Extract username
-    USERNAME=$(echo "$HTML" | grep -oP 'G[0-9]+' | head -n 1)
+    # Extract the REAL M3U URL from the copy button
+    M3U_URL=$(echo "$HTML" | grep -oP 'data-copy="\K[^"]+')
 
-    # Extract password
-    PASSWORD=$(echo "$HTML" | grep -oP '(?<=<span class="sc-mono">)[a-zA-Z0-9]{6,}' | sed -n '2p')
+    if [ -z "$M3U_URL" ]; then
+        echo "ERROR: No M3U URL found for $NAME. Trial page may not have loaded."
+        exit 1
+    fi
 
-    # Build M3U URL
-    M3U_URL="http://gr8iptv.com/get.php?username=$USERNAME&password=$PASSWORD&type=m3u_plus&output=ts"
+    echo "$NAME M3U URL found: $M3U_URL"
 
-    echo "$NAME M3U URL: $M3U_URL"
-
-    # Download actual .m3u file
+    # Download the actual playlist file
     curl -s -o "$FILE" "$M3U_URL"
 
-    # Confirm overwrite or creation
-    if [ -f "$FILE" ]; then
-        echo "Updated existing file: $FILE"
-    else
-        echo "Created new file: $FILE"
-    fi
+    echo "Saved playlist to $FILE"
 }
 
 # Run twice
