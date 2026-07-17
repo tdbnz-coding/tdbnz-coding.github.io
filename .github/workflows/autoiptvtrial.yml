@@ -31,3 +31,4 @@ jobs:
           file_pattern: |
             trialtv123/thomas.m3u
             trialtv123/duncan.m3u
+          push_options: '--force'
