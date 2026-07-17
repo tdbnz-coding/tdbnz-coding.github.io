@@ -14,15 +14,15 @@ run_trial() {
       --data "email=${EMAIL}&trial_type=m3u&gtv_trial_action=1")
 
     RAW_URL=$(echo "$HTML" | grep -oP 'data-copy="\K[^"]+')
-
-    # Decode &amp; → &
     M3U_URL=$(echo "$RAW_URL" | sed 's/&amp;/\&/g')
 
-    echo "$NAME M3U URL extracted."
+    SAFE_URL=$(echo "$M3U_URL" | sed 's/password=[^&]*/password=HIDDEN/')
+    echo "DEBUG URL: $SAFE_URL"
 
     curl -s -o "$FILE" "$M3U_URL"
 
     echo "Saved playlist to $FILE"
+    echo "FILE SIZE: $(wc -c < "$FILE") bytes"
 }
 
 run_trial "thomas"
