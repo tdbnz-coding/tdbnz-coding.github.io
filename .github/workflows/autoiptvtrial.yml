@@ -1,0 +1,25 @@
+name: Auto IPTV Trial (Thomas & Duncan)
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"   # every 12 hours
+  workflow_dispatch:         # manual run
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run trial script twice
+        run: bash trialtv123/scripts/run_trial.sh
+
+      - name: Commit updated M3U files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-update thomas.m3u & duncan.m3u"
+          file_pattern: |
+            trialtv123/thomas.m3u
+            trialtv123/duncan.m3u
