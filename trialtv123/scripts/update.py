@@ -2,20 +2,23 @@ import requests
 import re
 import html
 import datetime
+import random
+import string
+
+WORKER_URL = "https://iptvtvtrial.thomasnz.workers.dev/?url=https://www.greatestiptv.com/free-trial/"
 
 def run_trial(name):
     file_path = f"./trialtv123/{name}.m3u"
 
     # Generate random email
-    import random, string
     rand = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
     email = f"{rand}@gmail.com"
 
     print(f"Fetching trial for {name} using email: {email}")
 
-    # Send POST request
+    # Send POST request THROUGH CLOUDFLARE WORKER
     response = requests.post(
-        "https://www.greatestiptv.com/free-trial/",
+        WORKER_URL,
         data={
             "email": email,
             "trial_type": "m3u",
@@ -25,7 +28,7 @@ def run_trial(name):
 
     html_text = response.text
 
-    # Extract URL
+    # Extract URL from HTML
     match = re.search(r'data-copy="([^"]+)"', html_text)
     if not match:
         print(f"ERROR: Could not extract M3U URL for {name}")
@@ -46,7 +49,7 @@ def run_trial(name):
     # Save file
     with open(file_path, "w") as f:
         f.write(playlist)
-        f.write(f"\n# Updated: {datetime.datetime.utcnow()}")
+        f.write(f"\n# Updated: {datetime.datetime.now(datetime.UTC)}")
 
     print(f"{name}.m3u updated.")
 
