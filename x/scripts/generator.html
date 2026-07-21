@@ -11,6 +11,15 @@
   body { padding: 20px; background: #f8f9fa; }
   .card { border-radius: 12px; }
   textarea { font-size: 15px; }
+
+  .tweet-btn {
+    font-size: 18px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
 </style>
 </head>
 <body>
@@ -23,6 +32,11 @@
     <!-- ARTICLE URL -->
     <label class="fw-bold mb-2">Article URL</label>
     <input id="articleUrl" type="text" class="form-control" placeholder="Paste article URL">
+
+    <!-- COPY URL BUTTON -->
+    <button class="btn btn-secondary w-100 mt-2" onclick="copyURL()">
+      📋 Copy Article URL Only
+    </button>
 
     <!-- TITLE -->
     <label class="fw-bold mt-3 mb-2">Article Title</label>
@@ -39,9 +53,14 @@
     <label class="fw-bold">Generated Tweet</label>
     <textarea id="output" class="form-control" rows="6" readonly></textarea>
 
-    <button class="btn btn-secondary w-100 mt-3" onclick="copyText()">📋 Copy to Clipboard</button>
+    <button class="btn btn-secondary w-100 mt-3" onclick="copyText()">📋 Copy Full Tweet</button>
 
-    <button class="btn btn-primary w-100 mt-3" onclick="tweet()">🐦 Tweet on X</button>
+    <button class="btn btn-primary w-100 mt-3 tweet-btn" onclick="tweet()">
+      <svg width="22" height="22" viewBox="0 0 1200 1227" style="vertical-align: middle;">
+        <path fill="#ffffff" d="M714 0L...Z"></path>
+      </svg>
+      Tweet on X
+    </button>
   </div>
 </div>
 
@@ -56,7 +75,7 @@ function generate() {
     return;
   }
 
-  const base = "https://tdbnz-coding.github.io/x/News/landing";
+  const base = "https://tdbnz-coding.github.io/X/News/landing";
 
   const params = new URLSearchParams({
     title: title,
@@ -77,7 +96,17 @@ function generate() {
 function copyText() {
   const text = document.getElementById("output").value;
   navigator.clipboard.writeText(text);
-  alert("Copied to clipboard!");
+  alert("Tweet copied!");
+}
+
+function copyURL() {
+  const url = document.getElementById("articleUrl").value.trim();
+  if (!url) {
+    alert("No URL to copy!");
+    return;
+  }
+  navigator.clipboard.writeText(url);
+  alert("Article URL copied!");
 }
 
 function tweet() {
