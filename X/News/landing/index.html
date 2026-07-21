@@ -126,7 +126,7 @@
 
     <!-- COUNTDOWN -->
     <p class="countdown">
-      Redirecting in <span id="timer">5</span> seconds…
+      Redirecting in <span id="timer">7</span> seconds…
     </p>
 
   </div>
@@ -138,7 +138,7 @@
   const title = params.get("title") || "Article";
   const summary = params.get("summary") || "Read the full article.";
   const url = params.get("url") || "#";
-  const image = params.get("image"); // ⭐ NEW: image support
+  const image = params.get("image");
 
   // Set content
   document.title = title;
@@ -153,8 +153,8 @@
     imgEl.style.display = "block";
   }
 
-  // ⭐ COUNTDOWN + REDIRECT
-  let seconds = 5;
+  // ⭐ COUNTDOWN + REDIRECT (7 seconds)
+  let seconds = 7;
   const timerEl = document.getElementById("timer");
 
   const countdown = setInterval(() => {
