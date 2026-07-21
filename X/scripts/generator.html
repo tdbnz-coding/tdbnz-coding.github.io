@@ -11,7 +11,6 @@
   body { padding: 20px; background: #f8f9fa; }
   .card { border-radius: 12px; }
   textarea { font-size: 15px; }
-
   .tweet-btn {
     font-size: 18px;
     padding: 12px;
@@ -19,6 +18,14 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+  }
+  #imagePreview {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: none;
   }
 </style>
 </head>
@@ -33,10 +40,26 @@
     <label class="fw-bold mb-2">Article URL</label>
     <input id="articleUrl" type="text" class="form-control" placeholder="Paste article URL">
 
+    <!-- URL WARNING -->
+    <p id="urlWarning" class="text-danger mt-1" style="display:none;">
+      ⚠️ Invalid URL. Must start with http:// or https://  
+    </p>
+
+    <p class="text-muted mt-1">
+      🔍 Always double‑check the URL before posting.
+    </p>
+
     <!-- COPY URL BUTTON -->
     <button class="btn btn-secondary w-100 mt-2" onclick="copyURL()">
       📋 Copy Article URL Only
     </button>
+
+    <!-- IMAGE URL -->
+    <label class="fw-bold mt-3 mb-2">Image URL (optional)</label>
+    <input id="imageUrl" type="text" class="form-control" placeholder="Paste image URL">
+
+    <!-- IMAGE PREVIEW -->
+    <img id="imagePreview" alt="Image preview">
 
     <!-- TITLE -->
     <label class="fw-bold mt-3 mb-2">Article Title</label>
@@ -79,10 +102,36 @@
 <script>
 let landingLinkGlobal = "";
 
+// URL VALIDATION
+document.getElementById("articleUrl").addEventListener("input", () => {
+  const url = document.getElementById("articleUrl").value.trim();
+  const warn = document.getElementById("urlWarning");
+
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    warn.style.display = "none";
+  } else {
+    warn.style.display = "block";
+  }
+});
+
+// IMAGE PREVIEW
+document.getElementById("imageUrl").addEventListener("input", () => {
+  const imgUrl = document.getElementById("imageUrl").value.trim();
+  const preview = document.getElementById("imagePreview");
+
+  if (imgUrl) {
+    preview.src = imgUrl;
+    preview.style.display = "block";
+  } else {
+    preview.style.display = "none";
+  }
+});
+
 function generate() {
   const url = document.getElementById("articleUrl").value.trim();
   const title = document.getElementById("articleTitle").value.trim();
   const summary = document.getElementById("articleSummary").value.trim();
+  const imgUrl = document.getElementById("imageUrl").value.trim();
 
   if (!url || !title || !summary) {
     alert("Please fill in URL, title, and summary.");
@@ -103,33 +152,30 @@ function generate() {
   const keywords = title.split(" ").slice(0, 3).map(w => "#" + w.replace(/[^a-zA-Z0-9]/g, ""));
   const hashtags = keywords.join(" ");
 
-  const tweetText = `${title}\n\n${summary}\n\n${landingLink}\n\n${hashtags}`;
+  let tweetText = `${title}\n\n${summary}\n\n${landingLink}\n\n${hashtags}`;
+
+  if (imgUrl) {
+    tweetText += `\n\n${imgUrl}`;
+  }
 
   document.getElementById("output").value = tweetText;
   document.getElementById("hashtagsBox").value = hashtags;
 }
 
 function copyText() {
-  const text = document.getElementById("output").value;
-  navigator.clipboard.writeText(text);
+  navigator.clipboard.writeText(document.getElementById("output").value);
   alert("Tweet copied!");
 }
 
 function copyURL() {
   const url = document.getElementById("articleUrl").value.trim();
-  if (!url) {
-    alert("No URL to copy!");
-    return;
-  }
+  if (!url) return alert("No URL to copy!");
   navigator.clipboard.writeText(url);
   alert("Article URL copied!");
 }
 
 function copyLandingLink() {
-  if (!landingLinkGlobal) {
-    alert("Generate the tweet first!");
-    return;
-  }
+  if (!landingLinkGlobal) return alert("Generate the tweet first!");
   navigator.clipboard.writeText(landingLinkGlobal);
   alert("Landing link copied!");
 }
