@@ -19,10 +19,20 @@
   <h2 class="mb-4 fw-bold">X Landing Link Generator</h2>
 
   <div class="card shadow p-4">
+
+    <!-- ARTICLE URL -->
     <label class="fw-bold mb-2">Article URL</label>
     <input id="articleUrl" type="text" class="form-control" placeholder="Paste article URL">
 
-    <button class="btn btn-dark w-100 mt-3" onclick="generate()">Generate Link</button>
+    <!-- TITLE -->
+    <label class="fw-bold mt-3 mb-2">Article Title</label>
+    <input id="articleTitle" type="text" class="form-control" placeholder="Enter article title">
+
+    <!-- SUMMARY -->
+    <label class="fw-bold mt-3 mb-2">Article Summary</label>
+    <textarea id="articleSummary" class="form-control" rows="3" placeholder="Enter article summary"></textarea>
+
+    <button class="btn btn-dark w-100 mt-3" onclick="generate()">Generate Tweet</button>
 
     <hr class="my-4">
 
@@ -36,41 +46,32 @@
 </div>
 
 <script>
-async function generate() {
-  const url = document.getElementById("articleUrl").value;
-  if (!url) return alert("Enter an article URL");
+function generate() {
+  const url = document.getElementById("articleUrl").value.trim();
+  const title = document.getElementById("articleTitle").value.trim();
+  const summary = document.getElementById("articleSummary").value.trim();
 
-  try {
-    const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
-    const data = await response.json();
-    const html = data.contents;
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-
-    const title = doc.querySelector("title")?.innerText || "Article";
-    const summary = doc.querySelector("p")?.innerText || "Read the full article.";
-
-    const base = "https://tdbnz-coding.github.io/X/News/landing";
-
-    const params = new URLSearchParams({
-      title: title,
-      summary: summary,
-      url: url
-    });
-
-    const landingLink = `${base}?${params.toString()}`;
-
-    const keywords = title.split(" ").slice(0, 3).map(w => "#" + w.replace(/[^a-zA-Z0-9]/g, ""));
-    const hashtags = keywords.join(" ");
-
-    const tweetText = `${title}\n\n${summary}\n\n${landingLink}\n\n${hashtags}`;
-
-    document.getElementById("output").value = tweetText;
-
-  } catch (e) {
-    alert("Could not fetch article. Some sites block scraping.");
+  if (!url || !title || !summary) {
+    alert("Please fill in URL, title, and summary.");
+    return;
   }
+
+  const base = "https://tdbnz-coding.github.io/x/News/landing";
+
+  const params = new URLSearchParams({
+    title: title,
+    summary: summary,
+    url: url
+  });
+
+  const landingLink = `${base}?${params.toString()}`;
+
+  const keywords = title.split(" ").slice(0, 3).map(w => "#" + w.replace(/[^a-zA-Z0-9]/g, ""));
+  const hashtags = keywords.join(" ");
+
+  const tweetText = `${title}\n\n${summary}\n\n${landingLink}\n\n${hashtags}`;
+
+  document.getElementById("output").value = tweetText;
 }
 
 function copyText() {
