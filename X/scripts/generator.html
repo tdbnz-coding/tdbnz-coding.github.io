@@ -50,11 +50,23 @@
 
     <hr class="my-4">
 
+    <!-- GENERATED TWEET -->
     <label class="fw-bold">Generated Tweet</label>
     <textarea id="output" class="form-control" rows="6" readonly></textarea>
 
+    <!-- AUTO HASHTAGS BOX -->
+    <label class="fw-bold mt-3">Auto Hashtags</label>
+    <textarea id="hashtagsBox" class="form-control" rows="2" readonly></textarea>
+
+    <!-- COPY FULL TWEET -->
     <button class="btn btn-secondary w-100 mt-3" onclick="copyText()">📋 Copy Full Tweet</button>
 
+    <!-- COPY LANDING LINK ONLY -->
+    <button class="btn btn-secondary w-100 mt-2" onclick="copyLandingLink()">
+      🔗 Copy Landing Link Only
+    </button>
+
+    <!-- TWEET BUTTON -->
     <button class="btn btn-primary w-100 mt-3 tweet-btn" onclick="tweet()">
       <svg width="22" height="22" viewBox="0 0 1200 1227" style="vertical-align: middle;">
         <path fill="#ffffff" d="M714 0L...Z"></path>
@@ -65,6 +77,8 @@
 </div>
 
 <script>
+let landingLinkGlobal = "";
+
 function generate() {
   const url = document.getElementById("articleUrl").value.trim();
   const title = document.getElementById("articleTitle").value.trim();
@@ -84,6 +98,7 @@ function generate() {
   });
 
   const landingLink = `${base}?${params.toString()}`;
+  landingLinkGlobal = landingLink;
 
   const keywords = title.split(" ").slice(0, 3).map(w => "#" + w.replace(/[^a-zA-Z0-9]/g, ""));
   const hashtags = keywords.join(" ");
@@ -91,6 +106,7 @@ function generate() {
   const tweetText = `${title}\n\n${summary}\n\n${landingLink}\n\n${hashtags}`;
 
   document.getElementById("output").value = tweetText;
+  document.getElementById("hashtagsBox").value = hashtags;
 }
 
 function copyText() {
@@ -107,6 +123,15 @@ function copyURL() {
   }
   navigator.clipboard.writeText(url);
   alert("Article URL copied!");
+}
+
+function copyLandingLink() {
+  if (!landingLinkGlobal) {
+    alert("Generate the tweet first!");
+    return;
+  }
+  navigator.clipboard.writeText(landingLinkGlobal);
+  alert("Landing link copied!");
 }
 
 function tweet() {
