@@ -1,0 +1,178 @@
+let viewer;
+let entity;
+let trackData = [];
+let metadata = null;
+let playing = false;
+let currentIndex = 0;
+let timer = null;
+
+/* -------------------------------
+   INITIALISE CESIUM VIEWER
+--------------------------------*/
+function initCesium() {
+  viewer = new Cesium.Viewer("cesiumContainer", {
+    timeline: false,
+    animation: false,
+    baseLayerPicker: true,
+    terrainProvider: Cesium.createWorldTerrain()
+  });
+}
+
+/* -------------------------------
+   AUTO-LOAD FLIGHT FOLDERS
+--------------------------------*/
+async function loadFlightList() {
+  const resp = await fetch("flights/");
+  const text = await resp.text();
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text, "text/html");
+
+  const links = [...doc.querySelectorAll("a")];
+  const flightCodes = links
+    .map(a => a.textContent.replace("/", ""))
+    .filter(code => code && code !== "EXAMPLE");
+
+  const selector = document.getElementById("flightSelector");
+  selector.innerHTML = "";
+
+  flightCodes.forEach(code => {
+    const opt = document.createElement("option");
+    opt.value = code;
+    opt.textContent = code;
+    selector.appendChild(opt);
+  });
+}
+
+/* -------------------------------
+   LOAD FLIGHT DATA
+--------------------------------*/
+async function loadFlight(flightCode) {
+  if (entity) viewer.entities.remove(entity);
+
+  trackData = [];
+  metadata = null;
+  currentIndex = 0;
+  playing = false;
+  if (timer) clearInterval(timer);
+
+  const basePath = `flights/${flightCode}/`;
+
+  // Load metadata JSON
+  const metaResp = await fetch(basePath + "track.json");
+  metadata = await metaResp.json();
+
+  document.getElementById("flightTitle").textContent = metadata.flightNumber;
+  document.getElementById("aircraftType").textContent = metadata.aircraftType;
+  document.getElementById("registration").textContent = metadata.registration;
+  document.getElementById("airline").textContent = metadata.airline;
+  document.getElementById("origin").textContent = metadata.origin;
+  document.getElementById("destination").textContent = metadata.destination;
+  document.getElementById("aircraftPhoto").src = basePath + metadata.photo;
+
+  // Load CSV track
+  const csvResp = await fetch(basePath + "track.csv");
+  parseCSV(await csvResp.text());
+
+  const firstPoint = trackData[0];
+  entity = viewer.entities.add({
+    position: Cesium.Cartesian3.fromDegrees(firstPoint.lon, firstPoint.lat, firstPoint.alt_ft * 0.3048),
+    point: { pixelSize: 10, color: Cesium.Color.CYAN },
+    label: {
+      text: metadata.flightNumber,
+      font: "14px sans-serif",
+      fillColor: Cesium.Color.WHITE,
+      outlineColor: Cesium.Color.BLACK,
+      outlineWidth: 2,
+      style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+      pixelOffset: new Cesium.Cartesian2(0, -20)
+    }
+  });
+
+  viewer.flyTo(entity);
+  updateInfo(firstPoint);
+}
+
+/* -------------------------------
+   PARSE CSV TRACK DATA
+--------------------------------*/
+function parseCSV(text) {
+  const lines = text.trim().split("\n");
+  const header = lines[0].split(",");
+  const idx = {
+    timestamp: header.indexOf("timestamp"),
+    lat: header.indexOf("lat"),
+    lon: header.indexOf("lon"),
+    alt_ft: header.indexOf("alt_ft"),
+    speed_kt: header.indexOf("speed_kt"),
+    heading_deg: header.indexOf("heading_deg")
+  };
+
+  for (let i = 1; i < lines.length; i++) {
+    const cols = lines[i].split(",");
+    trackData.push({
+      timestamp: cols[idx.timestamp],
+      lat: parseFloat(cols[idx.lat]),
+      lon: parseFloat(cols[idx.lon]),
+      alt_ft: parseFloat(cols[idx.alt_ft]),
+      speed_kt: parseFloat(cols[idx.speed_kt]),
+      heading_deg: parseFloat(cols[idx.heading_deg])
+    });
+  }
+}
+
+/* -------------------------------
+   UPDATE INFO PANEL
+--------------------------------*/
+function updateInfo(point) {
+  document.getElementById("altitude").textContent = `${Math.round(point.alt_ft)} ft`;
+  document.getElementById("speed").textContent = `${Math.round(point.speed_kt)} kt`;
+  document.getElementById("heading").textContent = `${Math.round(point.heading_deg)}°`;
+  document.getElementById("timeDisplay").textContent = `Time: ${point.timestamp}`;
+}
+
+/* -------------------------------
+   PLAYBACK STEP
+--------------------------------*/
+function step() {
+  currentIndex++;
+  if (currentIndex >= trackData.length) {
+    clearInterval(timer);
+    playing = false;
+    return;
+  }
+
+  const point = trackData[currentIndex];
+  entity.position = Cesium.Cartesian3.fromDegrees(point.lon, point.lat, point.alt_ft * 0.3048);
+  updateInfo(point);
+}
+
+/* -------------------------------
+   PLAY / PAUSE
+--------------------------------*/
+function play() {
+  if (playing) return;
+  playing = true;
+  timer = setInterval(step, 1000);
+}
+
+function pause() {
+  playing = false;
+  clearInterval(timer);
+}
+
+/* -------------------------------
+   PAGE LOAD
+--------------------------------*/
+document.addEventListener("DOMContentLoaded", () => {
+  initCesium();
+
+  loadFlightList().then(() => {
+    const selector = document.getElementById("flightSelector");
+    selector.addEventListener("change", () => loadFlight(selector.value));
+    loadFlight(selector.value);
+  });
+
+  document.getElementById("playBtn").addEventListener("click", play);
+  document.getElementById("pauseBtn").addEventListener("click", pause);
+});

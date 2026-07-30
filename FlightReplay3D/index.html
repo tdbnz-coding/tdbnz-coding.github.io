@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FlightReplay3D — Where past flights come alive again.</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Cesium CDN -->
+  <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css">
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Cesium.js"></script>
+</head>
+<body>
+
+  <div id="topBar">
+    <div id="brand">
+      <strong>FlightReplay3D</strong>
+      <span class="tagline">Where past flights come alive again.</span>
+    </div>
+
+    <div id="controls">
+      <label for="flightSelector">Flight:</label>
+      <select id="flightSelector"></select>
+      <button id="playBtn">Play</button>
+      <button id="pauseBtn">Pause</button>
+    </div>
+
+    <div id="timeDisplay">Time: --:--:--</div>
+  </div>
+
+  <div id="container">
+    <div id="cesiumContainer"></div>
+
+    <div id="infoPanel">
+      <h2 id="flightTitle">Flight Info</h2>
+      <img id="aircraftPhoto" src="" alt="Aircraft" />
+
+      <div class="infoRow"><span>Aircraft:</span> <span id="aircraftType">-</span></div>
+      <div class="infoRow"><span>Registration:</span> <span id="registration">-</span></div>
+      <div class="infoRow"><span>Airline:</span> <span id="airline">-</span></div>
+      <div class="infoRow"><span>From:</span> <span id="origin">-</span></div>
+      <div class="infoRow"><span>To:</span> <span id="destination">-</span></div>
+      <div class="infoRow"><span>Altitude:</span> <span id="altitude">-</span></div>
+      <div class="infoRow"><span>Speed:</span> <span id="speed">-</span></div>
+      <div class="infoRow"><span>Heading:</span> <span id="heading">-</span></div>
+    </div>
+  </div>
+
+  <script src="playback.js"></script>
+</body>
+</html>
