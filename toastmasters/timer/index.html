@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avon Toastmasters Timer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+
+    <header id="app-header">
+        <div class="app-title">Avon Toastmasters Timer</div>
+        <nav class="app-menu">
+            <button class="menu-btn" data-section="timerSection">Timer</button>
+            <button class="menu-btn" data-section="settingsSection">Settings</button>
+            <button class="menu-btn" data-section="logSection">Logs</button>
+        </nav>
+    </header>
+
+    <main id="app-main">
+        <!-- TIMER SECTION -->
+        <section id="timerSection" class="app-section active">
+            <div class="top-meta">
+                <div class="meta-field">
+                    <label for="meetingTitle">Meeting title</label>
+                    <input id="meetingTitle" type="text" placeholder="e.g. Club Night 12 Aug">
+                </div>
+                <div class="meta-field">
+                    <label for="timerName">Timer name</label>
+                    <input id="timerName" type="text" placeholder="Your name">
+                </div>
+            </div>
+
+            <div class="preset-row">
+                <label for="presetSelect">Timing preset:</label>
+                <select id="presetSelect">
+                    <option value="speaker">Speaker (5–7)</option>
+                    <option value="table_topics">Table Topics (1–2)</option>
+                    <option value="evaluator">Evaluator (2–3)</option>
+                </select>
+
+                <label class="competition-label">
+                    <input type="checkbox" id="competitionMode">
+                    Competition mode (DQ if outside green–red)
+                </label>
+            </div>
+
+            <div id="timerDisplay">
+                <span id="minutes">00</span><span id="colon">:</span><span id="seconds">00</span>
+            </div>
+
+            <div class="buttons">
+                <button id="startBtn">Start</button>
+                <button id="stopBtn">Stop</button>
+            </div>
+
+            <div class="zoom-container">
+                <button class="zoom-btn" data-zoom="-1">-</button>
+                <button class="zoom-btn" data-zoom="1">+</button>
+                <button class="zoom-reset-btn">Reset Clock Size</button>
+            </div>
+
+            <p class="expiry-text">
+                Meeting data (names, roles, logs) is stored locally and automatically expires
+                <strong>2 days</strong> from the time you use it.
+            </p>
+        </section>
+
+        <!-- SETTINGS SECTION -->
+        <section id="settingsSection" class="app-section">
+            <h2>Timing Settings</h2>
+
+            <div class="settings-grid">
+                <div class="grid-header">Stage</div>
+                <div class="grid-header">Time</div>
+                <div class="grid-header">Blink</div>
+                <div class="grid-header">Sound</div>
+
+                <div class="stage-label green">Green</div>
+                <div><select id="greenMin"></select>:<select id="greenSec"></select></div>
+                <div><input type="checkbox" id="greenBlink" checked></div>
+                <div><input type="checkbox" id="greenSound"></div>
+
+                <div class="stage-label yellow">Yellow</div>
+                <div><select id="yellowMin"></select>:<select id="yellowSec"></select></div>
+                <div><input type="checkbox" id="yellowBlink" checked></div>
+                <div><input type="checkbox" id="yellowSound"></div>
+
+                <div class="stage-label red">Red</div>
+                <div><select id="redMin"></select>:<select id="redSec"></select></div>
+                <div><input type="checkbox" id="redBlink" checked></div>
+                <div><input type="checkbox" id="redSound"></div>
+            </div>
+
+            <div class="bottom-actions">
+                <div class="action-buttons-row">
+                    <button id="testSoundBtn">Test Sound</button>
+                    <button id="exportBtn">Export Report</button>
+                    <button id="deleteModeBtn">Delete Speaker</button>
+                    <button id="clearDataBtn">Clear Meeting Data</button>
+                </div>
+
+                <div class="note-text">
+                    Settings (presets, blink/sound, zoom, meeting title, timer name) are remembered on this device.<br>
+                    Meeting data (names, roles, logs, people memory) is kept for <strong>2 days</strong> only.<br>
+                    Mod by Thomas for Avon Toastmasters.
+                </div>
+            </div>
+        </section>
+
+        <!-- LOGS SECTION -->
+        <section id="logSection" class="app-section">
+            <h2>Timing Logs</h2>
+            <div id="logTableContainer"></div>
+        </section>
+    </main>
+
+    <!-- Name + Role Dialog -->
+    <div id="roleDialogBackdrop" class="dialog-backdrop hidden">
+        <div class="dialog">
+            <h2>New Timing Entry</h2>
+            <div class="dialog-row">
+                <label for="dialogName">Name</label>
+                <input id="dialogName" type="text" placeholder="Participant name">
+            </div>
+            <div class="dialog-row">
+                <label for="dialogRole">Role</label>
+                <select id="dialogRole"></select>
+            </div>
+            <div class="dialog-row" id="dialogIntroducerRow" style="display:none;">
+                <label>
+                    <input type="checkbox" id="dialogIntroducerEval">
+                    This person is ALSO the evaluator
+                </label>
+            </div>
+            <div class="dialog-actions">
+                <button id="dialogCancelBtn">Cancel</button>
+                <button id="dialogOkBtn">Start Timing</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
