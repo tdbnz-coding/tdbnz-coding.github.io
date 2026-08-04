@@ -1,5 +1,5 @@
 // Mod by Thomas – Avon Toastmasters Timer (million-dollar edition)
-// Settings persist long-term; meeting data (names, roles, logs) kept for 2 days.
+// Settings persist long-term; meeting data (names, roles, logs, scanned agenda) kept for 2 days.
 
 let running = false;
 let isStopping = false;
@@ -62,6 +62,16 @@ const dialogOkBtn = document.getElementById("dialogOkBtn");
 const menuButtons = document.querySelectorAll(".menu-btn");
 const sections = document.querySelectorAll(".app-section");
 
+// Scan Agenda
+const agendaImageInput = document.getElementById("agendaImageInput");
+const agendaPdfInput = document.getElementById("agendaPdfInput");
+const scanImageBtn = document.getElementById("scanImageBtn");
+const scanPdfBtn = document.getElementById("scanPdfBtn");
+const scanStatusEl = document.getElementById("scanStatus");
+const scanRawTextEl = document.getElementById("scanRawText");
+const scanFlowContainer = document.getElementById("scanFlowContainer");
+const applyAgendaBtn = document.getElementById("applyAgendaBtn");
+
 // Role list
 const ROLE_LIST = [
     "Speaker",
@@ -94,6 +104,9 @@ const ROLE_LIST = [
 
 // Memory of known people
 let peopleMemory = [];
+
+// Scanned agenda flow
+let scannedAgendaFlow = [];
 
 // Init
 setupPickers();
@@ -134,8 +147,10 @@ function clearMeetingData() {
     logs = [];
     peopleMemory = [];
     speakerCount = 0;
+    scannedAgendaFlow = [];
     updateLogDisplay();
-    setMeetingCookie(MEETING_COOKIE_KEY, { logs: [], peopleMemory: [] }, 2);
+    renderScannedFlow();
+    setMeetingCookie(MEETING_COOKIE_KEY, { logs: [], peopleMemory: [], scannedAgendaFlow: [] }, 2);
     alert("Meeting data cleared. Settings are still kept.");
 }
 
@@ -225,7 +240,7 @@ function attachEvents() {
     document.body.addEventListener("touchstart", initAudio, { once: true });
 
     window.addEventListener("beforeunload", e => {
-        if (logs.length === 0) return;
+        if (logs.length === 0 && scannedAgendaFlow.length === 0) return;
         const msg = "Meeting data is kept for 2 days, but export if you need a PDF. Leave page?";
         e.preventDefault();
         e.returnValue = msg;
@@ -250,6 +265,11 @@ function attachEvents() {
             menuButtons.forEach(b => b.classList.toggle("active", b === btn));
         });
     });
+
+    // Scan Agenda
+    scanImageBtn.addEventListener("click", handleScanImage);
+    scanPdfBtn.addEventListener("click", handleScanPdf);
+    applyAgendaBtn.addEventListener("click", applyScannedAgendaToMeeting);
 }
 
 /* ============================
@@ -671,7 +691,8 @@ function loadSettingsFromCookie() {
 function saveMeetingToCookie() {
     const data = {
         logs,
-        peopleMemory
+        peopleMemory,
+        scannedAgendaFlow
     };
     setMeetingCookie(MEETING_COOKIE_KEY, data, 2);
 }
@@ -689,10 +710,12 @@ function loadMeetingFromCookie() {
         : [];
 
     peopleMemory = Array.isArray(data.peopleMemory) ? data.peopleMemory : [];
+    scannedAgendaFlow = Array.isArray(data.scannedAgendaFlow) ? data.scannedAgendaFlow : [];
 
     speakerCount = logs.length ? Math.max(...logs.map(l => l.number)) : 0;
 
     updateLogDisplay();
+    renderScannedFlow();
 }
 
 /* ============================
@@ -775,4 +798,256 @@ function exportPDF() {
     doc.text("Mod by Thomas for Avon Toastmasters – meeting data kept for 2 days on this device.", 14, finalY + 10);
 
     doc.save(`Avon_Timing_Logs_${dateStr}.pdf`);
+}
+
+/* ============================
+   SCAN AGENDA – IMAGE
+============================ */
+async function handleScanImage() {
+    const file = agendaImageInput.files && agendaImageInput.files[0];
+    if (!file) {
+        alert("Please choose an agenda image first.");
+        return;
+    }
+
+    scanStatusEl.textContent = "Scanning image… this may take a few seconds.";
+    scanRawTextEl.value = "";
+    scannedAgendaFlow = [];
+    renderScannedFlow();
+
+    try {
+        const worker = await Tesseract.createWorker();
+        await worker.loadLanguage('eng');
+        await worker.initialize('eng');
+
+        const { data } = await worker.recognize(file);
+        await worker.terminate();
+
+        const text = data.text || "";
+        scanRawTextEl.value = text;
+        scanStatusEl.textContent = "Image scanned. Parsing agenda…";
+
+        parseAgendaText(text);
+    } catch (err) {
+        console.error(err);
+        scanStatusEl.textContent = "Error scanning image.";
+    }
+}
+
+/* ============================
+   SCAN AGENDA – PDF
+============================ */
+async function handleScanPdf() {
+    const file = agendaPdfInput.files && agendaPdfInput.files[0];
+    if (!file) {
+        alert("Please choose an agenda PDF first.");
+        return;
+    }
+
+    scanStatusEl.textContent = "Scanning PDF… this may take a few seconds.";
+    scanRawTextEl.value = "";
+    scannedAgendaFlow = [];
+    renderScannedFlow();
+
+    try {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+        let fullText = "";
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
+            const content = await page.getTextContent();
+            const strings = content.items.map(item => item.str);
+            fullText += strings.join(" ") + "\n";
+        }
+
+        scanRawTextEl.value = fullText;
+        scanStatusEl.textContent = "PDF scanned. Parsing agenda…";
+
+        parseAgendaText(fullText);
+    } catch (err) {
+        console.error(err);
+        scanStatusEl.textContent = "Error scanning PDF.";
+    }
+}
+
+/* ============================
+   PARSE AGENDA TEXT
+============================ */
+function parseAgendaText(text) {
+    // Very simple heuristic parser for Toastmasters-style agendas.
+    // Looks for lines with a time and then role/name info.
+    const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+
+    const timeRegex = /^(\d{1,2}:\d{2})/;
+    const durationRegex = /\((\d+–\d+|\d+ ?min|\d+ ?minutes)\)/i;
+
+    const flow = [];
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+
+        const timeMatch = line.match(timeRegex);
+        if (timeMatch) {
+            const timeStr = timeMatch[1];
+            let role = "";
+            let name = "";
+            let duration = "";
+            let extra = "";
+
+            // Try to find next few lines as role/name/duration
+            const windowLines = [line];
+            for (let j = i + 1; j < Math.min(lines.length, i + 4); j++) {
+                if (timeRegex.test(lines[j])) break;
+                windowLines.push(lines[j]);
+            }
+
+            const joined = windowLines.join(" | ");
+
+            const durationMatch = joined.match(durationRegex);
+            if (durationMatch) {
+                duration = durationMatch[1];
+            }
+
+            // Try to find a known role
+            for (const r of ROLE_LIST) {
+                const regex = new RegExp(r, "i");
+                if (regex.test(joined)) {
+                    role = r;
+                    break;
+                }
+            }
+
+            // Try to find a name (simple heuristic: last token after role or "Name")
+            const nameMatch = joined.match(/Name\s*([A-Za-z].*)$/i);
+            if (nameMatch) {
+                name = nameMatch[1].trim();
+            } else {
+                // fallback: last part after role
+                if (role) {
+                    const idx = joined.toLowerCase().indexOf(role.toLowerCase());
+                    if (idx >= 0) {
+                        const after = joined.slice(idx + role.length).replace(/\|/g, " ").trim();
+                        const parts = after.split(/\s+/);
+                        if (parts.length >= 2) {
+                            name = parts.slice(0, 3).join(" ");
+                        }
+                    }
+                }
+            }
+
+            extra = joined;
+
+            flow.push({
+                time: timeStr,
+                role: role || "Agenda Item",
+                name: name || "",
+                duration: duration || "",
+                raw: extra
+            });
+        }
+    }
+
+    scannedAgendaFlow = flow;
+    renderScannedFlow();
+
+    if (flow.length === 0) {
+        scanStatusEl.textContent = "No clear agenda items found. You may need to edit manually.";
+    } else {
+        const missingTimes = flow.filter(item => !item.duration);
+        if (missingTimes.length > 0) {
+            scanStatusEl.textContent = `Agenda parsed with ${flow.length} items. Some items missing durations – preset timings will be used and time alerts shown.`;
+        } else {
+            scanStatusEl.textContent = `Agenda parsed with ${flow.length} items. All items have times or durations.`;
+        }
+    }
+
+    saveMeetingToCookie();
+}
+
+/* ============================
+   RENDER SCANNED FLOW
+============================ */
+function renderScannedFlow() {
+    if (!scannedAgendaFlow || scannedAgendaFlow.length === 0) {
+        scanFlowContainer.innerHTML = "<p style='font-size:12px;opacity:0.8;'>No scanned agenda yet.</p>";
+        return;
+    }
+
+    let html = "";
+    scannedAgendaFlow.forEach((item, index) => {
+        const durationText = item.duration ? item.duration : "No duration – will use preset timing";
+        const alertText = item.duration ? "" : "⚠ Missing time – preset timing + alert";
+
+        html += `
+            <div class="scan-flow-item">
+                <div class="scan-flow-item-header">
+                    <div class="scan-flow-item-main">
+                        ${index + 1}. ${item.role}${item.name ? " – " + item.name : ""}
+                    </div>
+                    <button onclick="startFromAgendaItem(${index})">Start Item</button>
+                </div>
+                <div class="scan-flow-item-meta">
+                    Time: ${item.time || "--:--"} · Duration: ${durationText}<br>
+                    ${alertText}
+                </div>
+            </div>
+        `;
+    });
+
+    scanFlowContainer.innerHTML = html;
+}
+
+/* ============================
+   START FROM AGENDA ITEM
+============================ */
+function startFromAgendaItem(index) {
+    const item = scannedAgendaFlow[index];
+    if (!item) return;
+
+    // Use role to set preset if possible
+    if (/table topics/i.test(item.role)) {
+        setPreset("table_topics");
+    } else if (/evaluat/i.test(item.role)) {
+        setPreset("evaluator");
+    } else {
+        setPreset("speaker");
+    }
+
+    // If duration exists, try to map it to green/yellow/red roughly
+    if (item.duration) {
+        const match = item.duration.match(/(\d+)[–\-](\d+)/);
+        if (match) {
+            const minLow = parseInt(match[1], 10);
+            const minHigh = parseInt(match[2], 10);
+            greenMin.value = minLow;
+            greenSec.value = 0;
+            yellowMin.value = minLow + Math.floor((minHigh - minLow) / 2);
+            yellowSec.value = 0;
+            redMin.value = minHigh;
+            redSec.value = 0;
+        }
+    } else {
+        alert("This agenda item has no duration – using preset timing and will show time alerts.");
+    }
+
+    saveSettingsToCookie();
+
+    const name = item.name || item.role;
+    const role = item.role;
+
+    startTimerWithInfo({ name, role });
+}
+
+/* ============================
+   APPLY SCANNED AGENDA
+============================ */
+function applyScannedAgendaToMeeting() {
+    if (!scannedAgendaFlow || scannedAgendaFlow.length === 0) {
+        alert("No scanned agenda to apply.");
+        return;
+    }
+
+    scanStatusEl.textContent = "Scanned agenda applied to this meeting. You can start items from the Scan Agenda tab or use manual Start.";
+    saveMeetingToCookie();
 }

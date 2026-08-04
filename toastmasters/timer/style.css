@@ -49,6 +49,7 @@ body.blink-red { animation:breatheRed 3s infinite; }
 .app-menu {
     display:flex;
     gap:8px;
+    flex-wrap:wrap;
 }
 
 .menu-btn {
@@ -67,7 +68,7 @@ body.blink-red { animation:breatheRed 3s infinite; }
 
 /* Main layout */
 #app-main {
-    max-width:800px;
+    max-width:900px;
     margin:0 auto;
     padding:12px 16px 24px;
 }
@@ -208,7 +209,8 @@ body.blink-red { animation:breatheRed 3s infinite; }
 
 /* Settings */
 #settingsSection h2,
-#logSection h2 {
+#logSection h2,
+#scanSection h2 {
     margin:4px 0 10px;
     font-size:18px;
 }
@@ -400,4 +402,133 @@ input[type="checkbox"] {
 #dialogOkBtn {
     background:#4CAF50;
     color:white;
+}
+
+/* Scan Agenda */
+.scan-upload-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:12px;
+}
+
+.scan-upload-block {
+    flex:1;
+    min-width:220px;
+    background:#1e1e1e;
+    padding:12px;
+    border-radius:10px;
+}
+
+.scan-upload-block h3 {
+    margin:0 0 8px;
+    font-size:15px;
+}
+
+.scan-upload-block input[type="file"] {
+    width:100%;
+    margin-bottom:8px;
+}
+
+.scan-upload-block button {
+    width:100%;
+    padding:8px 10px;
+    border-radius:999px;
+    border:none;
+    background:#4CAF50;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.scan-status {
+    font-size:13px;
+    margin-bottom:8px;
+    min-height:18px;
+}
+
+.scan-columns {
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-top:8px;
+}
+
+.scan-column {
+    flex:1;
+    min-width:260px;
+}
+
+#scanRawText {
+    width:100%;
+    min-height:160px;
+    background:#1e1e1e;
+    border-radius:10px;
+    border:1px solid #444;
+    color:#f5f5f5;
+    padding:8px;
+    font-size:12px;
+    resize:vertical;
+}
+
+#scanFlowContainer {
+    background:#1e1e1e;
+    border-radius:10px;
+    border:1px solid #444;
+    padding:8px;
+    font-size:13px;
+}
+
+.scan-flow-item {
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    padding:6px 8px;
+    border-radius:8px;
+    margin-bottom:6px;
+    background:#222;
+}
+
+.scan-flow-item-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+}
+
+.scan-flow-item-main {
+    font-weight:600;
+}
+
+.scan-flow-item-meta {
+    font-size:11px;
+    opacity:0.8;
+}
+
+.scan-flow-item button {
+    padding:4px 8px;
+    border-radius:999px;
+    border:none;
+    font-size:11px;
+    cursor:pointer;
+    background:#4CAF50;
+    color:white;
+}
+
+.scan-actions-row {
+    margin-top:10px;
+    display:flex;
+    justify-content:flex-end;
+}
+
+#applyAgendaBtn {
+    padding:8px 16px;
+    border-radius:999px;
+    border:none;
+    background:#2196F3;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    font-size:13px;
 }
