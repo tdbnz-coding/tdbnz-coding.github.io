@@ -1,74 +1,476 @@
-#EXTM3U
-
 # --- News Channels ---
+Africa 24
+Al Arabiya English
+ABC 2 Baltimore
+ABC 9 Manchester
+ABC 27 Tallahassee
+ABC News Australia
+Bloomberg
+CBS News
+Fox Sports News
+News24 Now
+News24 Weather
+Africanews
+News24 World
+Scripps News
+3Cat Info
+Yahoo Finance
 
-#EXTINF:-1 tvg-id="africa24.en" tvg-name="Africa 24 English" group-title="News" tvg-logo="https://i.postimg.cc/xkTLzMKz/image.png",Africa 24
-https://edge20.vedge.infomaniak.com/livecast/ik:africa24english/manifest.m3u8
+Al Jazeera English
+Al Jazeera English
 
-#EXTINF:-1 tvg-id="africanews.en" tvg-name="Africanews English" group-title="News" tvg-logo="https://i.postimg.cc/QK573brv/image.png",Africanews
-https://cdn-euronews.akamaized.net/live/eds/africanews-en/25049/index.m3u8
+Al Jazeera English
 
-#EXTINF:-1 tvg-id="aljazeera.en" tvg-name="Al Jazeera English" group-title="News" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English
-https://live-hls-web-aje-gcp.thehlive.com/AJE/01.m3u8
+Al Jazeera Mubasher 24
+Al Jazeera Mubasher Broadcast 2
 
-#EXTINF:-1 tvg-id="aljazeera1080.en" tvg-name="Al Jazeera English HD" group-title="News" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English
-https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8
+# --- 🇳🇿 News – New Zealand ---
+Al Jazeera
+Firstlight
+HGTV
+Hope Channel
+J2
+JuiceTV
+Melo
+MovieSphere
+MythBusters
+Parliament TV
+RUSH
+Below Deck Vault
+Redbull TV
+Shine TV
+Sky Open
+TVSN Shopping
+Te Reo
+The Groat
+Three
+ThreePlus1
+Trackside 1
+Trackside 2
+Big Rig
+Trackside Premier
+Wairarapa TV
+Warner Bros TV Deadliest Catch
+Warner Bros TV House Hunters
+Warner Bros TV Motorheads
+Warner Bros TV Paranormal
+Warner Bros TV True Crime
+Whakaata Māori
+eden
 
-#EXTINF:-1 tvg-id="aljazeera2.en" tvg-name="Al Jazeera 2" group-title="News" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera 2
-https://live-hls-web-aja2-gcp.thehlive.com/AJA2/index.m3u8
+Bravo
+Bravo PLUS 1
+CH200
+CNN Headlines International
+Channel News Asia (CNA)
+DW English
 
-#EXTINF:-1 tvg-id="aljazeera-hd.en" tvg-name="Al Jazeera English HD" group-title="News" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English
-http://stream.mcquack.net/131/index.m3u8
+# --- 📻 News – New Zealand Radio ---
+100.3FM
+Anthemz
+George DnB 300 Respin
+George FM Biggest 1000 Replay
+George Latest Bangers
+George Workout
+Get Cosy
+Global Top 50 Chart
+Gold
+Good Charlotte
+Heads 106.4FM Mangawhai
+Heads FM
+Ariana Grande
+Hello Radio
+High School Hit Countdown 2025 Replay
+High School Hits
+Ho Ho Hits
+Hokonui Ashburton
+Hokonui Southland
+Hot 1000 Replay
+Humm
+Humm 80s Jukebox
+Humm Rewind
+Atiawa Toa FM
+Hutt Radio
+Irie Anthems
+Jim Beam Homegrown '25
+Jordan Lee In The Mix
+Juice TV
+Just FM
+Justin Bieber
+KAOS FM
+Kaytranada
+Kehlani
+Awa FM
+Kendrick Lamar
+Kia Ora FM
+Kids Christmas
+Kids Hits
+Kiwi Discovery
+Kix Fm Radio
+Lake FM 89.6
+Lake FM Taupo
+Lakes Festival Mixtape
+Lenny Kravitz
+Awa Fm
+Life FM
+Lofi Beats
+Lorde
+LoveFM - FM99.4
+Luke Combs
+MAD FM
+Magic
+Magic Classic Country
+Magic's Elvis & Friends
+Magic's Essential 70s
+BASE FM
+Magic's Repco Beach Hop
+Mai
+Mai Backyard Beats
+Mai Heatseekers
+Mai Throwbacks
+Mai Workout
+Major Flavors
+Maniapoto FM
+Maori Mixtape
+Mellow Down
+BAYROCK
+Michael Jackson
+Mitch James
+Moana Radio
+More FM 90's
+More FM Network
+More Workout
+MoreFM Bay Of Plenty - 93.4FM
+MoreFM Canterbury - 92.1FM/94.9FM/104.FM
+MoreFM Central Otago & Wānaka - 90.3/94.3/97.1/99.4FM
+MoreFM Coromandel - 97.2/90.3/89.1/89.9/93.9/90.6/104.2FM
+BBC World Service (Auckland)
+MoreFM Dunedin - 97.4FM
+MoreFM Gisborne/Wairoa - 90.1/98.9FM
+MoreFM Hawke's Bay - 88.7FM
+MoreFM Manawatu - 92.2FM
+MoreFM Marlborough - 92.9/94.7/89.9FM
+MoreFM Nelson - 92.8 / 92.0FM
+MoreFM Northland - 91.6/94.4/93.6FM
+MoreFM Queenstown - 92.0/92.8FM
+MoreFM Rodney - 88.9/97.8FM
+MoreFM Rotorua - 95.9/89.2FM
+BBQ Bangers
+MoreFM South Canterbury - 97.9/93.1/95.0FM
+MoreFM Southland/Te Anau - 89.2/96.0FM
+MoreFM Taranaki - 93.2/92.8FM
+MoreFM Taupo - 93.6FM
+MoreFM Waikato - 92.2FM
+MoreFM Wairarapa - 89.5FM/105.9FM
+MoreFM Wellington - 95.3/99.7FM
+Morgan Wallen
+NBR Radio
+NOW Radio
+BFM Radio
+NZ Top 40
+NZ Top 50 Chart
+Newstalk ZB
+Newstalk ZB Auckland
+Newstalk ZB Christchurch
+Newstalk ZB Dunedin
+Newstalk ZB Sport
+Newstalk ZB Tauranga
+Newstalk ZB Waikato
+Newstalk ZB Wellington
+1xx Radio
+Base FM
+Niu FM
+Nu Metal
+Nui FM
+Oamaru FM 91.2
+Official NZ Top 20
+Olivia Dean
+One Direction & Friends
+One Double X
+Ozzy Osbourne
+PMN 531
+Bassline
+Peak FM
+Peak FM Ruapehu
+Pearl Jams
+Plains FM
+Plains Media
+Planet FM
+Play It Strange
+Playlist for Pets
+Post Malone
+Power Hit
+Bayrock
+Pure 2000s
+Pure 2010s
+Pure 80s
+Pure 90s
+Pure Hip Hop 90s
+Pure Love Ballads
+Pure Rock: Classics
+Q97
+RDU
+REX Radio
+Beach FM 106.3 - Kapiti
+RNZ Concert
+RNZ National
+RNZ Pacific
+ROCKit Radio
+Radio Active
+Radio Aotearoa
+Radio Apna
+Radio Burger Fuel
+Radio Control
+Radio Dunedin
+Big Country
+Radio Ferrymead
+Radio Hauraki
+Radio Hauraki Auckland
+Radio Hauraki Christchurch
+Radio Hauraki Dunedin
+Radio Hauraki Tauranga
+Radio Hauraki Waikato
+Radio Hauraki Wellington
+Radio One
+Radio Samoa
+Big River FM
+Radio Spice
+Radio Tarana
+Radio Tarana Tamil
+Radio Waatea
+Radio Wānaka
+Radio X
+Radio XPD
+Raglan Community Radio
+Rahat Fateh Ali Khan
+Rap Gods
+Billie Eilish
+Raukawa Vibes
+Real Radio
+Retro Hit Radio
+Rhema
+Rhythm & Vines Mixtape
+Rihanna
+Rock 2000 Replay
+Rock Workout
+Rockin' The Blues
+Rufus Du Sol Vibes
+Breeze 400 Countdown Replay
+SUN FM
+Sabrina Carpenter
+Sanctuary
+Ski FM
+Ski FM Network
+Sleep Radio
+Smooth FM
+Soul Food
+Southern Cross Country Radio
+Sport Nation
+Breeze Classic
+Sport Nation - stream the cricket live here
+Sport Nation Auckland
+Sport Nation Christchurch
+Sport Nation Dunedin
+Sport Nation Extra
+Sport Nation North Island
+Sport Nation South Island
+Sport Nation Waikato
+Sport Nation Wellington
+Star Radio
+Breeze Kiwiana
+State Highway 1
+Static
+Summer Tour
+Sun FM
+Sunshine FM
+TAB Trackside Radio
+TAHI
+Tahu FM
+Tainui Live
+Tarana Fiji
+531pi
+Breeze Relax
+Taylor Swift
+Te Arawa FM
+Te Hiku O Te Ika FM
+Te Korimako o Taranaki
+Te Patu Manawa
+Te Upoko O Te Ika
+Te korimako o taranaki
+Teu Poku FM
+The Blend Hawke's Bay
+The Breeze
+Breeze Sleep
+The Breeze Auckland - 93.4FM
+The Breeze Canterbury - 94.5FM / 100.5FM
+The Breeze Dunedin - 98.2FM
+The Breeze Hawkes Bay - 97.5FM
+The Breeze Manawatu - 98.6FM
+The Breeze Nelson - 97.6FM
+The Breeze Rotorua - 91.9FM
+The Breeze Tauranga - 95.8FM
+The Breeze Timaru - 89.9FM
+The Breeze Waikato - 99.4FM
+Breeze Workout
+The Breeze Wellington - 94.1FM / 98.5FM
+The Breeze Whanganui - 97.6FM
+The Cheese
+The Country
+The Crush
+The Edge
+The Edge Fresh Hits
+The Edge Rewind
+The Edge Top 40
+The Flea
+Brian FM
+The Generator FM
+The Heat
+The Hits
+The Hits Auckland
+The Hits Bay of Plenty
+The Hits Canterbury
+The Hits Dunedin
+The Hits Hawkes Bay
+The Hits Manawatu
+The Hits Nelson
+Brian FM Alex & Cromwell
+The Hits Northland
+The Hits Rotorua
+The Hits Southern Lakes
+The Hits Southland
+The Hits Taranaki
+The Hits Waikato
+The Hits Wellington
+The Indie Mixtape
+The Lounge
+The Most
+Brian FM Ashburton
+The Reggae Room
+The Rock
+The Rock 90s
+The Rock Kiwi Rock
+The Rock Legends Of Rock
+The Rock's Foo's & Friends
+The Rock's Vanilla Rock
+The Sauce 96.1
+The Sound 60s
+The Sound 70s
+Brian FM Christchurch
+The Sound Deep Cuts
+The Sound FM
+The Sound Hall Of Fame
+The Station
+The Upside Down
+The Wireless
+The Wireless 90.4FM
+The Working Group
+Thunder FM
+Timeless Taupo
+Brian FM Marlborough
+Today's Country
+Top 200 Since 2000
+Totally 80s
+Totally 80s Countdown
+Tumeke FM
+Tuwharetoa FM
+Tūranga FM
+Uncle Terry's Shed Party
+Waiata Reo Maori
+Weekend Chill
+Brian FM Nelson
+Wellington Access Radio
+West Coast FM
+Whananaki FM
+Whitney Houston
+Workout Anthems
+XS80s
+Yungblud
+ZM
+ZM Auckland
+ZM Christchurch
+Brian FM Oamaru
+ZM Dunedin
+ZM Friday Jams
+ZM Pre Party
+ZM Tauranga
+ZM Waikato
+ZM Wellington
+channel X
+iHeartCountry Auckland
+iHeartCountry Christchurch
+iHeartCountry Dunedin
+Absolute Live FM
+Brian FM Otago
+iHeartCountry NZ
+iHeartCountry Tauranga
+iHeartCountry Waikato
+iHeartCountry Wellington
 
-#EXTINF:-1 tvg-id="aljazeera-mubasher.en" tvg-name="Al Jazeera Mubasher" group-title="News" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher
-https://live-hls-apps-ajm-fa.getaj.net/AJM/index.m3u8
+Brian FM Queenstown
+Brian FM Southland
+Brian FM Taranaki
+Brian FM Taupo
+Brian FM Timaru
+Brian FM Wanaka
+Brian FM West Coast
+Brian FM Whanganui
+Broadway Bangers
+Acoustic Chill
+Burn Radio
+Caraoke
+Central FM
+Charhdi Kala
+Cheesy Chunes
+Chemist Warehouse Remix
+Chill Country
+Chill Hop
+Chill Island
+Chill Zone
+Acoustic Sunrise
+Chinese Voice - AM936
+Classic Christmas
+Coast
+Coast Auckland
+Coast Bay Of Plenty
+Coast Canterbury
+Coast Dunedin
+Coast FM
+Coast Feel Good 500
+Coast Waikato
+Akaroa World Radio
+Coast Wellington
+Compass FM
+Coromandel’s CFM
+DJ Sean Hill in the Mix
+DJ Sir-Vere Mixes
+Demi Lovato
+Drake
+East FM
+East Fm
+Ed Sheeran
+All Things M72
+Edge Workout
+Eminem
+Emo's Not Dead
+Fiji Bhajans
+Fiji Kirtan Sangrah
+First & Best
+Flava Auckland
+Flava Christchurch
+Flava Old School
+Flava Tauranga
+Alternative Commentary Collective
+Flava Wellington
+Fred Again
+Fresh FM
+Funky Town Radio
+Gaia FM
+George
+George Chillsville
+George Club Classics
+George Cocktail Hour
+George DnB
 
-#EXTINF:-1 tvg-id="aljazeera-mubasher24.en" tvg-name="Al Jazeera Mubasher 24" group-title="News" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher 24
-https://live-hls-apps-ajm24-fa.getaj.net/AJM24/index.m3u8
-
-#EXTINF:-1 tvg-id="aljazeera-mubasher2.en" tvg-name="Al Jazeera Mubasher 2" group-title="News" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher Broadcast 2
-https://live-hls-apps-ajm2-fa.getaj.net/AJM2/index.m3u8
-
-#EXTINF:-1 tvg-id="alarabiya.en" tvg-name="Al Arabiya English" group-title="News" tvg-logo="https://i.postimg.cc/zLcHHMDf/image.png",Al Arabiya English
-https://live.alarabiya.net/alarabiapublish/english/playlist_dvr.m3u8
-
-#EXTINF:-1 tvg-id="abc2.wmar" tvg-name="ABC 2 Baltimore" group-title="News" tvg-logo="https://i.postimg.cc/44pGBCXz/image.png",ABC 2 Baltimore
-https://aegis-cloudfront-1.tubi.video/c28d1ca8-9467-4798-81dc-09c1d6e90be1/playlist.m3u8
-
-#EXTINF:-1 tvg-id="abc9.wmur" tvg-name="ABC 9 Manchester" group-title="News" tvg-logo="https://i.postimg.cc/ZBw7NJ9X/image.png",ABC 9 Manchester
-https://aegis-cloudfront-1.tubi.video/b77ffe96-c5d1-43a7-8687-306ff244d725/playlist.m3u8
-
-#EXTINF:-1 tvg-id="abc27.wtxl" tvg-name="ABC 27 Tallahassee" group-title="News" tvg-logo="https://i.postimg.cc/PPp3Lstk/image.png",ABC 27 Tallahassee
-https://aegis-cloudfront-1.tubi.video/e739361e-fa12-4cac-92f3-e0dbf332cd88/playlist.m3u8
-
-#EXTINF:-1 tvg-id="abcnews.au" tvg-name="ABC News Australia" group-title="News" tvg-logo="https://i.postimg.cc/jDyMXHnt/image.png",ABC News Australia
-https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8
-
-#EXTINF:-1 tvg-id="bloomberg.us" tvg-name="Bloomberg" group-title="News" tvg-logo="https://i.postimg.cc/X76KF5vV/image.png",Bloomberg
-https://www.bloomberg.com/media-manifest/streams/phoenix-us.m3u8
-
-#EXTINF:-1 tvg-id="cbsnews.us" tvg-name="CBS News" group-title="News" tvg-logo="https://i.postimg.cc/mZtpV7RP/image.png",CBS News
-https://dai.google.com/linear/hls/event/Sid4xiTQTkCT1SLu6rjUSQ/master.m3u8
-
-#EXTINF:-1 tvg-id="foxsportsnews.au" tvg-name="Fox Sports News" group-title="News" tvg-logo="https://i.postimg.cc/YCft96LV/image.png",Fox Sports News
-https://skynewsau-live-premium.akamaized.net/hls/live/2105307/foxsportsnews/live_1080p.m3u8
-
-#EXTINF:-1 tvg-id="news24now.au" tvg-name="News24 Now" group-title="News" tvg-logo="https://i.postimg.cc/m2S9H6qK/image.png",News24 Now
-https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg00663-skynews-skynewsau-samsungau/playlist.m3u8
-
-#EXTINF:-1 tvg-id="news24weather.au" tvg-name="News24 Weather" group-title="News" tvg-logo="https://i.postimg.cc/xCsCdKhS/image.png",News24 Weather
-https://skynewsau-live-premium.akamaized.net/hls/live/2105305/skynewsweather/live_1080p.m3u8
-
-#EXTINF:-1 tvg-id="news24world.au" tvg-name="News24 World" group-title="News" tvg-logo="https://i.postimg.cc/4JsJ0Sj8/image.png",News24 World
-https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_1080p.m3u8
-
-#EXTINF:-1 tvg-id="scrippsnews.us" tvg-name="Scripps News" group-title="News" tvg-logo="https://i.postimg.cc/FRqZwnm9/image.png",Scripps News
-https://content.uplynk.com/channel/4bb4901b934c4e029fd4c1abfc766c37.m3u8
-
-#EXTINF:-1 tvg-id="3catinfo.cat" tvg-name="3Cat Info" group-title="News" tvg-logo="https://i.postimg.cc/rmJdrDZd/image.png",3Cat Info
-https://directes-tv-int.3catdirectes.cat/live-origin/canal324-hls/master.m3u8
-
-#EXTINF:-1 tvg-id="yahoofinance.us" tvg-name="Yahoo Finance" group-title="News" tvg-logo="https://i.postimg.cc/nrDCwXR6/image.png",Yahoo Finance
-https://yahoo-samsung.amagi.tv/playlist.m3u8
-
-# --- End News Channels ---
+############################################################
+# END OF PLAYLIST
+############################################################
