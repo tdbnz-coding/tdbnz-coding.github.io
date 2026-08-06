@@ -1,7 +1,35 @@
+#EXTM3U x-tvg-url="https://i.mjh.nz/nz/epg.xml.gz"
+
+
+
+############################################################
+# Christian TV ✝️
+############################################################
+
+
+#EXTINF:-1 tvg-id="3abn-int" tvg-name="3ABN International Network" group-title="Christian TV ✝️" tvg-logo="https://i.postimg.cc/tnbZd2DG/image.png",3ABN International Network
+https://3abn.bozztv.com/3abn2/Int_live/smil:Int_live.smil/playlist.m3u8
+
+#EXTINF:-1 channel-id="mjh-shine-tv" tvg-id="mjh-shine-tv" tvg-logo="https://i.mjh.nz/.images/shine-tv.png" tvg-chno="25" group-title="Christian TV ✝️",Shine TV
+#EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client)
+#EXTVLCOPT:http-referrer=
+https://i.mjh.nz/.r/shine-tv.m3u8
+
+#EXTINF:-1 channel-id="mjh-firstlight" tvg-id="mjh-firstlight" tvg-logo="https://i.mjh.nz/.images/firstlight.png" tvg-chno="26" group-title="Christian TV ✝️",Firstlight
+#EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client)
+#EXTVLCOPT:http-referrer=
+https://i.mjh.nz/.r/firstlight.m3u8
+
+#EXTINF:-1 channel-id="mjh-hope-channel" tvg-id="mjh-hope-channel" tvg-logo="https://i.mjh.nz/.images/hope-channel.png" tvg-chno="27" group-title="Christian TV ✝️",Hope Channel
+#EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client)
+#EXTVLCOPT:http-referrer=
+https://i.mjh.nz/.r/hope-channel.m3u8
+
+
 ############################################################
 #  NEW ZEALAND
 ############################################################
-# --- New Zealand 🇳🇿 ---
+
 
 #EXTINF:-1 channel-id="mjh-al-jazeera" tvg-id="mjh-al-jazeera" tvg-logo="https://i.mjh.nz/.images/al-jazeera.png" tvg-chno="20" group-title="New Zealand 🇳🇿",Al Jazeera
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client)
@@ -286,11 +314,5 @@ https://dash4.antik.sk/live/test_golf_channel/playlist.m3u8
 #EXTINF:-1 tvg-id="golfchannel2" tvg-name="Golf Channel (2)" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/4mJ3r0D8/image.png",Golf Channel (2)
 https://gpuserver3.tier1streams.com/GOLF_CHANNEL/index.m3u8
 
-############################################################
-# Christian TV ✝️
-############################################################
 
-
-#EXTINF:-1 tvg-id="3abn-int" tvg-name="3ABN International Network" group-title="Christian TV ✝️" tvg-logo="https://i.postimg.cc/tnbZd2DG/image.png",3ABN International Network
-https://3abn.bozztv.com/3abn2/Int_live/smil:Int_live.smil/playlist.m3u8
 
