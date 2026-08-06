@@ -97,4 +97,74 @@ https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_
 #EXTINF:-1 tvg-id="3catinfo.cat" group-title="News - Europe 🇪🇺",3Cat Info
 https://directes-tv-int.3catdirectes.cat/live-origin/canal324-hls/master.m3u8
 
+############################################################
+# 🇳🇿 NEWS & ENTERTAINMENT – NEW ZEALAND
+############################################################
+
+#EXTINF:-1 tvg-id="tvnz1.nz" group-title="New Zealand 🇳🇿",TVNZ 1
+https://i.mjh.nz/.r/tvnz-1.mpd
+
+#EXTINF:-1 tvg-id="tvnz2.nz" group-title="New Zealand 🇳🇿",TVNZ 2
+https://i.mjh.nz/.r/tvnz-2.mpd
+
+#EXTINF:-1 tvg-id="tvnzduke.nz" group-title="New Zealand 🇳🇿",TVNZ DUKE
+https://i.mjh.nz/.r/tvnz-duke.mpd
+
+#EXTINF:-1 tvg-id="three.nz" group-title="New Zealand 🇳🇿",Three
+https://i.mjh.nz/.r/three.m3u8
+
+#EXTINF:-1 tvg-id="threeplus1.nz" group-title="New Zealand 🇳🇿",ThreePlus1
+https://i.mjh.nz/.r/three-plus1.m3u8
+
+#EXTINF:-1 tvg-id="maoritv.nz" group-title="New Zealand 🇳🇿",Whakaata Māori
+https://i.mjh.nz/.r/maori-tv.m3u8
+
+#EXTINF:-1 tvg-id="tereotv.nz" group-title="New Zealand 🇳🇿",Te Reo
+https://i.mjh.nz/.r/te-reo.m3u8
+
+#EXTINF:-1 tvg-id="prime.nz" group-title="New Zealand 🇳🇿",Sky Open (Prime)
+https://i.mjh.nz/.r/prime.m3u8
+
+#EXTINF:-1 tvg-id="eden.nz" group-title="New Zealand 🇳🇿",eden
+https://i.mjh.nz/.r/eden.m3u8
+
+#EXTINF:-1 tvg-id="rush.nz" group-title="New Zealand 🇳🇿",RUSH
+https://i.mjh.nz/.r/rush-nz.m3u8
+
+#EXTINF:-1 tvg-id="bravo.nz" group-title="New Zealand 🇳🇿",Bravo
+https://i.mjh.nz/.r/bravo.m3u8
+
+#EXTINF:-1 tvg-id="bravoplus1.nz" group-title="New Zealand 🇳🇿",Bravo Plus 1
+https://i.mjh.nz/.r/bravo-plus1.m3u8
+
+#EXTINF:-1 tvg-id="firstlight.nz" group-title="New Zealand 🇳🇿",Firstlight
+https://i.mjh.nz/.r/firstlight.m3u8
+
+#EXTINF:-1 tvg-id="hopechannel.nz" group-title="New Zealand 🇳🇿",Hope Channel
+https://i.mjh.nz/.r/hope-channel.m3u8
+
+#EXTINF:-1 tvg-id="shine.nz" group-title="New Zealand 🇳🇿",Shine TV
+https://i.mjh.nz/.r/shine-tv.m3u8
+
+#EXTINF:-1 tvg-id="ch200.nz" group-title="New Zealand 🇳🇿",CH200
+https://i.mjh.nz/.r/ch200.m3u8
+
+#EXTINF:-1 tvg-id="parliament.nz" group-title="New Zealand 🇳🇿",Parliament TV
+https://i.mjh.nz/.r/parliament-tv.m3u8
+
+#EXTINF:-1 tvg-id="trackside1.nz" group-title="New Zealand 🇳🇿",Trackside 1
+https://i.mjh.nz/.r/trackside-1.m3u8
+
+#EXTINF:-1 tvg-id="trackside2.nz" group-title="New Zealand 🇳🇿",Trackside 2
+https://i.mjh.nz/.r/trackside-2.m3u8
+
+#EXTINF:-1 tvg-id="tracksideprem.nz" group-title="New Zealand 🇳🇿",Trackside Premier
+https://i.mjh.nz/.r/trackside-premier.m3u8
+
+#EXTINF:-1 tvg-id="wairarapa.nz" group-title="New Zealand 🇳🇿",Wairarapa TV
+https://i.mjh.nz/.r/wairarapa-tv.m3u8
+
+#EXTINF:-1 tvg-id="tvsn.nz" group-title="New Zealand 🇳🇿",TVSN Shopping
+https://i.mjh.nz/.r/tvsn-shopping.m3u8
+
 
