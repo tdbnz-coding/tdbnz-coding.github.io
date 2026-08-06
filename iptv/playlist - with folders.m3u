@@ -11,17 +11,17 @@ https://cdn-euronews.akamaized.net/live/eds/africanews-en/25049/index.m3u8
 
 # --- News – Middle East ---
 
-#EXTINF:-1 tvg-id="aljazeera.en" tvg-name="Al Jazeera English" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English
+#EXTINF:-1 tvg-id="aljazeera.en" tvg-name="Al Jazeera English" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English (1)
 https://live-hls-web-aje-gcp.thehlive.com/AJE/01.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera1080.en" tvg-name="Al Jazeera English HD" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English
+#EXTINF:-1 tvg-id="aljazeera1080.en" tvg-name="Al Jazeera English HD" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English (2)
 https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera2.en" tvg-name="Al Jazeera 2" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera 2
-https://live-hls-web-aja2-gcp.thehlive.com/AJA2/index.m3u8
-
-#EXTINF:-1 tvg-id="aljazeera-hd.en" tvg-name="Al Jazeera English HD" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English
+#EXTINF:-1 tvg-id="aljazeera-hd.en" tvg-name="Al Jazeera English HD" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English (3)
 http://stream.mcquack.net/131/index.m3u8
+
+#EXTINF:-1 tvg-id="aljazeera2.en" tvg-name="Al Jazeera 2" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera - Arabic
+https://live-hls-web-aja2-gcp.thehlive.com/AJA2/index.m3u8
 
 #EXTINF:-1 tvg-id="aljazeera-mubasher.en" tvg-name="Al Jazeera Mubasher" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher
 https://live-hls-apps-ajm-fa.getaj.net/AJM/index.m3u8
