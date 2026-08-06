@@ -1,0 +1,92 @@
+name: Daily NZ Playlist Update
+
+on:
+  schedule:
+    - cron: "0 14 * * *"   # 2 AM NZT daily
+  workflow_dispatch:       # <-- THIS gives you the RUN WORKFLOW button
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download NZ TV + Radio
+        run: |
+          curl -s -o iptv/raw-tv.m3u8 https://i.mjh.nz/nz/raw-tv.m3u8
+          curl -s -o iptv/raw-radio.m3u8 https://i.mjh.nz/nz/raw-radio.m3u8
+
+      - name: Build sorted NZ TV section
+        run: |
+          echo "############################################################" > iptv/nz-tv-sorted.m3u
+          echo "# 🇳🇿 NEW ZEALAND (AUTO‑UPDATED DAILY — SORTED)" >> iptv/nz-tv-sorted.m3u
+          echo "# Last Updated: $(TZ='Pacific/Auckland' date '+%Y-%m-%d %H:%M:%S NZT')" >> iptv/nz-tv-sorted.m3u
+          echo "############################################################" >> iptv/nz-tv-sorted.m3u
+          
+          awk '
+            BEGIN { RS=""; FS="\n" }
+            /^#EXTINF/ {
+              name=$1
+              sub(/.*,\s*/, "", name)
+              blocks[name]=$0
+            }
+            END {
+              n=asorti(blocks, sorted)
+              for(i=1;i<=n;i++){
+                block=blocks[sorted[i]]
+                gsub(/group-title="[^"]*"/, "group-title=\"New Zealand 🇳🇿\"", block)
+                print block "\n"
+              }
+            }
+          ' iptv/raw-tv.m3u8 >> iptv/nz-tv-sorted.m3u
+
+      - name: Build sorted NZ Radio section
+        run: |
+          echo "############################################################" > iptv/nz-radio-sorted.m3u
+          echo "# 📻 NEW ZEALAND RADIO (AUTO‑UPDATED DAILY — SORTED)" >> iptv/nz-radio-sorted.m3u
+          echo "# Last Updated: $(TZ='Pacific/Auckland' date '+%Y-%m-%d %H:%M:%S NZT')" >> iptv/nz-radio-sorted.m3u
+          echo "############################################################" >> iptv/nz-radio-sorted.m3u
+          
+          awk '
+            BEGIN { RS=""; FS="\n" }
+            /^#EXTINF/ {
+              name=$1
+              sub(/.*,\s*/, "", name)
+              blocks[name]=$0
+            }
+            END {
+              n=asorti(blocks, sorted)
+              for(i=1;i<=n;i++){
+                block=blocks[sorted[i]]
+                gsub(/group-title="[^"]*"/, "group-title=\"New Zealand Radio 📻🇳🇿\"", block)
+                print block "\n"
+              }
+            }
+          ' iptv/raw-radio.m3u8 >> iptv/nz-radio-sorted.m3u
+
+      - name: Merge into main playlist
+        run: |
+          cp "iptv/playlist - with folders.m3u" iptv/playlist-new.m3u
+
+          sed -i '/# 🇳🇿 NEW ZEALAND/,/# 📻 NEW ZEALAND RADIO/d' iptv/playlist-new.m3u
+          sed -i '/# 📻 NEW ZEALAND RADIO/,/### END NZ SECTION/d' iptv/playlist-new.m3u
+
+          echo "" >> iptv/playlist-new.m3u
+          cat iptv/nz-tv-sorted.m3u >> iptv/playlist-new.m3u
+          echo "" >> iptv/playlist-new.m3u
+          cat iptv/nz-radio-sorted.m3u >> iptv/playlist-new.m3u
+          echo "### END NZ SECTION" >> iptv/playlist-new.m3u
+
+      - name: Replace old playlist
+        run: |
+          mv iptv/playlist-new.m3u "iptv/playlist - with folders.m3u"
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add "iptv/playlist - with folders.m3u"
+          git commit -m "Daily NZ TV + Radio update"
+          git push
