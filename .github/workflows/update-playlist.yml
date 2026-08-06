@@ -18,18 +18,18 @@ jobs:
           curl -s -o iptv/raw-tv.m3u8 https://i.mjh.nz/nz/raw-tv.m3u8
           curl -s -o iptv/raw-radio.m3u8 https://i.mjh.nz/nz/raw-radio.m3u8
 
-      - name: Build NZ TV section (sorted)
+      - name: Build NZ TV section
         run: |
           awk '
             BEGIN { RS=""; FS="\n" }
             /^#EXTINF/ {
               name=$1
               sub(/.*,\s*/, "", name)
-              blocks[name]=$0
+              blocks[name]=$0 "\n" $2
             }
             END {
-              n=asorti(blocks, sorted)
               print "# --- 🇳🇿 News – New Zealand ---"
+              n=asorti(blocks, sorted)
               for(i=1;i<=n;i++){
                 block=blocks[sorted[i]]
                 gsub(/group-title="[^"]*"/, "group-title=\"New Zealand 🇳🇿\"", block)
@@ -38,18 +38,18 @@ jobs:
             }
           ' iptv/raw-tv.m3u8 > iptv/nz-tv-sorted.m3u
 
-      - name: Build NZ Radio section (sorted)
+      - name: Build NZ Radio section
         run: |
           awk '
             BEGIN { RS=""; FS="\n" }
             /^#EXTINF/ {
               name=$1
               sub(/.*,\s*/, "", name)
-              blocks[name]=$0
+              blocks[name]=$0 "\n" $2
             }
             END {
-              n=asorti(blocks, sorted)
               print "# --- 📻 News – New Zealand Radio ---"
+              n=asorti(blocks, sorted)
               for(i=1;i<=n;i++){
                 block=blocks[sorted[i]]
                 gsub(/group-title="[^"]*"/, "group-title=\"New Zealand Radio 📻🇳🇿\"", block)
@@ -58,9 +58,9 @@ jobs:
             }
           ' iptv/raw-radio.m3u8 > iptv/nz-radio-sorted.m3u
 
-      - name: Merge playlist + sort categories + sort channels
+      - name: Merge + Sort Playlist
         run: |
-          cp iptv/playlist.m3u iptv/playlist-new.m3u
+          cp "iptv/playlist - with folders.m3u" iptv/playlist-new.m3u
 
           # Remove old NZ sections
           sed -i '/# --- 🇳🇿 News – New Zealand ---/,/# --- 📻 News – New Zealand Radio ---/d' iptv/playlist-new.m3u
@@ -69,37 +69,42 @@ jobs:
           # Remove old END OF PLAYLIST
           sed -i '/# END OF PLAYLIST/d' iptv/playlist-new.m3u
 
-          # Add ONE timestamp at top
+          # Add timestamp at top
           sed -i "1i # Last Updated: $(TZ='Pacific/Auckland' date '+%Y-%m-%d %H:%M:%S NZT')" iptv/playlist-new.m3u
 
-          # Insert NZ TV + NZ Radio
+          # Insert NZ sections
           echo "" >> iptv/playlist-new.m3u
           cat iptv/nz-tv-sorted.m3u >> iptv/playlist-new.m3u
           echo "" >> iptv/playlist-new.m3u
           cat iptv/nz-radio-sorted.m3u >> iptv/playlist-new.m3u
 
-          # Sort categories + channels
+          # Sort categories + channels safely
           awk '
-            /^# ---/ { current=$0; next }
-            /^#EXTINF/ {
-              sub(/.*,\s*/, "", $0)
-              channels[current]=channels[current] $0 "\n" blocks[$0]
+            /^# ---/ {
+              current=$0
+              categories[current]=""
+              next
             }
-            {
-              blocks[$0]=$0
+            /^#EXTINF/ {
+              block=$0
+              getline url
+              full=block "\n" url
+              name=block
+              sub(/.*,\s*/, "", name)
+              channels[current][name]=full
+              next
             }
             END {
-              n=asorti(channels, sortedCats)
-              for(i=1;i<=n;i++){
+              # Sort categories alphabetically
+              c=asorti(categories, sortedCats)
+              for(i=1;i<=c;i++){
                 cat=sortedCats[i]
                 print cat
-                split(channels[cat], arr, "\n")
-                m=asorti(arr, sortedCh)
-                for(j=1;j<=m;j++){
-                  ch=arr[sortedCh[j]]
-                  print blocks[ch]
+                # Sort channels alphabetically
+                n=asorti(channels[cat], sortedCh)
+                for(j=1;j<=n;j++){
+                  print channels[cat][sortedCh[j]] "\n"
                 }
-                print ""
               }
             }
           ' iptv/playlist-new.m3u > iptv/playlist-sorted.m3u
@@ -113,12 +118,12 @@ jobs:
 
       - name: Replace old playlist
         run: |
-          mv iptv/playlist-new.m3u iptv/playlist.m3u
+          mv iptv/playlist-new.m3u "iptv/playlist - with folders.m3u"
 
       - name: Commit changes
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add iptv/playlist.m3u
+          git add "iptv/playlist - with folders.m3u"
           git commit -m "Daily playlist update"
           git push
