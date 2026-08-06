@@ -1,88 +1,86 @@
 # Last Updated: 2026-08-07 02:00:00 NZT
 
-
-# --- News – Africa ---
-#EXTINF:-1 tvg-id="africa24.en" tvg-name="Africa 24 English" group-title="News - Africa 🌍" tvg-logo="https://i.postimg.cc/xkTLzMKz/image.png",Africa 24
+# --- 🌍 News – Africa ---
+#EXTINF:-1 tvg-id="africa24.en" tvg-name="Africa 24 English" group-title="🌍 News – Africa" tvg-logo="https://i.postimg.cc/xkTLzMKz/image.png",Africa 24
 https://edge20.vedge.infomaniak.com/livecast/ik:africa24english/manifest.m3u8
 
-#EXTINF:-1 tvg-id="africanews.en" tvg-name="Africanews English" group-title="News - Africa 🌍" tvg-logo="https://i.postimg.cc/QK573brv/image.png",Africanews
+#EXTINF:-1 tvg-id="africanews.en" tvg-name="Africanews English" group-title="🌍 News – Africa" tvg-logo="https://i.postimg.cc/QK573brv/image.png",Africanews
 https://cdn-euronews.akamaized.net/live/eds/africanews-en/25049/index.m3u8
 
 
-# --- News – Middle East ---
-#EXTINF:-1 tvg-id="aljazeera.en" tvg-name="Al Jazeera English" group-title="News - Middle East 🕌" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English (1)
+# --- 🕌 News – Middle East ---
+#EXTINF:-1 tvg-id="aljazeera.en" tvg-name="Al Jazeera English" group-title="🕌 News – Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English (1)
 https://live-hls-web-aje-gcp.thehlive.com/AJE/01.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera1080.en" tvg-name="Al Jazeera English HD" group-title="News - Middle East 🕌" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English (2)
+#EXTINF:-1 tvg-id="aljazeera1080.en" tvg-name="Al Jazeera English HD" group-title="🕌 News – Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English (2)
 https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera-hd.en" tvg-name="Al Jazeera English HD" group-title="News - Middle East 🕌" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English (3)
+#EXTINF:-1 tvg-id="aljazeera-hd.en" tvg-name="Al Jazeera English HD" group-title="🕌 News – Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera English (3)
 http://stream.mcquack.net/131/index.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera2.en" tvg-name="Al Jazeera 2" group-title="News - Middle East 🕌" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera - Arabic
+#EXTINF:-1 tvg-id="aljazeera2.en" tvg-name="Al Jazeera 2" group-title="🕌 News – Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera - Arabic
 https://live-hls-web-aja2-gcp.thehlive.com/AJA2/index.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera-mubasher.en" tvg-name="Al Jazeera Mubasher" group-title="News - Middle East 🕌" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher
+#EXTINF:-1 tvg-id="aljazeera-mubasher.en" tvg-name="Al Jazeera Mubasher" group-title="🕌 News – Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher
 https://live-hls-apps-ajm-fa.getaj.net/AJM/index.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera-mubasher24.en" tvg-name="Al Jazeera Mubasher 24" group-title="News - Middle East 🕌" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher 24
+#EXTINF:-1 tvg-id="aljazeera-mubasher24.en" tvg-name="Al Jazeera Mubasher 24" group-title="🕌 News – Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher 24
 https://live-hls-apps-ajm24-fa.getaj.net/AJM24/index.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera-mubasher2.en" tvg-name="Al Jazeera Mubasher 2" group-title="News - Middle East 🕌" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher Broadcast 2
+#EXTINF:-1 tvg-id="aljazeera-mubasher2.en" tvg-name="Al Jazeera Mubasher 2" group-title="🕌 News – Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher Broadcast 2
 https://live-hls-apps-ajm2-fa.getaj.net/AJM2/index.m3u8
 
-#EXTINF:-1 tvg-id="alarabiya.en" tvg-name="Al Arabiya English" group-title="News - Middle East 🕌" tvg-logo="https://i.postimg.cc/zLcHHMDf/image.png",Al Arabiya
+#EXTINF:-1 tvg-id="alarabiya.en" tvg-name="Al Arabiya English" group-title="🕌 News – Middle East" tvg-logo="https://i.postimg.cc/zLcHHMDf/image.png",Al Arabiya
 https://live.alarabiya.net/alarabiapublish/english/playlist_dvr.m3u8
 
 
-# --- News – Australia ---
-#EXTINF:-1 tvg-id="abcnews.au" tvg-name="ABC News Australia" group-title="News - Australia 🇦🇺" tvg-logo="https://i.postimg.cc/jDyMXHnt/image.png",ABC News Australia
+# --- 🇦🇺 News – Australia ---
+#EXTINF:-1 tvg-id="abcnews.au" tvg-name="ABC News Australia" group-title="🇦🇺 News – Australia" tvg-logo="https://i.postimg.cc/jDyMXHnt/image.png",ABC News Australia
 https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8
 
-#EXTINF:-1 tvg-id="foxsportsnews.au" tvg-name="Fox Sports News" group-title="News - Australia 🇦🇺" tvg-logo="https://i.postimg.cc/YCft96LV/image.png",Fox Sports News
+#EXTINF:-1 tvg-id="foxsportsnews.au" tvg-name="Fox Sports News" group-title="🇦🇺 News – Australia" tvg-logo="https://i.postimg.cc/YCft96LV/image.png",Fox Sports News
 https://skynewsau-live-premium.akamaized.net/hls/live/2105307/foxsportsnews/live_1080p.m3u8
 
-#EXTINF:-1 tvg-id="news24now.au" tvg-name="News24 Now" group-title="News - Australia 🇦🇺" tvg-logo="https://i.postimg.cc/m2S9H6qK/image.png",News24 Now
+#EXTINF:-1 tvg-id="news24now.au" tvg-name="News24 Now" group-title="🇦🇺 News – Australia" tvg-logo="https://i.postimg.cc/m2S9H6qK/image.png",News24 Now
 https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg00663-skynews-skynewsau-samsungau/playlist.m3u8
 
-#EXTINF:-1 tvg-id="news24weather.au" tvg-name="News24 Weather" group-title="News - Australia 🇦🇺" tvg-logo="https://i.postimg.cc/xCsCdKhS/image.png",News24 Weather
+#EXTINF:-1 tvg-id="news24weather.au" tvg-name="News24 Weather" group-title="🇦🇺 News – Australia" tvg-logo="https://i.postimg.cc/xCsCdKhS/image.png",News24 Weather
 https://skynewsau-live-premium.akamaized.net/hls/live/2105305/skynewsweather/live_1080p.m3u8
 
-#EXTINF:-1 tvg-id="news24world.au" tvg-name="News24 World" group-title="News - Australia 🇦🇺" tvg-logo="https://i.postimg.cc/4JsJ0Sj8/image.png",News24 World
+#EXTINF:-1 tvg-id="news24world.au" tvg-name="News24 World" group-title="🇦🇺 News – Australia" tvg-logo="https://i.postimg.cc/4JsJ0Sj8/image.png",News24 World
 https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_1080p.m3u8
 
 
-# --- News – Europe ---
-#EXTINF:-1 tvg-id="3catinfo.cat" tvg-name="3Cat Info" group-title="News - Europe 🇪🇺" tvg-logo="https://i.postimg.cc/rmJdrDZd/image.png",3Cat Info
+# --- 🇪🇺 News – Europe ---
+#EXTINF:-1 tvg-id="3catinfo.cat" tvg-name="3Cat Info" group-title="🇪🇺 News – Europe" tvg-logo="https://i.postimg.cc/rmJdrDZd/image.png",3Cat Info
 https://directes-tv-int.3catdirectes.cat/live-origin/canal324-hls/master.m3u8
 
 
-# --- News – USA ---
-#EXTINF:-1 tvg-id="abc2.wmar" tvg-name="ABC 2 Baltimore" group-title="News - USA 🇺🇸" tvg-logo="https://i.postimg.cc/44pGBCXz/image.png",ABC 2 Baltimore
+# --- 🇺🇸 News – USA ---
+#EXTINF:-1 tvg-id="abc2.wmar" tvg-name="ABC 2 Baltimore" group-title="🇺🇸 News – USA" tvg-logo="https://i.postimg.cc/44pGBCXz/image.png",ABC 2 Baltimore
 https://aegis-cloudfront-1.tubi.video/c28d1ca8-9467-4798-81dc-09c1d6e90be1/playlist.m3u8
 
-#EXTINF:-1 tvg-id="abc9.wmur" tvg-name="ABC 9 Manchester" group-title="News - USA 🇺🇸" tvg-logo="https://i.postimg.cc/ZBw7NJ9X/image.png",ABC 9 Manchester
+#EXTINF:-1 tvg-id="abc9.wmur" tvg-name="ABC 9 Manchester" group-title="🇺🇸 News – USA" tvg-logo="https://i.postimg.cc/ZBw7NJ9X/image.png",ABC 9 Manchester
 https://aegis-cloudfront-1.tubi.video/b77ffe96-c5d1-43a7-8687-306ff244d725/playlist.m3u8
 
-#EXTINF:-1 tvg-id="abc27.wtxl" tvg-name="ABC 27 Tallahassee" group-title="News - USA 🇺🇸" tvg-logo="https://i.postimg.cc/PPp3Lstk/image.png",ABC 27 Tallahassee
+#EXTINF:-1 tvg-id="abc27.wtxl" tvg-name="ABC 27 Tallahassee" group-title="🇺🇸 News – USA" tvg-logo="https://i.postimg.cc/PPp3Lstk/image.png",ABC 27 Tallahassee
 https://aegis-cloudfront-1.tubi.video/e739361e-fa12-4cac-92f3-e0dbf332cd88/playlist.m3u8
 
-#EXTINF:-1 tvg-id="bloomberg.us" tvg-name="Bloomberg" group-title="News - USA 🇺🇸" tvg-logo="https://i.postimg.cc/X76KF5vV/image.png",Bloomberg
+#EXTINF:-1 tvg-id="bloomberg.us" tvg-name="Bloomberg" group-title="🇺🇸 News – USA" tvg-logo="https://i.postimg.cc/X76KF5vV/image.png",Bloomberg
 https://www.bloomberg.com/media-manifest/streams/phoenix-us.m3u8
 
-#EXTINF:-1 tvg-id="cbsnews.us" tvg-name="CBS News" group-title="News - USA 🇺🇸" tvg-logo="https://i.postimg.cc/mZtpV7RP/image.png",CBS News
+#EXTINF:-1 tvg-id="cbsnews.us" tvg-name="CBS News" group-title="🇺🇸 News – USA" tvg-logo="https://i.postimg.cc/mZtpV7RP/image.png",CBS News
 https://dai.google.com/linear/hls/event/Sid4xiTQTkCT1SLu6rjUSQ/master.m3u8
 
-#EXTINF:-1 tvg-id="scrippsnews.us" tvg-name="Scripps News" group-title="News - USA 🇺🇸" tvg-logo="https://i.postimg.cc/FRqZwnm9/image.png",Scripps News
+#EXTINF:-1 tvg-id="scrippsnews.us" tvg-name="Scripps News" group-title="🇺🇸 News – USA" tvg-logo="https://i.postimg.cc/FRqZwnm9/image.png",Scripps News
 https://content.uplynk.com/channel/4bb4901b934c4e029fd4c1abfc766c37.m3u8
 
-#EXTINF:-1 tvg-id="yahoofinance.us" tvg-name="Yahoo Finance" group-title="News - USA 🇺🇸" tvg-logo="https://i.postimg.cc/nrDCwXR6/image.png",Yahoo Finance
+#EXTINF:-1 tvg-id="yahoofinance.us" tvg-name="Yahoo Finance" group-title="🇺🇸 News – USA" tvg-logo="https://i.postimg.cc/nrDCwXR6/image.png",Yahoo Finance
 https://yahoo-samsung.amagi.tv/playlist.m3u8
 
 
 # --- 🇳🇿 News – New Zealand ---
 # (Automation will insert NZ TV channels here)
-
 
 # --- 📻 News – New Zealand Radio ---
 # (Automation will insert NZ Radio channels here)
