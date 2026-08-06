@@ -285,3 +285,12 @@ https://dash4.antik.sk/live/test_golf_channel/playlist.m3u8
 
 #EXTINF:-1 tvg-id="golfchannel2" tvg-name="Golf Channel (2)" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/4mJ3r0D8/image.png",Golf Channel (2)
 https://gpuserver3.tier1streams.com/GOLF_CHANNEL/index.m3u8
+
+############################################################
+# Christian TV ✝️
+############################################################
+
+
+#EXTINF:-1 tvg-id="3abn-int" tvg-name="3ABN International Network" group-title="Christian TV ✝️" tvg-logo="https://i.postimg.cc/tnbZd2DG/image.png",3ABN International Network
+https://3abn.bozztv.com/3abn2/Int_live/smil:Int_live.smil/playlist.m3u8
+
