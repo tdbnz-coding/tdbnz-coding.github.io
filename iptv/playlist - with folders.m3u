@@ -256,3 +256,32 @@ https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_
 
 #EXTINF:-1 tvg-id="3catinfo.cat" tvg-name="3Cat Info" group-title="News - Europe 🌐" tvg-logo="https://i.postimg.cc/rmJdrDZd/image.png",3Cat Info
 https://directes-tv-int.3catdirectes.cat/live-origin/canal324-hls/master.m3u8
+
+############################################################
+# Sports 🏆 
+############################################################
+
+
+#EXTINF:-1 tvg-id="skyracing1" tvg-name="Sky Racing 1" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/tYCrvhzL/image.png",Sky Racing 1
+https://636ffd31f0e12.streamlock.net/RacingStream1/RacingStream1/playlist.m3u8
+
+#EXTINF:-1 tvg-id="skyracing2" tvg-name="Sky Racing 2" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/7CgMZ6VG/image.png",Sky Racing 2
+https://636ffd31f0e12.streamlock.net/RacingStream2/RacingStream2/playlist.m3u8
+
+#EXTINF:-1 tvg-id="skysportscricket" tvg-name="Sky Sports Cricket HD" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/N5ctKPBx/image.png",Sky Sports Cricket HD
+https://xemzi.short.gy/2000006
+
+#EXTINF:-1 tvg-id="skysportsf1" tvg-name="Sky Sports F1" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/8ssJyc6s/image.png",Sky Sports F1
+https://xemzi.short.gy/2000005
+
+#EXTINF:-1 tvg-id="skysportsf1canada" tvg-name="Sky Sports F1 - Canada" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/8ssJyc6s/image.png",Sky Sports F1 - Canada
+https://7nyaler.streamhostingcdn.top/stream/8/index.m3u8
+
+#EXTINF:-1 tvg-id="skysportsgolf" tvg-name="Sky Sports Golf" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/X7B9cyNh/image.png",Sky Sports Golf
+https://xemzi.short.gy/2000009
+
+#EXTINF:-1 tvg-id="golfchannel1" tvg-name="Golf Channel (1)" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/4mJ3r0D8/image.png",Golf Channel (1)
+https://dash4.antik.sk/live/test_golf_channel/playlist.m3u8
+
+#EXTINF:-1 tvg-id="golfchannel2" tvg-name="Golf Channel (2)" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/4mJ3r0D8/image.png",Golf Channel (2)
+https://gpuserver3.tier1streams.com/GOLF_CHANNEL/index.m3u8
