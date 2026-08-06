@@ -32,7 +32,7 @@ https://live-hls-apps-ajm24-fa.getaj.net/AJM24/index.m3u8
 #EXTINF:-1 tvg-id="aljazeera-mubasher2.en" tvg-name="Al Jazeera Mubasher 2" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png",Al Jazeera Mubasher Broadcast 2
 https://live-hls-apps-ajm2-fa.getaj.net/AJM2/index.m3u8
 
-#EXTINF:-1 tvg-id="alarabiya.en" tvg-name="Al Arabiya English" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/zLcHHMDf/image.png",Al Arabiya English
+#EXTINF:-1 tvg-id="alarabiya.en" tvg-name="Al Arabiya English" group-title="News - Middle East" tvg-logo="https://i.postimg.cc/zLcHHMDf/image.png",Al Arabiya
 https://live.alarabiya.net/alarabiapublish/english/playlist_dvr.m3u8
 
 
@@ -66,4 +66,21 @@ https://yahoo-samsung.amagi.tv/playlist.m3u8
 https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8
 
 #EXTINF:-1 tvg-id="foxsportsnews.au" tvg-name="Fox Sports News" group-title="News - Australia" tvg-logo="https://i.postimg.cc/YCft96LV/image.png",Fox Sports News
-https://skynewsau-live-premium.
+https://skynewsau-live-premium.akamaized.net/hls/live/2105307/foxsportsnews/live_1080p.m3u8
+
+#EXTINF:-1 tvg-id="news24now.au" tvg-name="News24 Now" group-title="News - Australia" tvg-logo="https://i.postimg.cc/m2S9H6qK/image.png",News24 Now
+https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg00663-skynews-skynewsau-samsungau/playlist.m3u8
+
+#EXTINF:-1 tvg-id="news24weather.au" tvg-name="News24 Weather" group-title="News - Australia" tvg-logo="https://i.postimg.cc/xCsCdKhS/image.png",News24 Weather
+https://skynewsau-live-premium.akamaized.net/hls/live/2105305/skynewsweather/live_1080p.m3u8
+
+#EXTINF:-1 tvg-id="news24world.au" tvg-name="News24 World" group-title="News - Australia" tvg-logo="https://i.postimg.cc/4JsJ0Sj8/image.png",News24 World
+https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_1080p.m3u8
+
+
+# --- News – Europe ---
+
+#EXTINF:-1 tvg-id="3catinfo.cat" tvg-name="3Cat Info" group-title="News - Europe" tvg-logo="https://i.postimg.cc/rmJdrDZd/image.png",3Cat Info
+https://directes-tv-int.3catdirectes.cat/live-origin/canal324-hls/master.m3u8
+
+# --- End News Channels ---
