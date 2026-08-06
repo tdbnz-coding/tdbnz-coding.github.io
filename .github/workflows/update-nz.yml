@@ -3,7 +3,7 @@ name: Daily NZ Playlist Update
 on:
   schedule:
     - cron: "0 14 * * *"   # 2 AM NZT daily
-  workflow_dispatch:       # <-- THIS gives you the RUN WORKFLOW button
+  workflow_dispatch:       # Manual run button
 
 jobs:
   update:
@@ -70,14 +70,33 @@ jobs:
         run: |
           cp "iptv/playlist - with folders.m3u" iptv/playlist-new.m3u
 
+          # Remove old NZ sections
           sed -i '/# 🇳🇿 NEW ZEALAND/,/# 📻 NEW ZEALAND RADIO/d' iptv/playlist-new.m3u
           sed -i '/# 📻 NEW ZEALAND RADIO/,/### END NZ SECTION/d' iptv/playlist-new.m3u
 
+          # Remove old END OF PLAYLIST if present
+          sed -i '/# END OF PLAYLIST/d' iptv/playlist-new.m3u
+
+          # Insert new NZ sections
           echo "" >> iptv/playlist-new.m3u
           cat iptv/nz-tv-sorted.m3u >> iptv/playlist-new.m3u
           echo "" >> iptv/playlist-new.m3u
           cat iptv/nz-radio-sorted.m3u >> iptv/playlist-new.m3u
           echo "### END NZ SECTION" >> iptv/playlist-new.m3u
+
+          # Sort category headers alphabetically
+          awk '
+            BEGIN { RS="############################################################"; ORS="############################################################" }
+            NR>1 { print $0 | "sort" }
+          ' iptv/playlist-new.m3u > iptv/playlist-sorted.m3u
+
+          mv iptv/playlist-sorted.m3u iptv/playlist-new.m3u
+
+          # Add END OF PLAYLIST at bottom
+          echo "" >> iptv/playlist-new.m3u
+          echo "############################################################" >> iptv/playlist-new.m3u
+          echo "# END OF PLAYLIST" >> iptv/playlist-new.m3u
+          echo "############################################################" >> iptv/playlist-new.m3u
 
       - name: Replace old playlist
         run: |

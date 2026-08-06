@@ -1,11 +1,5 @@
 #EXTM3U x-tvg-url="https://i.mjh.nz/nz/epg.xml.gz"
 
-############################################################
-############################################################
-
-#EXTINF:-1 tvg-id="nz-radio" tvg-name="New Zealand Radio" group-title="New Zealand Radio 📻🇳🇿" tvg-logo="https://i.mjh.nz/.images/maori-tv.png",[NZ Radio Streams] 📻🇳🇿
-https://i.mjh.nz/nz/raw-radio.m3u8
-
 
 ############################################################
 # 🌍 NEWS – AFRICA
@@ -22,13 +16,16 @@ https://cdn-euronews.akamaized.net/live/eds/africanews-en/25049/index.m3u8
 # 🌍 NEWS – MIDDLE EAST
 ############################################################
 
-#EXTINF:-1 tvg-id="aljazeera.en" group-title="News - Middle East 🕌",Al Jazeera English (1)
+#EXTINF:-1 tvg-id="aljazeera.en" group-title="News - Middle East 🕌",Al Jazeera English NZ (1)
+https://i.mjh.nz/.r/al-jazeera.m3u8
+
+#EXTINF:-1 tvg-id="aljazeera.en" group-title="News - Middle East 🕌",Al Jazeera English (2)
 https://live-hls-web-aje-gcp.thehlive.com/AJE/01.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera1080.en" group-title="News - Middle East 🕌",Al Jazeera English (2)
+#EXTINF:-1 tvg-id="aljazeera1080.en" group-title="News - Middle East 🕌",Al Jazeera English (3)
 https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8
 
-#EXTINF:-1 tvg-id="aljazeera-hd.en" group-title="News - Middle East 🕌",Al Jazeera English (3)
+#EXTINF:-1 tvg-id="aljazeera-hd.en" group-title="News - Middle East 🕌",Al Jazeera English (4)
 http://stream.mcquack.net/131/index.m3u8
 
 #EXTINF:-1 tvg-id="aljazeera2.en" group-title="News - Middle East 🕌",Al Jazeera Arabic
@@ -100,9 +97,7 @@ https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_
 #EXTINF:-1 tvg-id="3catinfo.cat" group-title="News - Europe 🇪🇺",3Cat Info
 https://directes-tv-int.3catdirectes.cat/live-origin/canal324-hls/master.m3u8
 
-############################################################
-# END OF PLAYLIST
-############################################################
+
 
 ############################################################
 # 🇳🇿 NEW ZEALAND (AUTO‑UPDATED DAILY — SORTED)
