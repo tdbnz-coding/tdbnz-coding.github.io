@@ -26,6 +26,9 @@ https://i.mjh.nz/.r/firstlight.m3u8
 https://i.mjh.nz/.r/hope-channel.m3u8
 
 
+
+
+
 ############################################################
 #  NEW ZEALAND
 ############################################################
@@ -248,14 +251,28 @@ https://aegis-cloudfront-1.tubi.video/b77ffe96-c5d1-43a7-8687-306ff244d725/playl
 #EXTINF:-1 tvg-id="bloomberg.us" tvg-name="Bloomberg" group-title="News - USA 📰" tvg-logo="https://i.postimg.cc/X76KF5vV/image.png",Bloomberg
 https://www.bloomberg.com/media-manifest/streams/phoenix-us.m3u8
 
+#EXTINF:-1 tvg-id="cbsnewboston.us" tvg-name="CBS New Boston" group-title="News - USA 📰" tvg-logo="https://i.postimg.cc/mzSjys0Y/image.png",CBS New Boston
+https://dai.google.com/linear/hls/event/dHA193vxQ_WqZNVoC-W5MA/master.m3u8
+
 #EXTINF:-1 tvg-id="cbsnews.us" tvg-name="CBS News" group-title="News - USA 📰" tvg-logo="https://i.postimg.cc/mZtpV7RP/image.png",CBS News
 https://dai.google.com/linear/hls/event/Sid4xiTQTkCT1SLu6rjUSQ/master.m3u8
+
+#EXTINF:-1 tvg-id="foxnews.us" tvg-name="Fox News Channel" group-title="News - USA 📰" tvg-logo="https://i.postimg.cc/jWxLJYQG/image.png",Fox News Channel
+http://45.190.28.50/FOX_NEWS/index.m3u8
+
+#EXTINF:-1 tvg-id="foxnewsradio.us" tvg-name="Fox News Radio" group-title="News - USA 📰" tvg-logo="https://i.postimg.cc/vDVHTmwX/image.png",Fox News Radio
+https://radiovid.foxnews.com/hls/live/661547/RADIOVID/index_2692.m3u8
+
+#EXTINF:-1 tvg-id="livenow.fox" tvg-name="LiveNow from Fox" group-title="News - USA 📰" tvg-logo="https://i.postimg.cc/mtZLwyFn/image.png",LiveNow from Fox
+https://amg00488-foxdigital-livenowbyfox-lgus-y0a81.amagi.tv/ts-us-w2-n2/playlist/amg00488-foxdigital-livenowbyfox-lgus/cb553e1c796c648b9ed43e65d6ef41a6d9243dfc087a8d6933fb4b926bc10f41e2e5af97b20cac7822fb0fdf61146d5a4d009247d8780ad7967cac48240d5734c6cdd52e8be24b4daddd0c2d34b07c0e49857671ad594f32d5e0110dc51ab07a0e1ca1494d5e2082b00cb27757c49e0a957f378bbdbe306f2c180680585ee2be5da5edf50847db69a0e0151b882647e7865fc8d54aba9ddc0e96439b70a01c9ec4a18dd7118bd592011a66884261c8f598f8fa1bbdf31fddf49f7e79a674294a1f5be2d1e1942c13a5378cd8659db1d84afc16cf872c801a58d3a50aaae542e24abf0aaced4faea9f9ab2ae7ab41a529020695cedae2da2030b66afaaced971516fda74429179b2bb0475a7a0d6bde9488e1b5eff010e0779ba53de0db35ab9cb18ae9b98e05bd30c9ccf899334674ae65688970ad8064d725dc37fd804361147a4da39e5ad395997004221ed6ce0e8f532cb0d5ddd7844e239c34521ac970c957005bc9364775f162acc96b22da704acd1e15cf7519cc02f0b127f0e7fce00530ba978761f77de0b80f9da757f8236c1752fda26c6c444a7cc2e72958632e8d16b2a1bf8b1d3e09e2f3c2e9d31369574b707c38cbb3b73ecbf483437b31ce5c216c716a67b50cc466d205094d6efe17dda8066396444609e3b43449557c9caae5d967b737d801ccb507a5ea1effc95c552e051241f4d7df5d/48/1280x720_2886400/index.m3u8
 
 #EXTINF:-1 tvg-id="scrippsnews.us" tvg-name="Scripps News" group-title="News - USA 📰" tvg-logo="https://i.postimg.cc/FRqZwnm9/image.png",Scripps News
 https://content.uplynk.com/channel/4bb4901b934c4e029fd4c1abfc766c37.m3u8
 
 #EXTINF:-1 tvg-id="yahoofinance.us" tvg-name="Yahoo Finance" group-title="News - USA 📰" tvg-logo="https://i.postimg.cc/nrDCwXR6/image.png",Yahoo Finance
 https://yahoo-samsung.amagi.tv/playlist.m3u8
+
+
 
 
 ############################################################
