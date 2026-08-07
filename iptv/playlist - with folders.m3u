@@ -25,6 +25,13 @@ https://i.mjh.nz/.r/firstlight.m3u8
 #EXTVLCOPT:http-referrer=
 https://i.mjh.nz/.r/hope-channel.m3u8
 
+############################################################
+# USA Movies 🎬
+############################################################
+
+
+#EXTINF:-1 tvg-id="24hoursfreemovies.us" tvg-name="24 Hours Free Movies" group-title="USA Movies 🎬" tvg-logo="https://i.postimg.cc/G42pcxLx/image.png",24 Hours Free Movies
+https://d1b5mlajbmvkjv.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/UDU-DistroTV/145.m3u8?ads.vf=7FhdsxqVxOi
 
 
 
@@ -155,8 +162,6 @@ https://i.mjh.nz/.r/mood-1290.m3u8
 ############################################################
 # 🚗 FAST – Sky (New Zealand FAST)
 ############################################################
-
-# --- FAST – Sky 🚗 (New Zealand 🇳🇿) ---
 
 #EXTINF:-1 channel-id="mjh-sky-fast2" tvg-id="mjh-sky-fast2" tvg-logo="https://contentful-images.digital.skyone.co.nz/v3/hf0kmuqe0d45/4sdV9uGhLQRMYrBdMtGTNs/15a364e6a26ee48cff2979fa9f90bf51/Logo_-_default.png" group-title="New Zealand 🇳🇿",Deadliest Catch
 #EXTVLCOPT:http-user-agent=otg/1.5.1
@@ -329,6 +334,5 @@ https://dash4.antik.sk/live/test_golf_channel/playlist.m3u8
 
 #EXTINF:-1 tvg-id="golfchannel2" tvg-name="Golf Channel (2)" group-title="Sports 🏆" tvg-logo="https://i.postimg.cc/4mJ3r0D8/image.png",Golf Channel (2)
 https://gpuserver3.tier1streams.com/GOLF_CHANNEL/index.m3u8
-
 
 
