@@ -257,6 +257,12 @@ https://i.mjh.nz/.r/firstlight.m3u8
 #EXTVLCOPT:http-referrer=
 https://i.mjh.nz/.r/hope-channel.m3u8
 
+#EXTINF:-1 tvg-id="" tvg-name="Jewish Life Television" group-title="Religion 🕊️" tvg-logo="https://i.postimg.cc/4KSdmL4K/image.png",Jewish Life Television
+https://jlt-jltv-strimm.otteravision.com/jlt/jltv/jltv.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="JTBS Classic" group-title="Religion 🕊️" tvg-logo="https://i.postimg.cc/SJxxfbXs/image.png",JTBS Classic
+https://jtbsclassic.dpdns.org/live.m3u8
+
 #EXTINF:-1 channel-id="mjh-shine-tv" tvg-id="mjh-shine-tv" tvg-logo="https://i.mjh.nz/.images/shine-tv.png" tvg-chno="25" group-title="Religion 🕊️",Shine TV
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client)
 #EXTVLCOPT:http-referrer=
@@ -298,6 +304,12 @@ https://xemzi.short.gy/2000009
 
 #EXTINF:-1 tvg-id="24hoursfreemovies.us" tvg-name="24 Hours Free Movies" group-title="USA Movies 🎬" tvg-logo="https://i.postimg.cc/G42pcxLx/image.png",24 Hours Free Movies
 https://d1b5mlajbmvkjv.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/UDU-DistroTV/145.m3u8?ads.vf=7FhdsxqVxOi
+
+#EXTINF:-1 tvg-id="" tvg-name="Kids Movie Club" group-title="USA Movies 🎬" tvg-logo="https://i.postimg.cc/SJMt5JzF/image.png",Kids Movie Club
+https://jmp2.uk/plu-5db0ad56edc89300090d2ebb.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="Magnificent Movies Network" group-title="USA Movies 🎬" tvg-logo="https://i.postimg.cc/Yj1Ws7qN/image.png",Magnificent Movies Network
+https://mmn1-301f.kxcdn.com/hls/MMN-HLS.m3u8
 
 #EXTINF:-1 tvg-id="70scinema.us" tvg-name="70s Cinema" group-title="USA Movies 🎬" tvg-logo="https://i.postimg.cc/sGjJxNHH/image.png",70s Cinema
 https://jmp2.uk/plu-5f4d878d3d19b30007d2e782.m3u8
