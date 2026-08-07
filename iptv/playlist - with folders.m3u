@@ -1043,6 +1043,10 @@ https://i.mjh.nz/.r/mood-1289.m3u8
 #EXTVLCOPT:http-user-agent=otg/1.5.1
 #EXTVLCOPT:http-referrer=
 https://i.mjh.nz/.r/mood-1290.m3u8
+#EXTINF:-1 tvg-id="mjh-mood-1290" tvg-logo="https://gizmeon-vod.lg.mncdn.com/thumbnails/fastchannel/1744244355255.png" group-title="New Zealand 🇳🇿" channel-id="mjh-mood-1290",JuiceTV (2) -Direct
+#EXTVLCOPT:http-user-agent=otg/1.5.1
+#EXTVLCOPT:http-referrer=
+https://gizmo2.cloudserver.nz/hls/Juice.m3u8
 #EXTINF:-1 tvg-id="mjh-mood-1288" tvg-logo="https://gizmeon-vod.lg.mncdn.com/thumbnails/fastchannel/1744280017572.png" group-title="New Zealand 🇳🇿" channel-id="mjh-mood-1288",Melo
 #EXTVLCOPT:http-user-agent=otg/1.5.1
 #EXTVLCOPT:http-referrer=
@@ -1129,6 +1133,8 @@ https://citynewsregional.akamaized.net/hls/live/1024052/Regional_Live_7/Video-3M
 https://citynewsregional.akamaized.net/hls/live/1024054/Regional_Live_9/master.m3u8
 #EXTINF:-1 tvg-id="3catinfo.cat" tvg-name="3Cat Info" tvg-logo="https://i.postimg.cc/rmJdrDZd/image.png" group-title="News - Europe 🌐",3Cat Info
 https://directes-tv-int.3catdirectes.cat/live-origin/canal324-hls/master.m3u8
+#EXTINF:-1 tvg-logo="]https://i.postimg.cc/N5ck7rnm/image.png[" group-title="News - International",DW (Germany)
+https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/stream05/streamPlaylist.m3u8
 #EXTINF:-1 tvg-id="alarabiya.en" tvg-name="Al Arabiya English" tvg-logo="https://i.postimg.cc/zLcHHMDf/image.png" group-title="News - Middle East 🏜️",Al Arabiya
 https://live.alarabiya.net/alarabiapublish/english/playlist_dvr.m3u8
 #EXTINF:-1 tvg-id="aljazeera2.en" tvg-name="Al Jazeera Arabic" tvg-logo="https://i.postimg.cc/ZK9k910V/image.png" group-title="News - Middle East 🏜️",Al Jazeera - Arabic
@@ -1157,8 +1163,10 @@ https://aegis-cloudfront-1.tubi.video/c28d1ca8-9467-4798-81dc-09c1d6e90be1/playl
 https://aegis-cloudfront-1.tubi.video/e739361e-fa12-4cac-92f3-e0dbf332cd88/playlist.m3u8
 #EXTINF:-1 tvg-id="abc9.wmur" tvg-name="ABC 9 Manchester" tvg-logo="https://i.postimg.cc/ZBw7NJ9X/image.png" group-title="News - United States 📰",ABC 9 Manchester
 https://aegis-cloudfront-1.tubi.video/b77ffe96-c5d1-43a7-8687-306ff244d725/playlist.m3u8
-#EXTINF:-1 tvg-id="bloomberg.us" tvg-name="Bloomberg" tvg-logo="https://i.postimg.cc/X76KF5vV/image.png" group-title="News - United States 📰",Bloomberg
+#EXTINF:-1 tvg-id="bloomberg.us" tvg-name="Bloomberg" tvg-logo="https://i.postimg.cc/X76KF5vV/image.png" group-title="News - United States 📰",Bloomberg (1)
 https://www.bloomberg.com/media-manifest/streams/phoenix-us.m3u8
+#EXTINF:-1 tvg-id="bloomberg.us" tvg-name="Bloomberg" tvg-logo="https://i.postimg.cc/X76KF5vV/image.png" group-title="News - United States 📰",Bloomberg (2)
+https://liveprodusphoenixeast.akamaized.net/USPhx-HD/Channel-TX-USPhx-AWS-virginia-1/Source-USPhx-16k-1-s6lk2-BP-07-02-81ykIWnsMsg_live.m3u8
 #EXTINF:-1 tvg-id="cbsnewboston.us" tvg-name="CBS New Boston" tvg-logo="https://i.postimg.cc/mzSjys0Y/image.png" group-title="News - United States 📰",CBS New Boston
 https://dai.google.com/linear/hls/event/dHA193vxQ_WqZNVoC-W5MA/master.m3u8
 #EXTINF:-1 tvg-id="cbsnews.us" tvg-name="CBS News" tvg-logo="https://i.postimg.cc/mZtpV7RP/image.png" group-title="News - United States 📰",CBS News
