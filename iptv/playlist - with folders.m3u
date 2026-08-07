@@ -33,7 +33,8 @@ https://i.mjh.nz/.r/hope-channel.m3u8
 #EXTINF:-1 tvg-id="24hoursfreemovies.us" tvg-name="24 Hours Free Movies" group-title="USA Movies 🎬" tvg-logo="https://i.postimg.cc/G42pcxLx/image.png",24 Hours Free Movies
 https://d1b5mlajbmvkjv.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/UDU-DistroTV/145.m3u8?ads.vf=7FhdsxqVxOi
 
-
+#EXTINF:-1 tvg-id="70scinema.us" tvg-name="70s Cinema" group-title="USA Movies 🎬" tvg-logo="https://i.postimg.cc/sGjJxNHH/image.png",70s Cinema
+https://jmp2.uk/plu-5f4d878d3d19b30007d2e782.m3u8
 
 
 ############################################################
