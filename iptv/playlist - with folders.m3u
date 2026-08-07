@@ -1227,22 +1227,22 @@ https://i.mjh.nz/.r/10shake-sa.m3u8
 #EXTVLCOPT:http-referrer=
 https://i.mjh.nz/.r/c44.m3u8
 
-#EXTINF:-1 channel-id="mjh-abc-act" tvg-id="mjh-abc-act" tvg-logo="https://i.mjh.nz/.images/abc-nsw.png" tvg-chno="21" group-title="Canberra" , ABC TV
+#EXTINF:-1 channel-id="mjh-abc-act" tvg-id="mjh-abc-act" tvg-logo="https://i.mjh.nz/.images/abc-nsw.png" tvg-chno="21" group-title="Australia - Canberra 🇦🇺" , ABC TV
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client) libcurl/7.58.0 OpenSSL/1.0.2o zlib/1.2.11 clib/1.8.56
 #EXTVLCOPT:http-referrer=
 https://c.mjh.nz/abc-act.m3u8
 
-#EXTINF:-1 channel-id="mjh-abc-nt" tvg-id="mjh-abc-nt" tvg-logo="https://i.mjh.nz/.images/abc-nsw.png" tvg-chno="21" group-title="Darwin" , ABC TV
+#EXTINF:-1 channel-id="mjh-abc-nt" tvg-id="mjh-abc-nt" tvg-logo="https://i.mjh.nz/.images/abc-nsw.png" tvg-chno="21" group-title="Australia - Darwin 🇦🇺" , ABC TV
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client) libcurl/7.58.0 OpenSSL/1.0.2o zlib/1.2.11 clib/1.8.56
 #EXTVLCOPT:http-referrer=
 https://c.mjh.nz/abc-nt.m3u8
 
-#EXTINF:-1 channel-id="mjh-first-nations-tv" tvg-id="mjh-first-nations-tv" tvg-logo="https://i.mjh.nz/.images/first-nations-tv.png" tvg-chno="41" group-title="Darwin" , First Nations TV
+#EXTINF:-1 channel-id="mjh-first-nations-tv" tvg-id="mjh-first-nations-tv" tvg-logo="https://i.mjh.nz/.images/first-nations-tv.png" tvg-chno="41" group-title="Australia - Darwin 🇦🇺" , First Nations TV
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client) libcurl/7.58.0 OpenSSL/1.0.2o zlib/1.2.11 clib/1.8.56
 #EXTVLCOPT:http-referrer=
 https://i.mjh.nz/.r/first-nations-tv.m3u8
 
-#EXTINF:-1 channel-id="mjh-tourism-tv" tvg-id="mjh-tourism-tv" tvg-logo="https://i.mjh.nz/.images/tourism-tv.png" tvg-chno="42" group-title="Darwin" , Tourism TV
+#EXTINF:-1 channel-id="mjh-tourism-tv" tvg-id="mjh-tourism-tv" tvg-logo="https://i.mjh.nz/.images/tourism-tv.png" tvg-chno="42" group-title="Australia - Darwin 🇦🇺" , Tourism TV
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client) libcurl/7.58.0 OpenSSL/1.0.2o zlib/1.2.11 clib/1.8.56
 #EXTVLCOPT:http-referrer=
 https://i.mjh.nz/.r/tourism-tv.m3u8
