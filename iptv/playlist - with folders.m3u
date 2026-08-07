@@ -1171,6 +1171,8 @@ https://content.uplynk.com/channel/4bb4901b934c4e029fd4c1abfc766c37.m3u8
 https://yahoo-samsung.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="3abn-int" tvg-name="3ABN International Network" tvg-logo="https://i.postimg.cc/tnbZd2DG/image.png" group-title="Religion 🕊️",3ABN International Network
 https://3abn.bozztv.com/3abn2/Int_live/smil:Int_live.smil/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://i.ibb.co/mGC5BMR/erfan-halgheh-tv-au.png" group-title="Religion 🕊️",Erfan Halgheh TV
+https://hls.erfanhalgheh.live/hls/stream.m3u8
 #EXTINF:-1 tvg-id="mjh-firstlight" tvg-logo="https://i.mjh.nz/.images/firstlight.png" group-title="Religion 🕊️" channel-id="mjh-firstlight" tvg-chno="26",Firstlight
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client)
 #EXTVLCOPT:http-referrer=
@@ -1179,6 +1181,10 @@ https://i.mjh.nz/.r/firstlight.m3u8
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client)
 #EXTVLCOPT:http-referrer=
 https://i.mjh.nz/.r/hope-channel.m3u8
+#EXTINF:-1 tvg-logo="https://i.imgur.com/aeS4Sjv.png" group-title="Religion 🕊️",ICnet 1
+https://icnet1hls.wns.live/hls/stream.m3u8
+#EXTINF:-1 tvg-logo="https://i.imgur.com/Ke5xn4E.png" group-title="Religion 🕊️",ICnet 2
+https://icnet2hls.wns.live/hls/stream.m3u8
 #EXTINF:-1 tvg-name="Jewish Life Television" tvg-logo="https://i.postimg.cc/4KSdmL4K/image.png" group-title="Religion 🕊️",Jewish Life Television
 https://jlt-jltv-strimm.otteravision.com/jlt/jltv/jltv.m3u8
 #EXTINF:-1 tvg-name="JTBS Classic" tvg-logo="https://i.postimg.cc/SJxxfbXs/image.png" group-title="Religion 🕊️",JTBS Classic
@@ -1203,6 +1209,8 @@ https://xemzi.short.gy/2000005
 https://7nyaler.streamhostingcdn.top/stream/8/index.m3u8
 #EXTINF:-1 tvg-id="skysportsgolf" tvg-name="Sky Sports Golf" tvg-logo="https://i.postimg.cc/X7B9cyNh/image.png" group-title="Sports 🏆",Sky Sports Golf
 https://xemzi.short.gy/2000009
+#EXTINF:-1 group-title="USA Movies 🎬",New Item
+
 #EXTINF:-1 tvg-id="24hoursfreemovies.us" tvg-name="24 Hours Free Movies" tvg-logo="https://i.postimg.cc/G42pcxLx/image.png" group-title="USA Movies 🎬",24 Hours Free Movies
 https://d1b5mlajbmvkjv.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/UDU-DistroTV/145.m3u8?ads.vf=7FhdsxqVxOi
 #EXTINF:-1 tvg-id="70scinema.us" tvg-name="70s Cinema" tvg-logo="https://i.postimg.cc/sGjJxNHH/image.png" group-title="USA Movies 🎬",70s Cinema
