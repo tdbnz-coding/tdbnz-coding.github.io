@@ -172,6 +172,19 @@ https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_
 #EXTINF:-1 tvg-id="" tvg-name="CBC News Network" group-title="News - Canada 🇨🇦" tvg-logo="https://i.postimg.cc/2VL8KFwy/image.png",CBC News Network
 https://aegis-cloudfront-1.tubi.video/c71ce9b6-cddb-4cec-b0db-2f09289f8782/master1080P.m3u8
 
+#EXTINF:-1 tvg-id="" tvg-name="CityNews Calgary" group-title="News - Canada 🇨🇦" tvg-logo="https://i.postimg.cc/7f8pq34h/image.png",CityNews Calgary
+https://citynewsregional.akamaized.net/hls/live/1024053/Regional_Live_8/Video-3MBPS.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="CityNews Edmonton" group-title="News - Canada 🇨🇦" tvg-logo="https://i.postimg.cc/7f8pq34h/image.png",CityNews Edmonton
+https://citynewsregional.akamaized.net/hls/live/1024053/Regional_Live_8/Video-2Mbps.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="CityNews Toronto" group-title="News - Canada 🇨🇦" tvg-logo="https://i.postimg.cc/7f8pq34h/image.png",CityNews Toronto
+https://citynewsregional.akamaized.net/hls/live/1024052/Regional_Live_7/Video-3MBPS.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="CityNews Vancouver" group-title="News - Canada 🇨🇦" tvg-logo="https://i.postimg.cc/7f8pq34h/image.png",CityNews Vancouver
+https://citynewsregional.akamaized.net/hls/live/1024054/Regional_Live_9/master.m3u8
+
+
 ############################################################
 # 🌐 News – Europe
 ############################################################
