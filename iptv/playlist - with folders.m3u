@@ -165,6 +165,12 @@ https://skynewsau-live-premium.akamaized.net/hls/live/2105305/skynewsweather/liv
 #EXTINF:-1 tvg-id="news24world.au" tvg-name="News24 World" group-title="News - Australia 📺" tvg-logo="https://i.postimg.cc/4JsJ0Sj8/image.png",News24 World
 https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_1080p.m3u8
 
+############################################################
+# 🇨🇦 News – Canada
+############################################################
+
+#EXTINF:-1 tvg-id="" tvg-name="CBC News Network" group-title="News - Canada 🇨🇦" tvg-logo="https://i.postimg.cc/2VL8KFwy/image.png",CBC News Network
+https://aegis-cloudfront-1.tubi.video/c71ce9b6-cddb-4cec-b0db-2f09289f8782/master1080P.m3u8
 
 ############################################################
 # 🌐 News – Europe
