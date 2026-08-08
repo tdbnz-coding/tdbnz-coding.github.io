@@ -1,4 +1,4 @@
-#EXTM3U url-tvg="https://github.com/matthuisman/i.mjh.nz/raw/master/PlutoTV/all.xml.gz"
+#EXTM3U url-tvg="https://github.com/matthuisman/i.mjh.nz/raw/refs/heads/master/nzau/epg.xml.gz"
 #EXTINF:-1 tvg-id="mjh-seven-ade" tvg-logo="https://i.mjh.nz/.images/auto-seven-ade-9608a4.png" group-title="Australia - Adelaide 🇦🇺*" channel-id="mjh-seven-ade" tvg-chno="71",Seven
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client) libcurl/7.58.0 OpenSSL/1.0.2o zlib/1.2.11 clib/1.8.56
 #EXTVLCOPT:http-referrer=
