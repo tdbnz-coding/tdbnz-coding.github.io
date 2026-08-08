@@ -11,21 +11,23 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install .NET SDK 8 (works on GitHub Actions)
+      - name: Install .NET SDK 8
         run: |
           wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
           chmod +x dotnet-install.sh
           ./dotnet-install.sh --channel 8.0 --install-dir /usr/share/dotnet
 
-      - name: Verify DOTNET
-        run: dotnet --version
+      - name: Fix SSL + CA certificates (WG++ internet fix)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ca-certificates libssl-dev
 
-      - name: Download WebGrab+Plus V5.5
+      - name: Download WebGrabPlus V5.5
         run: |
           wget https://webgrabplus.com/sites/default/files/download/SW/V5.5.0/WebGrabPlus_5.5_install.tar.gz
           tar -zxvf WebGrabPlus_5.5_install.tar.gz -C $HOME
 
-      - name: Install WebGrab+Plus
+      - name: Install WebGrabPlus
         run: |
           cd $HOME/.wg++
           ./install.sh
@@ -35,7 +37,7 @@ jobs:
           cp iptv/WebGrab++.config.xml $HOME/.wg++
           cp -r iptv/siteini.pack $HOME/.wg++
 
-      - name: Run WebGrab+Plus
+      - name: Run WebGrabPlus
         run: |
           cd $HOME/.wg++
           ./run.net.sh
