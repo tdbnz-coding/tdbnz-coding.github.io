@@ -11,14 +11,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install Microsoft package feed + DOTNET 8
+      - name: Install .NET SDK 8 (works on GitHub Actions)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wget apt-transport-https software-properties-common
-          wget https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-          sudo dpkg -i packages-microsoft-prod.deb
-          sudo apt-get update
-          sudo apt-get install -y dotnet-runtime-8.0
+          wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+          chmod +x dotnet-install.sh
+          ./dotnet-install.sh --channel 8.0 --install-dir /usr/share/dotnet
+          ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 
       - name: Verify DOTNET
         run: dotnet --version
@@ -35,8 +33,8 @@ jobs:
 
       - name: Copy config + siteini
         run: |
-          cp iptv/WebGrab++.config.xml $HOME/.wg++/
-          cp -r iptv/siteini.pack $HOME/.wg++/
+          cp iptv/WebGrab++.config.xml $HOME/.wg++
+          cp -r iptv/siteini.pack $HOME/.wg++
 
       - name: Run WebGrab+Plus
         run: |
