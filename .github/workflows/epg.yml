@@ -11,14 +11,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install Microsoft package feed + DOTNET 9
+      - name: Install Microsoft package feed + DOTNET 8
         run: |
           sudo apt-get update
           sudo apt-get install -y wget apt-transport-https software-properties-common
           wget https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
           sudo dpkg -i packages-microsoft-prod.deb
           sudo apt-get update
-          sudo apt-get install -y dotnet-runtime-9.0
+          sudo apt-get install -y dotnet-runtime-8.0
 
       - name: Verify DOTNET
         run: dotnet --version
