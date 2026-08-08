@@ -1,4 +1,4 @@
-name: Generate EPG (WebGrabPlus V5+)
+name: Generate EPG (WebGrabPlus V5.5)
 
 on:
   workflow_dispatch:
@@ -11,15 +11,19 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install DOTNET 9 (required for WG++ 5.5+)
+      - name: Install Microsoft package feed + DOTNET 9
         run: |
+          sudo apt-get update
+          sudo apt-get install -y wget apt-transport-https software-properties-common
+          wget https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+          sudo dpkg -i packages-microsoft-prod.deb
           sudo apt-get update
           sudo apt-get install -y dotnet-runtime-9.0
 
       - name: Verify DOTNET
         run: dotnet --version
 
-      - name: Download WebGrab+Plus V5.5 (Linux installer)
+      - name: Download WebGrab+Plus V5.5
         run: |
           wget https://webgrabplus.com/sites/default/files/download/SW/V5.5.0/WebGrabPlus_5.5_install.tar.gz
           tar -zxvf WebGrabPlus_5.5_install.tar.gz -C $HOME
