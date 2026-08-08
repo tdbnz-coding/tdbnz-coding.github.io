@@ -1,4 +1,6 @@
 #EXTM3U url-tvg="https://github.com/matthuisman/i.mjh.nz/raw/refs/heads/master/nzau/epg.xml.gz"
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/pTmm8hrS/images-q-tbn-ANd9Gc-SKc-CBnc-p8z-Zw-F9ekl-Aho-Hf0w40n-Oo-D6m-OVXNO6t-XFe-A-s-10.jpg" group-title="@ - Updated 08/08/26 - 12:30pm",Updated 08/08/26 - 12:30pm
+https://i.mjh.nz/.r/ch200.m3u8
 #EXTINF:-1 tvg-id="mjh-seven-ade" tvg-logo="https://i.mjh.nz/.images/auto-seven-ade-9608a4.png" group-title="Australia - Adelaide 🇦🇺*" channel-id="mjh-seven-ade" tvg-chno="71",Seven
 #EXTVLCOPT:http-user-agent=otg/1.5.1 (AppleTv Apple TV 4; tvOS16.0; appletv.client) libcurl/7.58.0 OpenSSL/1.0.2o zlib/1.2.11 clib/1.8.56
 #EXTVLCOPT:http-referrer=
