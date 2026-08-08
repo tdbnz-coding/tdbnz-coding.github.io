@@ -1,0 +1,45 @@
+name: Debug WebGrabPlus
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install .NET SDK 8
+        run: |
+          wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+          chmod +x dotnet-install.sh
+          ./dotnet-install.sh --channel 8.0 --install-dir /usr/share/dotnet
+
+      - name: Download WebGrabPlus V5.5
+        run: |
+          wget https://webgrabplus.com/sites/default/files/download/SW/V5.5.0/WebGrabPlus_5.5_install.tar.gz
+          tar -zxvf WebGrabPlus_5.5_install.tar.gz -C $HOME
+
+      - name: Install WebGrabPlus
+        run: |
+          cd $HOME/.wg++
+          ./install.sh
+
+      - name: Copy config + siteini
+        run: |
+          cp iptv/WebGrab++.config.xml $HOME/.wg++
+          cp -r iptv/siteini.pack $HOME/.wg++
+
+      - name: Run WebGrabPlus
+        run: |
+          cd $HOME/.wg++
+          ./run.net.sh || true
+
+      - name: Show WG++ logs
+        run: |
+          echo "=== WebGrab++.log.txt ==="
+          cat $HOME/.wg++/WebGrab++.log.txt || echo "No log file found"
+          echo "=== WGLicense.log.txt ==="
+          cat $HOME/.wg++/WGLicense.log.txt || echo "No license log found"
