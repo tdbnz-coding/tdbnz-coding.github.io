@@ -1,4 +1,4 @@
-const API_BASE = "https://www.christchurchairport.co.nz/api/flights";
+const API_BASE = "https://flightboard.thomasnz.workers.dev/";
 
   let direction = "Arrive";
   let flightType = "All";

@@ -1,14 +1,14 @@
 Christchurch Airport Live Flight Board
 
+Configured Cloudflare Worker:
+https://flightboard.thomasnz.workers.dev/
+
 Files:
 - index.html
 - css/style.css
 - js/app.js
 
-Upload the contents of this folder to your web host or GitHub Pages repository.
+Upload index.html plus the css and js folders to your website.
 
-The page uses Bootstrap from the Bootstrap CDN and requests flight data from:
-https://www.christchurchairport.co.nz/api/flights
-
-Note: If the Christchurch Airport endpoint blocks cross-origin requests from your hosted site,
-a small proxy/backend (for example Cloudflare Workers) will be required.
+The browser now requests flight data through your Cloudflare Worker rather than
+calling the Christchurch Airport API directly.
