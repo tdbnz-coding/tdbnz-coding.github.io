@@ -276,3 +276,199 @@
       .nav-pills .nav-item{flex:1}
       .nav-pills .nav-link{width:100%;text-align:center}
     }
+
+
+/* Mobile readability improvements */
+@media (max-width: 767.98px) {
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .topbar .container {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: .9rem;
+  }
+
+  .hero {
+    padding: 18px 0 10px;
+  }
+
+  .hero-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  .hero p {
+    font-size: .95rem;
+    line-height: 1.5;
+  }
+
+  .eyebrow {
+    font-size: .7rem;
+    letter-spacing: .11em;
+  }
+
+  .stat-card {
+    padding: 13px 14px;
+    border-radius: 15px;
+  }
+
+  .stat-label {
+    font-size: .68rem;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .control-bar {
+    margin: 14px 0;
+    padding: 10px;
+    border-radius: 17px;
+  }
+
+  .nav-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px !important;
+  }
+
+  .nav-pills .nav-link {
+    min-height: 48px;
+    padding: .7rem .5rem;
+    font-size: .95rem;
+  }
+
+  #flightType,
+  #searchBox,
+  #refreshBtn {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
+  .board {
+    border-radius: 18px;
+  }
+
+  .board-head {
+    padding: 15px 16px;
+  }
+
+  #boardTitle {
+    font-size: 1.15rem !important;
+  }
+
+  #boardSubtitle,
+  #refreshStatus {
+    font-size: .78rem;
+  }
+
+  .mobile-card {
+    padding: 17px 15px;
+  }
+
+  .mobile-card .airline-logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .mobile-card .flight-no {
+    font-size: 1.25rem !important;
+  }
+
+  .mobile-card .airport {
+    font-size: 1.12rem !important;
+    line-height: 1.3;
+    margin-bottom: 14px !important;
+  }
+
+  .mobile-card .row {
+    --bs-gutter-x: .6rem;
+  }
+
+  .mobile-card .col-4 {
+    background: rgba(255,255,255,.035);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 8px;
+  }
+
+  .mobile-card .row.g-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px !important;
+    margin: 0;
+  }
+
+  .mobile-card .row.g-3 > * {
+    width: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .mobile-card .muted {
+    font-size: .72rem;
+  }
+
+  .mobile-card .fw-bold {
+    font-size: .92rem;
+    word-break: break-word;
+  }
+
+  .status-badge {
+    padding: 6px 9px;
+    font-size: .72rem;
+    max-width: 145px;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.25;
+  }
+
+  .loading-wrap {
+    padding: 42px 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .mobile-card .row.g-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-card .col-4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-card .col-4 .mt-1 {
+    margin-top: 0 !important;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .status-badge {
+    max-width: 120px;
+  }
+}

@@ -8,7 +8,14 @@ Files:
 - css/style.css
 - js/app.js
 
-Upload index.html plus the css and js folders to your website.
+Important about GitHub Secrets:
+GitHub Secrets cannot hide an API/Worker URL that the browser itself must call.
+Even if a GitHub Action injects the URL during deployment, the final JavaScript
+downloaded by visitors will still contain that URL and it can be seen in DevTools.
 
-The browser now requests flight data through your Cloudflare Worker rather than
-calling the Christchurch Airport API directly.
+The secure part is that the Christchurch Airport upstream endpoint and any private
+credentials can stay inside the Cloudflare Worker. The public Worker URL itself
+should be treated as public.
+
+This version removes the flight-data footer attribution text and improves mobile
+readability, spacing, controls, cards, status badges, and very-small-screen layout.

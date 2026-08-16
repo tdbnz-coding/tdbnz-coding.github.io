@@ -3,29 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Christchurch Airport Flight Board</title>
+  <title>Auckland Airport Live Flight Board</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/style.css">
-
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
 <nav class="topbar">
   <div class="container py-3 d-flex align-items-center justify-content-between gap-3">
     <div class="d-flex align-items-center gap-3">
-      <div class="brand-mark">CHC</div>
+      <div class="brand-mark">AKL</div>
       <div>
-        <div class="fw-bold">Christchurch Airport</div>
+        <div class="fw-bold">Auckland Airport</div>
         <div class="small muted">Live Flight Board</div>
       </div>
     </div>
-
     <div class="d-none d-md-flex align-items-center gap-2 small muted">
       <span class="spinner-grow spinner-grow-sm text-success" aria-hidden="true"></span>
       Live data
@@ -34,23 +30,19 @@
 </nav>
 
 <main class="container">
-
   <section class="hero">
     <div class="hero-card">
       <div class="row g-4 align-items-center">
         <div class="col-lg-7">
-          <div class="eyebrow">NZCH • Christchurch, New Zealand</div>
+          <div class="eyebrow">AKL • Auckland Airport</div>
           <h1>Flight Information</h1>
-          <p class="muted mb-0">
-            Live arrivals and departures from Christchurch Airport.
-          </p>
+          <p class="muted mb-0">Live arrivals and departures for Auckland Airport.</p>
         </div>
-
         <div class="col-lg-5">
           <div class="row g-3">
             <div class="col-6">
               <div class="stat-card">
-                <div class="stat-label">Last updated</div>
+                <div class="stat-label">Last refreshed</div>
                 <div class="stat-value" id="lastUpdated">—</div>
               </div>
             </div>
@@ -68,34 +60,27 @@
 
   <div class="control-bar">
     <div class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center justify-content-between gap-3">
-
       <ul class="nav nav-pills gap-1" id="directionTabs">
         <li class="nav-item">
-          <button class="nav-link active" data-direction="Arrive">✈ Arrivals</button>
+          <button class="nav-link active" data-direction="A">✈ Arrivals</button>
         </li>
         <li class="nav-item">
-          <button class="nav-link" data-direction="Depart">🛫 Departures</button>
+          <button class="nav-link" data-direction="D">🛫 Departures</button>
         </li>
       </ul>
 
       <div class="d-flex flex-column flex-sm-row gap-2">
-        <select id="flightType" class="form-select bg-dark text-white border-secondary" style="min-width:190px;border-radius:14px;">
+        <select id="flightType" class="form-select bg-dark text-white border-secondary">
           <option value="All">All flights</option>
-          <option value="Domestic">Domestic</option>
-          <option value="International">International</option>
+          <option value="D">Domestic</option>
+          <option value="I">International</option>
         </select>
 
-        <input
-          type="search"
-          id="searchBox"
-          class="form-control bg-dark text-white border-secondary"
-          placeholder="Search flight or city"
-          style="min-width:220px;border-radius:14px;"
-        >
+        <input type="search" id="searchBox"
+               class="form-control bg-dark text-white border-secondary"
+               placeholder="Search flight, city or airline">
 
-        <button id="refreshBtn" class="btn btn-refresh">
-          ↻ Refresh now
-        </button>
+        <button id="refreshBtn" class="btn btn-refresh">↻ Refresh now</button>
       </div>
     </div>
   </div>
@@ -120,9 +105,10 @@
           <tr>
             <th>Airline</th>
             <th>Flight</th>
-            <th id="airportHeading">Arriving From</th>
+            <th id="airportHeading">Origin</th>
             <th>Scheduled</th>
-            <th>Est / Act</th>
+            <th>Estimated / Actual</th>
+            <th id="claimHeading">Bag claim</th>
             <th>Gate</th>
             <th>Status</th>
           </tr>
@@ -133,9 +119,7 @@
 
     <div class="d-md-none" id="mobileBoard"></div>
 
-    <div id="emptyState" class="loading-wrap d-none">
-      No matching flights found.
-    </div>
+    <div id="emptyState" class="loading-wrap d-none">No matching flights found.</div>
 
     <div id="errorState" class="loading-wrap d-none">
       <div class="fw-bold text-danger mb-2">Unable to load flight data</div>
@@ -145,6 +129,5 @@
 </main>
 
 <script src="js/app.js"></script>
-
 </body>
 </html>
