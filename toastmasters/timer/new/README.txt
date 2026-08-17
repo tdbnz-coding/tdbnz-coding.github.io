@@ -1,11 +1,15 @@
 AVON TOASTMASTERS TIMER PRO
 ================================
 
+FIXED BUILD 6
+  If “Fixed build 6” is visible beside Toastmasters at the top of the website,
+  the corrected non-cached report code is running.
+
 FILES
   index.html       Main website
-  styles.css       Complete responsive design
-  scripts.js       Timer, meeting records, charts and report exports
-  toastmasters-logo.png  Toastmasters logo used on the PowerPoint title slide
+  styles-v6.css    Complete responsive design (versioned to prevent old cache)
+  scripts-v6.js    Timer, meeting records, charts and report exports
+  toastmasters-logo.png       Since 1924 logo used on the PowerPoint title slide locally and online
   site.webmanifest Installable-app information
 
 HOW TO USE
@@ -28,6 +32,10 @@ POWERPOINT REPORT
   Other agenda items use a duration chart with a shaded target window.
   Prepared Speeches have their own status pie chart and concise speaker report.
   Table Topics have their own status pie chart and outside-time report.
+  Every over-time result shows the exact amount over the selected red time.
+  In the detailed agenda, On time is green, Under time is orange, and Over time is red.
+  In the detailed Result column, an under-time competition warning is yellow
+  and an over-time competition warning is red.
   Each section appears once so charts are not doubled up.
 
 TABLE TOPICS TIMING
@@ -38,7 +46,22 @@ TABLE TOPICS TIMING
   minute-and-second signals. The website and PowerPoint automatically show the
   custom range instead of the default 1–2 minute wording. If speakers use
   different ranges, the report says that individually selected ranges were used.
-  Over-time results are red and include the competition disqualification note.
+
+COMPETITION EDUCATION
+  “Would be disqualified” is shown only when the matching standard preset is
+  selected and these real contest qualification limits are exceeded:
+    5–7 minute speech: below 4:30 or above 7:30
+    Table Topics:      below 1:00 or above 2:30
+    Evaluation:        below 1:30 or above 3:30
+  No other meeting role receives a competition disqualification message.
+  A custom Table Topics range only says Under time in yellow or Over time in
+  red; it does not show a competition disqualification warning.
+  A standard Table Topic between 2:00 and 2:30 is over the set time but still
+  competition-qualified; the report now says this clearly in green.
+  On the Table Topics summary slide, the sentence “Competition: would have
+  been disqualified.” is red for both under- and over-time disqualifications.
+  Zero-value speech and Table Topics chart categories are removed, preventing
+  misleading 0% labels from appearing on PowerPoint doughnut charts.
 
 NOTES
   Meeting data is saved only in this browser on this device.
