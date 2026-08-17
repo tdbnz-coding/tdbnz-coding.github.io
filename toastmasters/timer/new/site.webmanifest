@@ -1,0 +1,9 @@
+{
+  "name": "Avon Toastmasters Timer Pro",
+  "short_name": "TM Timer",
+  "description": "A detailed Toastmasters meeting timer with PowerPoint and CSV reporting.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#edf2f4",
+  "theme_color": "#004165"
+}
