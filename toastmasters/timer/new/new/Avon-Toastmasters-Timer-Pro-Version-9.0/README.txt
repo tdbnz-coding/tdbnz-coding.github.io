@@ -1,14 +1,15 @@
 AVON TOASTMASTERS TIMER PRO
 ================================
 
-VERSION 8.2
-  If “Version 8.2” is visible below Timing Desk on a mobile screen,
-  the corrected non-cached report code is running.
+VERSION 9.0
+  If “Version 9.0” is visible below Timing Desk on a mobile screen,
+  the latest non-cached release is running.
 
 FILES
   index.html       Main website
-  styles-v82.css   Accessible responsive design (versioned to prevent old cache)
-  scripts-v82.js   Timer, PWA installation, settings, records and report exports
+  styles-v9.css    Accessible responsive design (versioned to prevent old cache)
+  scripts-v9.js    Timer, PWA installation, settings, records and report exports
+  features-v9.js   Optional agenda, recovery, presets, templates and backups
   sw.js            Offline app worker for Cloudflare Pages
   wake-lock.mp4    Tiny local compatibility file for older mobile screen-awake support
   app-icon-192.png Android and browser installation icon
@@ -28,7 +29,9 @@ HOW TO USE
   6. Open Report to view minute-based graphs and Table Topics analysis.
   7. Use the pencil button beside any saved result to correct its name, title,
      role, section, actual time, or green/yellow/red timing range.
-  8. Download the detailed PowerPoint or CSV report.
+  8. Download PowerPoint or CSV, or choose Print / PDF for a printable report.
+  9. The Agenda builder is optional. Ignore it for the normal one-person-at-a-time
+     workflow, or use it to queue participants and load the next person quickly.
 
 ACCESSIBILITY AND TIMER SETTINGS
   Open Settings from the top-right of the website. Each person's choices are
@@ -64,8 +67,22 @@ INSTALL TM TIMING DESK
   2FA again. Install only on a trusted device because offline files and locally
   saved meeting information remain available on that device without a new login.
 
+VERSION 9.0 CHANGES
+  The optional Agenda builder can queue participants without changing the
+  normal manual timing workflow. Queues can be saved as meeting templates.
+  Custom green, yellow, red and overtime timings can be saved as reusable presets.
+  An active unsaved timer can be recovered after refresh, closure or a browser crash.
+  Deleted results, cleared reports and unsaved resets can be undone or restored
+  from the 30-day recycle bin.
+  Competition mode locks the official 5–7 speech, 1–2 Table Topics or 2–3
+  Evaluation signals and provides a dedicated full-screen signal-light view.
+  Reports can be printed or saved as PDF from the browser.
+  Complete JSON backup and restore includes the meeting, agenda, results,
+  settings, timing presets and meeting templates.
+  The Settings changelog lists every Version 9.0 addition.
+
 VERSION 8.2 CHANGES
-  On mobile, the brand now reads Toastmasters, Timing Desk, then Version 8.2.
+  On mobile, the brand reads Toastmasters, Timing Desk, then the version number.
   Full-screen timer mode hides the website header, setup panel and footer,
   including the Site by Thomas Bernard credit.
   The ready message changes to Timer running immediately after Start, before
@@ -109,13 +126,15 @@ COMPETITION EDUCATION
   A standard Table Topic between 2:00 and 2:30 is over the set time but still
   competition-qualified; the report now says this clearly in green.
   On the Table Topics summary slide, the sentence “Competition: would have
-  been disqualified.” is red for both under- and over-time disqualifications.
+  been disqualified.” is yellow for under-time and red for over-time results.
   Zero-value speech and Table Topics chart categories are removed, preventing
   misleading 0% labels from appearing on PowerPoint doughnut charts.
 
 NOTES
   Meeting data is saved only in this browser on this device.
   Saved meeting data automatically expires five days after the last save.
+  Accessibility settings, custom timings, templates and recycle-bin items are
+  stored for 30 days in the current browser. JSON backup provides a portable copy.
   Sound and spoken cues are off by default. Enable either from Settings.
   The overtime screen is static. It never flickers, flashes or pulses.
   Accessibility improvements include keyboard focus indicators, a skip link,
