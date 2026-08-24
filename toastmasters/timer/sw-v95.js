@@ -1,16 +1,17 @@
-const CACHE_NAME='tm-timing-desk-v8.2';
+const CACHE_NAME='tm-timing-desk-v9.5';
 const APP_SHELL=[
   './',
   './index.html',
-  './styles-v82.css',
-  './scripts-v82.js',
-  './site.webmanifest',
-  './toastmasters-logo.png',
-  './app-icon-192.png',
-  './app-icon-512.png',
-  './app-icon-maskable-512.png',
-  './apple-touch-icon.png',
-  './wake-lock.mp4'
+  './styles-v95.css',
+  './scripts-v95.js',
+  './features-v95.js',
+  './site-v95.webmanifest',
+  './toastmasters-logo-v95.png',
+  './app-icon-192-v95.png',
+  './app-icon-512-v95.png',
+  './app-icon-maskable-512-v95.png',
+  './apple-touch-icon-v95.png',
+  './wake-lock-v95.mp4'
 ];
 
 self.addEventListener('install',event=>{
@@ -25,6 +26,7 @@ self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET')return;
   const requestUrl=new URL(event.request.url);
   if(requestUrl.origin!==self.location.origin)return;
+  if(requestUrl.pathname.startsWith('/api/'))return;
   if(event.request.mode==='navigate'){
     event.respondWith(fetch(event.request).then(response=>{
       const copy=response.clone();
