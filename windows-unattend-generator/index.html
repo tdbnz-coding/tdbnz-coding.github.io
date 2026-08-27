@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Windows 10 &amp; 11 Unattend XML Generator | tdbnz coding</title>
+  <meta name="description" content="Create a custom autounattend.xml answer file for a clean Windows 10 or Windows 11 installation. Configure language, disk, local account, privacy and setup options in your browser.">
+  <meta name="keywords" content="autounattend.xml generator, Windows 11 unattended install, Windows 10 answer file, unattend XML, automated Windows setup">
+  <meta name="author" content="Thomas Bernard">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#081526">
+  <link rel="canonical" href="https://tdbnz-coding.github.io/windows-unattend-generator/">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_NZ">
+  <meta property="og:site_name" content="tdbnz coding">
+  <meta property="og:title" content="Windows 10 &amp; 11 Unattend XML Generator">
+  <meta property="og:description" content="Build and download a Windows autounattend.xml answer file privately in your browser.">
+  <meta property="og:url" content="https://tdbnz-coding.github.io/windows-unattend-generator/">
+  <meta property="og:image" content="https://tdbnz-coding.github.io/windows-unattend-generator/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="tdbnz coding Windows Unattend XML Generator">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "tdbnz coding Windows Unattend XML Generator",
+    "url": "https://tdbnz-coding.github.io/windows-unattend-generator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any operating system with a modern web browser",
+    "description": "A browser-based generator for Windows 10 and Windows 11 unattended installation answer files.",
+    "author": {"@type": "Person", "name": "Thomas Bernard"},
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "NZD"},
+    "featureList": [
+      "Windows 10 and Windows 11 answer files",
+      "Local browser processing",
+      "Language and keyboard configuration",
+      "Disk partition configuration",
+      "Local account creation",
+      "XML preview and download"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an autounattend.xml file?",
+        "acceptedAnswer": {"@type": "Answer", "text": "An autounattend.xml file is a Windows Setup answer file. It supplies selected installation settings automatically, such as language, disk, edition and account options."}
+      },
+      {
+        "@type": "Question",
+        "name": "Where do I put autounattend.xml?",
+        "acceptedAnswer": {"@type": "Answer", "text": "For a typical clean installation, place autounattend.xml in the root of the bootable Windows installation USB drive. Test the file in a virtual machine before using it on important hardware."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does this generator upload my settings?",
+        "acceptedAnswer": {"@type": "Answer", "text": "No. Generation happens locally in the browser and the static website does not send form values to a server."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can an unattended Windows installation erase a disk?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. If automatic disk configuration is enabled, Windows Setup can erase the selected disk. Confirm the disk number and keep backups before installation."}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#generator">Skip to generator</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="tdbnz coding home">
+        <img src="icon.svg" width="38" height="38" alt="">
+        <span>tdbnz <span>coding</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#generator">Generator</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="theme-button" id="themeToggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+        <span aria-hidden="true">☼</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Free browser-based setup tool</p>
+          <h1>Windows 10 &amp; 11 <em>Unattend XML Generator</em></h1>
+          <p class="hero-lead">Build a tailored <code>autounattend.xml</code> answer file for a cleaner, faster Windows installation—without sending your settings anywhere.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#generator">Build my answer file</a>
+            <a class="button secondary" href="#how-it-works">Read the safe-use guide</a>
+          </div>
+          <ul class="trust-list" aria-label="Key benefits">
+            <li><span aria-hidden="true">✓</span> Runs locally</li>
+            <li><span aria-hidden="true">✓</span> No sign-up</li>
+            <li><span aria-hidden="true">✓</span> Free download</li>
+          </ul>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="window-card">
+            <div class="window-bar"><i></i><i></i><i></i><span>autounattend.xml</span></div>
+            <pre><code><span>&lt;unattend</span> xmlns=<b>"urn:schemas…"</b><span>&gt;</span>
+  <span>&lt;settings</span> pass=<b>"windowsPE"</b><span>&gt;</span>
+    <span>&lt;UILanguage&gt;</span>en-NZ<span>&lt;/UILanguage&gt;</span>
+    <span>&lt;AcceptEula&gt;</span>true<span>&lt;/AcceptEula&gt;</span>
+  <span>&lt;/settings&gt;</span>
+  <span>&lt;settings</span> pass=<b>"oobeSystem"</b><span>&gt;</span>
+    <span>&lt;TimeZone&gt;</span>New Zealand…<span>&lt;/TimeZone&gt;</span>
+  <span>&lt;/settings&gt;</span>
+<span>&lt;/unattend&gt;</span></code></pre>
+            <div class="ready-pill"><span></span> Ready to generate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="generator-section" id="generator" aria-labelledby="generator-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> Configuration builder</p>
+          <h2 id="generator-title">Create your Windows answer file</h2>
+          <p>Choose only the settings you need. Your XML preview updates automatically.</p>
+        </div>
+
+        <noscript>
+          <div class="notice danger">JavaScript is required to generate the XML file. Please enable JavaScript and reload this page.</div>
+        </noscript>
+
+        <div class="builder-layout">
+          <form id="unattendForm" class="builder-form">
+            <div class="privacy-banner">
+              <span class="privacy-icon" aria-hidden="true">◈</span>
+              <div><strong>Private by design</strong><br><small>Everything is generated on this device. No form details are uploaded.</small></div>
+            </div>
+
+            <details class="form-section" open>
+              <summary>
+                <span class="step-number">1</span>
+                <span><strong>Windows setup</strong><small>Version, edition and computer identity</small></span>
+                <span class="chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="section-body">
+                <div class="field-grid">
+                  <label class="field">
+                    <span>Windows version</span>
+                    <select name="windowsVersion" id="windowsVersion">
+                      <option value="11" selected>Windows 11</option>
+                      <option value="10">Windows 10</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>Edition</span>
+                    <select name="edition" id="edition">
+                      <option value="Home">Home</option>
+                      <option value="Pro" selected>Pro</option>
+                      <option value="Pro Education">Pro Education</option>
+                      <option value="Education">Education</option>
+                      <option value="Enterprise">Enterprise</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>Computer name</span>
+                    <input name="computerName" id="computerName" type="text" value="*" maxlength="63" spellcheck="false" aria-describedby="computerHelp">
+                    <small id="computerHelp">Use letters, numbers and hyphens, or <code>*</code> for a random name.</small>
+                  </label>
+                  <label class="field">
+                    <span>Registered owner</span>
+                    <input name="registeredOwner" type="text" value="Windows User" maxlength="80">
+                  </label>
+                  <label class="field field-wide">
+                    <span>Product key <em>optional</em></span>
+                    <input name="productKey" id="productKey" type="text" inputmode="text" maxlength="29" placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX" spellcheck="false" autocomplete="off">
+                    <small>Leave blank to enter a key later. This generator does not activate Windows.</small>
+                  </label>
+                </div>
+              </div>
+            </details>
+
+            <details class="form-section" open>
+              <summary>
+                <span class="step-number">2</span>
+                <span><strong>Region &amp; language</strong><small>Display language, keyboard and time zone</small></span>
+                <span class="chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="section-body">
+                <div class="field-grid">
+                  <label class="field">
+                    <span>Windows display language</span>
+                    <select name="uiLanguage">
+                      <option value="en-GB" selected>English — International</option>
+                      <option value="en-AU">English — Australia</option>
+                      <option value="en-US">English — United States</option>
+                      <option value="de-DE">German</option>
+                      <option value="es-ES">Spanish</option>
+                      <option value="fr-FR">French</option>
+                      <option value="it-IT">Italian</option>
+                      <option value="ja-JP">Japanese</option>
+                      <option value="pt-BR">Portuguese — Brazil</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>Keyboard layout</span>
+                    <select name="inputLocale">
+                      <option value="en-NZ" selected>New Zealand</option>
+                      <option value="en-AU">Australian</option>
+                      <option value="en-GB">United Kingdom</option>
+                      <option value="en-US">United States</option>
+                      <option value="de-DE">German</option>
+                      <option value="es-ES">Spanish</option>
+                      <option value="fr-FR">French</option>
+                      <option value="ja-JP">Japanese</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>Regional format</span>
+                    <select name="userLocale">
+                      <option value="en-NZ" selected>New Zealand</option>
+                      <option value="en-AU">Australia</option>
+                      <option value="en-GB">United Kingdom</option>
+                      <option value="en-US">United States</option>
+                      <option value="de-DE">Germany</option>
+                      <option value="es-ES">Spain</option>
+                      <option value="fr-FR">France</option>
+                      <option value="ja-JP">Japan</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span>Time zone</span>
+                    <select name="timeZone">
+                      <option value="New Zealand Standard Time" selected>New Zealand</option>
+                      <option value="AUS Eastern Standard Time">Australia — Sydney</option>
+                      <option value="W. Australia Standard Time">Australia — Perth</option>
+                      <option value="GMT Standard Time">United Kingdom</option>
+                      <option value="W. Europe Standard Time">Central Europe</option>
+                      <option value="Eastern Standard Time">US — Eastern</option>
+                      <option value="Central Standard Time">US — Central</option>
+                      <option value="Pacific Standard Time">US — Pacific</option>
+                      <option value="UTC">UTC</option>
+                    </select>
+                  </label>
+                </div>
+                <p class="inline-note">Your Windows installation media must contain the selected display language.</p>
+              </div>
+            </details>
+
+            <details class="form-section" open>
+              <summary>
+                <span class="step-number">3</span>
+                <span><strong>Disk installation</strong><small>Choose interactive or automatic partitioning</small></span>
+                <span class="chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="section-body">
+                <div class="choice-grid">
+                  <label class="choice-card">
+                    <input type="radio" name="diskMode" value="manual" checked>
+                    <span class="choice-dot"></span>
+                    <span><strong>Choose disk during setup</strong><small>Safer. Windows Setup asks where to install.</small></span>
+                  </label>
+                  <label class="choice-card danger-choice">
+                    <input type="radio" name="diskMode" value="automatic">
+                    <span class="choice-dot"></span>
+                    <span><strong>Erase and configure a disk</strong><small>Deletes every partition on the selected disk.</small></span>
+                  </label>
+                </div>
+
+                <div id="automaticDiskOptions" class="conditional-panel" hidden>
+                  <div class="warning-box" role="alert">
+                    <strong>Destructive option</strong>
+                    <span>The selected disk will be wiped without another confirmation. Back up important files first.</span>
+                  </div>
+                  <div class="field-grid">
+                    <label class="field">
+                      <span>Target disk number</span>
+                      <input name="targetDisk" type="number" value="0" min="0" max="99">
+                      <small>Usually <code>0</code>, but verify it on the target computer.</small>
+                    </label>
+                    <label class="field">
+                      <span>Partition style</span>
+                      <select name="partitionStyle">
+                        <option value="gpt" selected>GPT / UEFI (recommended)</option>
+                        <option value="mbr">MBR / Legacy BIOS</option>
+                      </select>
+                    </label>
+                  </div>
+                  <label class="confirm-check">
+                    <input type="checkbox" name="confirmWipe">
+                    <span>I understand that automatic mode erases the selected disk.</span>
+                  </label>
+                </div>
+              </div>
+            </details>
+
+            <details class="form-section" open>
+              <summary>
+                <span class="step-number">4</span>
+                <span><strong>User account</strong><small>Create a local administrator or keep OOBE</small></span>
+                <span class="chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="section-body">
+                <div class="choice-grid">
+                  <label class="choice-card">
+                    <input type="radio" name="accountMode" value="local" checked>
+                    <span class="choice-dot"></span>
+                    <span><strong>Create a local account</strong><small>Adds one local administrator.</small></span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="accountMode" value="oobe">
+                    <span class="choice-dot"></span>
+                    <span><strong>Use normal account setup</strong><small>Choose an account during Windows OOBE.</small></span>
+                  </label>
+                </div>
+                <div id="localAccountOptions" class="conditional-panel">
+                  <div class="field-grid">
+                    <label class="field">
+                      <span>Username</span>
+                      <input name="username" id="username" type="text" value="User" maxlength="20" autocomplete="off">
+                    </label>
+                    <label class="field">
+                      <span>Display name</span>
+                      <input name="displayName" type="text" value="Windows User" maxlength="80">
+                    </label>
+                    <label class="field field-wide">
+                      <span>Password <em>optional</em></span>
+                      <div class="password-wrap">
+                        <input name="password" id="password" type="password" maxlength="127" autocomplete="new-password">
+                        <button type="button" id="showPassword" aria-label="Show password">Show</button>
+                      </div>
+                      <small>Passwords are stored as readable text inside the XML file. Leave blank if that is not acceptable.</small>
+                    </label>
+                    <label class="field">
+                      <span>Automatic sign-ins</span>
+                      <select name="autoLogonCount">
+                        <option value="0" selected>Disabled</option>
+                        <option value="1">1 sign-in</option>
+                        <option value="2">2 sign-ins</option>
+                        <option value="3">3 sign-ins</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="form-section">
+              <summary>
+                <span class="step-number">5</span>
+                <span><strong>Privacy &amp; experience</strong><small>Optional Windows preference commands</small></span>
+                <span class="chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="section-body">
+                <div class="toggle-list">
+                  <label class="toggle-row">
+                    <span><strong>Skip consumer privacy questions</strong><small>Uses the answer file's OOBE privacy settings.</small></span>
+                    <input type="checkbox" name="skipPrivacy" checked><i></i>
+                  </label>
+                  <label class="toggle-row">
+                    <span><strong>Hide online-account prompts</strong><small>Useful when creating a local account.</small></span>
+                    <input type="checkbox" name="hideOnline" checked><i></i>
+                  </label>
+                  <label class="toggle-row">
+                    <span><strong>Disable advertising ID</strong><small>Applies a current-user registry preference.</small></span>
+                    <input type="checkbox" name="disableAds" checked><i></i>
+                  </label>
+                  <label class="toggle-row">
+                    <span><strong>Disable Windows tips</strong><small>Reduces suggested content and welcome experiences.</small></span>
+                    <input type="checkbox" name="disableTips" checked><i></i>
+                  </label>
+                  <label class="toggle-row">
+                    <span><strong>Disable location access</strong><small>Applies a machine-wide location policy.</small></span>
+                    <input type="checkbox" name="disableLocation"><i></i>
+                  </label>
+                  <label class="toggle-row">
+                    <span><strong>Disable OneDrive file sync</strong><small>Uses a Windows policy; does not uninstall OneDrive.</small></span>
+                    <input type="checkbox" name="disableOneDrive"><i></i>
+                  </label>
+                </div>
+              </div>
+            </details>
+
+            <details class="form-section">
+              <summary>
+                <span class="step-number">6</span>
+                <span><strong>Compatibility options</strong><small>Advanced installation behaviour</small></span>
+                <span class="chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="section-body">
+                <div class="warning-box compact">
+                  <strong>Use with care</strong>
+                  <span>Bypasses may allow Windows 11 onto unsupported hardware, but they do not make that hardware supported.</span>
+                </div>
+                <div class="toggle-list">
+                  <label class="toggle-row">
+                    <span><strong>Bypass TPM check</strong><small>Windows 11 compatibility registry setting.</small></span>
+                    <input type="checkbox" name="bypassTpm"><i></i>
+                  </label>
+                  <label class="toggle-row">
+                    <span><strong>Bypass Secure Boot check</strong><small>Windows 11 compatibility registry setting.</small></span>
+                    <input type="checkbox" name="bypassSecureBoot"><i></i>
+                  </label>
+                  <label class="toggle-row">
+                    <span><strong>Bypass RAM check</strong><small>Windows 11 compatibility registry setting.</small></span>
+                    <input type="checkbox" name="bypassRam"><i></i>
+                  </label>
+                  <label class="toggle-row">
+                    <span><strong>Bypass CPU check</strong><small>Windows 11 compatibility registry setting.</small></span>
+                    <input type="checkbox" name="bypassCpu"><i></i>
+                  </label>
+                </div>
+              </div>
+            </details>
+
+            <details class="form-section">
+              <summary>
+                <span class="step-number">7</span>
+                <span><strong>First sign-in script</strong><small>Optional custom PowerShell</small></span>
+                <span class="chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="section-body">
+                <label class="field">
+                  <span>PowerShell commands</span>
+                  <textarea name="customScript" rows="8" spellcheck="false" placeholder="# Runs at the first sign-in&#10;# Example:&#10;# winget install Mozilla.Firefox"></textarea>
+                  <small>The script is encoded into the XML, not uploaded. Test all commands separately before deployment.</small>
+                </label>
+              </div>
+            </details>
+          </form>
+
+          <aside class="output-panel" aria-labelledby="output-title">
+            <div class="output-sticky">
+              <div class="output-heading">
+                <div>
+                  <span class="status-dot"></span>
+                  <strong id="output-title">Your answer file</strong>
+                </div>
+                <span id="lineCount">0 lines</span>
+              </div>
+
+              <div id="validationMessages" class="validation-messages" aria-live="polite"></div>
+
+              <div class="summary-list" id="summaryList">
+                <div><span>Windows</span><strong id="summaryWindows">11 Pro</strong></div>
+                <div><span>Locale</span><strong id="summaryLocale">en-NZ</strong></div>
+                <div><span>Disk</span><strong id="summaryDisk">Choose in Setup</strong></div>
+                <div><span>Account</span><strong id="summaryAccount">Local: User</strong></div>
+              </div>
+
+              <div class="preview-tabs" role="tablist" aria-label="Output view">
+                <button type="button" class="active" id="previewTab" role="tab" aria-selected="true" aria-controls="xmlPreview">XML preview</button>
+                <button type="button" id="notesTab" role="tab" aria-selected="false" aria-controls="buildNotes">Build notes</button>
+              </div>
+
+              <pre id="xmlPreview" class="xml-preview" tabindex="0" role="tabpanel" aria-labelledby="previewTab"><code></code></pre>
+              <div id="buildNotes" class="build-notes" role="tabpanel" aria-labelledby="notesTab" hidden>
+                <ul id="notesList"></ul>
+              </div>
+
+              <div class="output-actions">
+                <button class="button primary full" id="downloadXml" type="button">Download autounattend.xml</button>
+                <div class="split-actions">
+                  <button class="button secondary" id="copyXml" type="button">Copy XML</button>
+                  <button class="button secondary" id="savePreset" type="button">Save settings</button>
+                  <button class="button secondary" id="loadPreset" type="button">Load settings</button>
+                  <input id="presetFile" type="file" accept="application/json,.json" hidden>
+                </div>
+              </div>
+              <p class="output-disclaimer">Always test in a virtual machine before using this file on a physical computer.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="how-it-works">
+      <div class="shell narrow">
+        <div class="section-heading centered">
+          <p class="eyebrow"><span></span> Safe-use guide</p>
+          <h2>How to use an autounattend.xml file</h2>
+          <p>A Windows answer file can automate setup pages and selected configuration passes. A careful test run is essential.</p>
+        </div>
+        <ol class="process-grid">
+          <li><span>1</span><h3>Choose settings</h3><p>Select your Windows edition, regional preferences, disk mode and account options.</p></li>
+          <li><span>2</span><h3>Review the XML</h3><p>Check the preview and build notes. Pay particular attention to disk number and partition mode.</p></li>
+          <li><span>3</span><h3>Download the file</h3><p>Save the generated file with the exact name <code>autounattend.xml</code>.</p></li>
+          <li><span>4</span><h3>Test before use</h3><p>Place it at the root of Windows installation media and test it in a virtual machine first.</p></li>
+        </ol>
+
+        <div class="guide-card">
+          <div>
+            <p class="eyebrow"><span></span> Important</p>
+            <h3>Know what automatic disk mode does</h3>
+          </div>
+          <p>Automatic disk mode instructs Windows Setup to wipe the target disk. The disk number can differ between computers and virtual machines. If you are unsure, keep “Choose disk during setup” selected.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <div class="shell narrow">
+        <div class="section-heading centered">
+          <p class="eyebrow"><span></span> Designed for clarity</p>
+          <h2>A simpler Windows answer file builder</h2>
+        </div>
+        <div class="feature-grid">
+          <article><span aria-hidden="true">◫</span><h3>Browser-only processing</h3><p>Your password, product key and commands stay inside your browser session.</p></article>
+          <article><span aria-hidden="true">⌁</span><h3>Live XML preview</h3><p>See the answer file update as you change installation settings.</p></article>
+          <article><span aria-hidden="true">✓</span><h3>Safer defaults</h3><p>Interactive disk selection is the default, with clear warnings for destructive options.</p></article>
+          <article><span aria-hidden="true">⇩</span><h3>Portable presets</h3><p>Save non-secret settings as JSON and load them again for a future build.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="shell narrow">
+        <div class="section-heading centered">
+          <p class="eyebrow"><span></span> Common questions</p>
+          <h2>Windows unattended setup FAQ</h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>What is an autounattend.xml file?<span></span></summary><p>An <code>autounattend.xml</code> file is a Windows Setup answer file. It supplies selected installation settings automatically, such as language, disk, edition and account options.</p></details>
+          <details><summary>Where do I put autounattend.xml?<span></span></summary><p>For a typical clean installation, place <code>autounattend.xml</code> in the root of the bootable Windows installation USB drive. Test it in a virtual machine before using it on important hardware.</p></details>
+          <details><summary>Does this generator upload my settings?<span></span></summary><p>No. Generation happens locally in your browser. This static website does not submit the form or its values to a server.</p></details>
+          <details><summary>Can an unattended installation erase a disk?<span></span></summary><p>Yes. Automatic disk configuration can erase every partition on the selected disk. Confirm the disk number, keep backups, and use interactive disk selection whenever you are uncertain.</p></details>
+          <details><summary>Does an answer file activate Windows?<span></span></summary><p>No. You still need a valid licence for the edition you install. A product key in the answer file can select or configure an edition, but it does not provide a licence.</p></details>
+          <details><summary>Is this an official Microsoft tool?<span></span></summary><p>No. This is an independent utility created by Thomas Bernard of tdbnz coding and is not affiliated with or endorsed by Microsoft. Windows is a trademark of the Microsoft group of companies.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="#top"><img src="icon.svg" width="34" height="34" alt=""><span>tdbnz <span>coding</span></span></a>
+        <p>A privacy-first Windows answer file generator created by Thomas Bernard of tdbnz coding.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#generator">Generator</a>
+        <a href="#how-it-works">Safe-use guide</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://learn.microsoft.com/windows-hardware/manufacture/desktop/windows-setup-automation-overview" rel="external noopener">Microsoft documentation</a>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <span>© <span id="currentYear"></span> Thomas Bernard</span>
+      <span>Independent tool · Not affiliated with Microsoft</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

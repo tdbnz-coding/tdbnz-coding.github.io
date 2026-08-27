@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# GitHub Pages only recognises robots.txt at the hostname root.
+# Copy the Sitemap line below into https://tdbnz-coding.github.io/robots.txt
+Sitemap: https://tdbnz-coding.github.io/windows-unattend-generator/sitemap.xml

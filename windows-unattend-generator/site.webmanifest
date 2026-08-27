@@ -1,0 +1,18 @@
+{
+  "name": "tdbnz coding Windows Unattend XML Generator",
+  "short_name": "tdbnz coding",
+  "description": "Create Windows 10 and Windows 11 unattended installation answer files in your browser.",
+  "start_url": "/windows-unattend-generator/",
+  "scope": "/windows-unattend-generator/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#081526",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
