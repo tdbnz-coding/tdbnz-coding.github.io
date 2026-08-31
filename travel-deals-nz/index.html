@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en-NZ">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071f2d" />
+    <meta
+      name="description"
+      content="Compare options for flights, hotels, car hire, tours, travel insurance and airport transfers from one simple New Zealand travel hub."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://tdbnz-coding.github.io/travel-deals-nz/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Travel Deals NZ — Plan more, spend less" />
+    <meta
+      property="og:description"
+      content="A simple starting point for flights, stays, cars, tours and more."
+    />
+    <meta property="og:url" content="https://tdbnz-coding.github.io/travel-deals-nz/" />
+    <meta
+      property="og:image"
+      content="https://commons.wikimedia.org/wiki/Special:Redirect/file/Lake_Tekapo_Landscape.NZ_(13091463684).jpg?width=1600"
+    />
+    <title>Travel Deals NZ — Flights, Hotels & More</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f25f3a'/%3E%3Cpath d='M15 34h34M35 17l14 17-14 17M25 23l-10 11 10 11' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://commons.wikimedia.org" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="affiliate-config.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#search">Skip to travel search</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Travel Deals NZ home">
+        <span class="brand-mark" aria-hidden="true">↗</span>
+        <span data-site-name>Travel Deals NZ</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#search">Search</a>
+        <a href="#services">Travel options</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+      <a class="header-cta" href="#search">Plan a trip</a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" data-menu-button>
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">YOUR NEXT TRIP STARTS HERE</p>
+          <h1 id="hero-title">Go further.<br /><em>Plan smarter.</em></h1>
+          <p class="hero-copy">
+            One clear starting point for flights, stays and the useful extras that turn an idea into a trip.
+          </p>
+        </div>
+
+        <div class="search-card" id="search">
+          <div class="service-tabs" role="tablist" aria-label="Travel service">
+            <button class="service-tab is-active" role="tab" aria-selected="true" data-service="flights" type="button">
+              <span aria-hidden="true">✈</span> Flights
+            </button>
+            <button class="service-tab" role="tab" aria-selected="false" data-service="hotels" type="button">
+              <span aria-hidden="true">⌂</span> Hotels
+            </button>
+            <button class="service-tab" role="tab" aria-selected="false" data-service="cars" type="button">
+              <span aria-hidden="true">●</span> Cars
+            </button>
+            <button class="service-tab" role="tab" aria-selected="false" data-service="tours" type="button">
+              <span aria-hidden="true">◇</span> Tours
+            </button>
+          </div>
+
+          <form class="travel-form" data-travel-form novalidate>
+            <div class="form-grid">
+              <label class="field" data-origin-field>
+                <span data-origin-label>Leaving from</span>
+                <input name="origin" autocomplete="off" placeholder="Christchurch" />
+              </label>
+              <label class="field destination-field">
+                <span data-destination-label>Going to</span>
+                <input name="destination" autocomplete="off" placeholder="Where to?" required />
+              </label>
+              <label class="field">
+                <span data-start-label>Depart</span>
+                <input name="startDate" type="date" required />
+              </label>
+              <label class="field" data-end-date-field>
+                <span data-end-label>Return</span>
+                <input name="endDate" type="date" required />
+              </label>
+              <label class="field compact-field">
+                <span data-travellers-label>Travellers</span>
+                <select name="travellers">
+                  <option value="1">1 traveller</option>
+                  <option value="2" selected>2 travellers</option>
+                  <option value="3">3 travellers</option>
+                  <option value="4">4 travellers</option>
+                  <option value="5">5+ travellers</option>
+                </select>
+              </label>
+              <button class="search-button" type="submit">
+                <span data-search-label>Search flights</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            <div class="form-foot">
+              <p data-form-message aria-live="polite">You’ll complete your booking securely with the selected travel partner.</p>
+              <button class="more-services" type="button" data-more-services aria-expanded="false">
+                More travel options <span aria-hidden="true">＋</span>
+              </button>
+            </div>
+            <div class="extra-services" data-extra-services hidden>
+              <button type="button" data-service="insurance">Travel insurance <span>→</span></button>
+              <button type="button" data-service="transfers">Airport transfers <span>→</span></button>
+              <button type="button" data-service="rentals">Holiday rentals <span>→</span></button>
+            </div>
+          </form>
+        </div>
+
+        <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Lake_Tekapo_Landscape.NZ_(13091463684).jpg" target="_blank" rel="noopener">
+          Lake Tekapo photo: Bernard Spragg. NZ, CC0
+        </a>
+      </section>
+
+      <section class="trust-strip" aria-label="Service benefits">
+        <p><span>01</span> Multiple travel categories</p>
+        <p><span>02</span> No booking fees from us</p>
+        <p><span>03</span> Secure partner checkout</p>
+      </section>
+
+      <section class="services section" id="services" aria-labelledby="services-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow dark">EVERY PART OF THE JOURNEY</p>
+            <h2 id="services-title">Build the whole trip<br />from one place.</h2>
+          </div>
+          <p>
+            Start with the big booking, then sort the details. Choose a category and we’ll send you to a specialist travel partner.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card service-card-featured">
+            <p class="card-number">01</p>
+            <div>
+              <span class="card-icon" aria-hidden="true">✈</span>
+              <h3>Flights</h3>
+              <p>Search routes for your next domestic or international trip.</p>
+            </div>
+            <button type="button" data-quick-link="flights">Search flights <span>↗</span></button>
+          </article>
+          <article class="service-card">
+            <p class="card-number">02</p>
+            <div>
+              <span class="card-icon" aria-hidden="true">⌂</span>
+              <h3>Hotels & stays</h3>
+              <p>Find hotels, apartments and places to stay for every budget.</p>
+            </div>
+            <button type="button" data-quick-link="hotels">Find a stay <span>↗</span></button>
+          </article>
+          <article class="service-card">
+            <p class="card-number">03</p>
+            <div>
+              <span class="card-icon" aria-hidden="true">●</span>
+              <h3>Car hire</h3>
+              <p>Compare vehicles for airport pickups, road trips and weekends away.</p>
+            </div>
+            <button type="button" data-quick-link="cars">Compare cars <span>↗</span></button>
+          </article>
+          <article class="service-card service-card-coral">
+            <p class="card-number">04</p>
+            <div>
+              <span class="card-icon" aria-hidden="true">◇</span>
+              <h3>Tours & activities</h3>
+              <p>Discover things to do, memorable experiences and local highlights.</p>
+            </div>
+            <button type="button" data-quick-link="tours">Explore activities <span>↗</span></button>
+          </article>
+          <article class="service-card">
+            <p class="card-number">05</p>
+            <div>
+              <span class="card-icon" aria-hidden="true">✓</span>
+              <h3>Travel insurance</h3>
+              <p>Review cover options before you leave, including medical and cancellation cover.</p>
+            </div>
+            <button type="button" data-quick-link="insurance">See cover options <span>↗</span></button>
+          </article>
+          <article class="service-card">
+            <p class="card-number">06</p>
+            <div>
+              <span class="card-icon" aria-hidden="true">→</span>
+              <h3>Airport transfers</h3>
+              <p>Arrange a ride between the airport and your accommodation.</p>
+            </div>
+            <button type="button" data-quick-link="transfers">Find a transfer <span>↗</span></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="how section" id="how-it-works" aria-labelledby="how-title">
+        <div class="how-intro">
+          <p class="eyebrow">SIMPLE BY DESIGN</p>
+          <h2 id="how-title">Three steps.<br /><em>One good trip.</em></h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span>01</span>
+            <div><h3>Choose</h3><p>Select the part of your trip you want to organise.</p></div>
+          </li>
+          <li>
+            <span>02</span>
+            <div><h3>Compare</h3><p>Review the latest options and details on the partner’s website.</p></div>
+          </li>
+          <li>
+            <span>03</span>
+            <div><h3>Book</h3><p>Complete the booking securely with the travel provider.</p></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="final-cta section" aria-labelledby="final-title">
+        <div>
+          <p class="eyebrow dark">READY WHEN YOU ARE</p>
+          <h2 id="final-title">Where will you go next?</h2>
+        </div>
+        <a href="#search">Start planning <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-main">
+        <a class="brand footer-brand" href="#top"><span class="brand-mark">↗</span><span data-site-name>Travel Deals NZ</span></a>
+        <p>A straightforward travel-planning hub for people in New Zealand and beyond.</p>
+        <nav aria-label="Footer navigation">
+          <a href="#search">Search</a>
+          <a href="#services">Travel options</a>
+          <button type="button" data-dialog-open="disclosure-dialog">Affiliate disclosure</button>
+          <button type="button" data-dialog-open="privacy-dialog">Privacy</button>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year></span> <span data-site-name>Travel Deals NZ</span>.</p>
+        <p>Prices, availability and booking conditions are set by each travel provider.</p>
+      </div>
+    </footer>
+
+    <dialog class="legal-dialog" id="disclosure-dialog">
+      <button class="dialog-close" type="button" aria-label="Close" data-dialog-close>×</button>
+      <p class="eyebrow dark">TRANSPARENCY</p>
+      <h2>Affiliate disclosure</h2>
+      <p>
+        Some links on this website are affiliate links. If you click a link and make a booking, we may receive a commission at no extra cost to you.
+      </p>
+      <p>
+        Travel providers control their own prices, availability, terms and booking service. Always check the final details on the provider’s website before paying.
+      </p>
+    </dialog>
+
+    <dialog class="legal-dialog" id="privacy-dialog">
+      <button class="dialog-close" type="button" aria-label="Close" data-dialog-close>×</button>
+      <p class="eyebrow dark">YOUR PRIVACY</p>
+      <h2>Privacy notice</h2>
+      <p>
+        This static website does not ask you to create an account and does not store the trip details entered into the search form on its own server.
+      </p>
+      <p>
+        When you follow a partner link, the destination website may use cookies or similar technology under its own privacy policy. Affiliate tracking may be used to attribute a booking to this website.
+      </p>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" data-toast hidden></div>
+  </body>
+</html>

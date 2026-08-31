@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tdbnz-coding.github.io/travel-deals-nz/sitemap.xml
