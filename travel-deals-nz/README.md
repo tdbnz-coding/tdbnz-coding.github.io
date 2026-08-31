@@ -20,12 +20,7 @@ For a full Travelpayouts flight/hotel search widget, create the widget in your T
 
 ## Publish with GitHub Pages
 
-1. Create a public GitHub repository named `travel-deals-nz`.
-2. Upload every file in this folder to the repository's main branch.
-3. In the repository, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select `main` and `/ (root)`, then save.
-6. The site will be available at `https://tdbnz-coding.github.io/travel-deals-nz/`.
+This folder belongs inside the existing `tdbnz-coding.github.io` repository. GitHub Pages will publish it automatically at `https://tdbnz-coding.github.io/travel-deals-nz/` after the change reaches the main branch.
 
 If you use a different GitHub username or repository name, update the canonical and Open Graph URLs in `index.html`, plus the URL in `sitemap.xml` and `robots.txt`.
 
@@ -37,6 +32,20 @@ If you use a different GitHub username or repository name, update the canonical 
 - `affiliate-config.js` — the only file normally needed for Travelpayouts links
 - `robots.txt` and `sitemap.xml` — search-engine discovery
 - `.nojekyll` — tells GitHub Pages to serve the files directly
+
+## Help Google find the site
+
+The page includes a canonical URL, crawler metadata, Open Graph and Twitter metadata, descriptive headings, original New Zealand travel content, FAQ structured data, a sitemap and a local social/hero image.
+
+After publishing:
+
+1. Open Google Search Console and verify the `https://tdbnz-coding.github.io/` property.
+2. Submit `https://tdbnz-coding.github.io/travel-deals-nz/sitemap.xml` in the Sitemaps report.
+3. Inspect `https://tdbnz-coding.github.io/travel-deals-nz/` with URL Inspection.
+4. Run **Test live URL**, then choose **Request indexing**.
+5. Add a normal link to this travel page from the main `tdbnz-coding.github.io` homepage or another relevant indexed page.
+
+Indexing and ranking are controlled by Google and are not guaranteed. Keep the content accurate, useful and updated, and avoid copying destination articles from other websites.
 
 ## Image credit
 

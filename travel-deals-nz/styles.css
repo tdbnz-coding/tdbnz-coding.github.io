@@ -168,7 +168,7 @@ select:focus-visible {
   color: var(--white);
   background:
     linear-gradient(100deg, rgba(3, 20, 29, 0.86) 4%, rgba(3, 20, 29, 0.5) 48%, rgba(3, 20, 29, 0.15) 100%),
-    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Lake_Tekapo_Landscape.NZ_(13091463684).jpg?width=2000") center / cover no-repeat;
+    url("assets/lake-tekapo-hero.jpg") center / cover no-repeat;
 }
 
 .hero-shade {
@@ -626,6 +626,143 @@ h2 em {
   color: #a9bdc4;
 }
 
+.guide {
+  background: var(--paper);
+}
+
+.guide-heading {
+  margin-bottom: 52px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.guide-grid article {
+  padding: clamp(28px, 4vw, 52px);
+  background: rgba(255, 255, 255, 0.34);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.guide-kicker {
+  margin: 0 0 28px;
+  color: var(--coral-dark);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.guide-grid h3,
+.booking-checklist h3 {
+  margin: 0 0 14px;
+  font-family: Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.guide-grid article > p:last-child {
+  margin: 0;
+  color: #526b75;
+}
+
+.booking-checklist {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 44px;
+  padding: clamp(30px, 5vw, 60px);
+  color: white;
+  background: var(--ink);
+  border-radius: 20px;
+}
+
+.booking-checklist ul {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.booking-checklist li {
+  position: relative;
+  padding: 14px 14px 14px 48px;
+  color: #dce9e7;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.booking-checklist li::before {
+  position: absolute;
+  left: 10px;
+  content: "✓";
+  color: var(--mint);
+  font-weight: 900;
+}
+
+.faq {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 90px;
+  background: var(--white);
+}
+
+.faq-heading h2 {
+  font-size: clamp(3rem, 5.6vw, 5rem);
+}
+
+.faq-heading > p:last-child {
+  max-width: 420px;
+  color: #526b75;
+}
+
+.faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.faq-list details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-list summary {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary span {
+  flex: 0 0 auto;
+  color: var(--coral-dark);
+  font-family: sans-serif;
+  font-size: 1.4rem;
+}
+
+.faq-list details[open] summary span {
+  transform: rotate(45deg);
+}
+
+.faq-list details p {
+  max-width: 670px;
+  margin: -6px 0 28px;
+  color: #526b75;
+}
+
 .final-cta {
   display: flex;
   align-items: end;
@@ -816,6 +953,11 @@ footer {
     grid-template-columns: 1fr;
     gap: 50px;
   }
+
+  .faq {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -902,6 +1044,15 @@ footer {
 
   .service-grid {
     grid-template-columns: 1fr;
+  }
+
+  .guide-grid,
+  .booking-checklist {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-checklist {
+    gap: 20px;
   }
 
   .service-card {
