@@ -1,0 +1,188 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+
+:root {
+  --ink: #151224;
+  --paper: #fbf9f4;
+  --violet: #6d3cf3;
+  --violet-dark: #4e25c5;
+  --lime: #c8f65a;
+  --coral: #ff725e;
+  --soft-violet: #eee9ff;
+  --line: #dad3ea;
+  --muted: #716c7c;
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--violet);
+  --primary-foreground: #ffffff;
+  --secondary: var(--soft-violet);
+  --secondary-foreground: var(--ink);
+  --muted-foreground: var(--muted);
+  --accent: var(--soft-violet);
+  --accent-foreground: var(--violet-dark);
+  --destructive: #d93636;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--violet);
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--secondary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { min-height: 100%; background: var(--paper); }
+body { margin: 0; min-height: 100%; color: var(--ink); font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif; }
+button, input { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+
+.game-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0 20px 30px;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(200, 246, 90, .18), transparent 22rem),
+    radial-gradient(circle at 90% 35%, rgba(109, 60, 243, .1), transparent 26rem),
+    var(--paper);
+}
+
+.ambient { position: fixed; z-index: -1; border: 1px solid rgba(109, 60, 243, .12); border-radius: 999px; pointer-events: none; }
+.ambient-one { width: 380px; height: 380px; top: 12%; left: -260px; }
+.ambient-two { width: 580px; height: 580px; right: -410px; bottom: -240px; }
+
+.topbar { width: min(100%, 720px); height: 74px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(21, 18, 36, .1); }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 850; letter-spacing: -.035em; }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 38px; border-radius: 11px 11px 15px 15px; color: white; background: var(--violet); box-shadow: 0 4px 0 var(--violet-dark); transform: rotate(-3deg); }
+.brand-mark span { transform: rotate(3deg); }
+.header-actions { display: flex; gap: 4px; }
+.icon-button { width: 42px; height: 42px; border-radius: 13px; color: var(--ink); }
+.icon-button:hover { background: var(--soft-violet); color: var(--violet); }
+.icon-button svg { width: 22px; height: 22px; }
+
+.game-card { width: min(100%, 720px); margin: 28px auto 0; padding: 30px; border: 1px solid rgba(21, 18, 36, .11); border-radius: 28px; background: rgba(255, 255, 255, .86); box-shadow: 0 22px 60px rgba(48, 37, 92, .1), 0 2px 0 rgba(255,255,255,.9) inset; backdrop-filter: blur(16px); }
+.game-meta { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.eyebrow { margin: 0 0 6px; color: var(--violet); font-size: 12px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+h1 { margin: 0; max-width: 520px; font-size: clamp(31px, 6vw, 46px); line-height: 1.02; letter-spacing: -.052em; font-weight: 860; }
+.date-line { margin: 10px 0 0; color: var(--muted); font-size: 14px; font-weight: 560; }
+.date-line span { margin: 0 5px; color: #b3abba; }
+.score-pill { flex: 0 0 auto; display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; column-gap: 6px; width: 74px; padding: 10px 12px 9px; border-radius: 18px; color: var(--ink); background: var(--lime); transform: rotate(2deg); box-shadow: 0 4px 0 #91bd30; }
+.score-pill svg { grid-row: span 2; align-self: center; width: 21px; }
+.score-pill strong { font-size: 22px; line-height: 20px; }
+.score-pill span { font-size: 9px; font-weight: 900; letter-spacing: .11em; }
+
+.progress-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; margin: 26px 0 20px; }
+.progress-track span { height: 6px; border-radius: 999px; background: #e8e3ec; transition: .25s ease; }
+.progress-track span.active { background: var(--violet); }
+.clue-stack { display: grid; gap: 9px; }
+.clue-card { min-height: 67px; display: grid; grid-template-columns: 34px 1fr; align-items: center; gap: 14px; padding: 13px 17px 13px 13px; border: 1px solid var(--line); border-radius: 17px; transition: .25s ease; }
+.clue-card p { margin: 0; font-size: 15px; line-height: 1.42; font-weight: 630; }
+.clue-number { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; color: var(--violet); background: var(--soft-violet); font-weight: 850; }
+.clue-card.revealed { background: white; }
+.clue-card.current { border-color: rgba(109, 60, 243, .52); box-shadow: 0 0 0 3px rgba(109, 60, 243, .08); animation: drop-in .35s cubic-bezier(.2,.8,.2,1); }
+.clue-card.current .clue-number { color: white; background: var(--violet); }
+.clue-card.locked { min-height: 48px; grid-template-columns: 34px auto 1fr; padding-top: 7px; padding-bottom: 7px; color: #a39da9; border-style: dashed; background: rgba(248,246,250,.55); }
+.clue-card.locked svg { width: 14px; }
+.clue-card.locked p { font-size: 13px; font-weight: 650; }
+
+.play-area { margin-top: 20px; }
+.status-message { min-height: 20px; margin: 0 0 9px; color: var(--muted); font-size: 13px; text-align: center; }
+.guess-form { display: grid; grid-template-columns: 1fr auto; gap: 9px; }
+.guess-form input { width: 100%; min-width: 0; height: 54px; padding: 0 17px; border: 1px solid #cfc7db; border-radius: 15px; outline: none; color: var(--ink); background: white; font-size: 16px; font-weight: 620; box-shadow: 0 2px 0 rgba(21,18,36,.03) inset; }
+.guess-form input::placeholder { color: #a29ba9; font-weight: 500; }
+.guess-form input:focus { border-color: var(--violet); box-shadow: 0 0 0 4px rgba(109,60,243,.12); }
+.guess-button { height: 54px; min-width: 108px; border-radius: 15px; background: var(--violet); font-size: 15px; font-weight: 850; box-shadow: 0 4px 0 var(--violet-dark); transition: transform .15s, box-shadow .15s; }
+.guess-button:hover { background: #6334e8; transform: translateY(-1px); box-shadow: 0 5px 0 var(--violet-dark); }
+.guess-button:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--violet-dark); }
+.guess-button:disabled { box-shadow: none; transform: none; }
+.skip-button { display: block; margin: 15px auto 0; border: 0; border-bottom: 1px solid transparent; padding: 4px; color: var(--muted); background: transparent; cursor: pointer; font-size: 13px; font-weight: 650; }
+.skip-button:hover { color: var(--violet); border-color: currentColor; }
+
+.result-card { position: relative; overflow: hidden; margin-top: 21px; padding: 26px; border-radius: 20px; text-align: center; background: var(--soft-violet); animation: result-in .45s cubic-bezier(.2,.8,.2,1); }
+.result-card.won { background: linear-gradient(145deg, #edffd0, #f6ffe8); border: 1px solid #bee269; }
+.result-card.lost { background: #fff0ed; border: 1px solid #ffc1b7; }
+.result-kicker { margin: 0 0 5px; color: var(--muted); font-size: 12px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.result-card h2 { margin: 0; font-size: clamp(30px, 6vw, 44px); line-height: 1.05; letter-spacing: -.045em; }
+.fact { max-width: 520px; margin: 14px auto 18px; color: #4e4959; font-size: 14px; line-height: 1.55; }
+.share-button { width: min(100%, 280px); height: 50px; border-radius: 15px; background: var(--violet); font-weight: 850; box-shadow: 0 4px 0 var(--violet-dark); }
+.share-button:hover { background: #6334e8; }
+.share-grid { margin: 16px 0 12px; font-size: 25px; letter-spacing: 3px; }
+.tomorrow { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font-size: 12px; }
+.tomorrow strong { color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+
+footer { width: min(100%, 720px); margin: 16px auto 0; display: flex; justify-content: space-between; align-items: center; padding: 0 10px; color: var(--muted); font-size: 12px; }
+footer div { display: flex; align-items: center; gap: 4px; }
+footer svg { width: 16px; height: 16px; color: var(--coral); fill: var(--coral); }
+footer strong { color: var(--ink); }
+
+.modal-card { border-radius: 24px; border-color: var(--line); padding: 26px; color: var(--ink); background: var(--paper); }
+.modal-title { font-size: 27px; letter-spacing: -.035em; }
+.modal-subtitle { color: var(--muted); line-height: 1.5; }
+.how-list { display: grid; gap: 15px; margin: 8px 0 4px; padding: 0; list-style: none; }
+.how-list li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: center; }
+.how-list li span { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; color: white; background: var(--violet); font-weight: 850; }
+.how-list p { margin: 0; color: #4f4a59; font-size: 14px; line-height: 1.45; }
+.share-example { display: grid; gap: 4px; margin-top: 10px; padding: 17px; border-radius: 15px; background: white; text-align: center; }
+.share-example span { font-size: 23px; letter-spacing: 3px; }
+.share-example small { color: var(--muted); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+.stats-grid div { display: grid; gap: 4px; padding: 16px 8px; border-radius: 15px; background: white; text-align: center; }
+.stats-grid strong { color: var(--violet); font-size: 27px; letter-spacing: -.04em; }
+.stats-grid span { color: var(--muted); font-size: 11px; font-weight: 700; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+@keyframes drop-in { from { opacity: 0; transform: translateY(-8px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes result-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 600px) {
+  .game-shell { padding: 0 12px 24px; }
+  .topbar { height: 66px; padding: 0 4px; }
+  .brand { font-size: 18px; }
+  .brand-mark { width: 31px; height: 34px; }
+  .game-card { margin-top: 14px; padding: 21px 15px 20px; border-radius: 23px; }
+  .game-meta { gap: 10px; }
+  .score-pill { width: 67px; padding: 9px 9px 8px; }
+  .date-line { max-width: 235px; line-height: 1.4; }
+  .progress-track { margin: 21px 0 15px; }
+  .clue-card { min-height: 63px; gap: 11px; padding: 11px 12px 11px 10px; }
+  .clue-card p { font-size: 14px; }
+  .clue-number { width: 32px; height: 32px; }
+  .guess-form { grid-template-columns: 1fr; }
+  .guess-button { width: 100%; }
+  footer { padding: 0 4px; }
+  footer > span { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
