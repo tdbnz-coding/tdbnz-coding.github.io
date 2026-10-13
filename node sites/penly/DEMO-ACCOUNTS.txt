@@ -1,0 +1,15 @@
+PENLY — LOCAL DEMO ACCOUNTS
+==============================
+Administrator:
+  Username: admin
+  Password: admin123!
+
+Demo members:
+  Username: emma     Password: emma123!
+  Username: alex     Password: alex123!
+  Username: sophie   Password: sophie123!
+  Username: haru     Password: haru123!
+
+All accounts are fictional. These credentials are only for local testing.
+Never put this file or the data/db.json database on a public server.
+Delete the demo credentials and create strong, unique admin credentials before production.
