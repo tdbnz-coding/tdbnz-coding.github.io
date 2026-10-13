@@ -1,37 +1,31 @@
-# Penly v0.4 — Local Windows 11 demo
+# Penly v0.6 — local development demo
 
-A Node.js/Express prototype with permanent collectible stamps, a stamp shop, recommendations, friend requests, letters, profiles, drafts, achievements and admin overview.
+## Windows 11 + VS Code
+1. Install Node.js LTS from the official Node.js website.
+2. Extract this ZIP to a new folder (do not mix it with v0.5).
+3. Open the `penly-v06` folder in VS Code (the folder containing `package.json`).
+4. Terminal > New Terminal. Run `npm.cmd install` then `npm.cmd start`.
+5. Visit http://localhost:3000.
+6. Log in with `emma` / `emma123!`, or `admin` / `admin123!`. Other demo logins are in DEMO-ACCOUNTS.txt.
 
-## Start in VS Code (Windows 11)
+## New in v0.6
+- Animated envelope visual and open-letter effect; reply button.
+- Stationery selection: cream, rose, sky, mint.
+- Delivery countdown (30 seconds for local testing).
+- Pen pal discovery by name/country/language/interests, plus Surprise Me.
+- Penly Travel Journal country tiles, country milestones and stamp counts.
+- Monthly letter challenges and writing level.
+- Profile contact controls: everyone, accepted pen pals, or nobody.
+- Basic outgoing first-contact rate limit (3 letters to one recipient per hour).
+- Notifications for accepted friend requests.
+- Mobile navigation, responsive layouts and reduced-motion support.
+- Existing stamp shop, permanent stamp collection, smart stamp suggestions, bell notifications, reports, blocks, drafts and demo admin.
 
-1. Install Node.js LTS from https://nodejs.org/ if not already installed.
-2. Extract the ZIP. Open the **penly-site** folder in VS Code (File > Open Folder).
-3. Choose Terminal > New Terminal. Run:
+## Test
+1. Sign in as Emma, discover Alex, write without friending, choose stationery/stamp, send.
+2. Check travelling countdown; after 30 seconds sign in as Alex and check the bell/mailbox.
+3. Open the envelope, reply, check Travel Journal and Challenges.
+4. Under Profile, set contact policy to Friends or Nobody and test sender restrictions.
 
-   npm install
-   npm start
-
-4. Open http://localhost:3000 in your browser.
-5. Sign in with `admin` / `admin123!` or one of the other demo accounts in DEMO-ACCOUNTS.txt.
-
-If PowerShell blocks npm, open a **Command Prompt** terminal in VS Code and run the commands there.
-
-## Try the stamp system
-
-1. Sign in as `emma` (password `emma123!`) and request to be pen pals with `alex`.
-2. Sign out and sign in as `alex` (password `alex123!`). Accept the request in **Friends**.
-3. Sign back in as `emma`. Visit **Stamp Shop** and unlock stamps using your 100 demo coins.
-4. Visit **My Stamp Album** to see owned, locked and achievement stamps.
-5. Open **Friends**, choose **Write letter** to Alex. Penly suggests stamps based on Alex's interests and stamps he hasn't received.
-6. Pick a stamp and send. Wait **30 seconds**, then sign in as Alex and visit **Letters** and **My Stamp Album**. Alex receives his own copy of the stamp, while Emma keeps hers.
-7. Try the same stamp again — it is reusable indefinitely.
-
-## Notes
-
-- 30-second delivery is **testing only**. The mailbox refreshes every 5 seconds.
-- Demo coins are not money. Every account starts with 100 coins, gets 10 coins per sent letter and 5 per received letter. Stamp purchases are permanent.
-- Stamp designs use emoji placeholders, not final illustrated artwork.
-- Recommendations are simple, explainable interest/collection matching, not AI and not guaranteed to be ideal.
-- Data is saved locally to `data/db.json` (automatically created on first run). **Do not overwrite or delete it if you want to keep your progress.**
-- This prototype is **not production-ready**: demo passwords, development session handling, JSON-file storage, missing CSRF/rate limiting and limited moderation make it unsuitable for public deployment.
-- To stop the server press Ctrl+C in the terminal.
+## Important limitations
+Local prototype only. Data is stored in `data/db.json`. This is not production-ready. No actual photo attachments, interactive geographic map, PWA installation, browser push notifications, email verification, password reset, anti-abuse service, or real-money purchases. Sessions are in memory, no HTTPS, and demo passwords are public. Do not deploy publicly or store real personal letters.
