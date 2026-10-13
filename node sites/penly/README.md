@@ -1,31 +1,29 @@
-# Penly v0.6 — local development demo
+# Penly v0.7.0 — local Admin Update Manager
 
-## Windows 11 + VS Code
-1. Install Node.js LTS from the official Node.js website.
-2. Extract this ZIP to a new folder (do not mix it with v0.5).
-3. Open the `penly-v06` folder in VS Code (the folder containing `package.json`).
-4. Terminal > New Terminal. Run `npm.cmd install` then `npm.cmd start`.
-5. Visit http://localhost:3000.
-6. Log in with `emma` / `emma123!`, or `admin` / `admin123!`. Other demo logins are in DEMO-ACCOUNTS.txt.
+This is a **local-only prototype**, not safe for public hosting.
 
-## New in v0.6
-- Animated envelope visual and open-letter effect; reply button.
-- Stationery selection: cream, rose, sky, mint.
-- Delivery countdown (30 seconds for local testing).
-- Pen pal discovery by name/country/language/interests, plus Surprise Me.
-- Penly Travel Journal country tiles, country milestones and stamp counts.
-- Monthly letter challenges and writing level.
-- Profile contact controls: everyone, accepted pen pals, or nobody.
-- Basic outgoing first-contact rate limit (3 letters to one recipient per hour).
-- Notifications for accepted friend requests.
-- Mobile navigation, responsive layouts and reduced-motion support.
-- Existing stamp shop, permanent stamp collection, smart stamp suggestions, bell notifications, reports, blocks, drafts and demo admin.
+## First-time upgrade from v0.6.1
 
-## Test
-1. Sign in as Emma, discover Alex, write without friending, choose stationery/stamp, send.
-2. Check travelling countdown; after 30 seconds sign in as Alex and check the bell/mailbox.
-3. Open the envelope, reply, check Travel Journal and Challenges.
-4. Under Profile, set contact policy to Friends or Nobody and test sender restrictions.
+1. Stop Penly (Ctrl+C in VS Code).
+2. Copy your entire Penly folder to a safe backup location, including `data/db.json`.
+3. From this v0.7.0 ZIP, copy `server.js`, `public/app.js`, `public/index.html`, `package.json`, `update-worker.js`, `update-zip.js` into your EXISTING Penly folder, preserving the relative paths.
+4. **Do not replace `data` or `node_modules`.** Create empty `updates` and `backups` folders if missing.
+5. Run `npm.cmd start` from your existing Penly folder. No new dependencies are required.
+6. Sign in as `admin` and visit More → Admin → System updates.
 
-## Important limitations
-Local prototype only. Data is stored in `data/db.json`. This is not production-ready. No actual photo attachments, interactive geographic map, PWA installation, browser push notifications, email verification, password reset, anti-abuse service, or real-money purchases. Sessions are in memory, no HTTPS, and demo passwords are public. Do not deploy publicly or store real personal letters.
+## Later updates
+
+1. Stop no services: put a **trusted** `penly-update-vX.Y.Z.zip` in your `updates` folder **without extracting it**.
+2. Sign in as admin, open More → Admin → System updates, and select Install.
+3. Penly checks the version, ZIP paths, allowlisted files and SHA-256 checksums, backs up code and `data/db.json`, then restarts itself.
+4. Wait about 10 seconds and refresh. Your letters and achievements are in `data/db.json`, which the updater never overwrites.
+
+The first example update ZIP included in the separate download is **v0.7.1**, which changes a small visible welcome heading so you can test the update manager. It is not an additional feature release.
+
+### Limitations
+
+- The updater is for **local Windows VS Code testing only**. Do NOT expose it on the public internet.
+- Update checksums detect corruption but **do not authenticate the publisher**. Only use update ZIPs you trust.
+- The updater does not handle dependency changes, database migrations or a production process manager.
+- If a restart fails, review `updates/updater.log`, `updates/server.log` and the backups folder.
+- Use a fresh demo environment for your first test, and keep independent backups.

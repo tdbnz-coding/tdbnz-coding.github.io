@@ -1,0 +1,14 @@
+Penly v0.6.1 FIX + NAVIGATION UPDATE
+
+1. Stop Penly in VS Code using Ctrl+C.
+2. Back up your current Penly folder, especially data/db.json.
+3. Copy server.js, public/app.js, and public/index.html from this ZIP into your existing Penly folder, replacing those three files.
+4. KEEP node_modules, data/db.json, package.json, and package-lock.json. Do not delete them.
+5. Start again with npm.cmd start. You do NOT need npm install again if v0.6 dependencies are already installed.
+6. Hard refresh your browser with Ctrl+Shift+R.
+
+Fix: sending a letter no longer references the recipient before initialization. API errors now return JSON.
+Navigation: primary pages in header, other pages under More; mobile scroll support.
+30-second letter delivery unchanged.
+
+Local development only. Do not deploy publicly.
