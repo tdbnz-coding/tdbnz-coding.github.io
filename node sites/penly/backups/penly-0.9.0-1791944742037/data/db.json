@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "name": "Admin",
+      "country": "New Zealand",
+      "interests": "Technology, Photography",
+      "bio": "Hello! I'm Admin. I enjoy technology, photography and meeting pen pals.",
+      "role": "admin",
+      "passwordHash": "$2a$10$zU7SSUtRLTtztE5wR6neGeMw7uDylwCAufujkXzvy/MTpD7YqV2cm",
+      "createdAt": 1791928449780
+    },
+    {
+      "id": 2,
+      "username": "emma",
+      "name": "Emma",
+      "country": "United Kingdom",
+      "interests": "Travel, Books",
+      "bio": "Hello! I'm Emma. I enjoy travel, books and meeting pen pals.",
+      "role": "member",
+      "passwordHash": "$2a$10$a4zYpKw07oSUZYhIaW41LOBz6c9PLDFwf3Bnq07PQuwCN0viVQueW",
+      "createdAt": 1791928449884
+    },
+    {
+      "id": 3,
+      "username": "alex",
+      "name": "Alex",
+      "country": "United States",
+      "interests": "Gaming, Technology",
+      "bio": "Hello! I'm Alex. I enjoy gaming, technology and meeting pen pals.",
+      "role": "member",
+      "passwordHash": "$2a$10$l4i6Yc.HUVgwYZr8ZtD00.V6IL0SGuQZxFgGR5vKbu63B.phSMQka",
+      "createdAt": 1791928449989
+    },
+    {
+      "id": 4,
+      "username": "sophie",
+      "name": "Sophie",
+      "country": "New Zealand",
+      "interests": "Music, Photography",
+      "bio": "Hello! I'm Sophie. I enjoy music, photography and meeting pen pals.",
+      "role": "member",
+      "passwordHash": "$2a$10$CNlforJ5G655vpQa.9trGOCs8YdVeEKq.24vdgD0IRLe0yqe0EY/K",
+      "createdAt": 1791928450093
+    },
+    {
+      "id": 5,
+      "username": "haru",
+      "name": "Haru",
+      "country": "Japan",
+      "interests": "Art, Languages",
+      "bio": "Hello! I'm Haru. I enjoy art, languages and meeting pen pals.",
+      "role": "member",
+      "passwordHash": "$2a$10$jmWHFIaZUCFZUiEJbM.d8esEC9U4v6Wj91VRKxQ851e36efofHZ/W",
+      "createdAt": 1791928450204
+    }
+  ],
+  "requests": [],
+  "letters": [],
+  "reports": []
+}

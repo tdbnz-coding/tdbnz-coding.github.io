@@ -1,0 +1,1 @@
+Penly v0.9.1 local update. Back up the complete Penly directory, including data/penly.sqlite and WAL files, before installing. Update via Admin > System updates. No payments are processed. Run npm.cmd install and npm.cmd start.
