@@ -1,0 +1,15 @@
+{
+  "name": "avon-toastmasters",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Avon Toastmasters Christchurch club website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node --check server.js && node --check script.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
