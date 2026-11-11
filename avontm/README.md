@@ -9,7 +9,11 @@ A responsive, multi-page Node.js website for Avon Toastmasters in Christchurch.
 - Meetings — meeting schedule, venue and meeting activities
 - What to expect — a guide to the meeting format
 - Benefits — communication, speaking and leadership skills
-- Visit — guest information, contact details and FAQs
+- Visit — guest information and contact details
+- How to join — a step-by-step guide from first visit to membership
+- FAQ — detailed answers about visiting, meetings and membership
+
+The meeting guide also explains common meeting roles, including Toastmaster of the Day, Timer, Introducer, Speaker, Evaluator, Grammarian, Table Topics roles and General Evaluator.
 
 ## Run locally
 
