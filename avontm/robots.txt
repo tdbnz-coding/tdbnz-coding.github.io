@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://toastmaster.net.nz/sitemap.xml
