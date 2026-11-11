@@ -1,0 +1,13 @@
+{
+  "name": "avon-toastmasters-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Avon Toastmasters club website",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
